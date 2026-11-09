@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://72jaxcw6r1s1"]
+
+[ext_resource type="Script" uid="uid://bim3ilr0gcwdq" path="res://scripts/ui/floating_popup_window.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/StaticPopupFrame.tscn" id="2_frame"]
+[ext_resource type="PackedScene" uid="uid://do7gog1hg3ww4" path="res://scenes/ui/PrimaryButton.tscn" id="3_button"]
+[ext_resource type="Texture2D" uid="uid://ctnjngfbglre8" path="res://assets/hd/ui/icon_coin_simple.png" id="4_coin"]
+
+[node name="CottageWindow" type="Window" unique_id=515340760]
+editor_description = "小屋升级独立子窗口；内容均为可调整的静态节点。"
+transparent_bg = true
+oversampling_override = 1.0
+size = Vector2i(520, 260)
+transient = true
+unresizable = true
+borderless = true
+transparent = true
+min_size = Vector2i(460, 220)
+script = ExtResource("1_script")
+
+[node name="CottagePopup" parent="." unique_id=1738186948 instance=ExtResource("2_frame")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitlePlank" parent="CottagePopup/ContentSurface" index="0"]
+anchors_preset = 5
+
+[node name="TitleText" parent="CottagePopup/ContentSurface/TitlePlank" index="0"]
+text = "小屋 Lv.%d"
+metadata/l10n_text = "ui.024958a070"
+
+[node name="CloseButton" parent="CottagePopup/ContentSurface" index="1"]
+anchors_preset = 1
+offset_left = -66.0
+offset_top = 5.0
+offset_right = -4.0
+offset_bottom = 67.0
+
+[node name="Summary" type="Label" parent="CottagePopup/ContentSurface" index="2" unique_id=317325338]
+editor_description = "小屋等级、仓库容量、修建进度。"
+layout_mode = 1
+offset_left = 36.0
+offset_top = 69.0
+offset_right = 484.0
+offset_bottom = 162.0
+theme_override_colors/font_color = Color(0.29, 0.18, 0.1, 1)
+theme_override_font_sizes/font_size = 17
+text = "小屋 Lv.1  ·  作物仓库 0/100  ·  工作台未启用
+鱼篓 0；仓库满时成熟作物会留在地里"
+autowrap_mode = 2
+metadata/l10n_text = "ui.b2d5a88e20"
+
+[node name="Upgrade" parent="CottagePopup/ContentSurface" index="3" unique_id=627743938 instance=ExtResource("3_button")]
+layout_mode = 1
+offset_left = 197.0
+offset_top = 147.0
+offset_right = 311.6567
+offset_bottom = 193.0
+text = "开始修建"
+metadata/l10n_text = "ui.161ff184e1"
+
+[node name="UpgradeCostRow" type="HBoxContainer" parent="CottagePopup/ContentSurface" index="4" unique_id=369356046]
+layout_mode = 1
+offset_left = 266.0
+offset_top = 184.0
+offset_right = 380.0
+offset_bottom = 216.0
+scale = Vector2(1.34, 1.34)
+offset_transform_enabled = true
+offset_transform_position = Vector2(-47.3, 0)
+theme_override_constants/separation = 6
+
+[node name="Icon" type="TextureRect" parent="CottagePopup/ContentSurface/UpgradeCostRow" unique_id=207655626]
+custom_minimum_size = Vector2(27, 27)
+layout_mode = 2
+texture = ExtResource("4_coin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Amount" type="Label" parent="CottagePopup/ContentSurface/UpgradeCostRow" unique_id=1589729384]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29, 0.18, 0.1, 1)
+theme_override_font_sizes/font_size = 19
+text = "100"
+
+[node name="Finish" parent="CottagePopup/ContentSurface" index="5" unique_id=1395844695 instance=ExtResource("3_button")]
+visible = false
+layout_mode = 1
+offset_left = 266.0
+offset_top = 178.0
+offset_right = 469.0
+offset_bottom = 224.0
+text = "点击完成修建"
+metadata/l10n_text = "ui.8184ee25f5"
+
+[editable path="CottagePopup"]

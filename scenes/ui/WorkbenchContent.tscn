@@ -1,0 +1,215 @@
+[gd_scene format=3 uid="uid://cy5anuutpla3i"]
+
+[ext_resource type="PackedScene" uid="uid://durjladcy80ee" path="res://scenes/ui/WorkbenchTab.tscn" id="1_tab"]
+[ext_resource type="PackedScene" uid="uid://1eqyx8d5btuf" path="res://scenes/ui/WorkbenchItemCard.tscn" id="2_item"]
+[ext_resource type="PackedScene" uid="uid://vxfl3gh0f6tk" path="res://scenes/ui/WorkbenchMaterialCard.tscn" id="3_material"]
+[ext_resource type="PackedScene" uid="uid://do7gog1hg3ww4" path="res://scenes/ui/PrimaryButton.tscn" id="4_primary"]
+[ext_resource type="PackedScene" path="res://scenes/ui/SecondaryButton.tscn" id="5_secondary"]
+[ext_resource type="Texture2D" uid="uid://bhvjbgg7t50i6" path="res://assets/hd/ui/popup_card_light.png" id="6_panel"]
+[ext_resource type="Texture2D" uid="uid://dotpfwttsxcib" path="res://assets/hd/ui/icon_bait_simple.png" id="7_bait"]
+
+[sub_resource type="AtlasTexture" id="DetailCardCutout"]
+atlas = ExtResource("6_panel")
+region = Rect2(123, 135, 840, 1177)
+
+[node name="WorkbenchContent" type="Control" unique_id=764979695]
+editor_description = "工作台总布局：顶部鱼饵/鱼竿页签，左侧四列条目，右侧目标、材料和制作区。所有布局节点静态可调。"
+custom_minimum_size = Vector2(700, 380)
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+
+[node name="CategoryTabs" type="VBoxContainer" parent="." unique_id=721510623]
+editor_description = "一级菜单；位置、尺寸和页签间距在这里调整。"
+layout_mode = 0
+offset_left = -80.0
+offset_top = 96.0
+offset_right = 32.0
+offset_bottom = 186.59
+theme_override_constants/separation = 8
+
+[node name="BaitTab" parent="CategoryTabs" unique_id=540213693 instance=ExtResource("1_tab")]
+layout_mode = 2
+
+[node name="RodTab" parent="CategoryTabs" unique_id=1325014165 instance=ExtResource("1_tab")]
+layout_mode = 2
+
+[node name="Label" parent="CategoryTabs/RodTab" index="1" unique_id=1559142611]
+text = "鱼竿"
+metadata/l10n_text = "ui.0a303232da"
+
+[node name="ItemsViewport" type="ScrollContainer" parent="." unique_id=1271612217]
+editor_description = "左侧四列条目容器；只有这里滚动。"
+layout_mode = 0
+offset_left = 39.0
+offset_top = 111.0
+offset_right = 391.0
+offset_bottom = 345.0
+horizontal_scroll_mode = 0
+
+[node name="ItemGrid" type="GridContainer" parent="ItemsViewport" unique_id=702558569]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 7
+columns = 4
+
+[node name="ItemSlot01" parent="ItemsViewport/ItemGrid" unique_id=350623895 instance=ExtResource("2_item")]
+layout_mode = 2
+
+[node name="ItemSlot02" parent="ItemsViewport/ItemGrid" unique_id=2082370991 instance=ExtResource("2_item")]
+layout_mode = 2
+
+[node name="ItemSlot03" parent="ItemsViewport/ItemGrid" unique_id=25126183 instance=ExtResource("2_item")]
+layout_mode = 2
+
+[node name="ItemSlot04" parent="ItemsViewport/ItemGrid" unique_id=1061257812 instance=ExtResource("2_item")]
+layout_mode = 2
+
+[node name="ItemSlot05" parent="ItemsViewport/ItemGrid" unique_id=2108028589 instance=ExtResource("2_item")]
+layout_mode = 2
+
+[node name="ItemSlot06" parent="ItemsViewport/ItemGrid" unique_id=54584399 instance=ExtResource("2_item")]
+layout_mode = 2
+
+[node name="ItemSlot07" parent="ItemsViewport/ItemGrid" unique_id=145216586 instance=ExtResource("2_item")]
+layout_mode = 2
+
+[node name="ItemSlot08" parent="ItemsViewport/ItemGrid" unique_id=578822216 instance=ExtResource("2_item")]
+layout_mode = 2
+
+[node name="DetailPanel" type="TextureRect" parent="." unique_id=1039506580]
+editor_description = "右侧大图片详情区；目标、最多三种材料和操作行均是静态子节点。"
+layout_mode = 0
+offset_left = 405.0
+offset_top = 105.0
+offset_right = 592.0
+offset_bottom = 345.0
+texture = SubResource("DetailCardCutout")
+expand_mode = 1
+
+[node name="TargetIcon" type="TextureRect" parent="DetailPanel" unique_id=1525989004]
+texture_filter = 1
+layout_mode = 0
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 88.0
+offset_bottom = 84.0
+mouse_filter = 2
+texture = ExtResource("7_bait")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TargetName" type="Label" parent="DetailPanel" unique_id=468655779]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 15.0
+offset_right = 251.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.25, 0.15, 0.08, 1)
+theme_override_font_sizes/font_size = 16
+text = "小麦饵"
+metadata/l10n_text = "ui.05c1272f6f"
+clip_text = true
+
+[node name="TargetInfo" type="Label" parent="DetailPanel" unique_id=188187326]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 42.0
+offset_right = 250.0
+offset_bottom = 62.0
+theme_override_colors/font_color = Color(0.35, 0.26, 0.14, 1)
+theme_override_font_sizes/font_size = 11
+text = "谷物型 · 已持有 0"
+metadata/l10n_text = "ui.7bc5db52b6"
+clip_text = true
+
+[node name="MaterialsTitle" type="Label" parent="DetailPanel" unique_id=1750729585]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 91.0
+offset_right = 245.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(0.32, 0.21, 0.11, 1)
+theme_override_font_sizes/font_size = 12
+text = "制作材料"
+metadata/l10n_text = "ui.e5a581ef44"
+
+[node name="MaterialRow" type="HBoxContainer" parent="DetailPanel" unique_id=55551531]
+editor_description = "最多三个材料槽；单个材料的内部表现请编辑 WorkbenchMaterialCard.tscn。"
+layout_mode = 0
+offset_left = 16.0
+offset_top = 111.0
+offset_right = 246.0
+offset_bottom = 198.0
+scale = Vector2(0.75, 0.75)
+theme_override_constants/separation = -3
+
+[node name="Material1" parent="DetailPanel/MaterialRow" unique_id=282760327 instance=ExtResource("3_material")]
+layout_mode = 2
+
+[node name="Material2" parent="DetailPanel/MaterialRow" unique_id=1966725656 instance=ExtResource("3_material")]
+layout_mode = 2
+
+[node name="Material3" parent="DetailPanel/MaterialRow" unique_id=130596228 instance=ExtResource("3_material")]
+layout_mode = 2
+
+[node name="QuantityControl" type="HBoxContainer" parent="DetailPanel" unique_id=1148073047]
+editor_description = "制作批次数量选择；加号右侧为最大值按钮，鱼竿页隐藏。"
+layout_mode = 0
+offset_left = 35.0
+offset_top = 175.0
+offset_right = 173.0
+offset_bottom = 205.0
+theme_override_constants/separation = 2
+
+[node name="Minus" parent="DetailPanel/QuantityControl" unique_id=1529348153 instance=ExtResource("5_secondary")]
+custom_minimum_size = Vector2(26, 28)
+layout_mode = 2
+text = "−"
+
+[node name="Amount" type="Label" parent="DetailPanel/QuantityControl" unique_id=1098338791]
+custom_minimum_size = Vector2(30, 28)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.25, 0.15, 0.08, 1)
+theme_override_font_sizes/font_size = 14
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Plus" parent="DetailPanel/QuantityControl" unique_id=1403944016 instance=ExtResource("5_secondary")]
+custom_minimum_size = Vector2(26, 28)
+layout_mode = 2
+text = "+"
+
+[node name="Max" parent="DetailPanel/QuantityControl" unique_id=1091315996 instance=ExtResource("5_secondary")]
+editor_description = "设为当前材料允许的最大制作批数；使用现有次要按钮皮肤。"
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+text = "最大"
+metadata/l10n_text = "ui.ed690ebb15"
+
+[node name="CraftButton" parent="DetailPanel" unique_id=2042827098 instance=ExtResource("4_primary")]
+custom_minimum_size = Vector2(95, 30)
+layout_mode = 0
+offset_left = 51.0
+offset_top = 199.0
+offset_right = 146.0
+offset_bottom = 229.0
+theme_override_font_sizes/font_size = 16
+text = "制作"
+metadata/l10n_text = "ui.7d394484ec"
+
+[editable path="CategoryTabs/BaitTab"]
+[editable path="CategoryTabs/RodTab"]
+[editable path="ItemsViewport/ItemGrid/ItemSlot01"]
+[editable path="ItemsViewport/ItemGrid/ItemSlot02"]
+[editable path="ItemsViewport/ItemGrid/ItemSlot03"]
+[editable path="ItemsViewport/ItemGrid/ItemSlot04"]
+[editable path="ItemsViewport/ItemGrid/ItemSlot05"]
+[editable path="ItemsViewport/ItemGrid/ItemSlot06"]
+[editable path="ItemsViewport/ItemGrid/ItemSlot07"]
+[editable path="ItemsViewport/ItemGrid/ItemSlot08"]
+[editable path="DetailPanel/MaterialRow/Material1"]
+[editable path="DetailPanel/MaterialRow/Material2"]
+[editable path="DetailPanel/MaterialRow/Material3"]

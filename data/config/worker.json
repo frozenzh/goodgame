@@ -1,0 +1,31 @@
+{
+  "module": "worker",
+  "values": {
+    "action_seconds": 3.0,
+    "arrival_distance": 2.5,
+    "fish_break_max_count": 12,
+    "fish_break_max_seconds": 30.0,
+    "fish_break_min_count": 8,
+    "fish_break_min_seconds": 12.0,
+    "fish_retry_max_seconds": 10.0,
+    "fish_retry_min_seconds": 5.0,
+    "move_speed": 50.0,
+    "reset_rest_seconds": 1.0,
+    "rest_lane_threshold_y": 185.0,
+    "road_travel_cost": 0.25,
+    "route_corner_clearance": 9.0,
+    "safe_lane_y": 210.0,
+    "wander_edge_margin": 12.0,
+    "wander_horizontal_radius": 125.0,
+    "wander_rest_max_seconds": 3.0,
+    "wander_rest_min_seconds": 1.0,
+    "wander_vertical_bias": 0.22,
+    "wander_vertical_radius": 14.0,
+    "wander_walk_max_seconds": 5.0,
+    "wander_walk_min_seconds": 3.0,
+    "world_x_max": 1252.0,
+    "world_x_min": 28.0,
+    "world_y_max": 215.0,
+    "world_y_min": 165.0
+  }
+}

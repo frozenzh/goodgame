@@ -1,0 +1,127 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/PondBaitCard.tscn" id="1_card"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PrimaryButton.tscn" id="2_primary"]
+[ext_resource type="Script" path="res://scripts/ui/pond_content_preview.gd" id="3_preview"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PondLeaderboardPage.tscn" id="4_leaderboard"]
+
+[node name="PondContent" type="Control"]
+editor_description = "池塘窗口静态拼接；Inspector 的 Editor Preview Tab 可切换鱼饵/鱼竿编辑预览。"
+custom_minimum_size = Vector2(700, 380)
+mouse_filter = 1
+script = ExtResource("3_preview")
+
+[node name="BaitTitle" type="Label" parent="."]
+offset_left = 43.0
+offset_top = 66.0
+offset_right = 410.0
+offset_bottom = 91.0
+theme_override_colors/font_color = Color(0.28, 0.18, 0.09, 1)
+theme_override_font_sizes/font_size = 18
+text = "选择鱼饵"
+metadata/l10n_text = "ui.bd97d61ee7"
+
+[node name="BaitViewport" type="ScrollContainer" parent="."]
+editor_description = "仅鱼饵列表滚动；可以在这里调大小和位置。"
+offset_left = 135.0
+offset_top = 95.0
+offset_right = 419.0
+offset_bottom = 320.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 1
+
+[node name="BaitGrid" type="GridContainer" parent="BaitViewport"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 7
+theme_override_constants/v_separation = 8
+columns = 4
+
+[node name="BaitSlot01" parent="BaitViewport/BaitGrid" instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="SelectedCheck" parent="BaitViewport/BaitGrid/BaitSlot01" index="2"]
+visible = true
+
+[node name="BaitSlot02" parent="BaitViewport/BaitGrid" instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="BaitSlot03" parent="BaitViewport/BaitGrid" instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="BaitSlot04" parent="BaitViewport/BaitGrid" instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="BaitSlot05" parent="BaitViewport/BaitGrid" instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="BaitSlot06" parent="BaitViewport/BaitGrid" instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="BaitSlot07" parent="BaitViewport/BaitGrid" instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="BaitSlot08" parent="BaitViewport/BaitGrid" instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="RodViewport" type="ScrollContainer" parent="."]
+editor_description = "鱼竿页静态卡片区域；与鱼饵列表独立调整。"
+visible = false
+offset_left = 135.0
+offset_top = 95.0
+offset_right = 419.0
+offset_bottom = 320.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 1
+
+[node name="RodGrid" type="GridContainer" parent="RodViewport"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 7
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="RodSlot01" parent="RodViewport/RodGrid" instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="SelectedCheck" parent="RodViewport/RodGrid/RodSlot01" index="2"]
+visible = true
+
+[node name="RodSlot02" parent="RodViewport/RodGrid" instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="RodSlot03" parent="RodViewport/RodGrid" instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="RodSlot04" parent="RodViewport/RodGrid" instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="Status" type="Label" parent="."]
+offset_left = 447.0
+offset_top = 95.0
+offset_right = 667.0
+offset_bottom = 194.0
+theme_override_colors/font_color = Color(0.27, 0.18, 0.1, 1)
+theme_override_font_sizes/font_size = 16
+text = "未开始钓鱼\n当前鱼饵：未选择"
+metadata/l10n_text = "ui.cd7d889acf"
+vertical_alignment = 1
+
+[node name="IdleAutoFish" type="CheckBox" parent="."]
+offset_left = 447.0
+offset_top = 215.0
+offset_right = 664.0
+offset_bottom = 245.0
+theme_override_colors/font_color = Color(0.27, 0.18, 0.1, 1)
+text = "空闲时自动钓鱼"
+metadata/l10n_text = "ui.d1288269bd"
+
+[node name="FishingButton" parent="." instance=ExtResource("2_primary")]
+offset_left = 447.0
+offset_top = 264.0
+offset_right = 661.0
+offset_bottom = 305.0
+text = "开始钓鱼"
+metadata/l10n_text = "ui.763fbaf79a"
+
+[node name="LeaderboardPage" parent="." instance=ExtResource("4_leaderboard")]

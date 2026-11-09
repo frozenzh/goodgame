@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://7xq6ksuwkmhf"]
+
+[ext_resource type="Script" uid="uid://de3k0mh2su8rj" path="res://scripts/ui/start_window.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://by67waonc32ie" path="res://assets/hd/ui/game_logo.png" id="2_logo"]
+[ext_resource type="PackedScene" uid="uid://do7gog1hg3ww4" path="res://scenes/ui/PrimaryButton.tscn" id="3_button"]
+
+[sub_resource type="AtlasTexture" id="LogoChinese"]
+atlas = ExtResource("2_logo")
+region = Rect2(173, 485, 1411, 342)
+
+[sub_resource type="AtlasTexture" id="LogoEnglish"]
+atlas = ExtResource("2_logo")
+region = Rect2(162, 110, 1426, 330)
+
+[node name="StartWindow" type="Window" unique_id=1553315914]
+process_mode = 3
+editor_description = "游戏启动选择窗口。Logo、按钮行和两个按钮均为静态节点；Desktop Offset 调整它相对小屋的位置。"
+transparent_bg = true
+oversampling_override = 1.0
+size = Vector2i(1135, 497)
+transient = true
+unresizable = true
+borderless = true
+transparent = true
+min_size = Vector2i(700, 240)
+script = ExtResource("1_script")
+
+[node name="LogoZH" type="TextureRect" parent="." unique_id=1926398537]
+editor_description = "中文版 Logo；可独立调整位置与大小。"
+texture_filter = 1
+offset_left = 18.0
+offset_right = 742.0
+offset_bottom = 237.0
+scale = Vector2(1.27, 1.27)
+mouse_filter = 2
+texture = SubResource("LogoChinese")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LogoEN" type="TextureRect" parent="." unique_id=1276030226]
+editor_description = "英文版 Logo；运行时按语言切换，编辑时可临时打开 Visible 调整。"
+visible = false
+texture_filter = 1
+offset_left = 18.0
+offset_right = 742.0
+offset_bottom = 178.0
+mouse_filter = 2
+texture = SubResource("LogoEnglish")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ButtonRow" type="HBoxContainer" parent="." unique_id=1898150154]
+editor_description = "两个按钮的静态排列容器；没有存档时只显示新游戏并自动居中。"
+offset_left = 203.0
+offset_top = 295.0
+offset_right = 731.0
+offset_bottom = 386.0
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="ContinueButton" parent="ButtonRow" unique_id=558855030 instance=ExtResource("3_button")]
+custom_minimum_size = Vector2(216, 90.62)
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+text = "继续游戏"
+metadata/l10n_text = "startup.continue_game"
+
+[node name="NewGameButton" parent="ButtonRow" unique_id=506134915 instance=ExtResource("3_button")]
+custom_minimum_size = Vector2(216, 55)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "新游戏"
+metadata/l10n_text = "startup.new_game"

@@ -1,0 +1,117 @@
+{
+  "schema_version": 2,
+  "catalog_type": "upgrades",
+  "items": [
+    {
+      "id": "unlock_plot_index_4",
+      "display_name": "开垦第3块地",
+      "category": "plot_unlock",
+      "cost": 150,
+      "required_cottage_level": 2,
+      "prerequisites": [],
+      "effects": [
+        {
+          "type": "unlock_plots",
+          "plot_ids": [
+            4
+          ]
+        }
+      ],
+      "repeatable": false
+    },
+    {
+      "id": "unlock_plot_index_3",
+      "display_name": "开垦第4块地",
+      "category": "plot_unlock",
+      "cost": 450,
+      "required_cottage_level": 2,
+      "prerequisites": [
+        "unlock_plot_index_4"
+      ],
+      "effects": [
+        {
+          "type": "unlock_plots",
+          "plot_ids": [
+            3
+          ]
+        }
+      ],
+      "repeatable": false
+    },
+    {
+      "id": "unlock_plot_index_2",
+      "display_name": "开垦第5块地",
+      "category": "plot_unlock",
+      "cost": 450,
+      "required_cottage_level": 2,
+      "prerequisites": [
+        "unlock_plot_index_3"
+      ],
+      "effects": [
+        {
+          "type": "unlock_plots",
+          "plot_ids": [
+            2
+          ]
+        }
+      ],
+      "repeatable": false
+    },
+    {
+      "id": "unlock_plot_index_1",
+      "display_name": "开垦第6块地",
+      "category": "plot_unlock",
+      "cost": 1200,
+      "required_cottage_level": 3,
+      "prerequisites": [
+        "unlock_plot_index_2"
+      ],
+      "effects": [
+        {
+          "type": "unlock_plots",
+          "plot_ids": [
+            1
+          ]
+        }
+      ],
+      "repeatable": false
+    },
+    {
+      "id": "unlock_plot_index_0",
+      "display_name": "开垦第7块地",
+      "category": "plot_unlock",
+      "cost": 1200,
+      "required_cottage_level": 3,
+      "prerequisites": [
+        "unlock_plot_index_1"
+      ],
+      "effects": [
+        {
+          "type": "unlock_plots",
+          "plot_ids": [
+            0
+          ]
+        }
+      ],
+      "repeatable": false
+    }
+  ],
+  "codex_milestones": [],
+  "fertility_levels": [
+    {
+      "level": 0,
+      "grow_time_multiplier": 1.0,
+      "fertilizer_cost": 0
+    },
+    {
+      "level": 1,
+      "grow_time_multiplier": 0.85,
+      "fertilizer_cost": 5
+    },
+    {
+      "level": 2,
+      "grow_time_multiplier": 0.7,
+      "fertilizer_cost": 12
+    }
+  ]
+}

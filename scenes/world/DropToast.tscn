@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://dgff724wmp7ic"]
+
+[ext_resource type="Script" uid="uid://bpwuh137f7tb2" path="res://scripts/world/drop_toast.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="ToastPanel"]
+content_margin_left = 5.0
+content_margin_top = 2.0
+content_margin_right = 5.0
+content_margin_bottom = 2.0
+bg_color = Color(0.22, 0.15, 0.09, 0.7)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="DropToast" type="Node2D" unique_id=286507678]
+z_index = 50
+script = ExtResource("1_script")
+
+[node name="ToastPanel" type="PanelContainer" parent="." unique_id=564113146]
+editor_description = "掉落提示的静态容器；Icon、Name、Amount 可分别调整。"
+offset_left = -65.0
+offset_top = -47.0
+offset_right = 65.0
+offset_bottom = -21.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("ToastPanel")
+
+[node name="Contents" type="VBoxContainer" parent="ToastPanel" unique_id=1413470763]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="ItemRow" type="HBoxContainer" parent="ToastPanel/Contents" unique_id=1216480152]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="ToastPanel/Contents/ItemRow" unique_id=1989445461]
+texture_filter = 1
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="ToastPanel/Contents/ItemRow" unique_id=410167396]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.98, 0.88, 1)
+theme_override_font_sizes/font_size = 13
+text = "道具"
+vertical_alignment = 1
+metadata/l10n_text = "ui.51fd93fb67"
+
+[node name="Amount" type="Label" parent="ToastPanel/Contents/ItemRow" unique_id=1274093368]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.91, 0.65, 1)
+theme_override_font_sizes/font_size = 13
+text = "×1"
+vertical_alignment = 1
+
+[node name="SizeRow" type="HBoxContainer" parent="ToastPanel/Contents" unique_id=1222666007]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Size" type="Label" parent="ToastPanel/Contents/SizeRow" unique_id=936597375]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78, 0.92, 1, 1)
+theme_override_font_sizes/font_size = 11
+text = "%d cm"
+metadata/l10n_text = "fishing.size.value"
+
+[node name="MaxBadge" type="Label" parent="ToastPanel/Contents/SizeRow" unique_id=1644908429]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.78, 0.25, 1)
+theme_override_colors/font_outline_color = Color(0.3, 0.16, 0.04, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 10
+text = "MAX"
+metadata/l10n_text = "fishing.size.maximum_badge"

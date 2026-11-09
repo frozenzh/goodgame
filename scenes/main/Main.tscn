@@ -1,0 +1,1378 @@
+[gd_scene format=3 uid="uid://cp11faswnsk05"]
+
+[ext_resource type="Script" uid="uid://cwxfvigr2j2yq" path="res://scripts/ui/main_ui.gd" id="2_ui"]
+[ext_resource type="Script" uid="uid://cauuf8311wewt" path="res://scripts/systems/farming_system.gd" id="3_farming"]
+[ext_resource type="Texture2D" uid="uid://cd8287ukieo23" path="res://assets/hd/world/background_fence.png" id="3_j0f7u"]
+[ext_resource type="Script" uid="uid://giq4a8nwfucw" path="res://scripts/systems/crafting_system.gd" id="4_crafting"]
+[ext_resource type="Texture2D" uid="uid://blt7m0f43ray5" path="res://assets/hd/world/background_foreground_grass.png" id="4_n12rl"]
+[ext_resource type="Texture2D" uid="uid://hormbs6wbsaw" path="res://assets/hd/world/dirt_path_stone_single.png" id="5_0cxqb"]
+[ext_resource type="Script" uid="uid://banmijscaxuy4" path="res://scripts/systems/fishing_system.gd" id="5_fishing"]
+[ext_resource type="Script" uid="uid://ch7t6euvtdrb8" path="res://scripts/systems/leaderboard_service.gd" id="5_leaderboard"]
+[ext_resource type="Script" uid="uid://c4j5d8pxrjxif" path="res://scripts/systems/shop_system.gd" id="6_shop"]
+[ext_resource type="Script" uid="uid://d3rn3dh81kq6j" path="res://scripts/systems/achievement_system.gd" id="7_achievements"]
+[ext_resource type="Script" uid="uid://dd1vue0juw4k1" path="res://scripts/systems/codex_system.gd" id="7_codex"]
+[ext_resource type="Script" uid="uid://lh4tuw1yhj23" path="res://scripts/systems/job_manager.gd" id="8_jobs"]
+[ext_resource type="Shader" uid="uid://0da5qodkdqr" path="res://shaders/cottage_roof_snow.gdshader" id="9_ctbwf"]
+[ext_resource type="PackedScene" path="res://scenes/world/StaticWorldStrip.tscn" id="10_static_world"]
+[ext_resource type="Texture2D" uid="uid://4akoy8bfu3c3" path="res://assets/hd/ui/wood_sign.png" id="11_board"]
+[ext_resource type="Texture2D" uid="uid://ctnjngfbglre8" path="res://assets/hd/ui/icon_coin_simple.png" id="12_coin"]
+[ext_resource type="Texture2D" uid="uid://cxq3ye4ybiyji" path="res://assets/hd/ui/icon_crop_simple.png" id="13_crop"]
+[ext_resource type="Texture2D" uid="uid://5ieayrxoq7c" path="res://assets/hd/ui/icon_fish_simple.png" id="14_fish"]
+[ext_resource type="Texture2D" uid="uid://dotpfwttsxcib" path="res://assets/hd/ui/icon_bait_simple.png" id="15_bait"]
+[ext_resource type="Texture2D" uid="uid://cp4oyxqtiuxbh" path="res://assets/hd/ui/icon_codex_simple.png" id="16_codex"]
+[ext_resource type="Texture2D" uid="uid://bex08frx7q4yl" path="res://assets/hd/ui/icon_settings_simple.png" id="17_settings"]
+[ext_resource type="PackedScene" uid="uid://vbh3g506ebyd" path="res://scenes/ui/SecondaryButton.tscn" id="18_gm_button"]
+[ext_resource type="PackedScene" uid="uid://cry2nugxv4jum" path="res://scenes/ui/PopupFrame.tscn" id="19_popup"]
+[ext_resource type="PackedScene" path="res://scenes/ui/InfoActionsContent.tscn" id="21_info_actions"]
+[ext_resource type="PackedScene" uid="uid://bpxcsqm0h1meo" path="res://scenes/ui/CodexWindow.tscn" id="26_codex_window"]
+[ext_resource type="PackedScene" uid="uid://bpuurblmrdpm3" path="res://scenes/ui/ShopWindow.tscn" id="27_shop_window"]
+[ext_resource type="PackedScene" uid="uid://c78begw8e6ee4" path="res://scenes/ui/SettingsWindow.tscn" id="28_settings_window"]
+[ext_resource type="PackedScene" uid="uid://bgn7bah6wkut7" path="res://scenes/ui/PlantWindow.tscn" id="29_plant_window"]
+[ext_resource type="PackedScene" uid="uid://72jaxcw6r1s1" path="res://scenes/ui/CottageWindow.tscn" id="30_cottage_window"]
+[ext_resource type="PackedScene" uid="uid://b0j703d8ig1ef" path="res://scenes/ui/WorkbenchWindow.tscn" id="31_workbench_window"]
+[ext_resource type="PackedScene" path="res://scenes/ui/GMWindow.tscn" id="32_gm_window"]
+[ext_resource type="Script" uid="uid://ddgt60jrhu2de" path="res://scripts/systems/weather_system.gd" id="33_weather"]
+[ext_resource type="PackedScene" uid="uid://6bwv2v67fc87" path="res://scenes/ui/PondWindow.tscn" id="34_pond_window"]
+[ext_resource type="Script" uid="uid://bp23skcmtyah7" path="res://scripts/ui/weather_bar.gd" id="35_weather_bar"]
+[ext_resource type="Texture2D" uid="uid://c735yylpyr2vn" path="res://assets/hd/ui/weather_sunny.png" id="36_weather_sunny"]
+[ext_resource type="Texture2D" uid="uid://ciejhw4nubc2w" path="res://assets/hd/ui/weather_rain.png" id="37_weather_rain"]
+[ext_resource type="Texture2D" uid="uid://dljtnnlxtbb41" path="res://assets/hd/ui/weather_snow.png" id="38_weather_snow"]
+[ext_resource type="Texture2D" uid="uid://bsa3j1iys8wr7" path="res://assets/hd/ui/weather_cloudy.svg" id="38_weather_wind"]
+[ext_resource type="PackedScene" path="res://scenes/ui/AchievementToast.tscn" id="39_achievement_toast"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PastureWindow.tscn" id="40_pasture_window"]
+[ext_resource type="PackedScene" path="res://scenes/world/PastureFence.tscn" id="41_pasture_fence"]
+[ext_resource type="PackedScene" path="res://scenes/world/PastureFeedSlot.tscn" id="42_feed_slot"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PastureFeedWindow.tscn" id="43_feed_window"]
+[ext_resource type="Texture2D" uid="uid://dieltwtag0dbe" path="res://assets/hd/ui/icon_worker_tasks.png" id="44_task_icon"]
+[ext_resource type="PackedScene" path="res://scenes/ui/TaskQueueWindow.tscn" id="45_task_window"]
+[ext_resource type="Texture2D" uid="uid://b6xgmtvwn86pw" path="res://assets/hd/world/pasture_feed_trough.png" id="46_stone_trough"]
+[ext_resource type="Shader" uid="uid://gcah1ebx2afu" path="res://shaders/weather_countdown.gdshader" id="47_weather_countdown"]
+[ext_resource type="PackedScene" uid="uid://bi6mvb1g36uf7" path="res://scenes/ui/TutorialGuide.tscn" id="48_tutorial_guide"]
+[ext_resource type="PackedScene" uid="uid://7xq6ksuwkmhf" path="res://scenes/ui/StartWindow.tscn" id="49_start_window"]
+[ext_resource type="PackedScene" path="res://scenes/world/PastureFeedWorkBadge.tscn" id="53_feed_work_badge"]
+[ext_resource type="PackedScene" path="res://scenes/ui/NewUnlockDot.tscn" id="new_unlock_dot"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ctbwf"]
+resource_local_to_scene = true
+shader = ExtResource("9_ctbwf")
+shader_parameter/coverage = 1.0
+shader_parameter/chimney_opening = Vector4(0, 0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o80qj"]
+resource_local_to_scene = true
+shader = ExtResource("9_ctbwf")
+shader_parameter/coverage = 1.0
+shader_parameter/chimney_opening = Vector4(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="WeatherTileBase"]
+bg_color = Color(0.13, 0.12, 0.11, 0.42)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="ShaderMaterial" id="WeatherCountdownMaterial"]
+shader = ExtResource("47_weather_countdown")
+shader_parameter/progress = 0.35
+shader_parameter/gray_strength = 0.92
+
+[sub_resource type="StyleBoxFlat" id="WeatherTileHighlight"]
+bg_color = Color(1, 0.89, 0.52, 0.2)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.9, 0.45, 0.95)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="WeatherTileHover"]
+bg_color = Color(1, 1, 1, 0.07)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.96, 0.72, 1)
+
+[sub_resource type="StyleBoxFlat" id="WeatherHoverPanel"]
+content_margin_left = 8.0
+content_margin_top = 6.0
+content_margin_right = 8.0
+content_margin_bottom = 6.0
+bg_color = Color(0.18, 0.13, 0.08, 0.94)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.76, 0.52, 0.27, 1)
+
+[sub_resource type="StyleBoxEmpty" id="HudClickArea"]
+
+[sub_resource type="StyleBoxFlat" id="PlotProgressTrack"]
+bg_color = Color(0.12, 0.09, 0.06, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="PlotProgressFill"]
+bg_color = Color(0.92, 0.73, 0.37, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="NotificationPanel"]
+content_margin_left = 8.0
+content_margin_top = 3.0
+content_margin_right = 8.0
+content_margin_bottom = 3.0
+bg_color = Color(0.247, 0.188, 0.157, 0.62)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.973, 0.906, 0.45)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="Main" type="Control" unique_id=841783886]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 4.2100067
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ui")
+metadata/_edit_horizontal_guides_ = [103.0]
+
+[node name="StaticWorldStrip" parent="." unique_id=1415762524 instance=ExtResource("10_static_world")]
+position = Vector2(2, -54)
+
+[node name="Landscape" parent="StaticWorldStrip/StaticBackground" index="0"]
+position = Vector2(0, 155)
+scale = Vector2(0.625, 0.53125)
+
+[node name="ShortGrassOverlay" parent="StaticWorldStrip/StaticBackground" index="1"]
+position = Vector2(0, 155)
+scale = Vector2(0.625, 0.53125)
+
+[node name="BackFence" parent="StaticWorldStrip/StaticBackground" index="2"]
+position = Vector2(267, 90)
+scale = Vector2(0.2625, 0.2625)
+
+[node name="BackFence3" type="Sprite2D" parent="StaticWorldStrip/StaticBackground" index="3" unique_id=477087428]
+editor_description = "最后一排景的整条木栅栏；独立静态 Sprite，可在编辑器中移动和缩放。"
+texture_filter = 1
+position = Vector2(792, 89)
+scale = Vector2(0.2625, 0.2625)
+texture = ExtResource("3_j0f7u")
+
+[node name="BackFence2" type="Sprite2D" parent="StaticWorldStrip/StaticBackground" index="4" unique_id=996202433]
+editor_description = "最后一排景的整条木栅栏；独立静态 Sprite，可在编辑器中移动和缩放。"
+texture_filter = 1
+position = Vector2(1034.9999, 89)
+scale = Vector2(0.2625, 0.2625)
+texture = ExtResource("3_j0f7u")
+
+[node name="ForegroundLayer" parent="StaticWorldStrip" index="1"]
+z_index = 4
+position = Vector2(-0.01, 121.17)
+scale = Vector2(0.47, 0.47)
+
+[node name="ForegroundGrass" parent="StaticWorldStrip/ForegroundLayer" index="0"]
+position = Vector2(640, 155)
+scale = Vector2(0.625, 0.53125)
+
+[node name="ForegroundGrass2" type="Sprite2D" parent="StaticWorldStrip/ForegroundLayer" index="1" unique_id=1114843787]
+texture_filter = 1
+position = Vector2(1906.4042, 155)
+scale = Vector2(0.625, 0.53125)
+texture = ExtResource("4_n12rl")
+
+[node name="ForegroundGrassLeftNear" type="Sprite2D" parent="StaticWorldStrip/ForegroundLayer" index="2" unique_id=261276297]
+editor_description = "左侧新增背景的前景草，靠近原种植区。"
+texture_filter = 1
+position = Vector2(-640, 155)
+scale = Vector2(0.625, 0.53125)
+texture = ExtResource("4_n12rl")
+
+[node name="ForegroundGrassLeftMiddle" type="Sprite2D" parent="StaticWorldStrip/ForegroundLayer" index="3" unique_id=1339756692]
+editor_description = "左侧新增背景的前景草，中段。"
+texture_filter = 1
+position = Vector2(-1906.4, 155)
+scale = Vector2(0.625, 0.53125)
+texture = ExtResource("4_n12rl")
+
+[node name="ForegroundGrassLeftFar" type="Sprite2D" parent="StaticWorldStrip/ForegroundLayer" index="4" unique_id=225047894]
+editor_description = "左侧新增背景的前景草，最左端。"
+texture_filter = 1
+position = Vector2(-2091.4678, 154.95749)
+scale = Vector2(0.625, 0.53125)
+texture = ExtResource("4_n12rl")
+
+[node name="PastureAreas" parent="StaticWorldStrip" index="2"]
+position = Vector2(103, -5)
+
+[node name="PastureArea01" type="Node2D" parent="StaticWorldStrip/PastureAreas" index="0" unique_id=47435503]
+editor_description = "预留畜牧区域 1；整体移动此节点，栅栏图片与边缘碰撞会一起移动。"
+visible = false
+position = Vector2(-1110, 0)
+
+[node name="Fence" parent="StaticWorldStrip/PastureAreas/PastureArea01" unique_id=207048360 instance=ExtResource("41_pasture_fence")]
+
+[node name="PastureArea02" type="Node2D" parent="StaticWorldStrip/PastureAreas" index="1" unique_id=1169375906]
+editor_description = "预留畜牧区域 2。"
+visible = false
+position = Vector2(-820, 0)
+
+[node name="Fence" parent="StaticWorldStrip/PastureAreas/PastureArea02" unique_id=7492664 instance=ExtResource("41_pasture_fence")]
+
+[node name="PastureArea03" type="Node2D" parent="StaticWorldStrip/PastureAreas" index="2" unique_id=114865649]
+editor_description = "当前左侧牧场；此节点和栅栏均可在编辑器中调整。"
+position = Vector2(-583, -14)
+
+[node name="Animals" type="Node2D" parent="StaticWorldStrip/PastureAreas/PastureArea03" unique_id=837544316]
+editor_description = "本栅栏的动物显示容器。"
+
+[node name="Alert" type="Label" parent="StaticWorldStrip/PastureAreas/PastureArea03" unique_id=1745223377]
+visible = false
+offset_left = -12.0
+offset_top = 68.0
+offset_right = 12.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 25
+text = "!"
+horizontal_alignment = 1
+
+[node name="FeedPendingBadge" parent="StaticWorldStrip/PastureAreas/PastureArea03" unique_id=1401509064 instance=ExtResource("53_feed_work_badge")]
+offset_left = 61.0
+offset_top = 119.0
+offset_right = 129.0
+offset_bottom = 139.0
+
+[node name="Fence" parent="StaticWorldStrip/PastureAreas/PastureArea03" unique_id=2096474550 instance=ExtResource("41_pasture_fence")]
+
+[node name="FeedApproach" type="Marker2D" parent="StaticWorldStrip/PastureAreas/PastureArea03" unique_id=1879795723]
+editor_description = "角色投喂停靠点；位于栅栏下方，可在编辑器里移动。"
+position = Vector2(88, 216)
+
+[node name="FeedSlots" type="Node2D" parent="StaticWorldStrip/PastureAreas/PastureArea03" unique_id=1805581453]
+editor_description = "栅栏最右侧的单条俯视石槽；Trough 为整条资源，Slot1 为唯一投喂点。"
+position = Vector2(6, 0)
+
+[node name="Trough" type="Sprite2D" parent="StaticWorldStrip/PastureAreas/PastureArea03/FeedSlots" unique_id=12162765]
+texture_filter = 1
+position = Vector2(103, 153)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("46_stone_trough")
+
+[node name="Slot1" parent="StaticWorldStrip/PastureAreas/PastureArea03/FeedSlots" unique_id=1630579497 instance=ExtResource("42_feed_slot")]
+position = Vector2(103, 153)
+
+[node name="PastureArea04" type="Node2D" parent="StaticWorldStrip/PastureAreas" index="3" unique_id=1112228546]
+editor_description = "当前右侧牧场；此节点和栅栏均可在编辑器中调整。"
+position = Vector2(-320, -16)
+
+[node name="Animals" type="Node2D" parent="StaticWorldStrip/PastureAreas/PastureArea04" unique_id=2094022625]
+editor_description = "本栅栏的动物显示容器。"
+
+[node name="Alert" type="Label" parent="StaticWorldStrip/PastureAreas/PastureArea04" unique_id=383621663]
+visible = false
+offset_left = -12.0
+offset_top = 68.0
+offset_right = 12.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 25
+text = "!"
+horizontal_alignment = 1
+
+[node name="FeedPendingBadge" parent="StaticWorldStrip/PastureAreas/PastureArea04" unique_id=68852297 instance=ExtResource("53_feed_work_badge")]
+offset_left = 61.0
+offset_top = 119.0
+offset_right = 129.0
+offset_bottom = 139.0
+
+[node name="Fence" parent="StaticWorldStrip/PastureAreas/PastureArea04" unique_id=493120399 instance=ExtResource("41_pasture_fence")]
+
+[node name="FeedApproach" type="Marker2D" parent="StaticWorldStrip/PastureAreas/PastureArea04" unique_id=100519770]
+editor_description = "角色投喂停靠点；位于栅栏下方，可在编辑器里移动。"
+position = Vector2(88, 216)
+
+[node name="FeedSlots" type="Node2D" parent="StaticWorldStrip/PastureAreas/PastureArea04" unique_id=115649110]
+editor_description = "栅栏最右侧的单条俯视石槽；Trough 为整条资源，Slot1 为唯一投喂点。"
+position = Vector2(6, 0)
+
+[node name="Trough" type="Sprite2D" parent="StaticWorldStrip/PastureAreas/PastureArea04/FeedSlots" unique_id=927618237]
+texture_filter = 1
+position = Vector2(103, 153)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("46_stone_trough")
+
+[node name="Slot1" parent="StaticWorldStrip/PastureAreas/PastureArea04/FeedSlots" unique_id=1455301191 instance=ExtResource("42_feed_slot")]
+position = Vector2(103, 153)
+
+[node name="PastureBarn" parent="StaticWorldStrip/PastureAreas" index="5"]
+position = Vector2(-89, 136)
+
+[node name="GroundContact" parent="StaticWorldStrip/PastureAreas/PastureBarn" index="0"]
+visible = false
+
+[node name="RoofSnow" parent="StaticWorldStrip/PastureAreas/PastureBarn/BarnSprite" index="0"]
+material = SubResource("ShaderMaterial_ctbwf")
+
+[node name="ConstructionSign" parent="StaticWorldStrip/PastureAreas/PastureBarn" index="3"]
+offset_top = -23.0
+offset_bottom = -1.0
+
+[node name="Dog" parent="StaticWorldStrip/PastureAreas" index="6"]
+visible = true
+position = Vector2(-96, 191)
+
+[node name="PathLayer" parent="StaticWorldStrip" index="3"]
+z_index = 1
+position = Vector2(0, -14)
+
+[node name="HousePath3" type="Sprite2D" parent="StaticWorldStrip/PathLayer/SharedSegments" index="1" unique_id=113832747]
+texture_filter = 1
+position = Vector2(722.99994, 178)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("5_0cxqb")
+metadata/road_connector = true
+
+[node name="HousePath2" type="Sprite2D" parent="StaticWorldStrip/PathLayer/SharedSegments" index="2" unique_id=1244945445]
+texture_filter = 1
+position = Vector2(715.00006, 190)
+scale = Vector2(0.022, 0.022)
+texture = ExtResource("5_0cxqb")
+metadata/road_connector = true
+
+[node name="HousePath4" type="Sprite2D" parent="StaticWorldStrip/PathLayer/SharedSegments" index="4" unique_id=257615632]
+texture_filter = 1
+position = Vector2(831.8959, 177.23999)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("5_0cxqb")
+metadata/road_connector = true
+
+[node name="HousePath5" type="Sprite2D" parent="StaticWorldStrip/PathLayer/SharedSegments" index="5" unique_id=709352784]
+texture_filter = 1
+position = Vector2(823.896, 189.24)
+scale = Vector2(0.022, 0.022)
+texture = ExtResource("5_0cxqb")
+metadata/road_connector = true
+
+[node name="HousePath6" type="Sprite2D" parent="StaticWorldStrip/PathLayer/SharedSegments" index="8" unique_id=872031139]
+texture_filter = 1
+position = Vector2(927.8959, 176.23999)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("5_0cxqb")
+metadata/road_connector = true
+
+[node name="HousePath7" type="Sprite2D" parent="StaticWorldStrip/PathLayer/SharedSegments" index="9" unique_id=1226561928]
+texture_filter = 1
+position = Vector2(919.896, 188.24)
+scale = Vector2(0.022, 0.022)
+texture = ExtResource("5_0cxqb")
+metadata/road_connector = true
+
+[node name="PlotNodes" parent="StaticWorldStrip/PlotLayer" index="0"]
+position = Vector2(-27.272726, -47.272724)
+
+[node name="Plot07" parent="StaticWorldStrip/PlotLayer/PlotNodes" index="0"]
+position = Vector2(273.6363, 305.27277)
+
+[node name="Plot06" parent="StaticWorldStrip/PlotLayer/PlotNodes" index="1"]
+position = Vector2(411.8166, 305.27277)
+
+[node name="Plot05" parent="StaticWorldStrip/PlotLayer/PlotNodes" index="2"]
+position = Vector2(549.9971, 305.27277)
+
+[node name="Plot04" parent="StaticWorldStrip/PlotLayer/PlotNodes" index="3"]
+position = Vector2(688.17896, 305.27277)
+
+[node name="Plot03" parent="StaticWorldStrip/PlotLayer/PlotNodes" index="4"]
+position = Vector2(829.9978, 305.27277)
+
+[node name="Plot02" parent="StaticWorldStrip/PlotLayer/PlotNodes" index="5"]
+position = Vector2(969.9988, 305.27277)
+
+[node name="Plot01" parent="StaticWorldStrip/PlotLayer/PlotNodes" index="6"]
+position = Vector2(1104.5455, 305.27277)
+
+[node name="House" parent="StaticWorldStrip/ResourceNodes" index="0"]
+position = Vector2(735, 120)
+scale = Vector2(0.88, 0.79)
+
+[node name="GroundContact" parent="StaticWorldStrip/ResourceNodes/House" index="0"]
+position = Vector2(-0.0004905462, 18.354416)
+scale = Vector2(0.06405227, 0.32894737)
+
+[node name="Level1" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals" index="0"]
+position = Vector2(-2.5668945, -10)
+scale = Vector2(0.12526724, 0.13)
+
+[node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals/Level1" index="0"]
+material = SubResource("ShaderMaterial_ctbwf")
+
+[node name="Level2" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals" index="1"]
+position = Vector2(-4.2715597, -10)
+scale = Vector2(0.12454113, 0.13)
+
+[node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals/Level2" index="0"]
+material = SubResource("ShaderMaterial_ctbwf")
+
+[node name="Level3" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals" index="2"]
+position = Vector2(-3.3221495, -17)
+scale = Vector2(0.14075443, 0.145)
+
+[node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals/Level3" index="0"]
+material = SubResource("ShaderMaterial_ctbwf")
+
+[node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals/Level4" index="0"]
+material = SubResource("ShaderMaterial_ctbwf")
+
+[node name="FrontGrass" parent="StaticWorldStrip/ResourceNodes/House" index="2"]
+visible = false
+
+[node name="Scaffold" parent="StaticWorldStrip/ResourceNodes/House/ConstructionVisual" index="0"]
+position = Vector2(-3.4121094, 6.5717163)
+scale = Vector2(0.115, 0.09689426)
+
+[node name="SignGroup" parent="StaticWorldStrip/ResourceNodes/House/ConstructionVisual" index="1"]
+position = Vector2(-3.409091, -31.645576)
+
+[node name="Post" parent="StaticWorldStrip/ResourceNodes/House/ConstructionVisual/SignGroup" index="0"]
+visible = false
+
+[node name="Board" parent="StaticWorldStrip/ResourceNodes/House/ConstructionVisual/SignGroup" index="1"]
+position = Vector2(-1.8828125, -11.392822)
+scale = Vector2(0.03698694, 0.052)
+
+[node name="Text" parent="StaticWorldStrip/ResourceNodes/House/ConstructionVisual/SignGroup" index="2"]
+offset_top = -25.658226
+offset_bottom = 0.341774
+
+[node name="WalkBlocker" parent="StaticWorldStrip/ResourceNodes/House" index="5"]
+visible = false
+
+[node name="Workbench" parent="StaticWorldStrip/ResourceNodes" index="1"]
+position = Vector2(837.39, 125.34)
+scale = Vector2(0.66, 0.66)
+
+[node name="GroundContact" parent="StaticWorldStrip/ResourceNodes/Workbench" index="0"]
+position = Vector2(-8.924277, 16.151518)
+scale = Vector2(0.0648152, 0.3189793)
+
+[node name="Sprite" parent="StaticWorldStrip/ResourceNodes/Workbench" index="1"]
+position = Vector2(-7.1601563, -7.807678)
+scale = Vector2(0.107086875, 0.10708688)
+
+[node name="ChimneySmoke" parent="StaticWorldStrip/ResourceNodes/Workbench/Sprite" index="0"]
+position = Vector2(287.02997, -267.42383)
+scale = Vector2(5.9098544, 5.5543976)
+frame_progress = 0.8856634
+
+[node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/Workbench/Sprite" index="1"]
+material = SubResource("ShaderMaterial_o80qj")
+
+[node name="FrontGrass" parent="StaticWorldStrip/ResourceNodes/Workbench" index="2"]
+visible = false
+
+[node name="ConstructionVisual" parent="StaticWorldStrip/ResourceNodes/Workbench" index="4"]
+position = Vector2(-6.651537, -0.5151459)
+
+[node name="Scaffold" parent="StaticWorldStrip/ResourceNodes/Workbench/ConstructionVisual" index="0"]
+position = Vector2(-1.2021484, 8.575806)
+scale = Vector2(0.11590549, 0.08877845)
+
+[node name="SignGroup" parent="StaticWorldStrip/ResourceNodes/Workbench/ConstructionVisual" index="1"]
+position = Vector2(-3.0302763, -36.363632)
+
+[node name="Post" parent="StaticWorldStrip/ResourceNodes/Workbench/ConstructionVisual/SignGroup" index="0"]
+visible = false
+
+[node name="Text" parent="StaticWorldStrip/ResourceNodes/Workbench/ConstructionVisual/SignGroup" index="2"]
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="WalkBlocker" parent="StaticWorldStrip/ResourceNodes/Workbench" index="6"]
+visible = false
+
+[node name="Pond" parent="StaticWorldStrip/ResourceNodes" index="2"]
+position = Vector2(1140, 144)
+
+[node name="WaterBlocker" parent="StaticWorldStrip/ResourceNodes/Pond" index="5"]
+visible = false
+
+[node name="ShopBuilding" parent="StaticWorldStrip/ResourceNodes" index="3"]
+position = Vector2(926.81, 109.28)
+scale = Vector2(1.27, 1.27)
+
+[node name="GroundContact" parent="StaticWorldStrip/ResourceNodes/ShopBuilding" index="0"]
+position = Vector2(-4.1810374, 15.52756)
+scale = Vector2(0.041609064, 0.21757151)
+
+[node name="LevelVisuals" parent="StaticWorldStrip/ResourceNodes/ShopBuilding" index="1"]
+position = Vector2(-6.1496043, 0.56693023)
+scale = Vector2(0.87, 1)
+
+[node name="Level1" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/LevelVisuals" index="0"]
+position = Vector2(0.90527344, 0)
+
+[node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/LevelVisuals/Level1" index="0"]
+material = SubResource("ShaderMaterial_ctbwf")
+
+[node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/LevelVisuals/Level2" index="0"]
+material = SubResource("ShaderMaterial_ctbwf")
+
+[node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/LevelVisuals/Level3" index="0"]
+material = SubResource("ShaderMaterial_ctbwf")
+
+[node name="FrontGrass" parent="StaticWorldStrip/ResourceNodes/ShopBuilding" index="2"]
+visible = false
+
+[node name="ConstructionVisual" parent="StaticWorldStrip/ResourceNodes/ShopBuilding" index="3"]
+position = Vector2(-4.574801, -0.22047146)
+scale = Vector2(0.7, 0.7)
+
+[node name="Scaffold" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/ConstructionVisual" index="0"]
+position = Vector2(-0.15527344, 18.850952)
+scale = Vector2(0.101263106, 0.08075788)
+
+[node name="SignGroup" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/ConstructionVisual" index="1"]
+position = Vector2(-1.125, -24.272)
+scale = Vector2(0.83, 0.83)
+
+[node name="Post" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/ConstructionVisual/SignGroup" index="0"]
+visible = false
+
+[node name="Board" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/ConstructionVisual/SignGroup" index="1"]
+position = Vector2(-1.3550482, 0.78307104)
+scale = Vector2(0.04222316, 0.052)
+
+[node name="Text" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/ConstructionVisual/SignGroup" index="2"]
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="WalkBlocker" parent="StaticWorldStrip/ResourceNodes/ShopBuilding" index="5"]
+visible = false
+
+[node name="DynamicAnchors" parent="StaticWorldStrip" index="6"]
+position = Vector2(6, 23)
+
+[node name="FishSpawnPoint" parent="StaticWorldStrip/DynamicAnchors/FishVisuals" index="0"]
+position = Vector2(1151, 132)
+
+[node name="WorkerTargets" parent="StaticWorldStrip/DynamicAnchors" index="1"]
+position = Vector2(0, -5.57)
+
+[node name="HomePoint" parent="StaticWorldStrip/DynamicAnchors/WorkerTargets" index="0"]
+position = Vector2(715, 145.57)
+
+[node name="FarmPoint" parent="StaticWorldStrip/DynamicAnchors/WorkerTargets" index="1"]
+position = Vector2(548, 171.23)
+
+[node name="WorkbenchPoint" parent="StaticWorldStrip/DynamicAnchors/WorkerTargets" index="2"]
+position = Vector2(826, 152.57)
+
+[node name="FishingPoint" parent="StaticWorldStrip/DynamicAnchors/WorkerTargets" index="3"]
+position = Vector2(1055, 116.57)
+
+[node name="ShopPoint" parent="StaticWorldStrip/DynamicAnchors/WorkerTargets" index="5"]
+position = Vector2(922, 147.57)
+
+[node name="Worker" parent="StaticWorldStrip/DynamicAnchors" index="2"]
+position = Vector2(722, 148)
+
+[node name="CloudFog" parent="StaticWorldStrip" index="10"]
+position = Vector2(0, 87)
+
+[node name="PlotEarlyCloud" parent="StaticWorldStrip/CloudFog" index="0"]
+offset_left = -1607.0
+offset_top = 3.0
+offset_right = 375.0
+offset_bottom = 273.0
+
+[node name="PlotLateCloud" parent="StaticWorldStrip/CloudFog" index="1"]
+visible = true
+
+[node name="Overlay" type="Control" parent="." unique_id=288352890]
+z_index = 20
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 39.0
+offset_right = -11.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="WeatherBar" type="Node2D" parent="Overlay" unique_id=795227162]
+editor_description = "天气显示条：移动本节点可调整整体位置；每种天气均有静态图标、灰色遮罩、当前高亮及悬停区域；HoverTooltip 控制提示框位置与尺寸。"
+position = Vector2(0, -36)
+script = ExtResource("35_weather_bar")
+
+[node name="Sunny" type="Node2D" parent="Overlay/WeatherBar" unique_id=1423131677]
+editor_description = "晴天方块；可单独调整位置。"
+
+[node name="Base" type="Panel" parent="Overlay/WeatherBar/Sunny" unique_id=1846361348]
+offset_right = 28.0
+offset_bottom = 28.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("WeatherTileBase")
+metadata/_edit_use_anchors_ = true
+
+[node name="Icon" type="Sprite2D" parent="Overlay/WeatherBar/Sunny" unique_id=1422810726]
+texture_filter = 1
+position = Vector2(14, 14)
+scale = Vector2(0.018, 0.018)
+texture = ExtResource("36_weather_sunny")
+
+[node name="Dim" type="ColorRect" parent="Overlay/WeatherBar/Sunny" unique_id=906167058]
+visible = false
+offset_right = 28.0
+offset_bottom = 28.0
+mouse_filter = 2
+color = Color(0.23, 0.23, 0.23, 0.57)
+
+[node name="CountdownMask" type="Sprite2D" parent="Overlay/WeatherBar/Sunny" unique_id=1598138226]
+editor_description = "当前天气顺时针灰度倒计时；与 Icon 保持相同位置、缩放和贴图。"
+visible = false
+texture_filter = 1
+material = SubResource("WeatherCountdownMaterial")
+position = Vector2(14, 14)
+scale = Vector2(0.018, 0.018)
+texture = ExtResource("36_weather_sunny")
+
+[node name="Highlight" type="Panel" parent="Overlay/WeatherBar/Sunny" unique_id=1298955986]
+offset_right = 28.0
+offset_bottom = 28.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("WeatherTileHighlight")
+metadata/_edit_use_anchors_ = true
+
+[node name="Hover" type="Panel" parent="Overlay/WeatherBar/Sunny" unique_id=1710643110]
+visible = false
+offset_right = 28.0
+offset_bottom = 28.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("WeatherTileHover")
+
+[node name="HoverHit" type="Control" parent="Overlay/WeatherBar/Sunny" unique_id=686619234]
+editor_description = "晴天图标的悬停范围，随图标尺寸调整。"
+layout_mode = 3
+anchors_preset = 0
+offset_right = 28.0
+offset_bottom = 28.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Rain" type="Node2D" parent="Overlay/WeatherBar" unique_id=1164994748]
+editor_description = "雨天方块；可单独调整位置。"
+position = Vector2(32, 0)
+
+[node name="Base" type="Panel" parent="Overlay/WeatherBar/Rain" unique_id=246384475]
+offset_right = 28.0
+offset_bottom = 28.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("WeatherTileBase")
+metadata/_edit_use_anchors_ = true
+
+[node name="Icon" type="Sprite2D" parent="Overlay/WeatherBar/Rain" unique_id=1839073744]
+texture_filter = 1
+position = Vector2(14, 14)
+scale = Vector2(0.018, 0.018)
+texture = ExtResource("37_weather_rain")
+
+[node name="Dim" type="ColorRect" parent="Overlay/WeatherBar/Rain" unique_id=524036724]
+offset_right = 28.0
+offset_bottom = 28.0
+mouse_filter = 2
+color = Color(0.23, 0.23, 0.23, 0.57)
+metadata/_edit_use_anchors_ = true
+
+[node name="CountdownMask" type="Sprite2D" parent="Overlay/WeatherBar/Rain" unique_id=160438839]
+editor_description = "当前天气顺时针灰度倒计时；与 Icon 保持相同位置、缩放和贴图。"
+visible = false
+texture_filter = 1
+material = SubResource("WeatherCountdownMaterial")
+position = Vector2(14, 14)
+scale = Vector2(0.018, 0.018)
+texture = ExtResource("37_weather_rain")
+
+[node name="Highlight" type="Panel" parent="Overlay/WeatherBar/Rain" unique_id=62623496]
+visible = false
+offset_right = 28.0
+offset_bottom = 28.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("WeatherTileHighlight")
+
+[node name="Hover" type="Panel" parent="Overlay/WeatherBar/Rain" unique_id=1885950712]
+visible = false
+offset_right = 28.0
+offset_bottom = 28.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("WeatherTileHover")
+
+[node name="HoverHit" type="Control" parent="Overlay/WeatherBar/Rain" unique_id=1193092852]
+editor_description = "雨天图标的悬停范围，随图标尺寸调整。"
+layout_mode = 3
+anchors_preset = 0
+offset_right = 28.0
+offset_bottom = 28.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Snow" type="Node2D" parent="Overlay/WeatherBar" unique_id=1195167920]
+editor_description = "雪天方块；可单独调整位置。"
+position = Vector2(64, 0)
+
+[node name="Base" type="Panel" parent="Overlay/WeatherBar/Snow" unique_id=258611423]
+offset_right = 28.0
+offset_bottom = 28.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("WeatherTileBase")
+metadata/_edit_use_anchors_ = true
+
+[node name="Icon" type="Sprite2D" parent="Overlay/WeatherBar/Snow" unique_id=90489219]
+texture_filter = 1
+position = Vector2(14, 14)
+scale = Vector2(0.018, 0.018)
+texture = ExtResource("38_weather_snow")
+
+[node name="Dim" type="ColorRect" parent="Overlay/WeatherBar/Snow" unique_id=137193022]
+offset_right = 28.0
+offset_bottom = 28.0
+mouse_filter = 2
+color = Color(0.23, 0.23, 0.23, 0.57)
+metadata/_edit_use_anchors_ = true
+
+[node name="CountdownMask" type="Sprite2D" parent="Overlay/WeatherBar/Snow" unique_id=412957976]
+editor_description = "当前天气顺时针灰度倒计时；与 Icon 保持相同位置、缩放和贴图。"
+visible = false
+texture_filter = 1
+material = SubResource("WeatherCountdownMaterial")
+position = Vector2(14, 14)
+scale = Vector2(0.018, 0.018)
+texture = ExtResource("38_weather_snow")
+
+[node name="Highlight" type="Panel" parent="Overlay/WeatherBar/Snow" unique_id=436602772]
+visible = false
+offset_right = 28.0
+offset_bottom = 28.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("WeatherTileHighlight")
+
+[node name="Hover" type="Panel" parent="Overlay/WeatherBar/Snow" unique_id=1805333215]
+visible = false
+offset_right = 28.0
+offset_bottom = 28.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("WeatherTileHover")
+
+[node name="HoverHit" type="Control" parent="Overlay/WeatherBar/Snow" unique_id=2128783534]
+editor_description = "雪天图标的悬停范围，随图标尺寸调整。"
+layout_mode = 3
+anchors_preset = 0
+offset_right = 28.0
+offset_bottom = 28.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Wind" type="Node2D" parent="Overlay/WeatherBar" unique_id=1033019089]
+editor_description = "多云方块；可单独调整位置。"
+position = Vector2(96, 0)
+
+[node name="Base" type="Panel" parent="Overlay/WeatherBar/Wind" unique_id=1981300376]
+offset_right = 28.0
+offset_bottom = 28.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("WeatherTileBase")
+
+[node name="Icon" type="Sprite2D" parent="Overlay/WeatherBar/Wind" unique_id=1467657621]
+texture_filter = 1
+position = Vector2(14, 14)
+scale = Vector2(0.81, 0.81)
+texture = ExtResource("38_weather_wind")
+
+[node name="Dim" type="ColorRect" parent="Overlay/WeatherBar/Wind" unique_id=491229143]
+offset_right = 28.0
+offset_bottom = 28.0
+mouse_filter = 2
+color = Color(0.23, 0.23, 0.23, 0.57)
+
+[node name="CountdownMask" type="Sprite2D" parent="Overlay/WeatherBar/Wind" unique_id=1955774747]
+visible = false
+texture_filter = 1
+material = SubResource("WeatherCountdownMaterial")
+position = Vector2(14, 14)
+scale = Vector2(0.81, 0.81)
+texture = ExtResource("38_weather_wind")
+
+[node name="Highlight" type="Panel" parent="Overlay/WeatherBar/Wind" unique_id=19178730]
+visible = false
+offset_right = 28.0
+offset_bottom = 28.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("WeatherTileHighlight")
+
+[node name="Hover" type="Panel" parent="Overlay/WeatherBar/Wind" unique_id=1565807781]
+visible = false
+offset_right = 28.0
+offset_bottom = 28.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("WeatherTileHover")
+
+[node name="HoverHit" type="Control" parent="Overlay/WeatherBar/Wind" unique_id=879582401]
+editor_description = "多云图标的悬停范围。"
+layout_mode = 3
+anchors_preset = 0
+offset_right = 28.0
+offset_bottom = 28.0
+
+[node name="HoverTooltip" type="PanelContainer" parent="Overlay/WeatherBar" unique_id=1198218638]
+editor_description = "天气悬停提示框。直接调整此静态节点的位置和宽高；运行时只更新标题及效果文字。"
+visible = false
+z_index = 5
+offset_left = 102.0
+offset_top = 31.0
+offset_right = 472.0
+offset_bottom = 93.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("WeatherHoverPanel")
+
+[node name="Content" type="VBoxContainer" parent="Overlay/WeatherBar/HoverTooltip" unique_id=405975077]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="Title" type="Label" parent="Overlay/WeatherBar/HoverTooltip/Content" unique_id=1756352026]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.53, 1)
+theme_override_font_sizes/font_size = 13
+text = "晴天"
+metadata/l10n_text = "ui.5656dc6e75"
+
+[node name="Effect" type="Label" parent="Overlay/WeatherBar/HoverTooltip/Content" unique_id=1751972965]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.97, 0.86, 1)
+theme_override_font_sizes/font_size = 11
+text = "常规钓鱼；作物需要手动浇水。"
+autowrap_mode = 3
+metadata/l10n_text = "ui.70aee086af"
+
+[node name="Remaining" type="Label" parent="Overlay/WeatherBar/HoverTooltip/Content" unique_id=2050361953]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.84, 0.84, 0.78, 1)
+theme_override_font_sizes/font_size = 11
+text = "本轮剩余 10:00"
+metadata/l10n_text = "ui.ab400fdccf"
+
+[node name="CountdownTimer" type="Timer" parent="Overlay/WeatherBar" unique_id=211667346]
+wait_time = 0.5
+autostart = true
+
+[node name="CoinGroup" type="Node2D" parent="Overlay" unique_id=1845641228]
+editor_description = "金币组：移动此节点可整体调整木牌、图标和数值；子节点仍可分别调整。"
+position = Vector2(63, 25.16)
+scale = Vector2(0.7, 0.7)
+
+[node name="Board" type="Sprite2D" parent="Overlay/CoinGroup" unique_id=1735499012]
+editor_description = "金币木牌底板：直接调整 position 和 scale。"
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("11_board")
+
+[node name="Icon" type="Sprite2D" parent="Overlay/CoinGroup" unique_id=2131288835]
+editor_description = "金币图标：独立静态节点，最近邻采样。"
+texture_filter = 1
+position = Vector2(-36, 0)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("12_coin")
+region_enabled = true
+region_rect = Rect2(700, 698, 1110, 1108)
+
+[node name="Amount" type="Label" parent="Overlay/CoinGroup" unique_id=1479853197]
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 49.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0.247059, 0.188235, 0.156863, 1)
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CropGroup" type="Node2D" parent="Overlay" unique_id=840304445]
+editor_description = "作物组：移动此节点可整体调整木牌、图标和数值。"
+position = Vector2(63, 45.56)
+scale = Vector2(0.7, 0.7)
+
+[node name="Board" type="Sprite2D" parent="Overlay/CropGroup" unique_id=1083775386]
+editor_description = "作物木牌底板：与其他木牌互不绑定。"
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("11_board")
+
+[node name="Icon" type="Sprite2D" parent="Overlay/CropGroup" unique_id=640704787]
+editor_description = "作物图标：独立静态节点，最近邻采样。"
+texture_filter = 1
+position = Vector2(-36, 0)
+scale = Vector2(0.014, 0.014)
+texture = ExtResource("13_crop")
+region_enabled = true
+region_rect = Rect2(600, 282, 1518, 1936)
+
+[node name="Amount" type="Label" parent="Overlay/CropGroup" unique_id=2019942061]
+offset_left = -19.0
+offset_top = -18.0
+offset_right = 50.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0.247059, 0.188235, 0.156863, 1)
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="FishGroup" type="Node2D" parent="Overlay" unique_id=379024688]
+editor_description = "鱼篓组：移动此节点可整体调整木牌、图标和数值。"
+position = Vector2(63, 66.07)
+scale = Vector2(0.7, 0.7)
+
+[node name="Board" type="Sprite2D" parent="Overlay/FishGroup" unique_id=1402359291]
+editor_description = "鱼篓木牌底板。"
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("11_board")
+
+[node name="Icon" type="Sprite2D" parent="Overlay/FishGroup" unique_id=1684470557]
+editor_description = "鱼篓图标：独立静态节点，最近邻采样。"
+texture_filter = 1
+position = Vector2(-36, 0)
+scale = Vector2(0.017, 0.017)
+texture = ExtResource("14_fish")
+region_enabled = true
+region_rect = Rect2(460, 644, 1638, 1210)
+
+[node name="Amount" type="Label" parent="Overlay/FishGroup" unique_id=880947753]
+offset_left = -19.0
+offset_top = -18.0
+offset_right = 50.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0.247059, 0.188235, 0.156863, 1)
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BaitGroup" type="Node2D" parent="Overlay" unique_id=1867387461]
+editor_description = "鱼饵组：移动此节点可整体调整木牌、图标和数值。"
+position = Vector2(63, 87.23)
+scale = Vector2(0.7, 0.7)
+
+[node name="Board" type="Sprite2D" parent="Overlay/BaitGroup" unique_id=829613336]
+editor_description = "鱼饵木牌底板。"
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("11_board")
+
+[node name="Icon" type="Sprite2D" parent="Overlay/BaitGroup" unique_id=1737170965]
+editor_description = "鱼饵图标：独立静态节点，最近邻采样。"
+texture_filter = 1
+position = Vector2(-36, 0)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("15_bait")
+region_enabled = true
+region_rect = Rect2(718, 760, 1082, 1082)
+
+[node name="Amount" type="Label" parent="Overlay/BaitGroup" unique_id=1564525346]
+offset_left = -19.0
+offset_top = -18.0
+offset_right = 50.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0.247059, 0.188235, 0.156863, 1)
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CodexBoard" type="Sprite2D" parent="Overlay" unique_id=2034226344]
+editor_description = "图鉴木牌底板。"
+visible = false
+position = Vector2(1131.5809, 141)
+scale = Vector2(0.022485238, 0.033)
+texture = ExtResource("11_board")
+
+[node name="SettingsBoard" type="Sprite2D" parent="Overlay" unique_id=1797684412]
+editor_description = "设置木牌底板。"
+visible = false
+position = Vector2(1223, 141)
+scale = Vector2(0.033, 0.033)
+texture = ExtResource("11_board")
+
+[node name="RightIcons" type="Control" parent="Overlay" unique_id=214745177]
+editor_description = "右下角入口共用的右边缘锚点；可单独调整子图标的偏移。"
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+mouse_filter = 2
+
+[node name="CodexIcon" type="Sprite2D" parent="Overlay/RightIcons" unique_id=1184693937]
+editor_description = "图鉴图标：独立静态节点，最近邻采样。"
+texture_filter = 1
+position = Vector2(-60.26, 113.48)
+scale = Vector2(0.0265, 0.0265)
+texture = ExtResource("16_codex")
+region_enabled = true
+region_rect = Rect2(760, 740, 994, 1034)
+
+[node name="CodexHitArea" type="Button" parent="Overlay/RightIcons/CodexIcon" unique_id=1436843166]
+editor_description = "图鉴透明点击区，移动图鉴木牌时可单独跟随调整。"
+offset_left = -754.7186
+offset_top = -603.77344
+offset_right = 679.2462
+offset_bottom = 528.30176
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("HudClickArea")
+theme_override_styles/pressed = SubResource("HudClickArea")
+theme_override_styles/hover = SubResource("HudClickArea")
+theme_override_styles/disabled = SubResource("HudClickArea")
+
+[node name="NewUnlockDot" parent="Overlay/RightIcons/CodexIcon" unique_id=376558038 instance=ExtResource("new_unlock_dot")]
+layout_mode = 3
+offset_left = 340.0
+offset_top = -520.0
+offset_right = 350.0
+offset_bottom = -510.0
+scale = Vector2(37.73585, 37.73585)
+
+[node name="SettingsIcon" type="Sprite2D" parent="Overlay/RightIcons" unique_id=880515914]
+editor_description = "设置图标：独立静态节点，最近邻采样。"
+texture_filter = 1
+position = Vector2(-24.44, 113.78)
+scale = Vector2(0.0155, 0.0155)
+texture = ExtResource("17_settings")
+region_enabled = true
+region_rect = Rect2(404, 372, 1700, 1764)
+
+[node name="SettingsHitArea" type="Button" parent="Overlay/RightIcons/SettingsIcon" unique_id=1046209582]
+editor_description = "设置透明点击区，移动设置木牌时可单独跟随调整。"
+offset_left = -709.6749
+offset_top = -838.70935
+offset_right = 774.19226
+offset_bottom = 903.2272
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("HudClickArea")
+theme_override_styles/pressed = SubResource("HudClickArea")
+theme_override_styles/hover = SubResource("HudClickArea")
+theme_override_styles/disabled = SubResource("HudClickArea")
+
+[node name="GMButton" parent="." unique_id=643208801 instance=ExtResource("18_gm_button")]
+editor_description = "主游戏右上角 GM 入口；可在此静态调整位置和尺寸。"
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -75.0
+offset_top = 5.0
+offset_right = -13.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "GM"
+
+[node name="TaskButton" type="Control" parent="." unique_id=2116389894]
+editor_description = "GM 左侧的角色任务入口；图标和透明点击区均是静态节点。"
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -110.0
+offset_top = 4.0
+offset_right = -80.0
+offset_bottom = 32.0
+grow_horizontal = 0
+
+[node name="Icon" type="TextureRect" parent="TaskButton" unique_id=2028277962]
+texture_filter = 1
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource("44_task_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HitArea" type="Button" parent="TaskButton" unique_id=1872641490]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("HudClickArea")
+theme_override_styles/pressed = SubResource("HudClickArea")
+theme_override_styles/hover = SubResource("HudClickArea")
+
+[node name="PlotProgressAnchor" type="Control" parent="." unique_id=1447553559]
+editor_description = "种植中地块的小进度提示：运行时锚定到地块；Panel 静态节点位于地块右侧，可手动调相对位置和尺寸。"
+z_index = 20
+anchors_preset = 0
+mouse_filter = 1
+
+[node name="Panel" type="PanelContainer" parent="PlotProgressAnchor" unique_id=728366925]
+layout_mode = 0
+offset_left = 82.0
+offset_top = -45.0
+offset_right = 282.0
+offset_bottom = 37.0
+theme_override_styles/panel = SubResource("WeatherHoverPanel")
+
+[node name="Content" type="VBoxContainer" parent="PlotProgressAnchor/Panel" unique_id=281641394]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Title" type="Label" parent="PlotProgressAnchor/Panel/Content" unique_id=835122335]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.53, 1)
+theme_override_font_sizes/font_size = 11
+text = "小麦 · 种子 → 叶片"
+horizontal_alignment = 1
+metadata/l10n_text = "ui.9ae8d4e879"
+
+[node name="StageProgress" type="ProgressBar" parent="PlotProgressAnchor/Panel/Content" unique_id=519273745]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/background = SubResource("PlotProgressTrack")
+theme_override_styles/fill = SubResource("PlotProgressFill")
+show_percentage = false
+
+[node name="Time" type="Label" parent="PlotProgressAnchor/Panel/Content" unique_id=474954034]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.97, 0.86, 1)
+theme_override_font_sizes/font_size = 10
+text = "距下一阶段 0:00"
+horizontal_alignment = 1
+metadata/l10n_text = "ui.55e7c15f81"
+
+[node name="PendingPlant" type="Label" parent="PlotProgressAnchor/Panel/Content" unique_id=136342829]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.89, 0.59, 1)
+theme_override_font_sizes/font_size = 10
+text = "%s · %s · %d格"
+horizontal_alignment = 1
+metadata/l10n_text = "plot.work.detail.plant_single"
+
+[node name="PendingHarvest" type="Label" parent="PlotProgressAnchor/Panel/Content" unique_id=1919545947]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.89, 0.59, 1)
+theme_override_font_sizes/font_size = 10
+text = "%s · %d格"
+horizontal_alignment = 1
+metadata/l10n_text = "plot.work.detail.harvest"
+
+[node name="HarvestAll" type="Button" parent="PlotProgressAnchor/Panel/Content" unique_id=300895873]
+editor_description = "收获按钮使用 Godot 原生 Button 样式；可在 Inspector 中调整尺寸和文字。"
+visible = false
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "收获所有成熟地块"
+metadata/l10n_text = "ui.78769f1d51"
+
+[node name="WaterCell" type="Button" parent="PlotProgressAnchor/Panel/Content" unique_id=376110395]
+editor_description = "所选小格浇水按钮；与收获按钮互斥显示，并使用同一套静态按钮样式。"
+visible = false
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "给这个小格浇水"
+metadata/l10n_text = "ui.d82c449377"
+
+[node name="UpdateTimer" type="Timer" parent="PlotProgressAnchor" unique_id=313588630]
+
+[node name="Notification" type="PanelContainer" parent="." unique_id=392751086]
+editor_description = "单行半透明提示条。可在此静态节点调整位置与尺寸；默认位于草地背景上方。"
+visible = false
+clip_contents = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 3.56
+offset_right = 160.0
+offset_bottom = 33.559982
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("NotificationPanel")
+
+[node name="Message" type="Label" parent="Notification" unique_id=2097079719]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.973, 0.906, 1)
+theme_override_font_sizes/font_size = 11
+text = "提示信息"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+metadata/l10n_text = "ui.eb5259ce0f"
+
+[node name="Timer" type="Timer" parent="Notification" unique_id=1109763082]
+wait_time = 3.5
+one_shot = true
+
+[node name="AchievementToast" parent="." unique_id=482859285 instance=ExtResource("39_achievement_toast")]
+editor_description = "成就条锚定主窗口右侧；可在此调整右边距、垂直位置和尺寸。"
+z_index = 30
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -329.0
+offset_top = 66.0
+offset_right = -23.0
+offset_bottom = 118.0
+grow_horizontal = 0
+
+[node name="PlantWindow" parent="." unique_id=508654900 instance=ExtResource("29_plant_window")]
+visible = false
+
+[node name="CottageWindow" parent="." unique_id=1551301106 instance=ExtResource("30_cottage_window")]
+visible = false
+
+[node name="StartWindow" parent="." unique_id=635392953 instance=ExtResource("49_start_window")]
+position = Vector2i(447, 0)
+visible = false
+
+[node name="WorkbenchWindow" parent="." unique_id=554505919 instance=ExtResource("31_workbench_window")]
+editor_description = "工作台独立子窗口；在 Inspector 调整尺寸、Follow Main 和 Desktop Offset。"
+size = Vector2i(800, 390)
+visible = false
+min_size = Vector2i(560, 300)
+
+[node name="PondWindow" parent="." unique_id=1007263816 instance=ExtResource("34_pond_window")]
+visible = false
+
+[node name="ShopWindow" parent="." unique_id=1997911137 instance=ExtResource("27_shop_window")]
+visible = false
+
+[node name="CodexWindow" parent="." unique_id=857690566 instance=ExtResource("26_codex_window")]
+position = Vector2i(0, 100)
+visible = false
+
+[node name="SettingsWindow" parent="." unique_id=1938944336 instance=ExtResource("28_settings_window")]
+position = Vector2i(0, 100)
+visible = false
+
+[node name="GMWindow" parent="." unique_id=1780582512 instance=ExtResource("32_gm_window")]
+visible = false
+
+[node name="TaskQueueWindow" parent="." unique_id=1881873321 instance=ExtResource("45_task_window")]
+oversampling_override = 1.0
+visible = false
+
+[node name="ResetPopup" parent="." unique_id=1308838268 instance=ExtResource("19_popup")]
+editor_description = "重置确认弹窗独立位置与尺寸。"
+visible = false
+layout_mode = 0
+offset_left = 531.0
+offset_top = 28.0
+offset_right = 893.0
+offset_bottom = 178.0
+scale = Vector2(0.76, 0.76)
+
+[node name="InfoActionsContent" parent="ResetPopup/ContentSurface/ContentScroll/Content/Body" parent_id_path=PackedInt32Array(1308838268, 979262664) index="0" unique_id=1691710891 instance=ExtResource("21_info_actions")]
+layout_mode = 2
+
+[node name="Actions" parent="ResetPopup/ContentSurface/ContentScroll/Content/Body/InfoActionsContent" index="1"]
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.52, 0.51)
+
+[node name="PastureWindow" parent="." unique_id=15817185 instance=ExtResource("40_pasture_window")]
+oversampling_override = 1.0
+visible = false
+
+[node name="PastureFeedWindow" parent="." unique_id=1793580174 instance=ExtResource("43_feed_window")]
+oversampling_override = 1.0
+visible = false
+
+[node name="Systems" type="Node" parent="." unique_id=1031288218]
+
+[node name="WeatherSystem" type="Node" parent="Systems" unique_id=1927361993]
+script = ExtResource("33_weather")
+
+[node name="FarmingSystem" type="Node" parent="Systems" unique_id=1594638290]
+script = ExtResource("3_farming")
+
+[node name="CraftingSystem" type="Node" parent="Systems" unique_id=643745236]
+script = ExtResource("4_crafting")
+
+[node name="FishingSystem" type="Node" parent="Systems" unique_id=301502346]
+script = ExtResource("5_fishing")
+
+[node name="LeaderboardService" type="Node" parent="Systems" unique_id=1659667504]
+script = ExtResource("5_leaderboard")
+
+[node name="ShopSystem" type="Node" parent="Systems" unique_id=1290439648]
+script = ExtResource("6_shop")
+
+[node name="CodexSystem" type="Node" parent="Systems" unique_id=2044624698]
+script = ExtResource("7_codex")
+
+[node name="AchievementSystem" type="Node" parent="Systems" unique_id=212084391]
+script = ExtResource("7_achievements")
+
+[node name="JobManager" type="Node" parent="Systems" unique_id=1581383259]
+script = ExtResource("8_jobs")
+
+[node name="TutorialGuide" parent="." unique_id=1005637002 instance=ExtResource("48_tutorial_guide")]
+visible = false
+
+[node name="MaskLeft" parent="TutorialGuide/OverlayRoot" parent_id_path=PackedInt32Array(1005637002, 210132667) index="1" unique_id=1322019541]
+offset_top = 0.0
+offset_bottom = 70.0
+
+[node name="MaskRight" parent="TutorialGuide/OverlayRoot" parent_id_path=PackedInt32Array(1005637002, 210132667) index="2" unique_id=475897839]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1060.0
+offset_bottom = 70.0
+
+[node name="MaskBottom" parent="TutorialGuide/OverlayRoot" parent_id_path=PackedInt32Array(1005637002, 210132667) index="3" unique_id=1956642662]
+offset_top = 0.0
+offset_bottom = 48.0
+
+[node name="FocusFrame" parent="TutorialGuide/OverlayRoot" parent_id_path=PackedInt32Array(1005637002, 210132667) index="4" unique_id=201290481]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 120.0
+offset_bottom = 70.0
+
+[node name="Dialog" parent="TutorialGuide/OverlayRoot" parent_id_path=PackedInt32Array(1005637002, 210132667) index="5" unique_id=846492985]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 340.0
+offset_bottom = 136.0
+
+[node name="Message" parent="TutorialGuide/OverlayRoot/Dialog/Content" parent_id_path=PackedInt32Array(1005637002, 1663264736) index="1" unique_id=176466669]
+text = "这是你的小屋"
+metadata/l10n_text = "tutorial.house"
+
+[editable path="StaticWorldStrip"]
+[editable path="StaticWorldStrip/CloudFog"]
+[editable path="AchievementToast"]
+[editable path="ResetPopup"]
+[editable path="ResetPopup/ContentSurface/ContentScroll/Content/Body/InfoActionsContent"]
+[editable path="TutorialGuide"]

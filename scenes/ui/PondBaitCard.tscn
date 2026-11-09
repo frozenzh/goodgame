@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dh4opsi7px5op"]
+
+[ext_resource type="Texture2D" uid="uid://dotpfwttsxcib" path="res://assets/hd/ui/icon_bait_simple.png" id="1_icon"]
+[ext_resource type="Texture2D" uid="uid://py7122nrfe1u" path="res://assets/hd/ui/rarity_common.png" id="2_rarity"]
+
+[node name="PondBaitCard" type="PanelContainer" unique_id=336396414]
+editor_description = "鱼饵卡静态模板；品质底图、图标、名称、数量和中心对勾可分别调整。"
+custom_minimum_size = Vector2(88, 92)
+
+[node name="RarityBack" type="TextureRect" parent="." unique_id=1446199116]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_rarity")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Content" type="VBoxContainer" parent="." unique_id=753558057]
+z_index = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Content" unique_id=726266158]
+texture_filter = 1
+custom_minimum_size = Vector2(47, 47)
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.5, 1.5)
+mouse_filter = 2
+texture = ExtResource("1_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="Content" unique_id=668411811]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -6.1)
+theme_override_colors/font_color = Color(0.25, 0.16, 0.08, 1)
+theme_override_font_sizes/font_size = 15
+text = "小麦饵"
+metadata/l10n_text = "ui.05c1272f6f"
+horizontal_alignment = 1
+clip_text = true
+
+[node name="Count" type="Label" parent="Content" unique_id=1940060694]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -5.16)
+theme_override_colors/font_color = Color(0.35, 0.27, 0.15, 1)
+theme_override_font_sizes/font_size = 12
+text = "×0"
+horizontal_alignment = 1
+
+[node name="SelectedCheck" type="Node2D" parent="." unique_id=1800605914]
+editor_description = "鱼饵选中时显示的中心对勾。可直接移动本节点；线条颜色和粗细可在子节点调整。"
+visible = false
+z_index = 2
+position = Vector2(44, 34)
+
+[node name="Outline" type="Line2D" parent="SelectedCheck" unique_id=1725348467]
+points = PackedVector2Array(-13, -1, -3, 8, 14, -12)
+width = 11.0
+default_color = Color(0.15, 0.11, 0.05, 1)
+
+[node name="Tick" type="Line2D" parent="SelectedCheck" unique_id=1685486845]
+points = PackedVector2Array(-13, -1, -3, 8, 14, -12)
+width = 6.0
+default_color = Color(1, 0.94, 0.65, 1)
+
+[node name="ClickArea" type="Button" parent="." unique_id=151519220]
+z_index = 3
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+flat = true

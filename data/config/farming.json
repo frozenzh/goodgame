@@ -1,0 +1,13 @@
+{
+  "module": "farming",
+  "values": {
+    "default_grow_seconds": 60.0,
+    "fallback_max_reduction": 0.3,
+    "fallback_reduction_per_level": 0.15,
+    "harvest_action_seconds": 1.0,
+    "max_fertility": 3,
+    "plant_action_seconds": 1.0,
+    "unwatered_growth_multiplier": 1.5,
+    "water_action_seconds": 1.0
+  }
+}

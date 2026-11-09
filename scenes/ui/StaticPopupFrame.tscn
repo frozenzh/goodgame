@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/hd/ui/popup_frame_light.png" id="1_frame"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/popup_title_wood.png" id="2_title"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/shop_v04/controls_atlas.png" id="3_controls"]
+
+[sub_resource type="AtlasTexture" id="FrameCutout"]
+atlas = ExtResource("1_frame")
+region = Rect2(38, 90, 1534, 769)
+
+[sub_resource type="StyleBoxTexture" id="FrameStyle"]
+texture = SubResource("FrameCutout")
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="AtlasTexture" id="TitleCutout"]
+atlas = ExtResource("2_title")
+region = Rect2(72, 180, 2028, 364)
+
+[sub_resource type="AtlasTexture" id="CloseCutout"]
+atlas = ExtResource("3_controls")
+region = Rect2(1120, 572, 348, 356)
+
+[sub_resource type="StyleBoxTexture" id="CloseStyle"]
+texture = SubResource("CloseCutout")
+
+[node name="StaticPopupFrame" type="PanelContainer"]
+editor_description = "简洁木框；只保留实际使用的标题、关闭按钮和静态内容。"
+clip_contents = true
+offset_right = 680.0
+offset_bottom = 340.0
+mouse_filter = 0
+theme_override_styles/panel = SubResource("FrameStyle")
+
+[node name="ContentSurface" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 0
+
+[node name="TitlePlank" type="TextureRect" parent="ContentSurface"]
+editor_description = "可独立移动的标题木牌。"
+layout_mode = 1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -122.0
+offset_top = 0.0
+offset_right = 122.0
+offset_bottom = 48.0
+grow_horizontal = 2
+mouse_filter = 2
+texture = SubResource("TitleCutout")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="TitleText" type="Label" parent="ContentSurface/TitlePlank"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 4.0
+offset_right = -18.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.975, 0.82, 1)
+theme_override_colors/font_shadow_color = Color(0.27, 0.13, 0.06, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 23
+text = "作物种植"
+metadata/l10n_text = "ui.561a8a2c0f"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="ContentSurface"]
+editor_description = "可独立移动的关闭按钮。"
+layout_mode = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -51.0
+offset_top = 18.0
+offset_right = -13.0
+offset_bottom = 56.0
+grow_horizontal = 0
+focus_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("CloseStyle")
+theme_override_styles/hover = SubResource("CloseStyle")
+theme_override_styles/pressed = SubResource("CloseStyle")
+theme_override_styles/focus = SubResource("CloseStyle")

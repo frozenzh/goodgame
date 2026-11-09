@@ -1,0 +1,120 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/floating_popup_window.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/TaskQueueRow.tscn" id="2_row"]
+
+[sub_resource type="StyleBoxFlat" id="WeatherLikePanel"]
+content_margin_left = 9.0
+content_margin_top = 7.0
+content_margin_right = 9.0
+content_margin_bottom = 7.0
+bg_color = Color(0.18, 0.13, 0.08, 0.94)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.76, 0.52, 0.27, 1)
+
+[node name="TaskQueueWindow" type="Window"]
+editor_description = "角色任务独立竖向子窗口；窗口位置、大小和十行静态节点均可手动调整。"
+transparent_bg = true
+size = Vector2i(330, 410)
+transient = true
+unresizable = true
+borderless = true
+transparent = true
+script = ExtResource("1_script")
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
+theme_override_styles/panel = SubResource("WeatherLikePanel")
+
+[node name="Content" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Header" type="HBoxContainer" parent="Panel/Content"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/Content/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.94, 0.77, 1)
+theme_override_font_sizes/font_size = 16
+text = "角色任务 0/10"
+metadata/l10n_text = "ui.ae4485789a"
+
+[node name="Close" type="Button" parent="Panel/Content/Header"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 0.91, 0.71, 1)
+theme_override_font_sizes/font_size = 19
+flat = true
+text = "×"
+
+[node name="EmptyHint" type="Label" parent="Panel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.84, 0.75, 0.59, 1)
+theme_override_font_sizes/font_size = 12
+text = "暂无任务，角色会自行休息或活动"
+metadata/l10n_text = "ui.e78f11c336"
+horizontal_alignment = 1
+
+[node name="TaskRows" type="VBoxContainer" parent="Panel/Content"]
+editor_description = "十条静态任务行，运行时只填写文本和按钮状态。"
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Row01" parent="Panel/Content/TaskRows" instance=ExtResource("2_row")]
+layout_mode = 2
+
+[node name="Row02" parent="Panel/Content/TaskRows" instance=ExtResource("2_row")]
+layout_mode = 2
+
+[node name="Row03" parent="Panel/Content/TaskRows" instance=ExtResource("2_row")]
+layout_mode = 2
+
+[node name="Row04" parent="Panel/Content/TaskRows" instance=ExtResource("2_row")]
+layout_mode = 2
+
+[node name="Row05" parent="Panel/Content/TaskRows" instance=ExtResource("2_row")]
+layout_mode = 2
+
+[node name="Row06" parent="Panel/Content/TaskRows" instance=ExtResource("2_row")]
+layout_mode = 2
+
+[node name="Row07" parent="Panel/Content/TaskRows" instance=ExtResource("2_row")]
+layout_mode = 2
+
+[node name="Row08" parent="Panel/Content/TaskRows" instance=ExtResource("2_row")]
+layout_mode = 2
+
+[node name="Row09" parent="Panel/Content/TaskRows" instance=ExtResource("2_row")]
+layout_mode = 2
+
+[node name="Row10" parent="Panel/Content/TaskRows" instance=ExtResource("2_row")]
+layout_mode = 2
+
+[node name="Hint" type="Label" parent="Panel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.69, 0.5, 1)
+theme_override_font_sizes/font_size = 10
+text = "↑↓ 调整执行顺序 · 正在操作的任务无法移动"
+metadata/l10n_text = "ui.6f9f441969"
+horizontal_alignment = 1
+
+[editable path="Panel/Content/TaskRows/Row01"]
+[editable path="Panel/Content/TaskRows/Row02"]
+[editable path="Panel/Content/TaskRows/Row03"]
+[editable path="Panel/Content/TaskRows/Row04"]
+[editable path="Panel/Content/TaskRows/Row05"]
+[editable path="Panel/Content/TaskRows/Row06"]
+[editable path="Panel/Content/TaskRows/Row07"]
+[editable path="Panel/Content/TaskRows/Row08"]
+[editable path="Panel/Content/TaskRows/Row09"]
+[editable path="Panel/Content/TaskRows/Row10"]

@@ -1,0 +1,42 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/hd/world/pasture_fence_closed.png" id="1_fence"]
+
+[sub_resource type="RectangleShape2D" id="HorizontalEdge"]
+size = Vector2(246, 8)
+
+[sub_resource type="RectangleShape2D" id="VerticalEdge"]
+size = Vector2(8, 95)
+
+[node name="PastureFence" type="Node2D"]
+editor_description = "一张完整的闭合牧场栅栏。整体移动牧栏和动物请调整上级 PastureArea；此节点同时控制贴图与边缘碰撞。"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+editor_description = "完整栅栏图片，内外透明；每块牧栏只有这一个视觉资源。"
+texture_filter = 1
+position = Vector2(0, 151.5)
+scale = Vector2(0.132, 0.181)
+texture = ExtResource("1_fence")
+region_enabled = true
+region_rect = Rect2(68, 117, 1870, 525)
+
+[node name="FenceBody" type="StaticBody2D" parent="."]
+editor_description = "牧场边缘碰撞；角色不能穿过，动物位置由牧场逻辑限制在内侧。"
+collision_layer = 2
+collision_mask = 0
+
+[node name="TopEdge" type="CollisionShape2D" parent="FenceBody"]
+position = Vector2(0, 104)
+shape = SubResource("HorizontalEdge")
+
+[node name="BottomEdge" type="CollisionShape2D" parent="FenceBody"]
+position = Vector2(0, 199)
+shape = SubResource("HorizontalEdge")
+
+[node name="LeftEdge" type="CollisionShape2D" parent="FenceBody"]
+position = Vector2(-123, 151.5)
+shape = SubResource("VerticalEdge")
+
+[node name="RightEdge" type="CollisionShape2D" parent="FenceBody"]
+position = Vector2(123, 151.5)
+shape = SubResource("VerticalEdge")

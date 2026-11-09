@@ -1,0 +1,88 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/hd/ui/popup_card_light.png" id="1_card"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/pasture_chicken_4dir_8.png" id="2_chicken"]
+
+[sub_resource type="AtlasTexture" id="CardArt"]
+atlas = ExtResource("1_card")
+region = Rect2(123, 135, 840, 1177)
+
+[sub_resource type="AtlasTexture" id="ChickenFrame"]
+atlas = ExtResource("2_chicken")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="StyleBoxFlat" id="SelectedStyle"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.36, 0.62, 0.22, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="PastureAnimalCard" type="Control"]
+editor_description = "牧场动物卡片：底板、图标、名字、选中线框与透明点击区都是静态节点。"
+custom_minimum_size = Vector2(155, 86)
+offset_right = 155.0
+offset_bottom = 86.0
+mouse_filter = 1
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = SubResource("CardArt")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 83.0
+offset_bottom = 70.0
+mouse_filter = 2
+texture = SubResource("ChickenFrame")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="."]
+offset_left = 83.0
+offset_top = 19.0
+offset_right = 147.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0.27, 0.16, 0.08, 1)
+theme_override_font_sizes/font_size = 16
+text = "小鸡"
+metadata/l10n_text = "ui.88b9eae481"
+horizontal_alignment = 1
+
+[node name="Price" type="Label" parent="."]
+offset_left = 82.0
+offset_top = 49.0
+offset_right = 148.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0.47, 0.29, 0.11, 1)
+theme_override_font_sizes/font_size = 12
+text = "40 金"
+metadata/l10n_text = "ui.f9519dd3b2"
+horizontal_alignment = 1
+
+[node name="SelectedFrame" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("SelectedStyle")
+
+[node name="ClickArea" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+flat = true

@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/ui/achievements/ach_first_harvest_unlocked.png" id="1_preview"]
+
+[sub_resource type="StyleBoxFlat" id="WoodToast"]
+content_margin_left = 8.0
+content_margin_top = 5.0
+content_margin_right = 8.0
+content_margin_bottom = 5.0
+bg_color = Color(0.18, 0.11, 0.065, 0.93)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.85, 0.57, 0.27, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="AchievementToast" type="PanelContainer"]
+editor_description = "鱼塘 UI 层成就条。位置和尺寸在 Main.tscn 的 AchievementToast 节点调整；内部图标与文字可单独编辑。"
+visible = false
+custom_minimum_size = Vector2(306, 52)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("WoodToast")
+
+[node name="Content" type="HBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 7
+
+[node name="Icon" type="TextureRect" parent="Content"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_filter = 2
+texture_filter = 1
+texture = ExtResource("1_preview")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Text" type="VBoxContainer" parent="Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Title" type="Label" parent="Content/Text"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.79, 0.36, 1)
+theme_override_font_sizes/font_size = 11
+text = "成就达成"
+metadata/l10n_text = "ui.eec68cce90"
+
+[node name="Names" type="Label" parent="Content/Text"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.96, 0.83, 1)
+theme_override_font_sizes/font_size = 15
+text = "第一捧麦香"
+metadata/l10n_text = "ui.77816dc678"
+clip_text = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.5
+one_shot = true

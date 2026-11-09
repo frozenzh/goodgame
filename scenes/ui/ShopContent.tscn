@@ -1,0 +1,624 @@
+[gd_scene format=3 uid="uid://ddyxv7reambjh"]
+
+[ext_resource type="Texture2D" uid="uid://c35bfs70hrip6" path="res://assets/hd/ui/shop_v04/button_green_blank.png" id="1_green"]
+[ext_resource type="Texture2D" uid="uid://bjjiy3ae6khi" path="res://assets/hd/ui/shop_v04/button_gold_blank.png" id="2_gold"]
+[ext_resource type="Texture2D" uid="uid://4akoy8bfu3c3" path="res://assets/hd/ui/wood_sign.png" id="3_wood"]
+[ext_resource type="Texture2D" uid="uid://dvc4mhu1fdi6g" path="res://assets/hd/ui/shop_v04/refresh_icon.png" id="4_refresh"]
+[ext_resource type="PackedScene" uid="uid://ds0xdybh8esf5" path="res://scenes/ui/ShopOwnedCard.tscn" id="5_owned"]
+[ext_resource type="PackedScene" uid="uid://dyhd6q23cyapa" path="res://scenes/ui/ShopOfferCard.tscn" id="6_offer"]
+
+[ext_resource type="Texture2D" path="res://assets/hd/ui/pasture_egg.tres" id="preview_egg"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/pasture_milk.tres" id="preview_milk"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/pasture_wool.tres" id="preview_wool"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/pasture_pork.tres" id="preview_pork"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/plot3x3/wheat.png" id="preview_wheat"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/plot3x3/corn.png" id="preview_corn"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/plot3x3/carrot.png" id="preview_carrot"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/plot3x3/white_radish.png" id="preview_white_radish"]
+
+[sub_resource type="AtlasTexture" id="GreenCutout"]
+atlas = ExtResource("1_green")
+region = Rect2(382, 163, 1407, 398)
+
+[sub_resource type="StyleBoxTexture" id="GreenButtonArt"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+texture = SubResource("GreenCutout")
+
+[sub_resource type="StyleBoxTexture" id="WoodTitleArt"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+texture = ExtResource("3_wood")
+
+[sub_resource type="AtlasTexture" id="RefreshCutout"]
+atlas = ExtResource("4_refresh")
+region = Rect2(39, 47, 1193, 1012)
+
+[sub_resource type="StyleBoxEmpty" id="InvisibleButtonArt"]
+
+[sub_resource type="AtlasTexture" id="SellSelectedBackground"]
+atlas = ExtResource("1_green")
+region = Rect2(382, 163, 1407, 398)
+
+[sub_resource type="AtlasTexture" id="SellAllBackground"]
+atlas = ExtResource("2_gold")
+region = Rect2(350, 145, 1450, 420)
+
+[node name="ShopContent" type="Control" unique_id=1225233760]
+editor_description = "鱼铺参考图拼接板：主标题、左右区域、卡片列表、倒计时和操作按钮均为可独立调整的静态节点。"
+custom_minimum_size = Vector2(840, 380)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="ShopTitle" type="Label" parent="." unique_id=2071698197]
+editor_description = "主标题位于背景资源的空白木牌上；文字不烘焙进资源。"
+layout_mode = 0
+offset_left = 286.0
+offset_top = 26.0
+offset_right = 554.0
+offset_bottom = 57.0
+theme_override_colors/font_color = Color(1, 0.972549, 0.862745, 1)
+theme_override_colors/font_shadow_color = Color(0.239216, 0.121569, 0.062745, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 23
+text = "鱼类商店"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/l10n_text = "ui.a3a42b792c"
+
+[node name="OwnedSection" type="Control" parent="." unique_id=1386946030]
+editor_description = "左侧背包鱼类区域；羊皮纸边框已在底板资源中，子节点均可单独移动。"
+anchors_preset = 0
+offset_left = 88.0
+offset_top = 82.0
+offset_right = 442.0
+offset_bottom = 338.0
+
+[node name="Content" type="Control" parent="OwnedSection" unique_id=120225975]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeadingBoard" type="PanelContainer" parent="OwnedSection/Content" unique_id=576996114]
+editor_description = "独立绿色标题牌资源。"
+layout_mode = 0
+offset_left = 82.0
+offset_top = -13.0
+offset_right = 256.0
+offset_bottom = 24.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("GreenButtonArt")
+
+[node name="OwnedTitle" type="Label" parent="OwnedSection/Content/HeadingBoard" unique_id=668385465]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.984314, 0.882353, 1)
+theme_override_font_sizes/font_size = 15
+text = "我的鱼类"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/l10n_text = "ui.945799e023"
+
+[node name="OwnedCount" type="Label" parent="OwnedSection/Content" unique_id=544452084]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 1.0
+offset_right = 347.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color(0.380392, 0.258824, 0.137255, 1)
+theme_override_font_sizes/font_size = 12
+text = "0 条"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/l10n_text = "ui.667449f129"
+
+[node name="OwnedScroll" type="ScrollContainer" parent="OwnedSection/Content" unique_id=2104549838]
+editor_description = "鱼类数量可扩展；仅此区域滚动，背景和标题保持静态。"
+layout_mode = 0
+offset_left = 9.0
+offset_top = 31.0
+offset_right = 347.0
+offset_bottom = 221.0
+horizontal_scroll_mode = 0
+
+[node name="OwnedGrid" type="GridContainer" parent="OwnedSection/Content/OwnedScroll" unique_id=460881670]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 4
+
+[node name="OwnedSlot01" parent="OwnedSection/Content/OwnedScroll/OwnedGrid" unique_id=2020770033 instance=ExtResource("5_owned")]
+layout_mode = 2
+
+[node name="OwnedSlot02" parent="OwnedSection/Content/OwnedScroll/OwnedGrid" unique_id=1374207211 instance=ExtResource("5_owned")]
+layout_mode = 2
+
+[node name="OwnedSlot03" parent="OwnedSection/Content/OwnedScroll/OwnedGrid" unique_id=1536116006 instance=ExtResource("5_owned")]
+layout_mode = 2
+
+[node name="OwnedSlot04" parent="OwnedSection/Content/OwnedScroll/OwnedGrid" unique_id=527170954 instance=ExtResource("5_owned")]
+layout_mode = 2
+
+[node name="OwnedSlot05" parent="OwnedSection/Content/OwnedScroll/OwnedGrid" unique_id=341126538 instance=ExtResource("5_owned")]
+layout_mode = 2
+
+[node name="OwnedSlot06" parent="OwnedSection/Content/OwnedScroll/OwnedGrid" unique_id=97809081 instance=ExtResource("5_owned")]
+layout_mode = 2
+
+[node name="OwnedSlot07" parent="OwnedSection/Content/OwnedScroll/OwnedGrid" unique_id=835386204 instance=ExtResource("5_owned")]
+layout_mode = 2
+
+[node name="OwnedSlot08" parent="OwnedSection/Content/OwnedScroll/OwnedGrid" unique_id=260125211 instance=ExtResource("5_owned")]
+layout_mode = 2
+
+[node name="SelectionHint" type="Label" parent="OwnedSection/Content" unique_id=279747112]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 225.0
+offset_right = 347.0
+offset_bottom = 250.0
+theme_override_colors/font_color = Color(0.419608, 0.282353, 0.145098, 1)
+theme_override_font_sizes/font_size = 12
+text = "选择鱼种后可一次售出全部"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/l10n_text = "ui.969fe7f634"
+
+[node name="HighPriceSection" type="Control" parent="." unique_id=1472285077]
+editor_description = "右侧高价鱼与操作区；位置和尺寸由静态节点控制。"
+anchors_preset = 0
+offset_left = 455.0
+offset_top = 82.0
+offset_right = 755.0
+offset_bottom = 362.0
+
+[node name="Content" type="Control" parent="HighPriceSection" unique_id=875696422]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeadingBoard" type="PanelContainer" parent="HighPriceSection/Content" unique_id=1401256446]
+editor_description = "独立棕色木牌资源。"
+layout_mode = 0
+offset_left = 66.0
+offset_top = -13.0
+offset_right = 232.0
+offset_bottom = 24.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("WoodTitleArt")
+
+[node name="OffersTitle" type="Label" parent="HighPriceSection/Content/HeadingBoard" unique_id=204559439]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.968627, 0.819608, 1)
+theme_override_colors/font_shadow_color = Color(0.282353, 0.164706, 0.078431, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 15
+text = "高价收购"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/l10n_text = "ui.41343b2538"
+
+[node name="OffersScroll" type="ScrollContainer" parent="HighPriceSection/Content" unique_id=1497885153]
+editor_description = "高价鱼卡片使用独立图片资源；旧存档的已有栏位仍会保留。"
+layout_mode = 0
+offset_left = 8.0
+offset_top = 31.0
+offset_right = 292.0
+offset_bottom = 154.0
+vertical_scroll_mode = 0
+
+[node name="OffersRow" type="HBoxContainer" parent="HighPriceSection/Content/OffersScroll" unique_id=699558674]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="OfferSlot01" parent="HighPriceSection/Content/OffersScroll/OffersRow" unique_id=265564142 instance=ExtResource("6_offer")]
+layout_mode = 2
+
+[node name="OfferSlot02" parent="HighPriceSection/Content/OffersScroll/OffersRow" unique_id=306520702 instance=ExtResource("6_offer")]
+layout_mode = 2
+
+[node name="OfferSlot03" parent="HighPriceSection/Content/OffersScroll/OffersRow" unique_id=194015793 instance=ExtResource("6_offer")]
+layout_mode = 2
+
+[node name="CountdownRow" type="HBoxContainer" parent="HighPriceSection/Content" unique_id=1093387469]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 159.0
+offset_right = 257.0
+offset_bottom = 183.0
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="RefreshIcon" type="TextureRect" parent="HighPriceSection/Content/CountdownRow" unique_id=102245115]
+texture_filter = 1
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+texture = SubResource("RefreshCutout")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CountdownCaption" type="Label" parent="HighPriceSection/Content/CountdownRow" unique_id=1162857141]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.333333, 0.227451, 0.117647, 1)
+theme_override_font_sizes/font_size = 12
+text = "刷新倒计时："
+vertical_alignment = 1
+metadata/l10n_text = "ui.9efdc08988"
+
+[node name="Countdown" type="Label" parent="HighPriceSection/Content/CountdownRow" unique_id=1076922]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.258824, 0.403922, 0.141176, 1)
+theme_override_font_sizes/font_size = 13
+text = "00:00:00"
+vertical_alignment = 1
+
+[node name="ActionRow" type="HBoxContainer" parent="HighPriceSection/Content" unique_id=293149583]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 213.0
+offset_right = 296.0
+offset_bottom = 247.0
+theme_override_constants/separation = 6
+
+[node name="SellSelected" type="Button" parent="HighPriceSection/Content/ActionRow" unique_id=1455795063]
+editor_description = "只负责点击；Background 可独立换图，Label 可独立调文字。"
+custom_minimum_size = Vector2(142, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("InvisibleButtonArt")
+theme_override_styles/pressed = SubResource("InvisibleButtonArt")
+theme_override_styles/hover = SubResource("InvisibleButtonArt")
+theme_override_styles/disabled = SubResource("InvisibleButtonArt")
+theme_override_styles/focus = SubResource("InvisibleButtonArt")
+
+[node name="Background" type="TextureRect" parent="HighPriceSection/Content/ActionRow/SellSelected" unique_id=464784251]
+editor_description = "该鱼全卖按钮的独立背景图；在 Texture 中直接替换图片资源。"
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("SellSelectedBackground")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="HighPriceSection/Content/ActionRow/SellSelected" unique_id=764120281]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.984314, 0.866667, 1)
+theme_override_font_sizes/font_size = 14
+text = "该鱼全卖"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/l10n_text = "ui.bb274decd8"
+
+[node name="SellAll" type="Button" parent="HighPriceSection/Content/ActionRow" unique_id=1166655831]
+editor_description = "只负责点击；Background 可独立换图，Label 可独立调文字。"
+custom_minimum_size = Vector2(142, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("InvisibleButtonArt")
+theme_override_styles/pressed = SubResource("InvisibleButtonArt")
+theme_override_styles/hover = SubResource("InvisibleButtonArt")
+theme_override_styles/disabled = SubResource("InvisibleButtonArt")
+theme_override_styles/focus = SubResource("InvisibleButtonArt")
+
+[node name="Background" type="TextureRect" parent="HighPriceSection/Content/ActionRow/SellAll" unique_id=314814263]
+editor_description = "全部出售按钮的独立背景图；在 Texture 中直接替换图片资源。"
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("SellAllBackground")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="HighPriceSection/Content/ActionRow/SellAll" unique_id=967517796]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.984314, 0.866667, 1)
+theme_override_font_sizes/font_size = 14
+text = "全部出售"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/l10n_text = "ui.560ba20a1a"
+
+[node name="ProductSection" type="Control" parent="." unique_id=1504834945]
+editor_description = "农产品详情静态区；只在产品页显示，可在编辑器单独调整图片、文字和按钮。"
+visible = false
+anchors_preset = 0
+offset_left = 455.0
+offset_top = 82.0
+offset_right = 755.0
+offset_bottom = 362.0
+
+[node name="HeadingBoard" type="PanelContainer" parent="ProductSection" unique_id=916080631]
+layout_mode = 0
+offset_left = 66.0
+offset_top = -13.0
+offset_right = 232.0
+offset_bottom = 24.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("WoodTitleArt")
+
+[node name="Title" type="Label" parent="ProductSection/HeadingBoard" unique_id=1411252368]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "农产品商店"
+horizontal_alignment = 1
+metadata/l10n_text = "shop.products.title"
+
+[node name="ProductIcon" type="TextureRect" parent="ProductSection" unique_id=144709207]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 36.0
+offset_right = 207.0
+offset_bottom = 150.0
+mouse_filter = 2
+texture = ExtResource("preview_egg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ProductName" type="Label" parent="ProductSection" unique_id=1908569487]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 151.0
+offset_right = 276.0
+offset_bottom = 181.0
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+
+[node name="ProductSummary" type="Label" parent="ProductSection" unique_id=283015775]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 183.0
+offset_right = 276.0
+offset_bottom = 209.0
+theme_override_font_sizes/font_size = 13
+horizontal_alignment = 1
+
+[node name="SellSelected" type="Button" parent="ProductSection" unique_id=540295222]
+editor_description = "只负责点击；Background 可独立换图，Label 可独立调文字。"
+custom_minimum_size = Vector2(88, 34)
+layout_mode = 0
+offset_left = 25.0
+offset_top = 223.0
+offset_right = 145.0
+offset_bottom = 260.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("InvisibleButtonArt")
+theme_override_styles/pressed = SubResource("InvisibleButtonArt")
+theme_override_styles/hover = SubResource("InvisibleButtonArt")
+theme_override_styles/disabled = SubResource("InvisibleButtonArt")
+theme_override_styles/focus = SubResource("InvisibleButtonArt")
+
+[node name="Background" type="TextureRect" parent="ProductSection/SellSelected"]
+editor_description = "该鱼全卖按钮的独立背景图；在 Texture 中直接替换图片资源。"
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("SellSelectedBackground")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="ProductSection/SellSelected"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.984314, 0.866667, 1)
+theme_override_font_sizes/font_size = 14
+text = "出售此类"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/l10n_text = "shop.products.sell_selected"
+
+[node name="SellAll" type="Button" parent="ProductSection" unique_id=2018212281]
+editor_description = "只负责点击；Background 可独立换图，Label 可独立调文字。"
+custom_minimum_size = Vector2(88, 34)
+layout_mode = 0
+offset_left = 155.0
+offset_top = 223.0
+offset_right = 275.0
+offset_bottom = 260.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("InvisibleButtonArt")
+theme_override_styles/pressed = SubResource("InvisibleButtonArt")
+theme_override_styles/hover = SubResource("InvisibleButtonArt")
+theme_override_styles/disabled = SubResource("InvisibleButtonArt")
+theme_override_styles/focus = SubResource("InvisibleButtonArt")
+
+[node name="Background" type="TextureRect" parent="ProductSection/SellAll"]
+editor_description = "全部出售按钮的独立背景图；在 Texture 中直接替换图片资源。"
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("SellAllBackground")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="ProductSection/SellAll"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.984314, 0.866667, 1)
+theme_override_font_sizes/font_size = 14
+text = "全部出售"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/l10n_text = "shop.products.sell_all"
+
+[node name="CropQuantity" type="SpinBox" parent="ProductSection" unique_id=532310775]
+visible = false
+layout_mode = 0
+offset_left = 155.0
+offset_top = 223.0
+offset_right = 275.0
+offset_bottom = 260.0
+tooltip_text = "数量"
+min_value = 1.0
+value = 1.0
+metadata/l10n_tooltip_text = "ui.b9ae893190"
+
+[node name="CountdownTimer" type="Timer" parent="." unique_id=878927936]
+
+[node name="ProductGrid" type="GridContainer" parent="OwnedSection/Content/OwnedScroll"]
+editor_description = "静态商店库存槽；在编辑器打开此网格的可见性预览，运行时显示真实库存。"
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = -5
+theme_override_constants/v_separation = -4
+columns = 4
+
+[node name="ProductSlot01" parent="OwnedSection/Content/OwnedScroll/ProductGrid" instance=ExtResource("5_owned")]
+layout_mode = 2
+
+[node name="FishName" parent="OwnedSection/Content/OwnedScroll/ProductGrid/ProductSlot01/Content" index="0"]
+text = "鸡蛋"
+metadata/l10n_text = "catalog.pasture_products.egg.display_name"
+
+[node name="FishIcon" parent="OwnedSection/Content/OwnedScroll/ProductGrid/ProductSlot01/Content" index="1"]
+texture = ExtResource("preview_egg")
+
+[node name="ProductSlot02" parent="OwnedSection/Content/OwnedScroll/ProductGrid" instance=ExtResource("5_owned")]
+layout_mode = 2
+
+[node name="FishName" parent="OwnedSection/Content/OwnedScroll/ProductGrid/ProductSlot02/Content" index="0"]
+text = "牛奶"
+metadata/l10n_text = "catalog.pasture_products.milk.display_name"
+
+[node name="FishIcon" parent="OwnedSection/Content/OwnedScroll/ProductGrid/ProductSlot02/Content" index="1"]
+texture = ExtResource("preview_milk")
+
+[node name="ProductSlot03" parent="OwnedSection/Content/OwnedScroll/ProductGrid" instance=ExtResource("5_owned")]
+layout_mode = 2
+
+[node name="FishName" parent="OwnedSection/Content/OwnedScroll/ProductGrid/ProductSlot03/Content" index="0"]
+text = "羊毛"
+metadata/l10n_text = "catalog.pasture_products.wool.display_name"
+
+[node name="FishIcon" parent="OwnedSection/Content/OwnedScroll/ProductGrid/ProductSlot03/Content" index="1"]
+texture = ExtResource("preview_wool")
+
+[node name="ProductSlot04" parent="OwnedSection/Content/OwnedScroll/ProductGrid" instance=ExtResource("5_owned")]
+layout_mode = 2
+
+[node name="FishName" parent="OwnedSection/Content/OwnedScroll/ProductGrid/ProductSlot04/Content" index="0"]
+text = "猪肉"
+metadata/l10n_text = "catalog.pasture_products.pork.display_name"
+
+[node name="FishIcon" parent="OwnedSection/Content/OwnedScroll/ProductGrid/ProductSlot04/Content" index="1"]
+texture = ExtResource("preview_pork")
+
+[node name="CropGrid" type="GridContainer" parent="OwnedSection/Content/OwnedScroll"]
+editor_description = "静态商店库存槽；在编辑器打开此网格的可见性预览，运行时显示真实库存。"
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = -5
+theme_override_constants/v_separation = -4
+columns = 4
+
+[node name="CropSlot01" parent="OwnedSection/Content/OwnedScroll/CropGrid" instance=ExtResource("5_owned")]
+layout_mode = 2
+
+[node name="FishName" parent="OwnedSection/Content/OwnedScroll/CropGrid/CropSlot01/Content" index="0"]
+text = "小麦"
+metadata/l10n_text = "catalog.crops.wheat.display_name"
+
+[node name="FishIcon" parent="OwnedSection/Content/OwnedScroll/CropGrid/CropSlot01/Content" index="1"]
+texture = ExtResource("preview_wheat")
+
+[node name="CropSlot02" parent="OwnedSection/Content/OwnedScroll/CropGrid" instance=ExtResource("5_owned")]
+layout_mode = 2
+
+[node name="FishName" parent="OwnedSection/Content/OwnedScroll/CropGrid/CropSlot02/Content" index="0"]
+text = "玉米"
+metadata/l10n_text = "catalog.crops.corn.display_name"
+
+[node name="FishIcon" parent="OwnedSection/Content/OwnedScroll/CropGrid/CropSlot02/Content" index="1"]
+texture = ExtResource("preview_corn")
+
+[node name="CropSlot03" parent="OwnedSection/Content/OwnedScroll/CropGrid" instance=ExtResource("5_owned")]
+layout_mode = 2
+
+[node name="FishName" parent="OwnedSection/Content/OwnedScroll/CropGrid/CropSlot03/Content" index="0"]
+text = "胡萝卜"
+metadata/l10n_text = "catalog.crops.carrot.display_name"
+
+[node name="FishIcon" parent="OwnedSection/Content/OwnedScroll/CropGrid/CropSlot03/Content" index="1"]
+texture = ExtResource("preview_carrot")
+
+[node name="CropSlot04" parent="OwnedSection/Content/OwnedScroll/CropGrid" instance=ExtResource("5_owned")]
+layout_mode = 2
+
+[node name="FishName" parent="OwnedSection/Content/OwnedScroll/CropGrid/CropSlot04/Content" index="0"]
+text = "白萝卜"
+metadata/l10n_text = "catalog.crops.white_radish.display_name"
+
+[node name="FishIcon" parent="OwnedSection/Content/OwnedScroll/CropGrid/CropSlot04/Content" index="1"]
+texture = ExtResource("preview_white_radish")
+
+[node name="CropIcon" type="TextureRect" parent="ProductSection"]
+editor_description = "作物详情预览；运行时由库存选择填充。"
+visible = false
+layout_mode = 0
+offset_left = 93.0
+offset_top = 36.0
+offset_right = 207.0
+offset_bottom = 150.0
+mouse_filter = 2
+texture = ExtResource("preview_wheat")
+expand_mode = 1
+stretch_mode = 5
+
+[editable path="OwnedSection/Content/OwnedScroll/ProductGrid/ProductSlot01"]
+[editable path="OwnedSection/Content/OwnedScroll/ProductGrid/ProductSlot02"]
+[editable path="OwnedSection/Content/OwnedScroll/ProductGrid/ProductSlot03"]
+[editable path="OwnedSection/Content/OwnedScroll/ProductGrid/ProductSlot04"]
+[editable path="OwnedSection/Content/OwnedScroll/CropGrid/CropSlot01"]
+[editable path="OwnedSection/Content/OwnedScroll/CropGrid/CropSlot02"]
+[editable path="OwnedSection/Content/OwnedScroll/CropGrid/CropSlot03"]
+[editable path="OwnedSection/Content/OwnedScroll/CropGrid/CropSlot04"]
+[editable path="HighPriceSection/Content/OffersScroll/OffersRow/OfferSlot01"]
+[editable path="HighPriceSection/Content/OffersScroll/OffersRow/OfferSlot02"]
+[editable path="HighPriceSection/Content/OffersScroll/OffersRow/OfferSlot03"]

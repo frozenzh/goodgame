@@ -1,0 +1,15 @@
+{
+  "module": "shop",
+  "values": {
+    "level_1_multiplier_max": 1.8,
+    "level_1_multiplier_min": 1.5,
+    "level_1_offer_slots": 3,
+    "level_2_multiplier_max": 2.0,
+    "level_2_multiplier_min": 1.7,
+    "level_2_offer_slots": 4,
+    "level_3_multiplier_max": 2.3,
+    "level_3_multiplier_min": 1.9,
+    "level_3_offer_slots": 5,
+    "refresh_hours": 0.5
+  }
+}

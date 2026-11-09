@@ -1,0 +1,123 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/hd/ui/wood_sign.png" id="1_board"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/icon_coin.png" id="2_coin"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/icon_crop.png" id="3_crop"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/icon_fish.png" id="4_fish"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/icon_bait.png" id="5_bait"]
+
+[node name="ResourceBoard" type="Node2D"]
+editor_description = "四块木牌均为静态节点；可分别移动整组、底板、图标和数字。"
+
+[node name="ResourceRow" type="Node2D" parent="."]
+
+[node name="CoinSign" type="Node2D" parent="ResourceRow"]
+editor_description = "金币木牌"
+
+[node name="Board" type="Sprite2D" parent="ResourceRow/CoinSign"]
+texture_filter = 2
+position = Vector2(63, 21)
+scale = Vector2(0.058, 0.058)
+texture = ExtResource("1_board")
+
+[node name="Icon" type="Sprite2D" parent="ResourceRow/CoinSign"]
+texture_filter = 2
+position = Vector2(25, 21)
+scale = Vector2(0.0115, 0.0115)
+texture = ExtResource("2_coin")
+
+[node name="Amount" type="Label" parent="ResourceRow/CoinSign"]
+offset_left = 43.0
+offset_top = 3.0
+offset_right = 116.0
+offset_bottom = 39.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.247059, 0.188235, 0.156863, 1)
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CropSign" type="Node2D" parent="ResourceRow"]
+editor_description = "作物木牌"
+position = Vector2(0, 45)
+
+[node name="Board" type="Sprite2D" parent="ResourceRow/CropSign"]
+texture_filter = 2
+position = Vector2(63, 21)
+scale = Vector2(0.058, 0.058)
+texture = ExtResource("1_board")
+
+[node name="Icon" type="Sprite2D" parent="ResourceRow/CropSign"]
+texture_filter = 2
+position = Vector2(25, 21)
+scale = Vector2(0.0115, 0.0115)
+texture = ExtResource("3_crop")
+
+[node name="Amount" type="Label" parent="ResourceRow/CropSign"]
+offset_left = 43.0
+offset_top = 3.0
+offset_right = 116.0
+offset_bottom = 39.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.247059, 0.188235, 0.156863, 1)
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FishSign" type="Node2D" parent="ResourceRow"]
+editor_description = "鱼篓木牌"
+position = Vector2(0, 90)
+
+[node name="Board" type="Sprite2D" parent="ResourceRow/FishSign"]
+texture_filter = 2
+position = Vector2(63, 21)
+scale = Vector2(0.058, 0.058)
+texture = ExtResource("1_board")
+
+[node name="Icon" type="Sprite2D" parent="ResourceRow/FishSign"]
+texture_filter = 2
+position = Vector2(25, 21)
+scale = Vector2(0.0115, 0.0115)
+texture = ExtResource("4_fish")
+
+[node name="Amount" type="Label" parent="ResourceRow/FishSign"]
+offset_left = 43.0
+offset_top = 3.0
+offset_right = 116.0
+offset_bottom = 39.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.247059, 0.188235, 0.156863, 1)
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BaitSign" type="Node2D" parent="ResourceRow"]
+editor_description = "鱼饵木牌"
+position = Vector2(0, 135)
+
+[node name="Board" type="Sprite2D" parent="ResourceRow/BaitSign"]
+texture_filter = 2
+position = Vector2(63, 21)
+scale = Vector2(0.058, 0.058)
+texture = ExtResource("1_board")
+
+[node name="Icon" type="Sprite2D" parent="ResourceRow/BaitSign"]
+texture_filter = 2
+position = Vector2(25, 21)
+scale = Vector2(0.0115, 0.0115)
+texture = ExtResource("5_bait")
+
+[node name="Amount" type="Label" parent="ResourceRow/BaitSign"]
+offset_left = 43.0
+offset_top = 3.0
+offset_right = 116.0
+offset_bottom = 39.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.247059, 0.188235, 0.156863, 1)
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

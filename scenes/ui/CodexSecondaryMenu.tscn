@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://knx8petm6x0d"]
+
+[ext_resource type="Script" uid="uid://6anuifj7tpkx" path="res://scripts/ui/codex_tab_button.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dspjpr66gh236" path="res://assets/hd/ui/shop_v04/controls_atlas.png" id="2_atlas"]
+
+[sub_resource type="StyleBoxEmpty" id="EmptyStyle"]
+
+[sub_resource type="AtlasTexture" id="SelectedArt"]
+atlas = ExtResource("2_atlas")
+region = Rect2(568, 616, 458, 280)
+
+[sub_resource type="AtlasTexture" id="NormalArt"]
+atlas = ExtResource("2_atlas")
+region = Rect2(40, 605, 450, 310)
+
+[node name="SecondaryMenu" type="HBoxContainer" unique_id=1790909627]
+editor_description = "图鉴鱼品质筛选；每个按钮展开后可单独替换 Background 贴图、调整 Label。"
+custom_minimum_size = Vector2(344, 40)
+theme_override_constants/separation = 4
+
+[node name="CommonTab" type="Button" parent="." unique_id=1306080468]
+editor_description = "点击区；Background 和 Label 是独立静态节点。"
+custom_minimum_size = Vector2(83, 36)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("EmptyStyle")
+theme_override_styles/pressed = SubResource("EmptyStyle")
+theme_override_styles/hover = SubResource("EmptyStyle")
+theme_override_styles/disabled = SubResource("EmptyStyle")
+theme_override_styles/focus = SubResource("EmptyStyle")
+script = ExtResource("1_script")
+selected_background = SubResource("SelectedArt")
+
+[node name="Background" type="TextureRect" parent="CommonTab" unique_id=2135979212]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("NormalArt")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CommonTab" unique_id=1254270003]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.247, 0.188, 0.157, 1)
+theme_override_font_sizes/font_size = 12
+text = "普通"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/l10n_text = "ui.7cda072d45"
+
+[node name="GoodTab" type="Button" parent="." unique_id=66555573]
+editor_description = "点击区；Background 和 Label 是独立静态节点。"
+custom_minimum_size = Vector2(83, 36)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("EmptyStyle")
+theme_override_styles/pressed = SubResource("EmptyStyle")
+theme_override_styles/hover = SubResource("EmptyStyle")
+theme_override_styles/disabled = SubResource("EmptyStyle")
+theme_override_styles/focus = SubResource("EmptyStyle")
+script = ExtResource("1_script")
+selected_background = SubResource("SelectedArt")
+
+[node name="Background" type="TextureRect" parent="GoodTab" unique_id=1779585108]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("NormalArt")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="GoodTab" unique_id=120051157]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.247, 0.188, 0.157, 1)
+theme_override_font_sizes/font_size = 12
+text = "优秀"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/l10n_text = "ui.3e61f36792"
+
+[node name="RareTab" type="Button" parent="." unique_id=9350256]
+editor_description = "点击区；Background 和 Label 是独立静态节点。"
+custom_minimum_size = Vector2(83, 36)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("EmptyStyle")
+theme_override_styles/pressed = SubResource("EmptyStyle")
+theme_override_styles/hover = SubResource("EmptyStyle")
+theme_override_styles/disabled = SubResource("EmptyStyle")
+theme_override_styles/focus = SubResource("EmptyStyle")
+script = ExtResource("1_script")
+selected_background = SubResource("SelectedArt")
+
+[node name="Background" type="TextureRect" parent="RareTab" unique_id=636697786]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("NormalArt")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="RareTab" unique_id=1274876827]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.247, 0.188, 0.157, 1)
+theme_override_font_sizes/font_size = 12
+text = "稀有"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/l10n_text = "ui.543cfd5dfd"
+
+[node name="EpicTab" type="Button" parent="." unique_id=1847688856]
+editor_description = "点击区；Background 和 Label 是独立静态节点。"
+custom_minimum_size = Vector2(83, 36)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("EmptyStyle")
+theme_override_styles/pressed = SubResource("EmptyStyle")
+theme_override_styles/hover = SubResource("EmptyStyle")
+theme_override_styles/disabled = SubResource("EmptyStyle")
+theme_override_styles/focus = SubResource("EmptyStyle")
+script = ExtResource("1_script")
+selected_background = SubResource("SelectedArt")
+
+[node name="Background" type="TextureRect" parent="EpicTab" unique_id=1856004608]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("NormalArt")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="EpicTab" unique_id=2062416650]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.247, 0.188, 0.157, 1)
+theme_override_font_sizes/font_size = 12
+text = "史诗"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/l10n_text = "ui.a18ebc607f"
+

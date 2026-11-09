@@ -1,0 +1,19 @@
+{
+  "module": "fishing",
+  "values": {
+    "cast_max_seconds": 13,
+    "cast_min_seconds": 7,
+    "common_size_max_cm": 35,
+    "common_size_min_cm": 10,
+    "epic_size_max_cm": 130,
+    "epic_size_min_cm": 70,
+    "good_size_max_cm": 60,
+    "good_size_min_cm": 25,
+    "high_rarity_bait_rare_epic_weight_multiplier": 5.0,
+    "leaderboard_demo_bot_count": 24,
+    "leaderboard_url": "http://127.0.0.1:8765",
+    "matching_bait_weight": 1.5,
+    "rare_size_max_cm": 90,
+    "rare_size_min_cm": 45
+  }
+}

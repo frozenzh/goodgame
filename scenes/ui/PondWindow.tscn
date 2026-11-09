@@ -1,0 +1,218 @@
+[gd_scene format=3 uid="uid://6bwv2v67fc87"]
+
+[ext_resource type="Script" uid="uid://cjgg8t2bqoo50" path="res://scripts/ui/codex_window.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/StaticPopupFrame.tscn" id="2_frame"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PondContent.tscn" id="3_content"]
+[ext_resource type="PackedScene" uid="uid://durjladcy80ee" path="res://scenes/ui/WorkbenchTab.tscn" id="4_rpret"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/NewUnlockDot.tscn" id="new_unlock_dot"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ix2ur"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6901961, 0.39607844, 0.17254902, 1)
+anti_aliasing = false
+
+[node name="PondWindow" type="Window" unique_id=529751419]
+editor_description = "钓鱼原生子窗口；桌面定位组可微调鱼塘上方的位置。"
+transparent_bg = true
+oversampling_override = 1.0
+size = Vector2i(800, 380)
+transient = true
+unresizable = true
+borderless = true
+transparent = true
+min_size = Vector2i(800, 380)
+script = ExtResource("1_script")
+
+[node name="PondPopup" parent="." unique_id=855888985 instance=ExtResource("2_frame")]
+clip_contents = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 123.0
+offset_top = 9.0
+offset_right = -40.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PondContent" parent="PondPopup/ContentSurface" index="0" unique_id=227003055 instance=ExtResource("3_content")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 30.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BaitTitle" parent="PondPopup/ContentSurface/PondContent" index="0"]
+visible = false
+layout_mode = 0
+offset_left = 47.0
+offset_top = 56.0
+offset_right = 187.0
+offset_bottom = 85.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 28
+
+[node name="BaitViewport" parent="PondPopup/ContentSurface/PondContent" index="1"]
+layout_mode = 0
+offset_left = 107.5
+offset_top = 64.0
+offset_right = 401.5
+offset_bottom = 324.0
+
+[node name="BaitGrid" parent="PondPopup/ContentSurface/PondContent/BaitViewport" index="0"]
+columns = 3
+
+[node name="BaitSlot01" parent="PondPopup/ContentSurface/PondContent/BaitViewport/BaitGrid" index="0"]
+editor_description = "鱼饵卡静态模板；品质底图、图标、名称、数量和选中框可分别调整。"
+
+[node name="BaitSlot02" parent="PondPopup/ContentSurface/PondContent/BaitViewport/BaitGrid" index="1"]
+editor_description = "鱼饵卡静态模板；品质底图、图标、名称、数量和选中框可分别调整。"
+
+[node name="BaitSlot03" parent="PondPopup/ContentSurface/PondContent/BaitViewport/BaitGrid" index="2"]
+editor_description = "鱼饵卡静态模板；品质底图、图标、名称、数量和选中框可分别调整。"
+
+[node name="BaitSlot04" parent="PondPopup/ContentSurface/PondContent/BaitViewport/BaitGrid" index="3"]
+editor_description = "鱼饵卡静态模板；品质底图、图标、名称、数量和选中框可分别调整。"
+
+[node name="BaitSlot05" parent="PondPopup/ContentSurface/PondContent/BaitViewport/BaitGrid" index="4"]
+editor_description = "鱼饵卡静态模板；品质底图、图标、名称、数量和选中框可分别调整。"
+
+[node name="BaitSlot06" parent="PondPopup/ContentSurface/PondContent/BaitViewport/BaitGrid" index="5"]
+editor_description = "鱼饵卡静态模板；品质底图、图标、名称、数量和选中框可分别调整。"
+
+[node name="BaitSlot07" parent="PondPopup/ContentSurface/PondContent/BaitViewport/BaitGrid" index="6"]
+editor_description = "鱼饵卡静态模板；品质底图、图标、名称、数量和选中框可分别调整。"
+
+[node name="BaitSlot08" parent="PondPopup/ContentSurface/PondContent/BaitViewport/BaitGrid" index="7"]
+editor_description = "鱼饵卡静态模板；品质底图、图标、名称、数量和选中框可分别调整。"
+
+[node name="RodViewport" parent="PondPopup/ContentSurface/PondContent" index="2"]
+visible = true
+layout_mode = 0
+offset_left = 108.5
+offset_top = 65.0
+offset_right = 392.5
+offset_bottom = 290.0
+
+[node name="Status" parent="PondPopup/ContentSurface/PondContent" index="3"]
+layout_mode = 0
+offset_left = 429.5
+offset_top = 65.0
+offset_right = 599.5
+offset_bottom = 164.0
+text = "当前鱼饵：未选择"
+metadata/l10n_text = "ui.29b719fafc"
+vertical_alignment = 0
+
+[node name="IdleAutoFish" parent="PondPopup/ContentSurface/PondContent" index="4"]
+layout_mode = 0
+offset_left = 438.5
+offset_top = 255.0
+offset_right = 655.5
+offset_bottom = 287.0
+theme_override_colors/font_pressed_color = Color(0.01915688, 0.56326365, 5.7756904e-07, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_colors/checkbox_checked_color = Color(0.05882353, 0.4627451, 0, 1)
+button_pressed = true
+
+[node name="FishingButton" parent="PondPopup/ContentSurface/PondContent" index="5"]
+layout_mode = 0
+offset_left = 461.5
+offset_top = 291.0
+offset_right = 563.5
+offset_bottom = 340.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 25
+text = "钓鱼"
+metadata/l10n_text = "ui.8124830197"
+
+[node name="CategoryTabs" type="VBoxContainer" parent="PondPopup/ContentSurface/PondContent" unique_id=2076053271]
+editor_description = "一级菜单；位置、尺寸和页签间距在这里调整。"
+layout_mode = 0
+offset_left = -22.5
+offset_top = 56.0
+offset_right = 89.5
+offset_bottom = 148.0
+theme_override_constants/separation = 12
+
+[node name="BaitTab" parent="PondPopup/ContentSurface/PondContent/CategoryTabs" unique_id=160669660 instance=ExtResource("4_rpret")]
+layout_mode = 2
+
+[node name="RodTab" parent="PondPopup/ContentSurface/PondContent/CategoryTabs" unique_id=356452422 instance=ExtResource("4_rpret")]
+layout_mode = 2
+
+[node name="LeaderboardTab" parent="PondPopup/ContentSurface/PondContent/CategoryTabs" instance=ExtResource("4_rpret")]
+layout_mode = 2
+
+[node name="Label" parent="PondPopup/ContentSurface/PondContent/CategoryTabs/LeaderboardTab" index="1"]
+text = "排行"
+metadata/l10n_text = "fishing.leaderboard.tab"
+
+[node name="NewUnlockDot" parent="PondPopup/ContentSurface/PondContent/CategoryTabs/LeaderboardTab" instance=ExtResource("new_unlock_dot")]
+layout_mode = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -14.0
+offset_top = 1.0
+offset_right = -4.0
+offset_bottom = 11.0
+
+[node name="Label" parent="PondPopup/ContentSurface/PondContent/CategoryTabs/RodTab" index="1" unique_id=1559142611]
+text = "鱼竿"
+metadata/l10n_text = "ui.0a303232da"
+
+[node name="outline" type="Panel" parent="PondPopup/ContentSurface/PondContent" unique_id=103447646]
+layout_mode = 0
+offset_left = 94.5
+offset_top = 55.0
+offset_right = 413.5
+offset_bottom = 339.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ix2ur")
+
+[node name="outline2" type="Panel" parent="PondPopup/ContentSurface/PondContent" unique_id=1385116436]
+layout_mode = 0
+offset_left = 417.5
+offset_top = 55.0
+offset_right = 609.5
+offset_bottom = 252.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ix2ur")
+
+[node name="TitlePlank" parent="PondPopup/ContentSurface" index="1"]
+anchors_preset = 5
+
+[node name="TitleText" parent="PondPopup/ContentSurface/TitlePlank" index="0"]
+text = "钓鱼"
+metadata/l10n_text = "ui.8124830197"
+
+[node name="CloseButton" parent="PondPopup/ContentSurface" index="2"]
+anchors_preset = 1
+offset_left = -38.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 38.0
+
+[editable path="PondPopup"]
+[editable path="PondPopup/ContentSurface/PondContent"]
+[editable path="PondPopup/ContentSurface/PondContent/LeaderboardPage"]
+[editable path="PondPopup/ContentSurface/PondContent/BaitViewport/BaitGrid/BaitSlot01"]
+[editable path="PondPopup/ContentSurface/PondContent/BaitViewport/BaitGrid/BaitSlot02"]
+[editable path="PondPopup/ContentSurface/PondContent/BaitViewport/BaitGrid/BaitSlot03"]
+[editable path="PondPopup/ContentSurface/PondContent/BaitViewport/BaitGrid/BaitSlot04"]
+[editable path="PondPopup/ContentSurface/PondContent/BaitViewport/BaitGrid/BaitSlot05"]
+[editable path="PondPopup/ContentSurface/PondContent/BaitViewport/BaitGrid/BaitSlot06"]
+[editable path="PondPopup/ContentSurface/PondContent/BaitViewport/BaitGrid/BaitSlot07"]
+[editable path="PondPopup/ContentSurface/PondContent/BaitViewport/BaitGrid/BaitSlot08"]
+[editable path="PondPopup/ContentSurface/PondContent/CategoryTabs/RodTab"]

@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://cxfmwe8ose064"]
+
+[ext_resource type="PackedScene" uid="uid://3vett87unfqr" path="res://scenes/ui/FishCodexCard.tscn" id="4_fish"]
+[ext_resource type="PackedScene" uid="uid://mn1bmq2jv1ak" path="res://scenes/ui/CropCodexCard.tscn" id="5_crop"]
+[ext_resource type="PackedScene" uid="uid://b33hhlf0k0uf" path="res://scenes/ui/BaitCodexCard.tscn" id="6_bait"]
+
+[node name="EntriesViewport" type="ScrollContainer" unique_id=368179993]
+editor_description = "图鉴唯一滚动区。三种内容页均在 Pages 下，两个菜单不在本组件中。"
+custom_minimum_size = Vector2(352, 196)
+horizontal_scroll_mode = 0
+
+[node name="Pages" type="Control" parent="." unique_id=1590991922]
+custom_minimum_size = Vector2(335, 356)
+layout_mode = 2
+
+[node name="FishPage" type="GridContainer" parent="Pages" unique_id=1481070980]
+layout_mode = 1
+offset_right = 251.0
+scale = Vector2(1.4, 1.4)
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1
+columns = 3
+
+[node name="FishSlot01" parent="Pages/FishPage" unique_id=297480146 instance=ExtResource("4_fish")]
+layout_mode = 2
+
+[node name="FishSlot02" parent="Pages/FishPage" unique_id=742777076 instance=ExtResource("4_fish")]
+layout_mode = 2
+
+[node name="FishSlot03" parent="Pages/FishPage" unique_id=1497438498 instance=ExtResource("4_fish")]
+layout_mode = 2
+
+[node name="FishSlot04" parent="Pages/FishPage" unique_id=1806386069 instance=ExtResource("4_fish")]
+layout_mode = 2
+
+[node name="FishSlot05" parent="Pages/FishPage" unique_id=787015679 instance=ExtResource("4_fish")]
+layout_mode = 2
+
+[node name="FishSlot06" parent="Pages/FishPage" unique_id=1399121041 instance=ExtResource("4_fish")]
+layout_mode = 2
+
+[node name="FishSlot07" parent="Pages/FishPage" unique_id=239324856 instance=ExtResource("4_fish")]
+layout_mode = 2
+
+[node name="FishSlot08" parent="Pages/FishPage" unique_id=883690485 instance=ExtResource("4_fish")]
+layout_mode = 2
+
+[node name="FishSlot09" parent="Pages/FishPage" unique_id=593930894 instance=ExtResource("4_fish")]
+layout_mode = 2
+
+[node name="FishSlot10" parent="Pages/FishPage" unique_id=936691605 instance=ExtResource("4_fish")]
+layout_mode = 2
+
+[node name="FishSlot11" parent="Pages/FishPage" unique_id=365887776 instance=ExtResource("4_fish")]
+layout_mode = 2
+
+[node name="FishSlot12" parent="Pages/FishPage" unique_id=751882881 instance=ExtResource("4_fish")]
+layout_mode = 2
+
+[node name="CropPage" type="GridContainer" parent="Pages" unique_id=1922867278]
+visible = false
+layout_mode = 1
+offset_right = 251.0
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 4
+
+[node name="CropSlot01" parent="Pages/CropPage" unique_id=304532245 instance=ExtResource("5_crop")]
+layout_mode = 2
+
+[node name="CropSlot02" parent="Pages/CropPage" unique_id=793327306 instance=ExtResource("5_crop")]
+layout_mode = 2
+
+[node name="CropSlot03" parent="Pages/CropPage" unique_id=1522093180 instance=ExtResource("5_crop")]
+layout_mode = 2
+
+[node name="CropSlot04" parent="Pages/CropPage" unique_id=2086651388 instance=ExtResource("5_crop")]
+layout_mode = 2
+
+[node name="CropSlot05" parent="Pages/CropPage" unique_id=1566584269 instance=ExtResource("5_crop")]
+layout_mode = 2
+
+[node name="CropSlot06" parent="Pages/CropPage" unique_id=1873656200 instance=ExtResource("5_crop")]
+layout_mode = 2
+
+[node name="CropSlot07" parent="Pages/CropPage" unique_id=746262906 instance=ExtResource("5_crop")]
+layout_mode = 2
+
+[node name="CropSlot08" parent="Pages/CropPage" unique_id=1387962976 instance=ExtResource("5_crop")]
+layout_mode = 2
+
+[node name="BaitPage" type="GridContainer" parent="Pages" unique_id=1138694898]
+visible = false
+layout_mode = 1
+offset_right = 251.0
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 4
+
+[node name="BaitSlot01" parent="Pages/BaitPage" unique_id=82780611 instance=ExtResource("6_bait")]
+layout_mode = 2
+
+[node name="BaitSlot02" parent="Pages/BaitPage" unique_id=1963305428 instance=ExtResource("6_bait")]
+layout_mode = 2
+
+[node name="BaitSlot03" parent="Pages/BaitPage" unique_id=1197053692 instance=ExtResource("6_bait")]
+layout_mode = 2
+
+[node name="BaitSlot04" parent="Pages/BaitPage" unique_id=1628034719 instance=ExtResource("6_bait")]
+layout_mode = 2
+
+[node name="BaitSlot05" parent="Pages/BaitPage" unique_id=88982235 instance=ExtResource("6_bait")]
+layout_mode = 2
+
+[node name="BaitSlot06" parent="Pages/BaitPage" unique_id=1357324922 instance=ExtResource("6_bait")]
+layout_mode = 2
+
+[node name="BaitSlot07" parent="Pages/BaitPage" unique_id=265936325 instance=ExtResource("6_bait")]
+layout_mode = 2
+
+[node name="BaitSlot08" parent="Pages/BaitPage" unique_id=1670898109 instance=ExtResource("6_bait")]
+layout_mode = 2
+
+[editable path="Pages/FishPage/FishSlot01"]
+[editable path="Pages/FishPage/FishSlot02"]
+[editable path="Pages/FishPage/FishSlot03"]
+[editable path="Pages/FishPage/FishSlot04"]
+[editable path="Pages/FishPage/FishSlot05"]
+[editable path="Pages/FishPage/FishSlot06"]
+[editable path="Pages/FishPage/FishSlot07"]
+[editable path="Pages/FishPage/FishSlot08"]
+[editable path="Pages/FishPage/FishSlot09"]
+[editable path="Pages/FishPage/FishSlot10"]
+[editable path="Pages/FishPage/FishSlot11"]
+[editable path="Pages/FishPage/FishSlot12"]
+[editable path="Pages/CropPage/CropSlot01"]
+[editable path="Pages/CropPage/CropSlot02"]
+[editable path="Pages/CropPage/CropSlot03"]
+[editable path="Pages/CropPage/CropSlot04"]
+[editable path="Pages/CropPage/CropSlot05"]
+[editable path="Pages/CropPage/CropSlot06"]
+[editable path="Pages/CropPage/CropSlot07"]
+[editable path="Pages/CropPage/CropSlot08"]
+[editable path="Pages/BaitPage/BaitSlot01"]
+[editable path="Pages/BaitPage/BaitSlot02"]
+[editable path="Pages/BaitPage/BaitSlot03"]
+[editable path="Pages/BaitPage/BaitSlot04"]
+[editable path="Pages/BaitPage/BaitSlot05"]
+[editable path="Pages/BaitPage/BaitSlot06"]
+[editable path="Pages/BaitPage/BaitSlot07"]
+[editable path="Pages/BaitPage/BaitSlot08"]

@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "catalog_type": "pasture_products",
+  "items": [
+    {
+      "id": "egg",
+      "display_name": "鸡蛋",
+      "source_animal": "chicken",
+      "sell_price": 12,
+      "icon_resource": "res://assets/hd/ui/pasture_egg.tres",
+      "rarity": "common"
+    },
+    {
+      "id": "milk",
+      "display_name": "牛奶",
+      "source_animal": "cow",
+      "sell_price": 35,
+      "icon_resource": "res://assets/hd/ui/pasture_milk.tres",
+      "rarity": "common"
+    },
+    {
+      "id": "wool",
+      "display_name": "羊毛",
+      "source_animal": "sheep",
+      "sell_price": 28,
+      "icon_resource": "res://assets/hd/ui/pasture_wool.tres",
+      "rarity": "common"
+    },
+    {
+      "id": "pork",
+      "display_name": "猪肉",
+      "source_animal": "pig",
+      "sell_price": 40,
+      "icon_resource": "res://assets/hd/ui/pasture_pork.tres",
+      "rarity": "common"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "module": "pasture",
+  "values": {
+    "animal_animation_frame_seconds": 0.1,
+    "animal_walk_max_speed": 13.0,
+    "animal_walk_min_speed": 7.0,
+    "chicken_price": 40,
+    "chicken_product_minutes": 10.0,
+    "cow_price": 220,
+    "cow_product_minutes": 25.0,
+    "dog_sleep_seconds": 8.0,
+    "dog_walk_speed": 14.0,
+    "dog_wander_seconds": 10.0,
+    "feed_crop_count": 1,
+    "food_per_crop": 10,
+    "hunger_tick_seconds": 60.0,
+    "hungry_alert_ticks": 3,
+    "max_animals_per_pen": 10,
+    "pig_price": 90,
+    "pig_product_minutes": 20.0,
+    "sheep_price": 140,
+    "sheep_product_minutes": 15.0
+  }
+}

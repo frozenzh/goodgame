@@ -1,0 +1,43 @@
+#!/bin/zsh
+set -u
+
+excel_dir="${0:A:h:h:h:h}"
+export_script="$excel_dir/export.py"
+log_file="$excel_dir/导表运行日志.txt"
+python_bin=""
+
+for candidate in \
+    "$HOME/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3" \
+    /opt/homebrew/bin/python3 \
+    /usr/local/bin/python3 \
+    /usr/bin/python3 \
+    "$(command -v python3 2>/dev/null)"; do
+    if [[ -n "$candidate" && -x "$candidate" ]] && "$candidate" -c 'import sys; sys.exit(0 if sys.version_info >= (3, 10) else 1)' >/dev/null 2>&1; then
+        python_bin="$candidate"
+        break
+    fi
+done
+
+print -r -- "运行时间：$(date '+%Y-%m-%d %H:%M:%S')" > "$log_file"
+print -r -- "项目目录：${excel_dir:h}" >> "$log_file"
+
+if [[ -z "$python_bin" ]]; then
+    print -r -- "导表失败：找不到 Python 3.10 或更新版本。" >> "$log_file"
+    if [[ "${MYFAVORITE_EXPORT_SILENT:-0}" != "1" ]]; then
+        /usr/bin/osascript -e 'display dialog "找不到 Python 3.10 或更新版本。请安装 Python 3 后重试。" with title "一键导表失败" buttons {"确定"} default button "确定"'
+    fi
+    exit 1
+fi
+
+print -r -- "Python：$python_bin" >> "$log_file"
+if "$python_bin" "$export_script" "$@" >> "$log_file" 2>&1; then
+    if [[ "${MYFAVORITE_EXPORT_SILENT:-0}" != "1" ]]; then
+        /usr/bin/osascript -e 'display dialog "导表完成。重新启动 Godot 后会读取最新配置；详情见 excel/导表运行日志.txt。" with title "一键导表" buttons {"确定"} default button "确定"'
+    fi
+    exit 0
+fi
+
+if [[ "${MYFAVORITE_EXPORT_SILENT:-0}" != "1" ]]; then
+    /usr/bin/osascript -e 'display dialog "导表失败。请查看 excel/导表运行日志.txt 中的具体错误，修正表格后重试。" with title "一键导表失败" buttons {"确定"} default button "确定"'
+fi
+exit 1

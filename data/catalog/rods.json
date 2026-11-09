@@ -1,0 +1,42 @@
+{
+  "schema_version": 2,
+  "catalog_type": "rods",
+  "items": [
+    {
+      "id": "basic_rod",
+      "display_name": "普通鱼竿",
+      "tier": 1,
+      "rarity": "common",
+      "max_fish_rarity": "common",
+      "upgrade_cost": 0,
+      "icon_resource": "res://assets/hd/ui/icon_rod_simple.svg"
+    },
+    {
+      "id": "good_rod",
+      "display_name": "优秀鱼竿",
+      "tier": 2,
+      "rarity": "good",
+      "max_fish_rarity": "good",
+      "upgrade_cost": 600,
+      "icon_resource": "res://assets/hd/ui/icon_rod_simple.svg"
+    },
+    {
+      "id": "rare_rod",
+      "display_name": "稀有鱼竿",
+      "tier": 3,
+      "rarity": "rare",
+      "max_fish_rarity": "rare",
+      "upgrade_cost": 3600,
+      "icon_resource": "res://assets/hd/ui/icon_rod_simple.svg"
+    },
+    {
+      "id": "epic_rod",
+      "display_name": "史诗鱼竿",
+      "tier": 4,
+      "rarity": "epic",
+      "max_fish_rarity": "epic",
+      "upgrade_cost": 12000,
+      "icon_resource": "res://assets/hd/ui/icon_rod_simple.svg"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://durjladcy80ee"]
+
+[ext_resource type="Script" uid="uid://6anuifj7tpkx" path="res://scripts/ui/codex_tab_button.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://difr0fbx1qs4t" path="res://assets/hd/ui/primary_side_tab_twothirds_selected.png" id="2_ct570"]
+[ext_resource type="Texture2D" uid="uid://bxio3kbalaau8" path="res://assets/hd/ui/primary_side_tab_twothirds_normal.png" id="3_6c6vj"]
+
+[sub_resource type="StyleBoxEmpty" id="EmptyStyle"]
+
+[node name="WorkbenchTab" type="Button" unique_id=160669660]
+editor_description = "工作台一级页签；背景和文字各是独立静态节点。"
+custom_minimum_size = Vector2(112, 40)
+offset_right = 112.0
+offset_bottom = 40.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("EmptyStyle")
+theme_override_styles/pressed = SubResource("EmptyStyle")
+theme_override_styles/hover = SubResource("EmptyStyle")
+theme_override_styles/disabled = SubResource("EmptyStyle")
+theme_override_styles/focus = SubResource("EmptyStyle")
+script = ExtResource("1_script")
+selected_background = ExtResource("2_ct570")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1446913058]
+layout_mode = 1
+offset_left = -96.000015
+offset_top = -50.000008
+offset_right = 41.999985
+offset_bottom = 9.999992
+scale = Vector2(2.19, 2.19)
+mouse_filter = 2
+texture = ExtResource("3_6c6vj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=1559142611]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.941, 0.784, 1)
+theme_override_colors/font_outline_color = Color(0.211, 0.113, 0.054, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 20
+text = "鱼饵"
+metadata/l10n_text = "ui.9be962ae57"
+horizontal_alignment = 1
+vertical_alignment = 1
+

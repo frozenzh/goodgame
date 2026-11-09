@@ -1,0 +1,2142 @@
+{
+  "catalog.achievements.ACH_BAIT_VARIETY_3.description": {
+    "en": "Craft three different kinds of bait",
+    "zh": "累计制作过3种不同鱼饵"
+  },
+  "catalog.achievements.ACH_BAIT_VARIETY_3.name": {
+    "en": "A New Flavor",
+    "zh": "换个口味"
+  },
+  "catalog.achievements.ACH_COTTAGE_LEVEL_2.description": {
+    "en": "Finish upgrading the cottage to level 2",
+    "zh": "小屋达到2级并完工"
+  },
+  "catalog.achievements.ACH_COTTAGE_LEVEL_2.name": {
+    "en": "Another Year of Repairs",
+    "zh": "修修补补又一年"
+  },
+  "catalog.achievements.ACH_COTTAGE_LEVEL_3.description": {
+    "en": "Finish upgrading the cottage to level 3",
+    "zh": "小屋达到3级并完工"
+  },
+  "catalog.achievements.ACH_COTTAGE_LEVEL_3.name": {
+    "en": "Home by the Pond",
+    "zh": "安家塘边"
+  },
+  "catalog.achievements.ACH_FIRST_BAIT.description": {
+    "en": "Craft bait for the first time",
+    "zh": "首次制作完成鱼饵"
+  },
+  "catalog.achievements.ACH_FIRST_BAIT.name": {
+    "en": "Homemade Tastes Best",
+    "zh": "自己做的才香"
+  },
+  "catalog.achievements.ACH_FIRST_FISH.description": {
+    "en": "Catch your first fish",
+    "zh": "首次捕获鱼类"
+  },
+  "catalog.achievements.ACH_FIRST_FISH.name": {
+    "en": "Fish On the Hook",
+    "zh": "愿者上钩"
+  },
+  "catalog.achievements.ACH_FIRST_HARVEST.description": {
+    "en": "Harvest any crop for the first time",
+    "zh": "首次实际收获任意作物"
+  },
+  "catalog.achievements.ACH_FIRST_HARVEST.name": {
+    "en": "First Harvest of Wheat",
+    "zh": "第一捧麦香"
+  },
+  "catalog.achievements.ACH_FIRST_SALE.description": {
+    "en": "Sell fish for the first time",
+    "zh": "首次成功出售鱼类"
+  },
+  "catalog.achievements.ACH_FIRST_SALE.name": {
+    "en": "Open for Business",
+    "zh": "开张大吉"
+  },
+  "catalog.achievements.ACH_FISH_SPECIES_15.description": {
+    "en": "Discover 15 different fish species",
+    "zh": "发现15种不同鱼类"
+  },
+  "catalog.achievements.ACH_FISH_SPECIES_15.name": {
+    "en": "Familiar with Half the Pond",
+    "zh": "半塘相识"
+  },
+  "catalog.achievements.ACH_FISH_SPECIES_5.description": {
+    "en": "Discover five different fish species",
+    "zh": "发现5种不同鱼类"
+  },
+  "catalog.achievements.ACH_FISH_SPECIES_5.name": {
+    "en": "Pond Regular",
+    "zh": "塘边熟客"
+  },
+  "catalog.achievements.ACH_PLOTS_5.description": {
+    "en": "Unlock five plots",
+    "zh": "开放地块达到5块"
+  },
+  "catalog.achievements.ACH_PLOTS_5.name": {
+    "en": "A Growing Farm",
+    "zh": "田园渐丰"
+  },
+  "catalog.achievements.ACH_PLOTS_7.description": {
+    "en": "Unlock all seven plots",
+    "zh": "全部7块地开放"
+  },
+  "catalog.achievements.ACH_PLOTS_7.name": {
+    "en": "A Farm of Your Own",
+    "zh": "一片自己的田园"
+  },
+  "catalog.achievements.ACH_UPGRADED_ROD_CATCH.description": {
+    "en": "Catch a fish using an upgraded rod",
+    "zh": "使用获得的升级鱼竿捕获一条鱼"
+  },
+  "catalog.achievements.ACH_UPGRADED_ROD_CATCH.name": {
+    "en": "A Good Rod and Good Bait",
+    "zh": "好竿配好饵"
+  },
+  "catalog.baits.barley_bait.display_name": {
+    "en": "Barley Bait",
+    "zh": "大麦饵"
+  },
+  "catalog.baits.beet_bait.display_name": {
+    "en": "Beet Bait",
+    "zh": "甜菜饵"
+  },
+  "catalog.baits.burdock_bait.display_name": {
+    "en": "Burdock Bait",
+    "zh": "牛蒡饵"
+  },
+  "catalog.baits.cabbage_bait.display_name": {
+    "en": "Cabbage Bait",
+    "zh": "卷心菜饵"
+  },
+  "catalog.baits.carrot_bait.display_name": {
+    "en": "Carrot Bait",
+    "zh": "胡萝卜饵"
+  },
+  "catalog.baits.corn_bait.display_name": {
+    "en": "Corn Bait",
+    "zh": "玉米饵"
+  },
+  "catalog.baits.eggplant_bait.display_name": {
+    "en": "Eggplant Bait",
+    "zh": "茄子饵"
+  },
+  "catalog.baits.lettuce_bait.display_name": {
+    "en": "Lettuce Bait",
+    "zh": "生菜饵"
+  },
+  "catalog.baits.oat_bait.display_name": {
+    "en": "Oat Bait",
+    "zh": "燕麦饵"
+  },
+  "catalog.baits.potato_bait.display_name": {
+    "en": "Potato Bait",
+    "zh": "土豆饵"
+  },
+  "catalog.baits.pumpkin_bait.display_name": {
+    "en": "Pumpkin Bait",
+    "zh": "南瓜饵"
+  },
+  "catalog.baits.rice_bait.display_name": {
+    "en": "Rice Bait",
+    "zh": "水稻饵"
+  },
+  "catalog.baits.rye_bait.display_name": {
+    "en": "Rye Bait",
+    "zh": "黑麦饵"
+  },
+  "catalog.baits.sorghum_bait.display_name": {
+    "en": "Sorghum Bait",
+    "zh": "高粱饵"
+  },
+  "catalog.baits.strawberry_bait.display_name": {
+    "en": "Strawberry Bait",
+    "zh": "草莓饵"
+  },
+  "catalog.baits.sweet_potato_bait.display_name": {
+    "en": "Sweet Potato Bait",
+    "zh": "红薯饵"
+  },
+  "catalog.baits.tomato_bait.display_name": {
+    "en": "Tomato Bait",
+    "zh": "番茄饵"
+  },
+  "catalog.baits.turnip_bait.display_name": {
+    "en": "Turnip Bait",
+    "zh": "芜菁饵"
+  },
+  "catalog.baits.wheat_bait.display_name": {
+    "en": "Wheat Bait",
+    "zh": "小麦饵"
+  },
+  "catalog.baits.white_radish_bait.display_name": {
+    "en": "Daikon Radish Bait",
+    "zh": "白萝卜饵"
+  },
+  "catalog.cottage_levels.1.display_name": {
+    "en": "Thatched Cottage",
+    "zh": "茅草小屋"
+  },
+  "catalog.cottage_levels.2.display_name": {
+    "en": "Tiled Cottage",
+    "zh": "瓦顶小屋"
+  },
+  "catalog.cottage_levels.3.display_name": {
+    "en": "Renovated Cottage",
+    "zh": "整修小屋"
+  },
+  "catalog.cottage_levels.4.display_name": {
+    "en": "Storage Cottage",
+    "zh": "储物小屋"
+  },
+  "catalog.crops.barley.display_name": {
+    "en": "Barley",
+    "zh": "大麦"
+  },
+  "catalog.crops.beet.display_name": {
+    "en": "Beet",
+    "zh": "甜菜"
+  },
+  "catalog.crops.blueberry.display_name": {
+    "en": "Blueberry",
+    "zh": "蓝莓"
+  },
+  "catalog.crops.bok_choy.display_name": {
+    "en": "Bok Choy",
+    "zh": "小白菜"
+  },
+  "catalog.crops.burdock.display_name": {
+    "en": "Burdock",
+    "zh": "牛蒡"
+  },
+  "catalog.crops.cabbage.display_name": {
+    "en": "Cabbage",
+    "zh": "卷心菜"
+  },
+  "catalog.crops.carrot.display_name": {
+    "en": "Carrot",
+    "zh": "胡萝卜"
+  },
+  "catalog.crops.celery.display_name": {
+    "en": "Celery",
+    "zh": "芹菜"
+  },
+  "catalog.crops.corn.display_name": {
+    "en": "Corn",
+    "zh": "玉米"
+  },
+  "catalog.crops.cucumber.display_name": {
+    "en": "Cucumber",
+    "zh": "黄瓜"
+  },
+  "catalog.crops.eggplant.display_name": {
+    "en": "Eggplant",
+    "zh": "茄子"
+  },
+  "catalog.crops.kale.display_name": {
+    "en": "Kale",
+    "zh": "羽衣甘蓝"
+  },
+  "catalog.crops.lettuce.display_name": {
+    "en": "Lettuce",
+    "zh": "生菜"
+  },
+  "catalog.crops.oat.display_name": {
+    "en": "Oat",
+    "zh": "燕麦"
+  },
+  "catalog.crops.potato.display_name": {
+    "en": "Potato",
+    "zh": "土豆"
+  },
+  "catalog.crops.pumpkin.display_name": {
+    "en": "Pumpkin",
+    "zh": "南瓜"
+  },
+  "catalog.crops.rice.display_name": {
+    "en": "Rice",
+    "zh": "水稻"
+  },
+  "catalog.crops.rye.display_name": {
+    "en": "Rye",
+    "zh": "黑麦"
+  },
+  "catalog.crops.sorghum.display_name": {
+    "en": "Sorghum",
+    "zh": "高粱"
+  },
+  "catalog.crops.spinach.display_name": {
+    "en": "Spinach",
+    "zh": "菠菜"
+  },
+  "catalog.crops.strawberry.display_name": {
+    "en": "Strawberry",
+    "zh": "草莓"
+  },
+  "catalog.crops.sweet_potato.display_name": {
+    "en": "Sweet Potato",
+    "zh": "红薯"
+  },
+  "catalog.crops.tomato.display_name": {
+    "en": "Tomato",
+    "zh": "番茄"
+  },
+  "catalog.crops.turnip.display_name": {
+    "en": "Turnip",
+    "zh": "芜菁"
+  },
+  "catalog.crops.water_spinach.display_name": {
+    "en": "Water Spinach",
+    "zh": "空心菜"
+  },
+  "catalog.crops.watermelon.display_name": {
+    "en": "Watermelon",
+    "zh": "西瓜"
+  },
+  "catalog.crops.wheat.display_name": {
+    "en": "Wheat",
+    "zh": "小麦"
+  },
+  "catalog.crops.white_radish.display_name": {
+    "en": "Daikon Radish",
+    "zh": "白萝卜"
+  },
+  "catalog.fish.fish_001.display_name": {
+    "en": "Small Crucian Carp",
+    "zh": "小鲫鱼"
+  },
+  "catalog.fish.fish_002.display_name": {
+    "en": "Loach",
+    "zh": "泥鳅"
+  },
+  "catalog.fish.fish_003.display_name": {
+    "en": "Whitebait",
+    "zh": "白条鱼"
+  },
+  "catalog.fish.fish_004.display_name": {
+    "en": "Small Carp",
+    "zh": "小鲤鱼"
+  },
+  "catalog.fish.fish_005.display_name": {
+    "en": "Medaka",
+    "zh": "青鳉"
+  },
+  "catalog.fish.fish_006.display_name": {
+    "en": "River Goby",
+    "zh": "河虾虎"
+  },
+  "catalog.fish.fish_007.display_name": {
+    "en": "Redfin Fish",
+    "zh": "红鳍鱼"
+  },
+  "catalog.fish.fish_008.display_name": {
+    "en": "Grass Carp Fry",
+    "zh": "草鱼苗"
+  },
+  "catalog.fish.fish_009.display_name": {
+    "en": "Silver Scale Fish",
+    "zh": "银鳞鱼"
+  },
+  "catalog.fish.fish_010.display_name": {
+    "en": "Yellowtail Fish",
+    "zh": "黄尾鱼"
+  },
+  "catalog.fish.fish_011.display_name": {
+    "en": "Roundhead Loach",
+    "zh": "圆头鳅"
+  },
+  "catalog.fish.fish_012.display_name": {
+    "en": "Small River Perch",
+    "zh": "小河鲈"
+  },
+  "catalog.fish.fish_013.display_name": {
+    "en": "Spotted Carp",
+    "zh": "花斑鲤"
+  },
+  "catalog.fish.fish_014.display_name": {
+    "en": "Blueback Perch",
+    "zh": "青背鲈"
+  },
+  "catalog.fish.fish_015.display_name": {
+    "en": "Longwhisker Catfish",
+    "zh": "长须鲶"
+  },
+  "catalog.fish.fish_016.display_name": {
+    "en": "Golden Trout",
+    "zh": "金纹鳟"
+  },
+  "catalog.fish.fish_017.display_name": {
+    "en": "Jade Crucian Carp",
+    "zh": "白玉鲫"
+  },
+  "catalog.fish.fish_018.display_name": {
+    "en": "Lotus Bream",
+    "zh": "荷叶鳊"
+  },
+  "catalog.fish.fish_019.display_name": {
+    "en": "Spotted Pike",
+    "zh": "斑点狗鱼"
+  },
+  "catalog.fish.fish_020.display_name": {
+    "en": "Sunset Fish",
+    "zh": "夕照鱼"
+  },
+  "catalog.fish.fish_021.display_name": {
+    "en": "Moonshadow Fish",
+    "zh": "月影鱼"
+  },
+  "catalog.fish.fish_022.display_name": {
+    "en": "Amber Carp",
+    "zh": "琥珀鲤"
+  },
+  "catalog.fish.fish_023.display_name": {
+    "en": "Emerald Trout",
+    "zh": "翡翠鳟"
+  },
+  "catalog.fish.fish_024.display_name": {
+    "en": "Thunder Eel",
+    "zh": "雷纹鳗"
+  },
+  "catalog.fish.fish_025.display_name": {
+    "en": "Redstripe Arowana",
+    "zh": "赤纹龙鱼"
+  },
+  "catalog.fish.fish_026.display_name": {
+    "en": "Starspotted Puffer",
+    "zh": "星点河豚"
+  },
+  "catalog.fish.fish_027.display_name": {
+    "en": "Glasslight Koi",
+    "zh": "玻光锦鲤"
+  },
+  "catalog.fish.fish_028.display_name": {
+    "en": "Giant Whisker Catfish King",
+    "zh": "巨须鲶王"
+  },
+  "catalog.fish.fish_029.display_name": {
+    "en": "Glowriver Spirit Fish",
+    "zh": "萤河灵鱼"
+  },
+  "catalog.fish.fish_030.display_name": {
+    "en": "Cloud Pattern Dragon Carp",
+    "zh": "云纹龙鲤"
+  },
+  "catalog.fish.fish_031.display_name": {
+    "en": "Minnow",
+    "zh": "麦穗鱼"
+  },
+  "catalog.fish.fish_032.display_name": {
+    "en": "Stone Loach",
+    "zh": "石鳅"
+  },
+  "catalog.fish.fish_033.display_name": {
+    "en": "Greenfin Fish",
+    "zh": "绿鳍鱼"
+  },
+  "catalog.fish.fish_034.display_name": {
+    "en": "Cherry Spotted Fish",
+    "zh": "樱点鱼"
+  },
+  "catalog.fish.fish_035.display_name": {
+    "en": "Redtail Carp",
+    "zh": "赤尾鲤"
+  },
+  "catalog.fish.fish_036.display_name": {
+    "en": "Reedleaf Bream",
+    "zh": "苇叶鳊"
+  },
+  "catalog.fish.fish_037.display_name": {
+    "en": "Rainbow Medaka",
+    "zh": "彩虹鳉"
+  },
+  "catalog.fish.fish_038.display_name": {
+    "en": "Rock Pattern Catfish",
+    "zh": "岩纹鲶"
+  },
+  "catalog.fish.fish_039.display_name": {
+    "en": "Azure Wave Eel",
+    "zh": "碧波鳗"
+  },
+  "catalog.fish.fish_040.display_name": {
+    "en": "Starfrost Brocade Fish",
+    "zh": "星霜锦鱼"
+  },
+  "catalog.pasture_products.egg.display_name": {
+    "en": "Egg",
+    "zh": "鸡蛋"
+  },
+  "catalog.pasture_products.milk.display_name": {
+    "en": "Milk",
+    "zh": "牛奶"
+  },
+  "catalog.pasture_products.pork.display_name": {
+    "en": "Pork",
+    "zh": "猪肉"
+  },
+  "catalog.pasture_products.wool.display_name": {
+    "en": "Wool",
+    "zh": "羊毛"
+  },
+  "catalog.rods.basic_rod.display_name": {
+    "en": "Common Rod",
+    "zh": "普通鱼竿"
+  },
+  "catalog.rods.epic_rod.display_name": {
+    "en": "Epic Rod",
+    "zh": "史诗鱼竿"
+  },
+  "catalog.rods.good_rod.display_name": {
+    "en": "Good Rod",
+    "zh": "优秀鱼竿"
+  },
+  "catalog.rods.rare_rod.display_name": {
+    "en": "Rare Rod",
+    "zh": "稀有鱼竿"
+  },
+  "catalog.upgrades.unlock_plot_index_0.display_name": {
+    "en": "Clear Plot 7",
+    "zh": "开垦第7块地"
+  },
+  "catalog.upgrades.unlock_plot_index_1.display_name": {
+    "en": "Clear Plot 6",
+    "zh": "开垦第6块地"
+  },
+  "catalog.upgrades.unlock_plot_index_2.display_name": {
+    "en": "Clear Plot 5",
+    "zh": "开垦第5块地"
+  },
+  "catalog.upgrades.unlock_plot_index_3.display_name": {
+    "en": "Clear Plot 4",
+    "zh": "开垦第4块地"
+  },
+  "catalog.upgrades.unlock_plot_index_4.display_name": {
+    "en": "Clear Plot 3",
+    "zh": "开垦第3块地"
+  },
+  "codex.fish.favorite_bait_label": {
+    "en": "Bait type:",
+    "zh": "鱼饵类型："
+  },
+  "codex.fish.size_label": {
+    "en": "Size",
+    "zh": "尺寸"
+  },
+  "fishing.leaderboard.bot": {
+    "en": "Bot %02d",
+    "zh": "机器人 %02d"
+  },
+  "fishing.leaderboard.empty": {
+    "en": "No catches this week",
+    "zh": "本周暂无记录"
+  },
+  "fishing.leaderboard.error": {
+    "en": "Could not load leaderboard",
+    "zh": "排行榜数据读取失败"
+  },
+  "fishing.leaderboard.heading": {
+    "en": "Weekly largest catches",
+    "zh": "本周最大尺寸"
+  },
+  "fishing.leaderboard.loading": {
+    "en": "Loading leaderboard…",
+    "zh": "正在读取排行榜…"
+  },
+  "fishing.leaderboard.local": {
+    "en": "Local demo leaderboard · server offline",
+    "zh": "本地模拟榜单 · 服务器未连接"
+  },
+  "fishing.leaderboard.offline": {
+    "en": "Leaderboard server is offline",
+    "zh": "排行榜服务器未连接"
+  },
+  "fishing.leaderboard.player": {
+    "en": "Player",
+    "zh": "玩家"
+  },
+  "fishing.leaderboard.self_name": {
+    "en": "%s (you)",
+    "zh": "%s（我）"
+  },
+  "fishing.leaderboard.tab": {
+    "en": "Ranks",
+    "zh": "排行"
+  },
+  "fishing.leaderboard.unconfigured": {
+    "en": "Leaderboard server is not configured",
+    "zh": "排行榜服务器未配置"
+  },
+  "fishing.leaderboard.week": {
+    "en": "Week of %s (UTC)",
+    "zh": "周始：%s（UTC）"
+  },
+  "fishing.size.maximum_badge": {
+    "en": "MAX",
+    "zh": "MAX"
+  },
+  "fishing.size.minimum_badge": {
+    "en": "MIN",
+    "zh": "小"
+  },
+  "fishing.size.record": {
+    "en": "Smallest %d cm / largest %d cm",
+    "zh": "最小 %d cm / 最大 %d cm"
+  },
+  "fishing.size.value": {
+    "en": "%d cm",
+    "zh": "%d cm"
+  },
+  "gm.fish_codex_reset": {
+    "en": "Fish codex reset",
+    "zh": "鱼类图鉴已重置"
+  },
+  "gm.fish_codex_title": {
+    "en": "Fish Codex",
+    "zh": "鱼类图鉴"
+  },
+  "gm.reset_fish_codex": {
+    "en": "Reset Fish Codex",
+    "zh": "重置鱼类图鉴"
+  },
+  "plot.unlock.insufficient_coins": {
+    "en": "Not enough coins: clearing plot %d costs %d; you have %d",
+    "zh": "金币不足：开垦第%d块地需要 %d 金，当前 %d 金"
+  },
+  "plot.work.detail.harvest": {
+    "en": "%s · %d cells",
+    "zh": "%s · %d格"
+  },
+  "plot.work.detail.plant_mixed": {
+    "en": "%s · %d crops · %d cells",
+    "zh": "%s · %d种作物 · %d格"
+  },
+  "plot.work.detail.plant_single": {
+    "en": "%s · %s · %d cells",
+    "zh": "%s · %s · %d格"
+  },
+  "plot.work.detail.running": {
+    "en": "%s · %d active · %d remaining",
+    "zh": "%s · 进行%d格 · 剩余%d格"
+  },
+  "plot.work.detail.title": {
+    "en": "Plot schedule",
+    "zh": "地块安排"
+  },
+  "plot.work.harvest_running": {
+    "en": "Harvesting",
+    "zh": "收获中"
+  },
+  "plot.work.harvest_waiting": {
+    "en": "Queued to harvest",
+    "zh": "待收获"
+  },
+  "plot.work.plant_running": {
+    "en": "Planting",
+    "zh": "播种中"
+  },
+  "plot.work.plant_waiting": {
+    "en": "Queued to plant",
+    "zh": "待播种"
+  },
+  "shop.products.count": {
+    "en": "%d items",
+    "zh": "%d 件"
+  },
+  "shop.products.hint": {
+    "en": "Select a product to sell all of that type",
+    "zh": "点击农产品可出售该种全部库存"
+  },
+  "shop.products.owned": {
+    "en": "My Products",
+    "zh": "我的农产品"
+  },
+  "shop.products.sell_all": {
+    "en": "Sell All",
+    "zh": "全部出售"
+  },
+  "shop.products.sell_selected": {
+    "en": "Sell Type",
+    "zh": "出售此类"
+  },
+  "shop.products.summary": {
+    "en": "Owned ×%d    Price %d coins",
+    "zh": "持有 ×%d    单价 %d 金"
+  },
+  "shop.products.tab": {
+    "en": "Products",
+    "zh": "产品"
+  },
+  "shop.products.title": {
+    "en": "Farm Products",
+    "zh": "农产品商店"
+  },
+  "startup.continue_game": {
+    "en": "Continue",
+    "zh": "继续游戏"
+  },
+  "startup.new_game": {
+    "en": "New Game",
+    "zh": "新游戏"
+  },
+  "tutorial.first_plot.text": {
+    "en": "Click a cleared plot and choose a crop. Your character will walk over and plant it.",
+    "zh": "点击已开垦的土地，选择作物种植。角色会走过去完成工作。"
+  },
+  "tutorial.first_plot.title": {
+    "en": "Start with the First Plot",
+    "zh": "从第一块地开始"
+  },
+  "tutorial.house": {
+    "en": "This is your cottage.",
+    "zh": "这是你的小屋"
+  },
+  "tutorial.pond.text": {
+    "en": "After crafting bait, click the pond and choose a bait and rod to schedule fishing.",
+    "zh": "制作鱼饵后点击池塘，选择鱼饵和鱼竿，就能安排钓鱼。"
+  },
+  "tutorial.pond.title": {
+    "en": "Time to Fish",
+    "zh": "接下来去钓鱼"
+  },
+  "tutorial.resources.text": {
+    "en": "The wooden signs on the left show coins and other resources. Planting, clearing plots, and upgrades use them.",
+    "zh": "左边的木牌显示金币和其他资源。种植、开垦与升级都会用到它们。"
+  },
+  "tutorial.resources.title": {
+    "en": "Welcome to the Farm",
+    "zh": "欢迎来到农场"
+  },
+  "ui.0161f5cc8e": {
+    "en": "Mature All Crops",
+    "zh": "一键成熟全部作物"
+  },
+  "ui.01c2754130": {
+    "en": "Add Resources",
+    "zh": "增加资源"
+  },
+  "ui.021691ba2e": {
+    "en": "Harvest your first crop and unlock its codex entry to finish the workbench",
+    "zh": "收获第一种作物、解锁植物图鉴后可完成工作台"
+  },
+  "ui.024958a070": {
+    "en": "Cottage Lv.%d",
+    "zh": "小屋 Lv.%d"
+  },
+  "ui.0258dac50b": {
+    "en": "Could not clear plot: insufficient coins or unavailable plot",
+    "zh": "开垦失败：金币不足或地块不可用"
+  },
+  "ui.0486d936b3": {
+    "en": "Auto planting failed",
+    "zh": "自动播种失败"
+  },
+  "ui.05c1272f6f": {
+    "en": "Wheat Bait",
+    "zh": "小麦饵"
+  },
+  "ui.05d54e5224": {
+    "en": "Craft Bait",
+    "zh": "制作鱼饵"
+  },
+  "ui.067503a5bf": {
+    "en": "Max level reached",
+    "zh": "已达到最高等级"
+  },
+  "ui.06c95e6b4b": {
+    "en": "Calf",
+    "zh": "小牛"
+  },
+  "ui.077553e28d": {
+    "en": "Stop Fishing",
+    "zh": "停止钓鱼"
+  },
+  "ui.08b8a9d6d1": {
+    "en": "Harvest",
+    "zh": "收获"
+  },
+  "ui.08f07afeb3": {
+    "en": "Cottage construction started. Click the center sign when it is done.",
+    "zh": "小屋开始修建；完成后请点击中央木牌"
+  },
+  "ui.09e424b5e8": {
+    "en": "Action Failed",
+    "zh": "操作失败"
+  },
+  "ui.0a303232da": {
+    "en": "Fishing Rod",
+    "zh": "鱼竿"
+  },
+  "ui.0a68d7e1e4": {
+    "en": "Page 1/1",
+    "zh": "第 1/1 页"
+  },
+  "ui.0a73f94fd3": {
+    "en": "Seeds need water · Unwatered growth ×%s",
+    "zh": "种子待浇水 · 未浇水成长×%s"
+  },
+  "ui.0c138b5f48": {
+    "en": "%d sec",
+    "zh": "%d秒"
+  },
+  "ui.0c8a50609d": {
+    "en": "Premium Fish",
+    "zh": "高价鱼"
+  },
+  "ui.0e1c8957ba": {
+    "en": "Plots water automatically; crop growth is %d%% faster.",
+    "zh": "种植地自动浇水；植物成熟速度加快%d%%。"
+  },
+  "ui.0fc33628c4": {
+    "en": "Left Pen · 0/10 animals",
+    "zh": "左侧栅栏 · 0/10 只动物"
+  },
+  "ui.1009f1add7": {
+    "en": "Clear Plot",
+    "zh": "开垦土地"
+  },
+  "ui.11d0241540": {
+    "en": "Back",
+    "zh": "返回"
+  },
+  "ui.130448bce6": {
+    "en": "Paused",
+    "zh": "暂停"
+  },
+  "ui.15606f6238": {
+    "en": "Select a resource first",
+    "zh": "请先选择资源"
+  },
+  "ui.1569aae4fa": {
+    "en": "Exported config missing: %s. Run python3 excel/export.py",
+    "zh": "缺少导表配置：%s。请运行 python3 excel/export.py"
+  },
+  "ui.161ff184e1": {
+    "en": "Start Building",
+    "zh": "开始修建"
+  },
+  "ui.16670bfde4": {
+    "en": "Leaves → Mature",
+    "zh": "叶片 → 成熟"
+  },
+  "ui.1971f40ab6": {
+    "en": "%s · %d cells ready",
+    "zh": "%s · %d格已成熟"
+  },
+  "ui.19abbc77f5": {
+    "en": "Owned: 0",
+    "zh": "持有 0"
+  },
+  "ui.1a16588c35": {
+    "en": "Workbench inactive",
+    "zh": "工作台未启用"
+  },
+  "ui.1a50a4a733": {
+    "en": "Activate Workbench",
+    "zh": "启用工作台"
+  },
+  "ui.1bfded771f": {
+    "en": "Stage: %s\nCondition: %s\nProgress: %d/%d",
+    "zh": "阶段：%s\n条件：%s\n进度：%d/%d"
+  },
+  "ui.1c92eebc13": {
+    "en": "Character is heading to the trough with crops",
+    "zh": "角色正前往食物槽添加植物"
+  },
+  "ui.1cc5015349": {
+    "en": "Sell Fish",
+    "zh": "出售鱼"
+  },
+  "ui.1ce80e2056": {
+    "en": "How to Play",
+    "zh": "操作说明"
+  },
+  "ui.1d21339af2": {
+    "en": "Watered",
+    "zh": "已浇水"
+  },
+  "ui.1e399ca0d0": {
+    "en": "The task list is full (10). Finish a task before planting.",
+    "zh": "任务列表最多 10 条，请先完成当前任务再播种"
+  },
+  "ui.1e89a4f00f": {
+    "en": "Invalid resource configuration",
+    "zh": "资源配置无效"
+  },
+  "ui.1ea0e6e698": {
+    "en": "Always on top %s",
+    "zh": "窗口置顶已%s"
+  },
+  "ui.1ea612df81": {
+    "en": "Missing config parameter: %s.%s",
+    "zh": "缺少配置参数：%s.%s"
+  },
+  "ui.21c5608c48": {
+    "en": "Tips appear here.",
+    "zh": "这里是提示内容。"
+  },
+  "ui.2218e1f4dd": {
+    "en": "Select a valid resource",
+    "zh": "请选择有效资源"
+  },
+  "ui.221ee0cc94": {
+    "en": "Options",
+    "zh": "选项"
+  },
+  "ui.23041e37a8": {
+    "en": "%s · Feed trough",
+    "zh": "%s · 食物槽"
+  },
+  "ui.23926d6146": {
+    "en": "On the way",
+    "zh": "前往"
+  },
+  "ui.2480d664f0": {
+    "en": "Left Pen",
+    "zh": "左侧栅栏"
+  },
+  "ui.24a1e60aa3": {
+    "en": "Achievements unlocked · %d",
+    "zh": "成就达成 · %d项"
+  },
+  "ui.256783b7d4": {
+    "en": "On",
+    "zh": "开启"
+  },
+  "ui.25d23b92b2": {
+    "en": "Waiting",
+    "zh": "等待"
+  },
+  "ui.279e7621b9": {
+    "en": "%d fish",
+    "zh": "%d 条"
+  },
+  "ui.28febba225": {
+    "en": "In Progress",
+    "zh": "执行"
+  },
+  "ui.291a5c63e6": {
+    "en": "Select Resource",
+    "zh": "选择资源"
+  },
+  "ui.29b719fafc": {
+    "en": "Current bait: Not selected",
+    "zh": "当前鱼饵：未选择"
+  },
+  "ui.29e2bb4218": {
+    "en": "Rod upgrade failed: not enough coins or max level reached",
+    "zh": "升级鱼竿失败：金币不足或已达最高等级"
+  },
+  "ui.2acc1836c1": {
+    "en": "Leafy",
+    "zh": "叶菜型"
+  },
+  "ui.2bd89384ab": {
+    "en": "Buy Animal",
+    "zh": "购买动物"
+  },
+  "ui.2f2af2a5a9": {
+    "en": "Upgrade the previous level first",
+    "zh": "需先升级前一级"
+  },
+  "ui.2f6af7f04b": {
+    "en": "Planting failed: insufficient coins or cell unavailable",
+    "zh": "播种失败：金币不足或小格不可用"
+  },
+  "ui.2fe00b94de": {
+    "en": "Added %s ×%d",
+    "zh": "已增加 %s ×%d"
+  },
+  "ui.3009ea69da": {
+    "en": "Upgrade Available",
+    "zh": "待升级"
+  },
+  "ui.30a6079ce3": {
+    "en": "Confirm Reset",
+    "zh": "确认重置"
+  },
+  "ui.310cd4240e": {
+    "en": "Under Construction",
+    "zh": "修建中"
+  },
+  "ui.31a98593f1": {
+    "en": "Skip",
+    "zh": "跳过"
+  },
+  "ui.31ce0ab4cf": {
+    "en": "Weather save was damaged; a new sunny period has started",
+    "zh": "天气存档损坏，已恢复为新的晴天时段"
+  },
+  "ui.32a5be901d": {
+    "en": "Could not change weather",
+    "zh": "天气切换失败"
+  },
+  "ui.33246f6a5e": {
+    "en": "Done",
+    "zh": "完成"
+  },
+  "ui.3365a34da5": {
+    "en": "Idle auto fishing %s",
+    "zh": "空闲自动钓鱼已%s"
+  },
+  "ui.339681e312": {
+    "en": "Beginner",
+    "zh": "新手"
+  },
+  "ui.34d10f565c": {
+    "en": "Ready in %s",
+    "zh": "成熟 %s"
+  },
+  "ui.350a789d49": {
+    "en": "Character will add ×%d",
+    "zh": "角色前往添加 ×%d"
+  },
+  "ui.357d968e9f": {
+    "en": "Rod upgraded; higher rarity fish can now be caught",
+    "zh": "鱼竿已升级，可钓更高品质鱼"
+  },
+  "ui.35b288f5ae": {
+    "en": "Harvest failed: check storage space",
+    "zh": "收获失败：请检查仓库空间"
+  },
+  "ui.38259d6804": {
+    "en": "Seed → Leaves",
+    "zh": "种子 → 叶片"
+  },
+  "ui.38df199f47": {
+    "en": "Click a plot to plant; click the pond to choose bait and fish; Tab switches focus, Esc closes panels",
+    "zh": "点击地块种植；点击池塘选饵钓鱼；Tab 切换焦点，Esc 关闭面板"
+  },
+  "ui.3a593f698a": {
+    "en": "Field Crops",
+    "zh": "田地作物"
+  },
+  "ui.3b3f2d6a40": {
+    "en": "Lamb",
+    "zh": "小羊"
+  },
+  "ui.3d32fc22bc": {
+    "en": "Purchase price: 40 coins",
+    "zh": "购买价格 40 金"
+  },
+  "ui.3d5fb32f0a": {
+    "en": "Could not activate workbench",
+    "zh": "工作台启用失败"
+  },
+  "ui.3d67880fdf": {
+    "en": "Crafting failed: missing materials or locked recipe",
+    "zh": "制作失败：材料不足或配方未解锁"
+  },
+  "ui.3e61f36792": {
+    "en": "Good",
+    "zh": "优秀"
+  },
+  "ui.3e730acb06": {
+    "en": "Click a card for codex details",
+    "zh": "点击卡片查看图鉴信息"
+  },
+  "ui.41343b2538": {
+    "en": "Premium Purchases",
+    "zh": "高价收购"
+  },
+  "ui.44bed50934": {
+    "en": "Wheat",
+    "zh": "小麦"
+  },
+  "ui.45a3667a6b": {
+    "en": "Can catch up to %s · %s",
+    "zh": "最高可钓%s · %s"
+  },
+  "ui.468e24b50f": {
+    "en": "Growth",
+    "zh": "发展"
+  },
+  "ui.46a8394c9b": {
+    "en": "Fish sold; coins received and codex records kept",
+    "zh": "鱼已出售，金币到账；图鉴记录保留"
+  },
+  "ui.46e3961ee3": {
+    "en": "Whole plot as one group by default; uncheck to work only on the first empty cell",
+    "zh": "默认整块地为一组；取消勾选后只操作首个空小格"
+  },
+  "ui.4af67d14ea": {
+    "en": "Materials · Owned/Required (%d batches)",
+    "zh": "制作材料 · 已有/所需（%d批）"
+  },
+  "ui.4bcb5cb405": {
+    "en": "Clear",
+    "zh": "开垦"
+  },
+  "ui.4d0b4688c7": {
+    "en": "Cancel",
+    "zh": "取消"
+  },
+  "ui.4e5157e444": {
+    "en": "Not enough storage to harvest all ready crops at once",
+    "zh": "仓库空间不足，无法一次收获所有成熟作物"
+  },
+  "ui.4e6d2a69c1": {
+    "en": "Type: %s\nTime to mature: %s\nYield per harvest: %d\nPlanting cost: %d coins",
+    "zh": "类别：%s\n成熟时间：%s\n每次收获：%d 个\n种植花费：%d 金"
+  },
+  "ui.4ea5669a1a": {
+    "en": "Fish shop upgrade failed: insufficient coins or max level",
+    "zh": "鱼铺升级失败：金币不足或已满级"
+  },
+  "ui.4ecf15b05d": {
+    "en": "Equip Rod",
+    "zh": "装备鱼竿"
+  },
+  "ui.4faaa0fa9f": {
+    "en": "Requires cottage level %d",
+    "zh": "需要小屋升级到%d级"
+  },
+  "ui.50d6ca4681": {
+    "en": "Character Tasks %d/10",
+    "zh": "角色任务 %d/10"
+  },
+  "ui.50fcaea577": {
+    "en": "Start Building",
+    "zh": "开始修建"
+  },
+  "ui.51ea8f26e9": {
+    "en": "Snowy",
+    "zh": "雪天"
+  },
+  "ui.51fd93fb67": {
+    "en": "Item",
+    "zh": "道具"
+  },
+  "ui.52cbe5931b": {
+    "en": "Upgrade Materials",
+    "zh": "升级材料"
+  },
+  "ui.5306a03a77": {
+    "en": "Fish shop built. You can now sell fish.",
+    "zh": "鱼铺已建成：现在可以卖鱼"
+  },
+  "ui.5399ac7cfd": {
+    "en": "Fishing paused",
+    "zh": "已暂停钓鱼"
+  },
+  "ui.53e2db7016": {
+    "en": "Not Selected",
+    "zh": "未选择"
+  },
+  "ui.543cfd5dfd": {
+    "en": "Rare",
+    "zh": "稀有"
+  },
+  "ui.54658e4758": {
+    "en": "Strawberry",
+    "zh": "草莓"
+  },
+  "ui.5570c9aba6": {
+    "en": "Achievements %d/%d",
+    "zh": "成就 %d/%d"
+  },
+  "ui.55e7c15f81": {
+    "en": "Next stage in 0:00",
+    "zh": "距下一阶段 0:00"
+  },
+  "ui.560ba20a1a": {
+    "en": "Sell All",
+    "zh": "全部出售"
+  },
+  "ui.561a8a2c0f": {
+    "en": "Crop Planting",
+    "zh": "作物种植"
+  },
+  "ui.5656dc6e75": {
+    "en": "Sunny",
+    "zh": "晴天"
+  },
+  "ui.577283ac3e": {
+    "en": "Missing static popup node: %s",
+    "zh": "缺少静态弹窗节点：%s"
+  },
+  "ui.58f12b65f7": {
+    "en": "Crop",
+    "zh": "作物"
+  },
+  "ui.5903b4eb21": {
+    "en": "Upgrade Rod",
+    "zh": "升级鱼竿"
+  },
+  "ui.59085ce031": {
+    "en": "No empty cells",
+    "zh": "没有空的小格"
+  },
+  "ui.5980d2a186": {
+    "en": "Harvest any crop for the first time",
+    "zh": "首次实际收获任意作物"
+  },
+  "ui.5bba8486af": {
+    "en": "No collision-free route to the target. Check the destination and collision areas.",
+    "zh": "角色无法找到前往目标的无碰撞路径：请检查目标点与碰撞区。"
+  },
+  "ui.5bf03238ca": {
+    "en": "Reset failed: check that the save file is writable",
+    "zh": "重置失败：请检查存档文件是否可写"
+  },
+  "ui.5dbd015496": {
+    "en": "None",
+    "zh": "暂无"
+  },
+  "ui.5dc7d7ba71": {
+    "en": "Achievements",
+    "zh": "成就"
+  },
+  "ui.5df430297f": {
+    "en": "Automatically planted",
+    "zh": "已自动播种"
+  },
+  "ui.5eb640cae9": {
+    "en": "Craft ×%d",
+    "zh": "制作 ×%d"
+  },
+  "ui.5fcb4d3c26": {
+    "en": "Upgrade Cottage",
+    "zh": "升级小屋"
+  },
+  "ui.6024866ef0": {
+    "en": "The task list is full (10). Finish a task before watering the group.",
+    "zh": "任务列表最多 10 条，请先完成当前任务再整组浇水"
+  },
+  "ui.6055fe4b90": {
+    "en": "Weather",
+    "zh": "天气"
+  },
+  "ui.605806b6fc": {
+    "en": "Add",
+    "zh": "增加"
+  },
+  "ui.607891a188": {
+    "en": "Building Lv.%d: %s",
+    "zh": "修建 Lv.%d：%s"
+  },
+  "ui.60972b2362": {
+    "en": "The pasture is completed at cottage level 4",
+    "zh": "小屋达到 4 级后牧场建造完成"
+  },
+  "ui.61e8d1fd78": {
+    "en": "Current pen: %d/%d animals\nDrag purchased animals to another pen",
+    "zh": "当前栅栏 %d/%d 只\n购买后可拖动到另一块栅栏"
+  },
+  "ui.61f608b0d9": {
+    "en": "Coins",
+    "zh": "金币"
+  },
+  "ui.6282d0664b": {
+    "en": "This will clear the save and reset resources, plots, tasks, and the codex.\nThis cannot be undone.",
+    "zh": "将清除当前存档，资源、地块、任务和图鉴恢复初始状态。\n此操作无法撤销。"
+  },
+  "ui.6303d0c6b9": {
+    "en": "No bait available",
+    "zh": "暂无可用鱼饵"
+  },
+  "ui.639ca69e55": {
+    "en": "Status: %s\nCurrent bait: %s%s\nBait remaining: %d%s",
+    "zh": "状态：%s\n当前鱼饵：%s%s\n剩余鱼饵：%d%s"
+  },
+  "ui.6598b63de2": {
+    "en": "HUD is missing CodexHitArea. Check the Overlay node tree.",
+    "zh": "HUD 缺少 CodexHitArea 按钮，请检查 Overlay 节点树。"
+  },
+  "ui.65c44e737b": {
+    "en": "Character task list is full (max 10)",
+    "zh": "角色任务列表已满（最多 10 条）"
+  },
+  "ui.65ce952d5b": {
+    "en": "Upgrade Pond",
+    "zh": "升级鱼塘"
+  },
+  "ui.667449f129": {
+    "en": "0 fish",
+    "zh": "0 条"
+  },
+  "ui.6699f8adab": {
+    "en": "Achievements 0/12",
+    "zh": "成就 0/12"
+  },
+  "ui.66c6340147": {
+    "en": "Action Complete",
+    "zh": "操作完成"
+  },
+  "ui.66d9932a40": {
+    "en": "Welcome to the Farm",
+    "zh": "欢迎来到农场"
+  },
+  "ui.6770fcfd0c": {
+    "en": "Fish shop closed. Click its completed sign.",
+    "zh": "鱼铺尚未启用，请点击建造完成的木牌"
+  },
+  "ui.67a246a344": {
+    "en": "Next Page",
+    "zh": "下一页"
+  },
+  "ui.682d79ec55": {
+    "en": "Tutorial",
+    "zh": "新手引导"
+  },
+  "ui.699ad2cdc3": {
+    "en": "By default, plant, water, and harvest each plot as a group; uncheck to work one cell at a time",
+    "zh": "默认按整块地依次播种、浇水和收获；取消后按小格操作"
+  },
+  "ui.6b3e4e0f6a": {
+    "en": "Right Pen",
+    "zh": "右侧栅栏"
+  },
+  "ui.6b3fc2e0c9": {
+    "en": "Granted Retroactively",
+    "zh": "已补认"
+  },
+  "ui.6bc6443c0b": {
+    "en": "Cannot fish: prepare bait first",
+    "zh": "无法开始钓鱼：请先准备鱼饵"
+  },
+  "ui.6c0980870c": {
+    "en": "Plant feed added",
+    "zh": "已添加植物饲料"
+  },
+  "ui.6c14bd7f6f": {
+    "en": "Off",
+    "zh": "关闭"
+  },
+  "ui.6c1d39029a": {
+    "en": "%s · Owned: %d",
+    "zh": "%s · 已持有 %d"
+  },
+  "ui.6c95c1ab53": {
+    "en": "Sale failed: fish basket empty or fish shop locked",
+    "zh": "出售失败：鱼篓为空或鱼铺未解锁"
+  },
+  "ui.6eed603650": {
+    "en": "Not enough coins: planting %d cells costs %d, you have %d",
+    "zh": "金币不足：播种 %d 格需 %d 金，当前 %d 金"
+  },
+  "ui.6f1972e48e": {
+    "en": "In Progress",
+    "zh": "进行中"
+  },
+  "ui.6f8c049b65": {
+    "en": "Past achievements granted · %d",
+    "zh": "旧档成就补认 · %d项"
+  },
+  "ui.6f9f441969": {
+    "en": "↑↓ Change task order · Active tasks cannot be moved",
+    "zh": "↑↓ 调整执行顺序 · 正在操作的任务无法移动"
+  },
+  "ui.70aee086af": {
+    "en": "Normal fishing; crops require manual watering.",
+    "zh": "常规钓鱼；作物需要手动浇水。"
+  },
+  "ui.71acb83c92": {
+    "en": "%d coins",
+    "zh": "%d 金"
+  },
+  "ui.73699498d6": {
+    "en": "Upgrade Fish Shop",
+    "zh": "升级鱼铺"
+  },
+  "ui.741ff49d22": {
+    "en": "Send Character to Add",
+    "zh": "角色前往添加"
+  },
+  "ui.763676b954": {
+    "en": "Open Fish Shop",
+    "zh": "启用鱼铺"
+  },
+  "ui.763fbaf79a": {
+    "en": "Start Fishing",
+    "zh": "开始钓鱼"
+  },
+  "ui.767a98cabe": {
+    "en": "1. Waiting Task",
+    "zh": "1. 等待任务"
+  },
+  "ui.770c993a87": {
+    "en": "Bought %s",
+    "zh": "已购入%s"
+  },
+  "ui.77816dc678": {
+    "en": "First Harvest of Wheat",
+    "zh": "第一捧麦香"
+  },
+  "ui.78769f1d51": {
+    "en": "Harvest All Ready Plots",
+    "zh": "收获所有成熟地块"
+  },
+  "ui.78f8cc5eab": {
+    "en": "Codex",
+    "zh": "图 鉴"
+  },
+  "ui.7a2664fb13": {
+    "en": "Pasture Animals",
+    "zh": "牧场养殖"
+  },
+  "ui.7a7f26a100": {
+    "en": "Equipped",
+    "zh": "已装备"
+  },
+  "ui.7abc3f23d8": {
+    "en": "Owned: %d",
+    "zh": "持有 %d"
+  },
+  "ui.7bc5db52b6": {
+    "en": "Grain · Owned: 0",
+    "zh": "谷物型 · 已持有 0"
+  },
+  "ui.7bcf18641f": {
+    "en": "Always on Top",
+    "zh": "置顶"
+  },
+  "ui.7bdf86804b": {
+    "en": "20 minutes",
+    "zh": "20分钟"
+  },
+  "ui.7cda072d45": {
+    "en": "Common",
+    "zh": "普通"
+  },
+  "ui.7d11efada2": {
+    "en": "Auto planting failed: check coins and plot",
+    "zh": "自动播种失败：请检查金币与地块"
+  },
+  "ui.7d394484ec": {
+    "en": "Craft",
+    "zh": "制作"
+  },
+  "ui.7debf9cb03": {
+    "en": "Settings",
+    "zh": "设置"
+  },
+  "ui.7f9c2df93d": {
+    "en": "%s · %d/%d animals",
+    "zh": "%s · %d/%d 只动物"
+  },
+  "ui.807f4a9979": {
+    "en": "Could not select bait",
+    "zh": "鱼饵选择失败"
+  },
+  "ui.81028f3bf5": {
+    "en": "Confirm Planting",
+    "zh": "确定种植"
+  },
+  "ui.81225019c9": {
+    "en": "Fish shop upgraded",
+    "zh": "鱼铺已升级"
+  },
+  "ui.8124830197": {
+    "en": "Fishing",
+    "zh": "钓鱼"
+  },
+  "ui.8184ee25f5": {
+    "en": "Finish Construction",
+    "zh": "点击完成修建"
+  },
+  "ui.8203aa74c8": {
+    "en": "Ready cells yield ×%d · Click to harvest",
+    "zh": "成熟小格可得 ×%d · 点击收获"
+  },
+  "ui.82cc7dfd9f": {
+    "en": "90 coins",
+    "zh": "90 金"
+  },
+  "ui.82dfeb88a2": {
+    "en": "%d h %d min",
+    "zh": "%d小时%d分"
+  },
+  "ui.837782f440": {
+    "en": "Carrot",
+    "zh": "胡萝卜"
+  },
+  "ui.8418ee69de": {
+    "en": "Window docking %s",
+    "zh": "已%s窗口贴底"
+  },
+  "ui.8483cd2b08": {
+    "en": "Workbench",
+    "zh": "工作台"
+  },
+  "ui.8531dc2f3f": {
+    "en": "Corn",
+    "zh": "玉米"
+  },
+  "ui.867cb2fd1f": {
+    "en": "Fertilizer",
+    "zh": "肥料"
+  },
+  "ui.86826b0142": {
+    "en": "No bait available\nCraft or buy bait first",
+    "zh": "暂无可用鱼饵\n请先制作或购买鱼饵"
+  },
+  "ui.87c768c5a0": {
+    "en": "Small Crucian Carp",
+    "zh": "小鲫鱼"
+  },
+  "ui.88867fc978": {
+    "en": "Main scene is missing TaskButton/HitArea.",
+    "zh": "主场景缺少 TaskButton/HitArea 按钮。"
+  },
+  "ui.88b9eae481": {
+    "en": "Chick",
+    "zh": "小鸡"
+  },
+  "ui.8a83411e04": {
+    "en": "Character path is blocked. Check road or target collisions.",
+    "zh": "角色路线被碰撞体挡住：请检查道路或目标点的碰撞。"
+  },
+  "ui.8e3e7f1c56": {
+    "en": "Unlock Requirements",
+    "zh": "解锁条件"
+  },
+  "ui.8e8200a596": {
+    "en": "Could not equip rod",
+    "zh": "装备鱼竿失败"
+  },
+  "ui.8e87fc9856": {
+    "en": "Cottage Lv.%d · Crop storage %d/%d · %s\nFish basket %d; ready crops stay in the field when storage is full",
+    "zh": "小屋 Lv.%d  ·  作物仓库 %d/%d  ·  %s\n鱼篓 %d；仓库满时成熟作物会留在地里"
+  },
+  "ui.8eef0efe43": {
+    "en": "No crops are ready",
+    "zh": "目前没有成熟作物"
+  },
+  "ui.8f36857b36": {
+    "en": "Treat Whole Plot as One Group",
+    "zh": "整块地为一组"
+  },
+  "ui.92468fdf7c": {
+    "en": "Fish",
+    "zh": "鱼"
+  },
+  "ui.93ac7be2bc": {
+    "en": "and more",
+    "zh": "等"
+  },
+  "ui.945799e023": {
+    "en": "My Fish",
+    "zh": "我的鱼类"
+  },
+  "ui.95b943e8f3": {
+    "en": "30 coins",
+    "zh": "30 金"
+  },
+  "ui.969fe7f634": {
+    "en": "Select a fish type to sell all of it",
+    "zh": "选择鱼种后可一次售出全部"
+  },
+  "ui.9920f73834": {
+    "en": "Invalid weather settings; using sunny weather for this period",
+    "zh": "天气配置无效，本段安全回退为晴天"
+  },
+  "ui.99810e5a04": {
+    "en": "HUD is missing SettingsHitArea. Check the Overlay node tree.",
+    "zh": "HUD 缺少 SettingsHitArea 按钮，请检查 Overlay 节点树。"
+  },
+  "ui.99a5f184f4": {
+    "en": "Could not pause fishing",
+    "zh": "暂停钓鱼失败"
+  },
+  "ui.9a44212b6a": {
+    "en": "Planted %s",
+    "zh": "已播种 %s"
+  },
+  "ui.9ae8d4e879": {
+    "en": "Wheat · Seed → Leaves",
+    "zh": "小麦 · 种子 → 叶片"
+  },
+  "ui.9b1bb8769b": {
+    "en": "Daikon Radish",
+    "zh": "白萝卜"
+  },
+  "ui.9bb86adce3": {
+    "en": "Upgrade Fish Shop · %d coins",
+    "zh": "升级鱼铺 · %d 金"
+  },
+  "ui.9be962ae57": {
+    "en": "Bait",
+    "zh": "鱼饵"
+  },
+  "ui.9cb9192f69": {
+    "en": "New crop unlocked: %s",
+    "zh": "新植物已解锁：%s"
+  },
+  "ui.9d6fe0f3ba": {
+    "en": "Reel in after about %d seconds",
+    "zh": "　约 %d 秒收杆"
+  },
+  "ui.9dc05ba20d": {
+    "en": "Automatically planted %s",
+    "zh": "已自动播种 %s"
+  },
+  "ui.9ea1e7a8ee": {
+    "en": "Could not open fish shop",
+    "zh": "鱼铺启用失败"
+  },
+  "ui.9efdc08988": {
+    "en": "Refresh in:",
+    "zh": "刷新倒计时："
+  },
+  "ui.a053e0a88f": {
+    "en": "Workbench T%d",
+    "zh": "工作台 T%d"
+  },
+  "ui.a14da1b3da": {
+    "en": "Plot %d · Uncleared",
+    "zh": "地块 %d · 待开垦"
+  },
+  "ui.a18ebc607f": {
+    "en": "Epic",
+    "zh": "史诗"
+  },
+  "ui.a2a9f7d962": {
+    "en": "Owned",
+    "zh": "已拥有"
+  },
+  "ui.a2c3bf0305": {
+    "en": "Weather system is not ready",
+    "zh": "天气系统尚未就绪"
+  },
+  "ui.a2ce837b56": {
+    "en": "Reset Progress",
+    "zh": "重置进度"
+  },
+  "ui.a368fedf80": {
+    "en": "Exchange for Fertilizer",
+    "zh": "兑换肥料"
+  },
+  "ui.a3a42b792c": {
+    "en": "Fish Shop",
+    "zh": "鱼类商店"
+  },
+  "ui.a4ad6baaa1": {
+    "en": "Cabbage",
+    "zh": "卷心菜"
+  },
+  "ui.a52df49692": {
+    "en": "Not enough coins: cottage upgrade costs %d, you have %d",
+    "zh": "金币不足：升级小屋需要 %d 金，当前 %d 金"
+  },
+  "ui.a5b813e2aa": {
+    "en": "Collected",
+    "zh": "已收集"
+  },
+  "ui.a5ebe2daeb": {
+    "en": "Add Crop Feed",
+    "zh": "添加植物饲料"
+  },
+  "ui.a6f2ebffa7": {
+    "en": "Complete. Click the cottage sign.",
+    "zh": "已完成，请点击小屋木牌"
+  },
+  "ui.a7a7c22df9": {
+    "en": "Progress reset; ready to test again",
+    "zh": "游戏进度已重置，可以重新测试"
+  },
+  "ui.a80996fa34": {
+    "en": "Next stage in %d:%02d",
+    "zh": "距下一阶段 %d:%02d"
+  },
+  "ui.a809d937da": {
+    "en": "Fruit",
+    "zh": "果实型"
+  },
+  "ui.a82bffe248": {
+    "en": "Catch your first fish and unlock its codex entry to finish the fish shop",
+    "zh": "钓到第一种鱼、解锁鱼类图鉴后可完成鱼铺"
+  },
+  "ui.a8dceaba64": {
+    "en": "Cost: %d coins",
+    "zh": "花费 %d 金"
+  },
+  "ui.a9262343cb": {
+    "en": "Popup scene node not found: %s",
+    "zh": "找不到弹窗静态节点：%s"
+  },
+  "ui.a993a36586": {
+    "en": "Workbench built. You can now craft bait.",
+    "zh": "工作台已建成：现在可以制作鱼饵"
+  },
+  "ui.a9bbb2be88": {
+    "en": "%s remaining",
+    "zh": "还需 %s"
+  },
+  "ui.aa1ab998de": {
+    "en": "Dock to Bottom",
+    "zh": "贴底"
+  },
+  "ui.aa3e67bb64": {
+    "en": "Cottage is at max level",
+    "zh": "小屋已达到最高等级"
+  },
+  "ui.ab400fdccf": {
+    "en": "10:00 remaining this period",
+    "zh": "本轮剩余 10:00"
+  },
+  "ui.abaf69e022": {
+    "en": "Simplified Chinese  ▾",
+    "zh": "简体中文  ▾"
+  },
+  "ui.ac176a3793": {
+    "en": "Trough: %d portions · Up to %d times\nUse %d crops to add %d portions",
+    "zh": "食槽 %d 份 · 最多 %d 次\n消耗 %d 株，增加 %d 份"
+  },
+  "ui.ae4485789a": {
+    "en": "Character Tasks 0/10",
+    "zh": "角色任务 0/10"
+  },
+  "ui.af3171150b": {
+    "en": "Water",
+    "zh": "浇水"
+  },
+  "ui.afadaee394": {
+    "en": "Seedlings need water · Unwatered growth ×%s",
+    "zh": "幼苗待浇水 · 未浇水成长×%s"
+  },
+  "ui.afb3c40c39": {
+    "en": "Music",
+    "zh": "音乐"
+  },
+  "ui.b082389c29": {
+    "en": "Upgrade · %d coins",
+    "zh": "升级 · %d 金"
+  },
+  "ui.b0a4ebbb3e": {
+    "en": "Feeding failed: not enough crops in storage",
+    "zh": "投喂失败：仓库植物不足"
+  },
+  "ui.b1a84db28f": {
+    "en": "Select a Crop",
+    "zh": "请选择植物"
+  },
+  "ui.b207eef1bc": {
+    "en": "Cannot build: requires %d coins or is already at max level",
+    "zh": "修建失败：需要 %d 金币或已达到最高等级"
+  },
+  "ui.b2d5a88e20": {
+    "en": "Cottage Lv.1 · Crop storage 0/100 · Workbench inactive\nFish basket 0; ready crops stay in the field when storage is full",
+    "zh": "小屋 Lv.1  ·  作物仓库 0/100  ·  工作台未启用\n鱼篓 0；仓库满时成熟作物会留在地里"
+  },
+  "ui.b3465640b6": {
+    "en": "Left Pen · Feed Trough",
+    "zh": "左侧栅栏 · 食物槽"
+  },
+  "ui.b3aa8ab320": {
+    "en": "Plants",
+    "zh": "植物"
+  },
+  "ui.b3bd8c0da5": {
+    "en": "Not Collected",
+    "zh": "尚未收集"
+  },
+  "ui.b41561d807": {
+    "en": "Previous Page",
+    "zh": "上一页"
+  },
+  "ui.b491b31b74": {
+    "en": "Plot %d cleared",
+    "zh": "第 %d 块地已开垦"
+  },
+  "ui.b54c5d5a3c": {
+    "en": "Page %d/%d",
+    "zh": "第 %d/%d 页"
+  },
+  "ui.b5ba499089": {
+    "en": "No fish available to sell",
+    "zh": "鱼篓中没有可出售的鱼"
+  },
+  "ui.b61b08aec3": {
+    "en": "Incomplete",
+    "zh": "未完成"
+  },
+  "ui.b62d0ce055": {
+    "en": "Bait type: %s\nSource crop: %s\nUses per batch: %d",
+    "zh": "鱼饵类型：%s\n来源作物：%s\n每批可用：%d 次"
+  },
+  "ui.b76be40607": {
+    "en": "%d min",
+    "zh": "%d分"
+  },
+  "ui.b862d1b701": {
+    "en": "Fish shop opened",
+    "zh": "鱼铺已启用"
+  },
+  "ui.b8c71ea2d9": {
+    "en": "Choose a Crop to Plant",
+    "zh": "选择要种植的作物"
+  },
+  "ui.b8d943f914": {
+    "en": "Fish Fertilizer",
+    "zh": "鱼肥"
+  },
+  "ui.b9ae893190": {
+    "en": "Quantity",
+    "zh": "数量"
+  },
+  "ui.bb274decd8": {
+    "en": "Sell All of This Fish",
+    "zh": "该鱼全卖"
+  },
+  "ui.bbc28b86c2": {
+    "en": "Grain Bait",
+    "zh": "谷物鱼饵"
+  },
+  "ui.bd808fcb90": {
+    "en": "GM Test Panel",
+    "zh": "GM 测试台"
+  },
+  "ui.bd97d61ee7": {
+    "en": "Choose Bait",
+    "zh": "选择鱼饵"
+  },
+  "ui.bee07a19d9": {
+    "en": "Click to Complete",
+    "zh": "点击完成"
+  },
+  "ui.bf1fabfad5": {
+    "en": "No crops available",
+    "zh": "暂无植物"
+  },
+  "ui.c001eb228c": {
+    "en": "Could not finish construction. Try again.",
+    "zh": "完成修建失败，请重试"
+  },
+  "ui.c0aaacdc1c": {
+    "en": "Weather changed to %s",
+    "zh": "天气已切换为%s"
+  },
+  "ui.c10448f21e": {
+    "en": "Plots water automatically; fishing is %d%% faster.",
+    "zh": "种植地自动浇水；钓鱼速度加快%d%%。"
+  },
+  "ui.c1dc7219c3": {
+    "en": "Instructions",
+    "zh": "功能说明"
+  },
+  "ui.c286d85970": {
+    "en": "Lettuce",
+    "zh": "生菜"
+  },
+  "ui.c3095b7c23": {
+    "en": "Piglet",
+    "zh": "小猪"
+  },
+  "ui.c4785a1b2f": {
+    "en": "%s · Unlock requirements",
+    "zh": "%s · 解锁需求"
+  },
+  "ui.c4ca1cd665": {
+    "en": "Fishing",
+    "zh": "钓鱼中"
+  },
+  "ui.c5b3b94079": {
+    "en": "Add Crops",
+    "zh": "添加植物"
+  },
+  "ui.c7b01b6bff": {
+    "en": "Crafted %s ×%d",
+    "zh": "已完成制作 %s ×%d"
+  },
+  "ui.caa67410cc": {
+    "en": "%d h %d min",
+    "zh": "%d时%d分"
+  },
+  "ui.cce5faf2ce": {
+    "en": "Weeds and rocks cover this plot. Clearing it permanently adds one production plot.",
+    "zh": "杂草与石块覆盖着这里。开垦后永久增加一块生产地。"
+  },
+  "ui.cceb881aeb": {
+    "en": "Fish shop complete. Click the sign to send the character to open it.",
+    "zh": "鱼铺已建造完成，点击木牌让角色前去启用"
+  },
+  "ui.cced0bc709": {
+    "en": "Workbench inactive. Click its completed sign.",
+    "zh": "工作台尚未启用，请点击建造完成的木牌"
+  },
+  "ui.cd7d889acf": {
+    "en": "Not Fishing\nCurrent bait: Not selected",
+    "zh": "未开始钓鱼\n当前鱼饵：未选择"
+  },
+  "ui.cd99b225a0": {
+    "en": "Language",
+    "zh": "语言"
+  },
+  "ui.cd9a1c6428": {
+    "en": "Not Fishing",
+    "zh": "未开始钓鱼"
+  },
+  "ui.cd9bea0fcf": {
+    "en": "Sell Common Fish",
+    "zh": "出售普通鱼"
+  },
+  "ui.cdec333f69": {
+    "en": "Codex",
+    "zh": "图鉴"
+  },
+  "ui.cf7c3cc87a": {
+    "en": "Fish",
+    "zh": "鱼类"
+  },
+  "ui.cf83151a3d": {
+    "en": "Root",
+    "zh": "根茎型"
+  },
+  "ui.d028bbe586": {
+    "en": "Off; the character will wander",
+    "zh": "关闭；角色将闲逛"
+  },
+  "ui.d1288269bd": {
+    "en": "Auto Fish When Idle",
+    "zh": "空闲时自动钓鱼"
+  },
+  "ui.d23564dfaf": {
+    "en": "Rainy",
+    "zh": "雨天"
+  },
+  "ui.d23be3df49": {
+    "en": "Could not add feed: check inventory or whether the character is feeding",
+    "zh": "添加失败：检查库存或角色是否正在投喂"
+  },
+  "ui.d417e319b6": {
+    "en": "Whole plot as one group by default; uncheck to work only on cell %d",
+    "zh": "默认整块地为一组；取消勾选后只操作第 %d 小格"
+  },
+  "ui.d6c9f8fd30": {
+    "en": "Trough currently has 0 portions\nEach addition uses 1 crop",
+    "zh": "此槽现有 0 份食物\n每次添加消耗 1 株植物"
+  },
+  "ui.d82c449377": {
+    "en": "Water This Cell",
+    "zh": "给这个小格浇水"
+  },
+  "ui.d9d75f3400": {
+    "en": "Invalid config format: %s",
+    "zh": "配置格式错误：%s"
+  },
+  "ui.dbc9a2b514": {
+    "en": "Change Weather",
+    "zh": "切换天气"
+  },
+  "ui.dce8e58c81": {
+    "en": "Purchase failed: check coins or pen capacity",
+    "zh": "购买失败：检查金币或栅栏容量"
+  },
+  "ui.de33101caa": {
+    "en": "Rarity: %s\nBait type: %s\nBase price: %d coins",
+    "zh": "品质：%s\n鱼饵类型：%s\n基础售价：%d 金"
+  },
+  "ui.e13d564d41": {
+    "en": "Test · Reset Progress",
+    "zh": "测试 · 重置游戏进度"
+  },
+  "ui.e2708271d5": {
+    "en": "Workbench activated",
+    "zh": "工作台已启用"
+  },
+  "ui.e5306b7786": {
+    "en": "Buy Bait",
+    "zh": "购买鱼饵"
+  },
+  "ui.e5a581ef44": {
+    "en": "Crafting Materials",
+    "zh": "制作材料"
+  },
+  "ui.e709f81b3f": {
+    "en": "220 coins",
+    "zh": "220 金"
+  },
+  "ui.e78f11c336": {
+    "en": "No tasks; the character will rest or wander",
+    "zh": "暂无任务，角色会自行休息或活动"
+  },
+  "ui.e99b48a29b": {
+    "en": "Completed",
+    "zh": "已完成"
+  },
+  "ui.ea0ef2ae72": {
+    "en": "Next",
+    "zh": "下一步"
+  },
+  "ui.eaa88c8451": {
+    "en": "Matured crops in %d cells",
+    "zh": "已催熟 %d 个小格的作物"
+  },
+  "ui.eadd8c7b22": {
+    "en": "Watering failed",
+    "zh": "浇水失败"
+  },
+  "ui.eb5259ce0f": {
+    "en": "Notice",
+    "zh": "提示信息"
+  },
+  "ui.eb8e9999b7": {
+    "en": "140 coins",
+    "zh": "140 金"
+  },
+  "ui.ed690ebb15": {
+    "en": "Max",
+    "zh": "最大"
+  },
+  "ui.ee1088e725": {
+    "en": "Basic rod equipped",
+    "zh": "已装备基础鱼竿"
+  },
+  "ui.eec68cce90": {
+    "en": "Achievement Unlocked",
+    "zh": "成就达成"
+  },
+  "ui.eed8bbe00b": {
+    "en": "Cottage upgraded; storage and workbench capacity increased",
+    "zh": "小屋已升级，仓库与工作台已扩充"
+  },
+  "ui.ef2c39ee99": {
+    "en": "The task list is full (10). Finish a task before harvesting.",
+    "zh": "任务列表最多 10 条，请先完成当前任务再收获"
+  },
+  "ui.f08fd28247": {
+    "en": "Construction Complete",
+    "zh": "建造完成"
+  },
+  "ui.f0fc5e948c": {
+    "en": "Grain",
+    "zh": "谷物型"
+  },
+  "ui.f1b760f1d6": {
+    "en": "Tomato",
+    "zh": "番茄"
+  },
+  "ui.f1e8a3ee6a": {
+    "en": "Plant",
+    "zh": "播种"
+  },
+  "ui.f2461601db": {
+    "en": "Not enough coins; remaining planting in this group stopped",
+    "zh": "金币不足，已停止本组剩余播种"
+  },
+  "ui.f526c89937": {
+    "en": "Confirm",
+    "zh": "确定"
+  },
+  "ui.f6327bbbfb": {
+    "en": "Harvested",
+    "zh": "已收获"
+  },
+  "ui.f69f19fafa": {
+    "en": "Character reached the pond and started fishing",
+    "zh": "角色已到池塘，开始钓鱼"
+  },
+  "ui.f6ac00eb69": {
+    "en": "Current pen: 0/10 animals\nDrag purchased animals to another pen",
+    "zh": "当前栅栏 0/10 只\n购买后可拖动到另一块栅栏"
+  },
+  "ui.f6db354b97": {
+    "en": "and %d more types",
+    "zh": "等%d种"
+  },
+  "ui.f6feea46f4": {
+    "en": "Feed Animals",
+    "zh": "投喂动物"
+  },
+  "ui.f789251f94": {
+    "en": "Construction in progress. Please wait.",
+    "zh": "修建中，请等待"
+  },
+  "ui.f7a3d534bf": {
+    "en": "· Plot %d",
+    "zh": "· 地块%d"
+  },
+  "ui.f804c5920d": {
+    "en": "Could not select rod",
+    "zh": "鱼竿选择失败"
+  },
+  "ui.f826b3e07c": {
+    "en": "Established",
+    "zh": "成型"
+  },
+  "ui.f91b1d06c2": {
+    "en": "Workbench complete. Click the sign to send the character to activate it.",
+    "zh": "工作台已建造完成，点击木牌让角色前去启用"
+  },
+  "ui.f9519dd3b2": {
+    "en": "40 coins",
+    "zh": "40 金"
+  },
+  "ui.fa747c473c": {
+    "en": "%s remaining this period",
+    "zh": "本轮剩余 %s"
+  },
+  "ui.fa9edad718": {
+    "en": "Replant After Harvest",
+    "zh": "收获后继续种植"
+  },
+  "ui.fab742762b": {
+    "en": "Purchase price: %d coins",
+    "zh": "购买价格 %d 金"
+  },
+  "ui.fb22d04ac0": {
+    "en": "Cottage under construction: %s remaining",
+    "zh": "小屋还在修建中：剩余 %s"
+  },
+  "ui.fb75045912": {
+    "en": "Main scene is missing GMButton. Check the node tree.",
+    "zh": "主场景缺少 GMButton 按钮，请检查节点树。"
+  },
+  "ui.fcc61d231a": {
+    "en": "Select a resource, enter an amount, then click Add",
+    "zh": "选择资源并输入数量后点击增加"
+  },
+  "ui.language_switch": {
+    "en": "中文 / English",
+    "zh": "中文 / English"
+  },
+  "weather.wind.effect": {
+    "en": "Crop growth time increases by %d%%.",
+    "zh": "作物成熟时间增加 %d%%。"
+  },
+  "weather.wind.name": {
+    "en": "Cloudy",
+    "zh": "多云"
+  },
+  "world.work.craft_running": {
+    "en": "Crafting",
+    "zh": "制作中"
+  },
+  "world.work.craft_waiting": {
+    "en": "Queued to craft",
+    "zh": "待制作"
+  },
+  "world.work.feed_running": {
+    "en": "Feeding",
+    "zh": "喂食中"
+  },
+  "world.work.feed_waiting": {
+    "en": "Queued to feed",
+    "zh": "待喂食"
+  },
+  "fishing.size.minimum_tag": {
+    "zh": "最小",
+    "en": "MIN"
+  },
+  "fishing.size.maximum_tag": {
+    "zh": "最大",
+    "en": "MAX"
+  },
+  "settings.screen": {
+    "zh": "显示屏幕",
+    "en": "Display"
+  },
+  "settings.screen_number": {
+    "zh": "屏幕 %d",
+    "en": "Display %d"
+  },
+  "settings.raise": {
+    "zh": "向上移动",
+    "en": "Move up"
+  },
+  "settings.effects": {
+    "zh": "音效",
+    "en": "Sound effects"
+  }
+}

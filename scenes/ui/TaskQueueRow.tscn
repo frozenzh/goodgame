@@ -1,0 +1,62 @@
+[gd_scene format=3]
+
+[sub_resource type="StyleBoxFlat" id="RowStyle"]
+bg_color = Color(0.25, 0.19, 0.12, 0.78)
+border_width_bottom = 1
+border_color = Color(0.74, 0.53, 0.3, 0.55)
+content_margin_left = 5.0
+content_margin_top = 2.0
+content_margin_right = 3.0
+content_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="ArrowStyle"]
+bg_color = Color(0.37, 0.27, 0.15, 0.75)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="TaskQueueRow" type="PanelContainer"]
+editor_description = "单条任务的静态行；文字和上下优先级按钮可独立调整。"
+custom_minimum_size = Vector2(300, 29)
+mouse_filter = 1
+theme_override_styles/panel = SubResource("RowStyle")
+
+[node name="Content" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="TaskText" type="Label" parent="Content"]
+custom_minimum_size = Vector2(230, 22)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.94, 0.78, 1)
+theme_override_font_sizes/font_size = 11
+text = "1. 等待任务"
+metadata/l10n_text = "ui.767a98cabe"
+vertical_alignment = 1
+clip_text = true
+
+[node name="Up" type="Button" parent="Content"]
+custom_minimum_size = Vector2(23, 22)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 0.93, 0.72, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("ArrowStyle")
+theme_override_styles/hover = SubResource("ArrowStyle")
+theme_override_styles/pressed = SubResource("ArrowStyle")
+text = "↑"
+
+[node name="Down" type="Button" parent="Content"]
+custom_minimum_size = Vector2(23, 22)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 0.93, 0.72, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("ArrowStyle")
+theme_override_styles/hover = SubResource("ArrowStyle")
+theme_override_styles/pressed = SubResource("ArrowStyle")
+text = "↓"

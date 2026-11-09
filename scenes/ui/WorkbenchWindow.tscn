@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://b0j703d8ig1ef"]
+
+[ext_resource type="Script" uid="uid://bim3ilr0gcwdq" path="res://scripts/ui/floating_popup_window.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/StaticPopupFrame.tscn" id="2_popup"]
+[ext_resource type="PackedScene" uid="uid://cy5anuutpla3i" path="res://scenes/ui/WorkbenchContent.tscn" id="3_content"]
+
+[node name="WorkbenchWindow" type="Window" unique_id=1102355177]
+editor_description = "工作台独立子窗口；与图鉴共用木框样式。根节点调整窗口大小及桌面位置，内容请展开 WorkbenchContent。"
+transparent_bg = true
+oversampling_override = 1.0
+size = Vector2i(800, 380)
+transient = true
+unresizable = true
+borderless = true
+transparent = true
+min_size = Vector2i(800, 380)
+script = ExtResource("1_script")
+
+[node name="WorkbenchPopup" parent="." unique_id=305662338 instance=ExtResource("2_popup")]
+editor_description = "工作台木框；使用与图鉴相同的 StaticPopupFrame。"
+clip_contents = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 104.0
+offset_right = 4.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WorkbenchContent" parent="WorkbenchPopup/ContentSurface" index="0" unique_id=890439875 instance=ExtResource("3_content")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CategoryTabs" parent="WorkbenchPopup/ContentSurface/WorkbenchContent" index="0" unique_id=721510623]
+offset_left = -40.0
+offset_top = 56.0
+offset_right = 72.0
+offset_bottom = 144.0
+
+[node name="ItemsViewport" parent="WorkbenchPopup/ContentSurface/WorkbenchContent" index="1" unique_id=1271612217]
+offset_left = 80.0
+offset_top = 64.0
+offset_right = 340.74072
+offset_bottom = 259.55554
+scale = Vector2(1.35, 1.35)
+
+[node name="ItemGrid" parent="WorkbenchPopup/ContentSurface/WorkbenchContent/ItemsViewport" index="0" unique_id=702558569]
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 3
+
+[node name="DetailPanel" parent="WorkbenchPopup/ContentSurface/WorkbenchContent" index="2" unique_id=1039506580]
+offset_left = 448.0
+offset_top = 56.0
+offset_right = 656.0
+offset_bottom = 288.0
+
+[node name="TargetIcon" parent="WorkbenchPopup/ContentSurface/WorkbenchContent/DetailPanel" index="0" unique_id=1525989004]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 54.0
+offset_bottom = 54.0
+scale = Vector2(1.91, 1.91)
+
+[node name="TargetName" parent="WorkbenchPopup/ContentSurface/WorkbenchContent/DetailPanel" index="1" unique_id=468655779]
+offset_left = 88.0
+offset_top = 24.0
+offset_right = 245.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 25
+
+[node name="TargetInfo" parent="WorkbenchPopup/ContentSurface/WorkbenchContent/DetailPanel" index="2" unique_id=188187326]
+offset_left = 88.0
+offset_top = 56.0
+offset_right = 244.0
+offset_bottom = 76.0
+theme_override_font_sizes/font_size = 17
+
+[node name="MaterialsTitle" parent="WorkbenchPopup/ContentSurface/WorkbenchContent/DetailPanel" index="3" unique_id=1750729585]
+offset_left = 24.0
+offset_top = 85.0
+offset_right = 253.0
+offset_bottom = 104.0
+
+[node name="MaterialRow" parent="WorkbenchPopup/ContentSurface/WorkbenchContent/DetailPanel" index="4" unique_id=55551531]
+offset_left = 14.000015
+offset_top = 109.0
+offset_right = 240.25002
+offset_bottom = 196.0
+scale = Vector2(0.82, 0.82)
+theme_override_constants/separation = 2
+
+[node name="Content" parent="WorkbenchPopup/ContentSurface/WorkbenchContent/DetailPanel/MaterialRow/Material1" parent_id_path=PackedInt32Array(890439875, 282760327) index="0" unique_id=1334671992]
+theme_override_constants/separation = 4
+
+[node name="Icon" parent="WorkbenchPopup/ContentSurface/WorkbenchContent/DetailPanel/MaterialRow/Material1/Content" index="0" unique_id=928561965]
+offset_transform_scale = Vector2(1.5, 1.5)
+
+[node name="Name" parent="WorkbenchPopup/ContentSurface/WorkbenchContent/DetailPanel/MaterialRow/Material1/Content" index="1" unique_id=1631491433]
+theme_override_font_sizes/font_size = 20
+
+[node name="Count" parent="WorkbenchPopup/ContentSurface/WorkbenchContent/DetailPanel/MaterialRow/Material1/Content" index="2" unique_id=276705050]
+theme_override_font_sizes/font_size = 16
+
+[node name="QuantityControl" parent="WorkbenchPopup/ContentSurface/WorkbenchContent/DetailPanel" index="5" unique_id=1148073047]
+editor_description = "制作批次数量选择；鱼竿页隐藏。"
+offset_left = 32.0
+offset_top = 192.0
+offset_right = 205.0
+offset_bottom = 222.0
+
+[node name="Minus" parent="WorkbenchPopup/ContentSurface/WorkbenchContent/DetailPanel/QuantityControl" index="0" unique_id=1529348153]
+custom_minimum_size = Vector2(30, 28)
+
+[node name="Amount" parent="WorkbenchPopup/ContentSurface/WorkbenchContent/DetailPanel/QuantityControl" index="1" unique_id=1098338791]
+custom_minimum_size = Vector2(35, 28)
+theme_override_font_sizes/font_size = 24
+
+[node name="Plus" parent="WorkbenchPopup/ContentSurface/WorkbenchContent/DetailPanel/QuantityControl" index="2" unique_id=1403944016]
+custom_minimum_size = Vector2(30, 28)
+
+[node name="CraftButton" parent="WorkbenchPopup/ContentSurface/WorkbenchContent/DetailPanel" index="6" unique_id=2042827098]
+custom_minimum_size = Vector2(94, 40.98)
+offset_left = 48.0
+offset_top = 232.0
+offset_right = 160.0
+offset_bottom = 288.98
+theme_override_font_sizes/font_size = 18
+
+[node name="TitlePlank" parent="WorkbenchPopup/ContentSurface" index="1"]
+anchors_preset = 5
+
+[node name="TitleText" parent="WorkbenchPopup/ContentSurface/TitlePlank" index="0"]
+text = "工作台"
+metadata/l10n_text = "ui.8483cd2b08"
+
+[node name="CloseButton" parent="WorkbenchPopup/ContentSurface" index="2"]
+anchors_preset = 1
+offset_left = -38.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 38.0
+
+[editable path="WorkbenchPopup"]
+[editable path="WorkbenchPopup/ContentSurface/WorkbenchContent"]
+[editable path="WorkbenchPopup/ContentSurface/WorkbenchContent/CategoryTabs/BaitTab"]
+[editable path="WorkbenchPopup/ContentSurface/WorkbenchContent/CategoryTabs/RodTab"]
+[editable path="WorkbenchPopup/ContentSurface/WorkbenchContent/ItemsViewport/ItemGrid/ItemSlot01"]
+[editable path="WorkbenchPopup/ContentSurface/WorkbenchContent/ItemsViewport/ItemGrid/ItemSlot02"]
+[editable path="WorkbenchPopup/ContentSurface/WorkbenchContent/ItemsViewport/ItemGrid/ItemSlot03"]
+[editable path="WorkbenchPopup/ContentSurface/WorkbenchContent/ItemsViewport/ItemGrid/ItemSlot04"]
+[editable path="WorkbenchPopup/ContentSurface/WorkbenchContent/ItemsViewport/ItemGrid/ItemSlot05"]
+[editable path="WorkbenchPopup/ContentSurface/WorkbenchContent/ItemsViewport/ItemGrid/ItemSlot06"]
+[editable path="WorkbenchPopup/ContentSurface/WorkbenchContent/ItemsViewport/ItemGrid/ItemSlot07"]
+[editable path="WorkbenchPopup/ContentSurface/WorkbenchContent/ItemsViewport/ItemGrid/ItemSlot08"]
+[editable path="WorkbenchPopup/ContentSurface/WorkbenchContent/DetailPanel/MaterialRow/Material1"]
+[editable path="WorkbenchPopup/ContentSurface/WorkbenchContent/DetailPanel/MaterialRow/Material2"]
+[editable path="WorkbenchPopup/ContentSurface/WorkbenchContent/DetailPanel/MaterialRow/Material3"]

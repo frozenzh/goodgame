@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "catalog_type": "achievements",
+  "items": [
+    {
+      "id": "ACH_FIRST_HARVEST",
+      "stage": "beginner",
+      "sort_order": 1,
+      "name": "第一捧麦香",
+      "description": "首次实际收获任意作物",
+      "metric": "harvest_successes",
+      "target": 1,
+      "icon_locked": "res://assets/ui/achievements/ach_first_harvest_locked.png",
+      "icon_unlocked": "res://assets/ui/achievements/ach_first_harvest_unlocked.png"
+    },
+    {
+      "id": "ACH_FIRST_BAIT",
+      "stage": "beginner",
+      "sort_order": 2,
+      "name": "自己做的才香",
+      "description": "首次制作完成鱼饵",
+      "metric": "bait_craft_successes",
+      "target": 1,
+      "icon_locked": "res://assets/ui/achievements/ach_first_bait_locked.png",
+      "icon_unlocked": "res://assets/ui/achievements/ach_first_bait_unlocked.png"
+    },
+    {
+      "id": "ACH_FIRST_FISH",
+      "stage": "beginner",
+      "sort_order": 3,
+      "name": "愿者上钩",
+      "description": "首次捕获鱼类",
+      "metric": "fish_catch_successes",
+      "target": 1,
+      "icon_locked": "res://assets/ui/achievements/ach_first_fish_locked.png",
+      "icon_unlocked": "res://assets/ui/achievements/ach_first_fish_unlocked.png"
+    },
+    {
+      "id": "ACH_FIRST_SALE",
+      "stage": "beginner",
+      "sort_order": 4,
+      "name": "开张大吉",
+      "description": "首次成功出售鱼类",
+      "metric": "fish_sale_successes",
+      "target": 1,
+      "icon_locked": "res://assets/ui/achievements/ach_first_sale_locked.png",
+      "icon_unlocked": "res://assets/ui/achievements/ach_first_sale_unlocked.png"
+    },
+    {
+      "id": "ACH_BAIT_VARIETY_3",
+      "stage": "development",
+      "sort_order": 5,
+      "name": "换个口味",
+      "description": "累计制作过3种不同鱼饵",
+      "metric": "crafted_bait_variety",
+      "target": 3,
+      "icon_locked": "res://assets/ui/achievements/ach_bait_variety_3_locked.png",
+      "icon_unlocked": "res://assets/ui/achievements/ach_bait_variety_3_unlocked.png"
+    },
+    {
+      "id": "ACH_FISH_SPECIES_5",
+      "stage": "development",
+      "sort_order": 6,
+      "name": "塘边熟客",
+      "description": "发现5种不同鱼类",
+      "metric": "fish_species",
+      "target": 5,
+      "icon_locked": "res://assets/ui/achievements/ach_fish_species_5_locked.png",
+      "icon_unlocked": "res://assets/ui/achievements/ach_fish_species_5_unlocked.png"
+    },
+    {
+      "id": "ACH_COTTAGE_LEVEL_2",
+      "stage": "development",
+      "sort_order": 7,
+      "name": "修修补补又一年",
+      "description": "小屋达到2级并完工",
+      "metric": "cottage_level",
+      "target": 2,
+      "icon_locked": "res://assets/ui/achievements/ach_cottage_level_2_locked.png",
+      "icon_unlocked": "res://assets/ui/achievements/ach_cottage_level_2_unlocked.png"
+    },
+    {
+      "id": "ACH_PLOTS_5",
+      "stage": "development",
+      "sort_order": 8,
+      "name": "田园渐丰",
+      "description": "开放地块达到5块",
+      "metric": "unlocked_plots",
+      "target": 5,
+      "icon_locked": "res://assets/ui/achievements/ach_plots_5_locked.png",
+      "icon_unlocked": "res://assets/ui/achievements/ach_plots_5_unlocked.png"
+    },
+    {
+      "id": "ACH_UPGRADED_ROD_CATCH",
+      "stage": "formed",
+      "sort_order": 9,
+      "name": "好竿配好饵",
+      "description": "使用获得的升级鱼竿捕获一条鱼",
+      "metric": "upgraded_rod_catches",
+      "target": 1,
+      "icon_locked": "res://assets/ui/achievements/ach_upgraded_rod_catch_locked.png",
+      "icon_unlocked": "res://assets/ui/achievements/ach_upgraded_rod_catch_unlocked.png"
+    },
+    {
+      "id": "ACH_COTTAGE_LEVEL_3",
+      "stage": "formed",
+      "sort_order": 10,
+      "name": "安家塘边",
+      "description": "小屋达到3级并完工",
+      "metric": "cottage_level",
+      "target": 3,
+      "icon_locked": "res://assets/ui/achievements/ach_cottage_level_3_locked.png",
+      "icon_unlocked": "res://assets/ui/achievements/ach_cottage_level_3_unlocked.png"
+    },
+    {
+      "id": "ACH_PLOTS_7",
+      "stage": "formed",
+      "sort_order": 11,
+      "name": "一片自己的田园",
+      "description": "全部7块地开放",
+      "metric": "unlocked_plots",
+      "target": 7,
+      "icon_locked": "res://assets/ui/achievements/ach_plots_7_locked.png",
+      "icon_unlocked": "res://assets/ui/achievements/ach_plots_7_unlocked.png"
+    },
+    {
+      "id": "ACH_FISH_SPECIES_15",
+      "stage": "formed",
+      "sort_order": 12,
+      "name": "半塘相识",
+      "description": "发现15种不同鱼类",
+      "metric": "fish_species",
+      "target": 15,
+      "icon_locked": "res://assets/ui/achievements/ach_fish_species_15_locked.png",
+      "icon_unlocked": "res://assets/ui/achievements/ach_fish_species_15_unlocked.png"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "catalog_type": "cottage_levels",
+  "items": [
+    {
+      "id": "1",
+      "level": 1,
+      "display_name": "茅草小屋",
+      "storage_capacity": 1200,
+      "workbench_tier": 1,
+      "upgrade_cost": 0,
+      "build_seconds": 0,
+      "unlock_baits": []
+    },
+    {
+      "id": "2",
+      "level": 2,
+      "display_name": "瓦顶小屋",
+      "storage_capacity": 2400,
+      "workbench_tier": 2,
+      "upgrade_cost": 400,
+      "build_seconds": 60,
+      "unlock_baits": []
+    },
+    {
+      "id": "3",
+      "level": 3,
+      "display_name": "整修小屋",
+      "storage_capacity": 4800,
+      "workbench_tier": 3,
+      "upgrade_cost": 2000,
+      "build_seconds": 120,
+      "unlock_baits": []
+    },
+    {
+      "id": "4",
+      "level": 4,
+      "display_name": "储物小屋",
+      "storage_capacity": 7200,
+      "workbench_tier": 3,
+      "upgrade_cost": 6000,
+      "build_seconds": 180,
+      "unlock_baits": []
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/click_ripple.gd" id="1_script"]
+
+[node name="ClickRipple" type="Node2D"]
+editor_description = "手动移动点击涟漪：两圈可分别调整颜色和线宽。"
+z_index = 45
+scale = Vector2(0.45, 0.45)
+script = ExtResource("1_script")
+
+[node name="OuterRing" type="Line2D" parent="."]
+width = 2.0
+default_color = Color(1, 0.95, 0.71, 0.95)
+
+[node name="InnerRing" type="Line2D" parent="."]
+width = 1.5
+default_color = Color(0.74, 0.94, 1, 0.8)

@@ -1,0 +1,8 @@
+{
+  "module": "ui",
+  "values": {
+    "max_desktop_height_ratio": 0.36,
+    "max_desktop_width": 2048,
+    "toast_seconds": 3.5
+  }
+}

@@ -1,0 +1,222 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/gm_window.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/StaticPopupFrame.tscn" id="2_frame"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PrimaryButton.tscn" id="3_primary"]
+[ext_resource type="PackedScene" path="res://scenes/ui/SecondaryButton.tscn" id="4_secondary"]
+
+[sub_resource type="StyleBoxFlat" id="SectionStyle"]
+bg_color = Color(0.91, 0.77, 0.52, 0.55)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.48, 0.29, 0.13, 0.55)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[node name="GMWindow" type="Window"]
+editor_description = "GM 独立子窗口；可以在此场景中调整资源、作物、鱼类图鉴和天气操作的静态位置。"
+transparent_bg = true
+oversampling_override = 1.0
+size = Vector2i(620, 520)
+transient = true
+unresizable = true
+borderless = true
+transparent = true
+min_size = Vector2i(620, 520)
+script = ExtResource("1_script")
+
+[node name="GMPopup" parent="." instance=ExtResource("2_frame")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitlePlank" parent="GMPopup/ContentSurface" index="0"]
+offset_left = -132.0
+offset_right = 132.0
+
+[node name="TitleText" parent="GMPopup/ContentSurface/TitlePlank" index="0"]
+text = "GM 测试台"
+metadata/l10n_text = "ui.bd808fcb90"
+
+[node name="ResourcePanel" type="Panel" parent="GMPopup/ContentSurface"]
+editor_description = "资源增加区域的静态底板。"
+offset_left = 50.0
+offset_top = 83.0
+offset_right = 570.0
+offset_bottom = 172.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("SectionStyle")
+
+[node name="ResourceTitle" type="Label" parent="GMPopup/ContentSurface"]
+offset_left = 64.0
+offset_top = 90.0
+offset_right = 320.0
+offset_bottom = 118.0
+theme_override_colors/font_color = Color(0.28, 0.17, 0.09, 1)
+theme_override_font_sizes/font_size = 17
+text = "增加资源"
+metadata/l10n_text = "ui.01c2754130"
+
+[node name="ResourceOption" type="OptionButton" parent="GMPopup/ContentSurface"]
+editor_description = "运行时填入金币、肥料及配置表中的植物、鱼饵、鱼；位置和尺寸在此调整。"
+offset_left = 64.0
+offset_top = 123.0
+offset_right = 310.0
+offset_bottom = 159.0
+mouse_default_cursor_shape = 2
+text = "选择资源"
+metadata/l10n_text = "ui.291a5c63e6"
+
+[node name="AmountSpin" type="SpinBox" parent="GMPopup/ContentSurface"]
+editor_description = "资源增加数量。"
+offset_left = 322.0
+offset_top = 123.0
+offset_right = 434.0
+offset_bottom = 159.0
+min_value = 1.0
+max_value = 999999.0
+value = 10.0
+rounded = true
+allow_greater = true
+
+[node name="AddButton" parent="GMPopup/ContentSurface" instance=ExtResource("3_primary")]
+offset_left = 445.0
+offset_top = 122.0
+offset_right = 555.0
+offset_bottom = 161.0
+text = "增加"
+metadata/l10n_text = "ui.605806b6fc"
+
+[node name="CropPanel" type="Panel" parent="GMPopup/ContentSurface"]
+offset_left = 50.0
+offset_top = 183.0
+offset_right = 570.0
+offset_bottom = 242.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("SectionStyle")
+
+[node name="CropTitle" type="Label" parent="GMPopup/ContentSurface"]
+offset_left = 64.0
+offset_top = 198.0
+offset_right = 280.0
+offset_bottom = 228.0
+theme_override_colors/font_color = Color(0.28, 0.17, 0.09, 1)
+theme_override_font_sizes/font_size = 17
+text = "田地作物"
+metadata/l10n_text = "ui.3a593f698a"
+
+[node name="MatureButton" parent="GMPopup/ContentSurface" instance=ExtResource("3_primary")]
+offset_left = 317.0
+offset_top = 194.0
+offset_right = 555.0
+offset_bottom = 233.0
+text = "一键成熟全部作物"
+metadata/l10n_text = "ui.0161f5cc8e"
+
+[node name="CodexPanel" type="Panel" parent="GMPopup/ContentSurface"]
+editor_description = "鱼类图鉴测试操作的静态底板。"
+offset_left = 50.0
+offset_top = 254.0
+offset_right = 570.0
+offset_bottom = 313.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("SectionStyle")
+
+[node name="CodexTitle" type="Label" parent="GMPopup/ContentSurface"]
+offset_left = 64.0
+offset_top = 269.0
+offset_right = 280.0
+offset_bottom = 299.0
+theme_override_colors/font_color = Color(0.28, 0.17, 0.09, 1)
+theme_override_font_sizes/font_size = 17
+text = "鱼类图鉴"
+metadata/l10n_text = "gm.fish_codex_title"
+
+[node name="ResetFishCodexButton" parent="GMPopup/ContentSurface" instance=ExtResource("4_secondary")]
+editor_description = "只重置鱼类发现状态和尺寸记录，不影响库存、成就及图鉴里程碑奖励。"
+offset_left = 317.0
+offset_top = 264.0
+offset_right = 555.0
+offset_bottom = 303.0
+text = "重置鱼类图鉴"
+metadata/l10n_text = "gm.reset_fish_codex"
+
+[node name="WeatherPanel" type="Panel" parent="GMPopup/ContentSurface"]
+offset_left = 50.0
+offset_top = 325.0
+offset_right = 570.0
+offset_bottom = 401.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("SectionStyle")
+
+[node name="WeatherTitle" type="Label" parent="GMPopup/ContentSurface"]
+offset_left = 64.0
+offset_top = 331.0
+offset_right = 280.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(0.28, 0.17, 0.09, 1)
+theme_override_font_sizes/font_size = 17
+text = "切换天气"
+metadata/l10n_text = "ui.dbc9a2b514"
+
+[node name="SunnyButton" parent="GMPopup/ContentSurface" instance=ExtResource("4_secondary")]
+offset_left = 64.0
+offset_top = 359.0
+offset_right = 181.0
+offset_bottom = 393.0
+text = "晴天"
+metadata/l10n_text = "ui.5656dc6e75"
+
+[node name="RainButton" parent="GMPopup/ContentSurface" instance=ExtResource("4_secondary")]
+offset_left = 190.0
+offset_top = 359.0
+offset_right = 307.0
+offset_bottom = 393.0
+text = "雨天"
+metadata/l10n_text = "ui.d23564dfaf"
+
+[node name="SnowButton" parent="GMPopup/ContentSurface" instance=ExtResource("4_secondary")]
+offset_left = 316.0
+offset_top = 359.0
+offset_right = 433.0
+offset_bottom = 393.0
+text = "雪天"
+metadata/l10n_text = "ui.51ea8f26e9"
+
+[node name="WindButton" parent="GMPopup/ContentSurface" instance=ExtResource("4_secondary")]
+offset_left = 442.0
+offset_top = 359.0
+offset_right = 559.0
+offset_bottom = 393.0
+text = "多云"
+metadata/l10n_text = "weather.wind.name"
+
+[node name="Status" type="Label" parent="GMPopup/ContentSurface"]
+offset_left = 61.0
+offset_top = 406.0
+offset_right = 559.0
+offset_bottom = 444.0
+theme_override_colors/font_color = Color(0.35, 0.23, 0.14, 1)
+theme_override_font_sizes/font_size = 14
+text = "选择资源并输入数量后点击增加"
+metadata/l10n_text = "ui.fcc61d231a"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResetProgressButton" parent="GMPopup/ContentSurface" instance=ExtResource("3_primary")]
+offset_left = 218.0
+offset_top = 455.0
+offset_right = 402.0
+offset_bottom = 498.0
+text = "重置进度"
+metadata/l10n_text = "ui.a2ce837b56"
+
+[editable path="GMPopup"]

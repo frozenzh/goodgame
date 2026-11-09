@@ -1,0 +1,4 @@
+运行时间：2026-11-04 18:16:20
+项目目录：/Users/frozen/myfavorite
+Python：/Users/frozen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3
+Export failed: scenes/ui/CottageWindow.tscn:33: scene preview differs from ui.024958a070 中文

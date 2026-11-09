@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b33hhlf0k0uf"]
+
+[ext_resource type="Texture2D" uid="uid://dotpfwttsxcib" path="res://assets/hd/ui/icon_bait_simple.png" id="2_preview"]
+[ext_resource type="Texture2D" uid="uid://py7122nrfe1u" path="res://assets/hd/ui/rarity_common.png" id="3_rarity"]
+
+[node name="BaitCodexCard" type="Control" unique_id=570837962]
+editor_description = "鱼饵图鉴方卡：上方鱼饵图标、下方鱼饵名；图标和名称可单独调整。"
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 80.0
+
+[node name="Content" type="VBoxContainer" parent="." unique_id=1430397844]
+z_index = 1
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 80.0
+theme_override_constants/separation = -4
+alignment = 1
+
+[node name="BaitIcon" type="TextureRect" parent="Content" unique_id=327549028]
+texture_filter = 1
+custom_minimum_size = Vector2(43, 43)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("2_preview")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BaitName" type="Label" parent="Content" unique_id=1356177206]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "谷物鱼饵"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+metadata/l10n_text = "ui.bbc28b86c2"
+
+[node name="ClickArea" type="Button" parent="." unique_id=207845823]
+z_index = 3
+layout_mode = 0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 75.0
+offset_bottom = 78.0
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="RarityBack" type="TextureRect" parent="." unique_id=1577052421]
+editor_description = "品质底色：框体之上，图标和名字之下；可单独调整。"
+texture_filter = 1
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 80.0
+mouse_filter = 2
+texture = ExtResource("3_rarity")
+expand_mode = 1
+stretch_mode = 5

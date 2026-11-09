@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://mn1bmq2jv1ak"]
+
+[ext_resource type="Texture2D" uid="uid://ca2b3c3vm7dbp" path="res://assets/hd/world/mature_carrot.png" id="2_preview"]
+[ext_resource type="Texture2D" uid="uid://py7122nrfe1u" path="res://assets/hd/ui/rarity_common.png" id="3_rarity"]
+
+[node name="CropCodexCard" type="Control" unique_id=712620873]
+editor_description = "植物图鉴方卡：上方成熟作物图标、下方名称，可在场景树中分别调整。"
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 80.0
+
+[node name="Content" type="VBoxContainer" parent="." unique_id=1093441234]
+z_index = 1
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 81.0
+offset_bottom = 82.0
+theme_override_constants/separation = -4
+alignment = 1
+
+[node name="CropIcon" type="TextureRect" parent="Content" unique_id=176085055]
+texture_filter = 1
+custom_minimum_size = Vector2(43, 43)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("2_preview")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CropName" type="Label" parent="Content" unique_id=1603765841]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "胡萝卜"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+metadata/l10n_text = "ui.837782f440"
+
+[node name="ClickArea" type="Button" parent="." unique_id=1383432478]
+z_index = 3
+layout_mode = 0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 80.0
+offset_bottom = 80.0
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="RarityBack" type="TextureRect" parent="." unique_id=1903912335]
+editor_description = "品质底色：框体之上，图标和名字之下；可单独调整。"
+texture_filter = 1
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 81.0
+offset_bottom = 81.0
+mouse_filter = 2
+texture = ExtResource("3_rarity")
+expand_mode = 1
+stretch_mode = 5

@@ -1,0 +1,211 @@
+[gd_scene format=3 uid="uid://bgn7bah6wkut7"]
+
+[ext_resource type="Script" uid="uid://bim3ilr0gcwdq" path="res://scripts/ui/floating_popup_window.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/StaticPopupFrame.tscn" id="2_popup"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PlotContent.tscn" id="3_content"]
+[ext_resource type="Texture2D" uid="uid://bi2mnng1dpk2n" path="res://assets/hd/world/plot3x3/carrot.png" id="4_preview"]
+
+[ext_resource type="StyleBoxFlat" path="res://assets/hd/ui/seed_hover_panel_style.tres" id="5_hover_style"]
+
+[node name="PlantWindow" type="Window" unique_id=1831373116]
+editor_description = "参考图种植子窗口；可在 Inspector 调整窗口尺寸与桌面偏移。"
+transparent_bg = true
+oversampling_override = 1.0
+size = Vector2i(880, 340)
+transient = true
+unresizable = true
+borderless = true
+transparent = true
+min_size = Vector2i(850, 320)
+script = ExtResource("1_script")
+
+[node name="PlotPopup" parent="." unique_id=627136316 instance=ExtResource("2_popup")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -200.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlotContent" parent="PlotPopup/ContentSurface" index="0" unique_id=793534266 instance=ExtResource("3_content")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LockedContent" parent="PlotPopup/ContentSurface/PlotContent" index="0"]
+visible = true
+anchors_preset = 0
+offset_left = 84.93
+offset_top = 63.45
+offset_right = 584.92975
+offset_bottom = 243.45
+
+[node name="Info" parent="PlotPopup/ContentSurface/PlotContent/LockedContent" index="0"]
+custom_maximum_size = Vector2(450, 500)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -206.92987
+offset_top = 0.54999924
+offset_right = 243.07013
+offset_bottom = 129.1
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+autowrap_mode = 0
+autowrap_trim_flags = 0
+
+[node name="Unlock" parent="PlotPopup/ContentSurface/PlotContent/LockedContent" index="1"]
+layout_mode = 0
+offset_left = 171.07
+offset_top = 120.55
+offset_right = 316.07
+offset_bottom = 192.55
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 20
+
+[node name="UnlockCostRow" parent="PlotPopup/ContentSurface/PlotContent/LockedContent" index="2"]
+offset_left = 179.07
+offset_top = 184.55002
+offset_right = 279.07
+offset_bottom = 213.55002
+scale = Vector2(1.2, 1.2)
+
+[node name="Icon" parent="PlotPopup/ContentSurface/PlotContent/LockedContent/UnlockCostRow" index="0"]
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.97, 1.97)
+
+[node name="SelectionBoard" parent="PlotPopup/ContentSurface/PlotContent" index="1"]
+visible = false
+
+[node name="CropContainer" parent="PlotPopup/ContentSurface/PlotContent/SelectionBoard" index="0"]
+anchors_preset = 0
+offset_left = 48.54
+offset_top = 68.35
+offset_right = 639.9899
+offset_bottom = 250.34998
+
+[node name="RepeatChoice" parent="PlotPopup/ContentSurface/PlotContent/SelectionBoard" index="3"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 273.0
+offset_right = 262.0
+offset_bottom = 312.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+
+[node name="PlantScopeHint" parent="PlotPopup/ContentSurface/PlotContent/SelectionBoard" index="4"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 569.0
+offset_bottom = 19.0
+
+[node name="FillEmptyCells" parent="PlotPopup/ContentSurface/PlotContent/SelectionBoard" index="5"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 185.0
+offset_bottom = 39.0
+
+[node name="ConfirmPlant" parent="PlotPopup/ContentSurface/PlotContent/SelectionBoard" index="6"]
+offset_left = 250.0
+offset_top = 248.0
+offset_right = 438.0
+offset_bottom = 313.0
+
+[node name="TitlePlank" parent="PlotPopup/ContentSurface" index="1"]
+anchors_preset = 5
+
+[node name="CloseButton" parent="PlotPopup/ContentSurface" index="2"]
+anchors_preset = 1
+offset_left = -80.0
+offset_top = 16.0
+offset_right = -18.0
+offset_bottom = 78.0
+
+[node name="CropInfoPanel" type="PanelContainer" parent="." unique_id=1075690526]
+editor_description = "未解锁作物的悬停提示板；解锁材料图标与数量都是独立静态节点。"
+visible = false
+offset_left = 690.0
+offset_top = 65.0
+offset_right = 870.0
+offset_bottom = 225.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("5_hover_style")
+
+[node name="Content" type="VBoxContainer" parent="CropInfoPanel" unique_id=928805189]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 5
+
+[node name="Title" type="Label" parent="CropInfoPanel/Content" unique_id=1397476787]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.53, 1)
+theme_override_font_sizes/font_size = 16
+text = "解锁条件"
+metadata/l10n_text = "ui.8e3e7f1c56"
+
+[node name="Requirement1" type="HBoxContainer" parent="CropInfoPanel/Content" unique_id=278597764]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Icon" type="TextureRect" parent="CropInfoPanel/Content/Requirement1" unique_id=81280426]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("4_preview")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Progress" type="Label" parent="CropInfoPanel/Content/Requirement1" unique_id=1392443758]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.97, 0.86, 1)
+theme_override_font_sizes/font_size = 13
+text = "0/10"
+
+[node name="Requirement2" type="HBoxContainer" parent="CropInfoPanel/Content" unique_id=1891331767]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Icon" type="TextureRect" parent="CropInfoPanel/Content/Requirement2" unique_id=141130822]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("4_preview")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Progress" type="Label" parent="CropInfoPanel/Content/Requirement2" unique_id=1042323628]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.97, 0.86, 1)
+theme_override_font_sizes/font_size = 13
+text = "0/10"
+
+[node name="Requirement3" type="HBoxContainer" parent="CropInfoPanel/Content" unique_id=1847997604]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Icon" type="TextureRect" parent="CropInfoPanel/Content/Requirement3" unique_id=1137502530]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("4_preview")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Progress" type="Label" parent="CropInfoPanel/Content/Requirement3" unique_id=1762389302]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.97, 0.86, 1)
+theme_override_font_sizes/font_size = 13
+text = "0/10"
+
+[editable path="PlotPopup"]
+[editable path="PlotPopup/ContentSurface/PlotContent"]
+[editable path="PlotPopup/ContentSurface/PlotContent/SelectionBoard"]

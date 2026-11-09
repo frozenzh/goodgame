@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://bg540fg73uf4c"]
+
+[ext_resource type="PackedScene" uid="uid://kb6t5sbn66u0" path="res://scenes/ui/AchievementCard.tscn" id="1_card"]
+
+[node name="AchievementPage" type="ScrollContainer" unique_id=236001410]
+editor_description = "独立的成就滚动区。三个阶段标题与十二张卡均是静态节点；右侧详情仍使用图鉴 PreviewPanel。"
+custom_minimum_size = Vector2(352, 240)
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="List" type="VBoxContainer" parent="." unique_id=1505165836]
+custom_minimum_size = Vector2(330, 0)
+layout_mode = 2
+
+[node name="Summary" type="Label" parent="List" unique_id=863649831]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.2, 0.12, 1)
+theme_override_font_sizes/font_size = 14
+text = "成就 0/12"
+metadata/l10n_text = "ui.6699f8adab"
+
+[node name="BeginnerLabel" type="Label" parent="List" unique_id=2119787887]
+layout_mode = 2
+offset_transform_position = Vector2(100, -15)
+theme_override_colors/font_color = Color(0.46, 0.29, 0.15, 1)
+theme_override_font_sizes/font_size = 13
+text = "新手"
+metadata/l10n_text = "ui.339681e312"
+
+[node name="Slot01" parent="List" unique_id=981955604 instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="Slot02" parent="List" unique_id=553506480 instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="Slot03" parent="List" unique_id=1982335739 instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="Slot04" parent="List" unique_id=1390251878 instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="DevelopmentLabel" type="Label" parent="List" unique_id=1441320054]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.52, 0.29, 0.12, 1)
+theme_override_font_sizes/font_size = 13
+text = "发展"
+metadata/l10n_text = "ui.468e24b50f"
+
+[node name="Slot05" parent="List" unique_id=1464454343 instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="Slot06" parent="List" unique_id=538337396 instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="Slot07" parent="List" unique_id=1821670343 instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="Slot08" parent="List" unique_id=770772113 instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="FormedLabel" type="Label" parent="List" unique_id=801348537]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.42, 0.13, 1)
+theme_override_font_sizes/font_size = 13
+text = "成型"
+metadata/l10n_text = "ui.f826b3e07c"
+
+[node name="Slot09" parent="List" unique_id=882530200 instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="Slot10" parent="List" unique_id=667934740 instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="Slot11" parent="List" unique_id=783053341 instance=ExtResource("1_card")]
+layout_mode = 2
+
+[node name="Slot12" parent="List" unique_id=1217066009 instance=ExtResource("1_card")]
+layout_mode = 2
+
+[editable path="List/Slot01"]
+[editable path="List/Slot02"]
+[editable path="List/Slot03"]
+[editable path="List/Slot04"]
+[editable path="List/Slot05"]
+[editable path="List/Slot06"]
+[editable path="List/Slot07"]
+[editable path="List/Slot08"]
+[editable path="List/Slot09"]
+[editable path="List/Slot10"]
+[editable path="List/Slot11"]
+[editable path="List/Slot12"]

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://vbh3g506ebyd"]
+
+[ext_resource type="Texture2D" uid="uid://dspjpr66gh236" path="res://assets/hd/ui/shop_v04/controls_atlas.png" id="1_atlas"]
+
+[sub_resource type="AtlasTexture" id="NormalArt"]
+atlas = ExtResource("1_atlas")
+region = Rect2(40, 605, 450, 310)
+
+[sub_resource type="StyleBoxTexture" id="NormalStyle"]
+texture = SubResource("NormalArt")
+
+[sub_resource type="AtlasTexture" id="SelectedArt"]
+atlas = ExtResource("1_atlas")
+region = Rect2(560, 608, 472, 310)
+
+[sub_resource type="StyleBoxTexture" id="SelectedStyle"]
+texture = SubResource("SelectedArt")
+
+[sub_resource type="StyleBoxEmpty" id="FocusStyle"]
+
+[node name="SecondaryButton" type="Button" unique_id=647269576]
+editor_description = "通用次要/页签按钮模板；禁用态为选中态，编辑器可直接调皮肤。"
+custom_minimum_size = Vector2(88, 34)
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.247, 0.188, 0.157, 1)
+theme_override_colors/font_hover_color = Color(0.6347465, 0.5224711, 0.46416068, 1)
+theme_override_colors/font_disabled_color = Color(0.247, 0.188, 0.157, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("NormalStyle")
+theme_override_styles/pressed = SubResource("SelectedStyle")
+theme_override_styles/hover = SubResource("SelectedStyle")
+theme_override_styles/disabled = SubResource("SelectedStyle")
+theme_override_styles/focus = SubResource("FocusStyle")
+text = "返回"
+metadata/l10n_text = "ui.11d0241540"

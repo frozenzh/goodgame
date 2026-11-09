@@ -1,0 +1,11 @@
+.godot/
+.DS_Store
+*.tmp
+
+
+# Exported builds and local editor credentials
+dabao/
+.godot/export_credentials.cfg
+.env
+.env.*
+

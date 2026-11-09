@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="0 0 1536 1024">
+  <defs>
+    <linearGradient id="snow" x1="0" y1="0" x2=".23" y2="1">
+      <stop offset="0" stop-color="#fcfeff"/>
+      <stop offset=".39" stop-color="#f0f8ff"/>
+      <stop offset=".72" stop-color="#deedf8"/>
+      <stop offset="1" stop-color="#c2d8ed"/>
+    </linearGradient>
+    <linearGradient id="depth" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c2d9ee"/>
+      <stop offset=".55" stop-color="#a9c5df"/>
+      <stop offset="1" stop-color="#7695b3"/>
+    </linearGradient>
+    <linearGradient id="crest">
+      <stop offset="0" stop-color="#bfd5ea" stop-opacity=".82"/>
+      <stop offset=".47" stop-color="#ffffff"/>
+      <stop offset=".68" stop-color="#f6fbff"/>
+      <stop offset="1" stop-color="#a7c3de" stop-opacity=".8"/>
+    </linearGradient>
+    <linearGradient id="bank" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".92"/>
+      <stop offset=".48" stop-color="#f7fcff" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#98b5d1" stop-opacity=".7"/>
+    </linearGradient>
+  </defs>
+  <path transform="translate(0 21)" fill="url(#depth)" fill-rule="evenodd" stroke="#829eb8" stroke-width="5" stroke-linejoin="round" d="M250 505L317 215L346 146Q352 129 365 126L369 70Q386 46 417 48Q452 48 462 76L1072 76Q1080 49 1110 49Q1149 49 1165 80L1205 147L1287 500Q1294 522 1272 533L1245 530Q1234 548 1202 545L1150 540Q1118 551 1081 543L1013 539Q980 552 946 544L878 540Q840 551 812 545L746 541Q711 552 676 544L602 540Q568 549 534 542L464 541Q428 552 397 542L328 545Q299 545 285 532L261 532Q243 524 250 505Z M930 283Q930 248 958 241L1037 241Q1066 248 1070 277L1072 329Q1065 361 1034 363L958 362Q927 355 929 325Z"/>
+  <path fill="url(#snow)" fill-rule="evenodd" stroke="#edf7ff" stroke-width="4" stroke-linejoin="round" d="M250 505L317 215L346 146Q352 129 365 126L369 70Q386 46 417 48Q452 48 462 76L1072 76Q1080 49 1110 49Q1149 49 1165 80L1205 147L1287 500Q1294 522 1272 533L1245 530Q1234 548 1202 545L1150 540Q1118 551 1081 543L1013 539Q980 552 946 544L878 540Q840 551 812 545L746 541Q711 552 676 544L602 540Q568 549 534 542L464 541Q428 552 397 542L328 545Q299 545 285 532L261 532Q243 524 250 505Z M930 304Q930 269 958 262L1037 262Q1066 269 1070 298L1072 350Q1065 382 1034 384L958 383Q927 376 929 346Z"/>
+  <path fill="url(#crest)" d="M459 81Q749 73 1075 81L1096 118Q793 134 459 124Z"/>
+  <g transform="translate(445 203) rotate(-13) scale(1.05)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(601 190) rotate(-6) scale(1.16)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(765 193) rotate(7) scale(1.18)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(936 193) rotate(13) scale(0.92)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(1103 204) rotate(-13) scale(0.83)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(405 379) rotate(-6) scale(0.91)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(553 362) rotate(7) scale(1.17)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(731 358) rotate(13) scale(1.1)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(862 375) rotate(-13) scale(0.73)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(1120 390) rotate(-6) scale(0.91)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(493 481) rotate(7) scale(1)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(696 471) rotate(13) scale(1.2)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(895 477) rotate(-13) scale(1)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(1091 477) rotate(-6) scale(1)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+</svg>

@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://dyhd6q23cyapa"]
+
+[ext_resource type="Texture2D" uid="uid://ctnjngfbglre8" path="res://assets/hd/ui/icon_coin_simple.png" id="2_coin"]
+[ext_resource type="Texture2D" uid="uid://difxn04dfbqnc" path="res://assets/hd/fish/fish_002.png" id="4_preview"]
+[ext_resource type="StyleBox" uid="uid://b8fmn1mnsewrk" path="res://assets/hd/ui/shop_empty_slot.tres" id="empty_slot"]
+[ext_resource type="Texture2D" uid="uid://qure6ptxw5us" path="res://assets/hd/ui/rarity_common_wide.png" id="rarity_preview"]
+
+[sub_resource type="AtlasTexture" id="CoinCutout"]
+atlas = ExtResource("2_coin")
+region = Rect2(700, 698, 1110, 1108)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmmdr"]
+
+[node name="ShopOfferCard" type="Control" unique_id=1228190335]
+editor_description = "高价鱼图片卡：独立鱼卡底图、鱼图、金币图和倍率牌均可在编辑器移动、替换。"
+custom_minimum_size = Vector2(235, 60)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 256.0
+offset_bottom = 60.0
+
+[node name="Content" type="Control" parent="." unique_id=755931784]
+z_index = 1
+anchors_preset = 0
+offset_left = 23.0
+offset_right = 203.0
+offset_bottom = 59.0
+mouse_filter = 2
+
+[node name="FishName" type="Label" parent="Content" unique_id=1660625146]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 5.0
+offset_right = 93.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0.27451, 0.168627, 0.082353, 1)
+theme_override_font_sizes/font_size = 26
+text = "高价鱼"
+clip_text = true
+metadata/l10n_text = "ui.0c8a50609d"
+
+[node name="FishIcon" type="TextureRect" parent="Content" unique_id=2097165875]
+texture_filter = 1
+layout_mode = 0
+offset_left = 36.620815
+offset_top = -7.0
+offset_right = 116.0
+offset_bottom = 65.0
+mouse_filter = 2
+texture = ExtResource("4_preview")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PriceRow" type="HBoxContainer" parent="Content" unique_id=1931772536]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 21.0
+offset_right = 185.0
+offset_bottom = 41.0
+scale = Vector2(1.19, 1.19)
+mouse_filter = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="CoinIcon" type="TextureRect" parent="Content/PriceRow" unique_id=1401519571]
+texture_filter = 1
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("CoinCutout")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Price" type="Label" parent="Content/PriceRow" unique_id=671732672]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.27450982, 0.16862746, 0.08235294, 1)
+theme_override_font_sizes/font_size = 18
+text = "144"
+vertical_alignment = 1
+
+[node name="MultiplierBoard" type="PanelContainer" parent="Content" unique_id=2023715152]
+visible = false
+layout_mode = 0
+offset_left = 126.99999
+offset_top = -7.0000057
+offset_right = 192.01208
+offset_bottom = 14.387911
+rotation = 0.4171337
+scale = Vector2(1.2, 1.2)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jmmdr")
+
+[node name="Multiplier" type="Label" parent="Content/MultiplierBoard" unique_id=845374369]
+layout_mode = 2
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_colors/font_color = Color(1, 0.17254902, 0.06666667, 1)
+theme_override_colors/font_shadow_color = Color(0.95629126, 0.9653742, 0.98253495, 0.87058824)
+theme_override_font_sizes/font_size = 16
+text = "×2.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RarityBack" type="TextureRect" parent="." unique_id=1041915417]
+editor_description = "品质底色：高价鱼卡底图之上、鱼图和鱼名之下；可独立调整。"
+texture_filter = 1
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 234.445
+offset_bottom = 42.875
+scale = Vector2(1, 1.465)
+offset_transform_position = Vector2(-0.19, 0)
+mouse_filter = 2
+texture = ExtResource("rarity_preview")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BackgroundLayers" type="Control" parent="." unique_id=1126648954]
+editor_description = "展开后可独立调整空槽背景。"
+visible = false
+show_behind_parent = true
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 237.0
+offset_bottom = 67.0
+mouse_filter = 2
+
+[node name="EmptySlotBackground" type="Panel" parent="BackgroundLayers" unique_id=1297133422]
+editor_description = "空槽的静态背景；可调整位置、尺寸和 StyleBox 纹理。"
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 75.21
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("empty_slot")

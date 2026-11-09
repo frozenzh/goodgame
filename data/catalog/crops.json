@@ -1,0 +1,833 @@
+{
+  "schema_version": 2,
+  "catalog_type": "crops",
+  "items": [
+    {
+      "id": "wheat",
+      "display_name": "小麦",
+      "rarity": "common",
+      "grow_seconds": 180,
+      "plant_cost": 2,
+      "harvest_amount": 4,
+      "sell_price": 1,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 30,
+      "mature_visual_height": 56,
+      "bait_type": "grain",
+      "bait_links": [
+        "wheat_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": true,
+      "unlock_requirements": [],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/wheat_tall.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/wheat.png"
+    },
+    {
+      "id": "corn",
+      "display_name": "玉米",
+      "rarity": "common",
+      "grow_seconds": 350,
+      "plant_cost": 3,
+      "harvest_amount": 8,
+      "sell_price": 1,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 42,
+      "mature_visual_height": 88,
+      "bait_type": "grain",
+      "bait_links": [
+        "corn_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "wheat",
+          "harvest_amount": 12
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/corn_tall.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/corn.png"
+    },
+    {
+      "id": "carrot",
+      "display_name": "胡萝卜",
+      "rarity": "common",
+      "grow_seconds": 200,
+      "plant_cost": 4,
+      "harvest_amount": 6,
+      "sell_price": 1,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 38,
+      "mature_visual_height": 46,
+      "bait_type": "root",
+      "bait_links": [
+        "carrot_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "wheat",
+          "harvest_amount": 24
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/carrot.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/carrot.png"
+    },
+    {
+      "id": "white_radish",
+      "display_name": "白萝卜",
+      "rarity": "common",
+      "grow_seconds": 200,
+      "plant_cost": 4,
+      "harvest_amount": 6,
+      "sell_price": 1,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 38,
+      "mature_visual_height": 48,
+      "bait_type": "root",
+      "bait_links": [
+        "white_radish_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "carrot",
+          "harvest_amount": 54
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/white_radish.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/white_radish.png"
+    },
+    {
+      "id": "strawberry",
+      "display_name": "草莓",
+      "rarity": "common",
+      "grow_seconds": 1200,
+      "plant_cost": 10,
+      "harvest_amount": 15,
+      "sell_price": 1,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 45,
+      "mature_visual_height": 45,
+      "bait_type": "fruit",
+      "bait_links": [
+        "strawberry_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "corn",
+          "harvest_amount": 144
+        },
+        {
+          "crop_id": "carrot",
+          "harvest_amount": 108
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/strawberry.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/strawberry.png"
+    },
+    {
+      "id": "tomato",
+      "display_name": "番茄",
+      "rarity": "common",
+      "grow_seconds": 600,
+      "plant_cost": 7,
+      "harvest_amount": 8,
+      "sell_price": 2,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 43,
+      "mature_visual_height": 61,
+      "bait_type": "fruit",
+      "bait_links": [
+        "tomato_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "strawberry",
+          "harvest_amount": 270
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/tomato.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/tomato.png"
+    },
+    {
+      "id": "cabbage",
+      "display_name": "卷心菜",
+      "rarity": "common",
+      "grow_seconds": 480,
+      "plant_cost": 5,
+      "harvest_amount": 6,
+      "sell_price": 2,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 43,
+      "mature_visual_height": 39,
+      "bait_type": "leaf",
+      "bait_links": [
+        "cabbage_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "white_radish",
+          "harvest_amount": 108
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/cabbage.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/cabbage.png"
+    },
+    {
+      "id": "lettuce",
+      "display_name": "生菜",
+      "rarity": "common",
+      "grow_seconds": 540,
+      "plant_cost": 6,
+      "harvest_amount": 8,
+      "sell_price": 1,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 43,
+      "mature_visual_height": 41,
+      "bait_type": "leaf",
+      "bait_links": [
+        "lettuce_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "cabbage",
+          "harvest_amount": 108
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/lettuce.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/lettuce.png"
+    },
+    {
+      "id": "barley",
+      "display_name": "大麦",
+      "rarity": "common",
+      "grow_seconds": 240,
+      "plant_cost": 3,
+      "harvest_amount": 4,
+      "sell_price": 1,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 34,
+      "mature_visual_height": 61,
+      "bait_type": "grain",
+      "bait_links": [
+        "barley_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "wheat",
+          "harvest_amount": 108
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/barley.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/barley.png"
+    },
+    {
+      "id": "oat",
+      "display_name": "燕麦",
+      "rarity": "common",
+      "grow_seconds": 300,
+      "plant_cost": 4,
+      "harvest_amount": 4,
+      "sell_price": 2,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 34,
+      "mature_visual_height": 64,
+      "bait_type": "grain",
+      "bait_links": [
+        "oat_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "barley",
+          "harvest_amount": 108
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/oat.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/oat.png"
+    },
+    {
+      "id": "rice",
+      "display_name": "水稻",
+      "rarity": "epic",
+      "grow_seconds": 1500,
+      "plant_cost": 23,
+      "harvest_amount": 7,
+      "sell_price": 5,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 39,
+      "mature_visual_height": 70,
+      "bait_type": "grain",
+      "bait_links": [
+        "rice_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "oat",
+          "harvest_amount": 144
+        },
+        {
+          "crop_id": "corn",
+          "harvest_amount": 216
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/rice.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/rice.png"
+    },
+    {
+      "id": "sorghum",
+      "display_name": "高粱",
+      "rarity": "good",
+      "grow_seconds": 720,
+      "plant_cost": 8,
+      "harvest_amount": 5,
+      "sell_price": 2,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 39,
+      "mature_visual_height": 83,
+      "bait_type": "grain",
+      "bait_links": [
+        "sorghum_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "corn",
+          "harvest_amount": 216
+        },
+        {
+          "crop_id": "barley",
+          "harvest_amount": 108
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/sorghum.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/sorghum.png"
+    },
+    {
+      "id": "rye",
+      "display_name": "黑麦",
+      "rarity": "rare",
+      "grow_seconds": 1080,
+      "plant_cost": 13,
+      "harvest_amount": 6,
+      "sell_price": 3,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 58,
+      "mature_visual_height": 75,
+      "bait_type": "grain",
+      "bait_links": [
+        "rye_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "sorghum",
+          "harvest_amount": 135
+        },
+        {
+          "crop_id": "rice",
+          "harvest_amount": 126
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/rye.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/rye.png"
+    },
+    {
+      "id": "potato",
+      "display_name": "土豆",
+      "rarity": "common",
+      "grow_seconds": 360,
+      "plant_cost": 4,
+      "harvest_amount": 4,
+      "sell_price": 2,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 43,
+      "mature_visual_height": 39,
+      "bait_type": "root",
+      "bait_links": [
+        "potato_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "carrot",
+          "harvest_amount": 108
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/potato.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/potato.png"
+    },
+    {
+      "id": "sweet_potato",
+      "display_name": "红薯",
+      "rarity": "common",
+      "grow_seconds": 420,
+      "plant_cost": 5,
+      "harvest_amount": 4,
+      "sell_price": 2,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 46,
+      "mature_visual_height": 40,
+      "bait_type": "root",
+      "bait_links": [
+        "sweet_potato_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "potato",
+          "harvest_amount": 108
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/sweet_potato.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/sweet_potato.png"
+    },
+    {
+      "id": "beet",
+      "display_name": "甜菜",
+      "rarity": "good",
+      "grow_seconds": 600,
+      "plant_cost": 7,
+      "harvest_amount": 5,
+      "sell_price": 2,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 40,
+      "mature_visual_height": 46,
+      "bait_type": "root",
+      "bait_links": [
+        "beet_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "white_radish",
+          "harvest_amount": 162
+        },
+        {
+          "crop_id": "potato",
+          "harvest_amount": 108
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/beet.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/beet.png"
+    },
+    {
+      "id": "turnip",
+      "display_name": "芜菁",
+      "rarity": "good",
+      "grow_seconds": 660,
+      "plant_cost": 8,
+      "harvest_amount": 5,
+      "sell_price": 2,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 40,
+      "mature_visual_height": 46,
+      "bait_type": "root",
+      "bait_links": [
+        "turnip_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "beet",
+          "harvest_amount": 135
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/turnip.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/turnip.png"
+    },
+    {
+      "id": "burdock",
+      "display_name": "牛蒡",
+      "rarity": "rare",
+      "grow_seconds": 1140,
+      "plant_cost": 14,
+      "harvest_amount": 6,
+      "sell_price": 3,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 38,
+      "mature_visual_height": 72,
+      "bait_type": "root",
+      "bait_links": [
+        "burdock_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "turnip",
+          "harvest_amount": 135
+        },
+        {
+          "crop_id": "sweet_potato",
+          "harvest_amount": 108
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/burdock.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/burdock.png"
+    },
+    {
+      "id": "pumpkin",
+      "display_name": "南瓜",
+      "rarity": "common",
+      "grow_seconds": 480,
+      "plant_cost": 6,
+      "harvest_amount": 3,
+      "sell_price": 3,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 53,
+      "mature_visual_height": 43,
+      "bait_type": "fruit",
+      "bait_links": [
+        "pumpkin_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "tomato",
+          "harvest_amount": 144
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/pumpkin.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/pumpkin.png"
+    },
+    {
+      "id": "eggplant",
+      "display_name": "茄子",
+      "rarity": "good",
+      "grow_seconds": 780,
+      "plant_cost": 9,
+      "harvest_amount": 5,
+      "sell_price": 3,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 39,
+      "mature_visual_height": 67,
+      "bait_type": "fruit",
+      "bait_links": [
+        "eggplant_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "tomato",
+          "harvest_amount": 216
+        },
+        {
+          "crop_id": "pumpkin",
+          "harvest_amount": 54
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/eggplant.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/eggplant.png"
+    },
+    {
+      "id": "cucumber",
+      "display_name": "黄瓜",
+      "rarity": "common",
+      "grow_seconds": 540,
+      "plant_cost": 6,
+      "harvest_amount": 5,
+      "sell_price": 2,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 44,
+      "mature_visual_height": 62,
+      "bait_type": "fruit",
+      "bait_links": [
+        "cucumber_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "pumpkin",
+          "harvest_amount": 81
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/cucumber.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/cucumber.png"
+    },
+    {
+      "id": "watermelon",
+      "display_name": "西瓜",
+      "rarity": "epic",
+      "grow_seconds": 1800,
+      "plant_cost": 25,
+      "harvest_amount": 4,
+      "sell_price": 8,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 58,
+      "mature_visual_height": 43,
+      "bait_type": "fruit",
+      "bait_links": [
+        "watermelon_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "cucumber",
+          "harvest_amount": 135
+        },
+        {
+          "crop_id": "strawberry",
+          "harvest_amount": 270
+        },
+        {
+          "crop_id": "pumpkin",
+          "harvest_amount": 81
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/watermelon.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/watermelon.png"
+    },
+    {
+      "id": "blueberry",
+      "display_name": "蓝莓",
+      "rarity": "rare",
+      "grow_seconds": 1200,
+      "plant_cost": 15,
+      "harvest_amount": 6,
+      "sell_price": 4,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 48,
+      "mature_visual_height": 57,
+      "bait_type": "fruit",
+      "bait_links": [
+        "blueberry_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "strawberry",
+          "harvest_amount": 405
+        },
+        {
+          "crop_id": "eggplant",
+          "harvest_amount": 135
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/blueberry.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/blueberry.png"
+    },
+    {
+      "id": "spinach",
+      "display_name": "菠菜",
+      "rarity": "common",
+      "grow_seconds": 270,
+      "plant_cost": 3,
+      "harvest_amount": 4,
+      "sell_price": 1,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 43,
+      "mature_visual_height": 39,
+      "bait_type": "leaf",
+      "bait_links": [
+        "spinach_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "lettuce",
+          "harvest_amount": 144
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/spinach.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/spinach.png"
+    },
+    {
+      "id": "bok_choy",
+      "display_name": "小白菜",
+      "rarity": "common",
+      "grow_seconds": 330,
+      "plant_cost": 4,
+      "harvest_amount": 4,
+      "sell_price": 2,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 42,
+      "mature_visual_height": 43,
+      "bait_type": "leaf",
+      "bait_links": [
+        "bok_choy_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "cabbage",
+          "harvest_amount": 162
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/bok_choy.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/bok_choy.png"
+    },
+    {
+      "id": "kale",
+      "display_name": "羽衣甘蓝",
+      "rarity": "rare",
+      "grow_seconds": 960,
+      "plant_cost": 12,
+      "harvest_amount": 6,
+      "sell_price": 3,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 46,
+      "mature_visual_height": 55,
+      "bait_type": "leaf",
+      "bait_links": [
+        "kale_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "spinach",
+          "harvest_amount": 108
+        },
+        {
+          "crop_id": "bok_choy",
+          "harvest_amount": 108
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/kale.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/kale.png"
+    },
+    {
+      "id": "celery",
+      "display_name": "芹菜",
+      "rarity": "good",
+      "grow_seconds": 630,
+      "plant_cost": 8,
+      "harvest_amount": 5,
+      "sell_price": 2,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 38,
+      "mature_visual_height": 65,
+      "bait_type": "leaf",
+      "bait_links": [
+        "celery_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "spinach",
+          "harvest_amount": 144
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/celery.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/celery.png"
+    },
+    {
+      "id": "water_spinach",
+      "display_name": "空心菜",
+      "rarity": "good",
+      "grow_seconds": 570,
+      "plant_cost": 7,
+      "harvest_amount": 5,
+      "sell_price": 2,
+      "mutation_chance": 0.1,
+      "mature_visual_width": 44,
+      "mature_visual_height": 53,
+      "bait_type": "leaf",
+      "bait_links": [
+        "water_spinach_bait"
+      ],
+      "growth_stage_count": 3,
+      "initially_unlocked": false,
+      "unlock_requirements": [
+        {
+          "crop_id": "celery",
+          "harvest_amount": 135
+        },
+        {
+          "crop_id": "kale",
+          "harvest_amount": 108
+        }
+      ],
+      "seed_resource": "res://assets/hd/world/plot3x3/seed.png",
+      "leaf_resource": "res://assets/hd/world/plot3x3/leaf.png",
+      "mature_resource": "res://assets/hd/world/plot3x3/water_spinach.png",
+      "icon_resource": "res://assets/hd/world/plot3x3/water_spinach.png"
+    }
+  ]
+}

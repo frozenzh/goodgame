@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/hd/ui/wood_sign.png" id="1_board"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/icon_codex.png" id="2_codex"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/icon_settings.png" id="3_settings"]
+
+[sub_resource type="StyleBoxEmpty" id="ClickArea"]
+
+[node name="UtilityBar" type="Node2D"]
+editor_description = "右下角图鉴与设置木牌；底板、图标和点击区均为独立静态节点。"
+
+[node name="CodexSign" type="Node2D" parent="."]
+editor_description = "图鉴按钮"
+
+[node name="Board" type="Sprite2D" parent="CodexSign"]
+texture_filter = 2
+position = Vector2(36, 20)
+scale = Vector2(0.033, 0.033)
+texture = ExtResource("1_board")
+
+[node name="Icon" type="Sprite2D" parent="CodexSign"]
+texture_filter = 2
+position = Vector2(36, 20)
+scale = Vector2(0.0105, 0.0105)
+texture = ExtResource("2_codex")
+
+[node name="HitArea" type="Button" parent="CodexSign"]
+offset_right = 72.0
+offset_bottom = 40.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("ClickArea")
+theme_override_styles/hover = SubResource("ClickArea")
+theme_override_styles/pressed = SubResource("ClickArea")
+theme_override_styles/disabled = SubResource("ClickArea")
+
+[node name="SettingsSign" type="Node2D" parent="."]
+editor_description = "设置按钮"
+position = Vector2(80, 0)
+
+[node name="Board" type="Sprite2D" parent="SettingsSign"]
+texture_filter = 2
+position = Vector2(36, 20)
+scale = Vector2(0.033, 0.033)
+texture = ExtResource("1_board")
+
+[node name="Icon" type="Sprite2D" parent="SettingsSign"]
+texture_filter = 2
+position = Vector2(36, 20)
+scale = Vector2(0.0105, 0.0105)
+texture = ExtResource("3_settings")
+
+[node name="HitArea" type="Button" parent="SettingsSign"]
+offset_right = 72.0
+offset_bottom = 40.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("ClickArea")
+theme_override_styles/hover = SubResource("ClickArea")
+theme_override_styles/pressed = SubResource("ClickArea")
+theme_override_styles/disabled = SubResource("ClickArea")

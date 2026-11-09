@@ -1,0 +1,31 @@
+{
+  "module": "weather",
+  "values": {
+    "duration_max_seconds": 900,
+    "duration_min_seconds": 600,
+    "pond_freeze_full_fraction": 0.82,
+    "pond_freeze_start_fraction": 0.08,
+    "rain_drift": 26.0,
+    "rain_fishing_speed_multiplier": 2.0,
+    "rain_particles_low": 35,
+    "rain_particles_standard": 90,
+    "rain_speed": 145.0,
+    "rain_volume_db": -24.0,
+    "rain_weight": 30,
+    "snow_crop_growth_speed_multiplier": 2.0,
+    "snow_drift": 12.0,
+    "snow_melt_seconds": 120.0,
+    "snow_particles_low": 16,
+    "snow_particles_standard": 40,
+    "snow_pile_first_fraction": 0.01,
+    "snow_speed": 27.0,
+    "snow_weight": 20,
+    "sunny_weight": 50,
+    "transition_seconds": 4.0,
+    "wind_crop_growth_time_multiplier": 1.2,
+    "wind_gust_frame_seconds": 0.36,
+    "wind_gust_max_seconds": 1.7,
+    "wind_gust_min_seconds": 0.7,
+    "wind_weight": 15
+  }
+}

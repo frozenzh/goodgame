@@ -1,0 +1,9 @@
+{
+  "module": "random_events",
+  "values": {
+    "default_event_duration_seconds": 8,
+    "delay_max_seconds": 1200,
+    "delay_min_seconds": 600,
+    "minimum_event_duration_seconds": 3
+  }
+}

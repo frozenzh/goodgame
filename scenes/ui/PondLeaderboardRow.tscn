@@ -1,0 +1,48 @@
+[gd_scene format=3]
+
+[sub_resource type="StyleBoxFlat" id="RowStyle"]
+bg_color = Color(0.84, 0.68, 0.42, 0.32)
+border_width_bottom = 1
+border_color = Color(0.42, 0.24, 0.12, 0.52)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="LeaderboardRow" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 27)
+theme_override_styles/panel = SubResource("RowStyle")
+
+[node name="Columns" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Rank" type="Label" parent="Columns"]
+layout_mode = 2
+custom_minimum_size = Vector2(30, 0)
+theme_override_font_sizes/font_size = 13
+text = "1"
+horizontal_alignment = 1
+
+[node name="Player" type="Label" parent="Columns"]
+layout_mode = 2
+custom_minimum_size = Vector2(126, 0)
+theme_override_font_sizes/font_size = 13
+text = "玩家"
+metadata/l10n_text = "fishing.leaderboard.player"
+clip_text = true
+
+[node name="Fish" type="Label" parent="Columns"]
+layout_mode = 2
+custom_minimum_size = Vector2(112, 0)
+theme_override_font_sizes/font_size = 13
+text = "小鲫鱼"
+metadata/l10n_text = "catalog.fish.fish_001.display_name"
+clip_text = true
+
+[node name="Size" type="Label" parent="Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 13
+text = "20 cm"
+horizontal_alignment = 2

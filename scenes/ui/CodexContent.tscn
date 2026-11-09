@@ -1,0 +1,257 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/CodexPrimaryMenu.tscn" id="1_primary"]
+[ext_resource type="PackedScene" path="res://scenes/ui/CodexSecondaryMenu.tscn" id="2_secondary"]
+[ext_resource type="PackedScene" path="res://scenes/ui/CodexEntries.tscn" id="3_entries"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/codex_detail_background.png" id="4_card"]
+[ext_resource type="PackedScene" path="res://scenes/ui/AchievementPage.tscn" id="5_achievements"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/icon_bait_simple.png" id="6_bait_icon"]
+
+[sub_resource type="StyleBoxFlat" id="SizeTagBackground"]
+bg_color = Color(0.22, 0.5, 0.62, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+content_margin_left = 6.0
+content_margin_right = 6.0
+
+[sub_resource type="StyleBoxFlat" id="MaxTagBackground"]
+bg_color = Color(0.72, 0.42, 0.08, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+content_margin_left = 5.0
+content_margin_right = 5.0
+
+[node name="CodexContent" type="Control"]
+editor_description = "图鉴布局总节点。一级菜单、二级菜单和内容滚动区是三个互相独立的静态组件。"
+custom_minimum_size = Vector2(700, 380)
+mouse_filter = 1
+
+[node name="PrimaryMenu" parent="." instance=ExtResource("1_primary")]
+editor_description = "参考图顶部一级筛选；独立于内容滚动区，可在此移动或缩放。"
+layout_mode = 1
+offset_left = 39.0
+offset_top = 62.0
+offset_right = 391.0
+offset_bottom = 104.0
+
+[node name="SecondaryMenu" parent="." instance=ExtResource("2_secondary")]
+editor_description = "顶部鱼品质二级筛选；仅鱼图鉴显示，不随卡片滚动。"
+layout_mode = 1
+offset_left = 42.0
+offset_top = 105.0
+offset_right = 388.0
+offset_bottom = 145.0
+
+[node name="EntriesViewport" parent="." instance=ExtResource("3_entries")]
+editor_description = "唯一可滚动的图鉴内容组件；鱼、植物和鱼饵共用此区域。"
+layout_mode = 1
+offset_left = 39.0
+offset_top = 149.0
+offset_right = 391.0
+offset_bottom = 345.0
+
+[node name="AchievementPage" parent="." instance=ExtResource("5_achievements")]
+editor_description = "成就独立滚动页；调整页面位置不影响鱼、植物、鱼饵图鉴。"
+visible = false
+layout_mode = 1
+offset_left = 39.0
+offset_top = 105.0
+offset_right = 391.0
+offset_bottom = 345.0
+
+[node name="PreviewPanel" type="TextureRect" parent="."]
+editor_description = "右侧图鉴详情卡：选中对象的图、名称和资料，所有子节点可独立调整。"
+offset_left = 405.0
+offset_top = 72.0
+offset_right = 672.0
+offset_bottom = 345.0
+texture = ExtResource("4_card")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="PreviewName" type="Label" parent="PreviewPanel"]
+offset_left = 18.0
+offset_top = 10.0
+offset_right = 249.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.25, 0.15, 0.08, 1)
+theme_override_font_sizes/font_size = 16
+text = "小鲫鱼"
+metadata/l10n_text = "ui.87c768c5a0"
+horizontal_alignment = 1
+clip_text = true
+
+[node name="PreviewIcon" type="TextureRect" parent="PreviewPanel"]
+offset_left = 44.0
+offset_top = 39.0
+offset_right = 223.0
+offset_bottom = 157.0
+texture_filter = 1
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PreviewInfo" type="Label" parent="PreviewPanel"]
+custom_maximum_size = Vector2(220, 0)
+offset_left = 24.0
+offset_top = 157.0
+offset_right = 244.0
+offset_bottom = 241.0
+theme_override_colors/font_color = Color(0.34, 0.24, 0.13, 1)
+theme_override_font_sizes/font_size = 12
+text = "点击卡片查看图鉴信息"
+metadata/l10n_text = "ui.3e730acb06"
+autowrap_mode = 2
+
+[node name="PreviewStatus" type="Label" parent="PreviewPanel"]
+offset_left = 48.0
+offset_top = 274.0
+offset_right = 218.0
+offset_bottom = 297.0
+theme_override_colors/font_color = Color(0.35, 0.29, 0.18, 1)
+theme_override_font_sizes/font_size = 13
+text = "已收集"
+metadata/l10n_text = "ui.a5b813e2aa"
+horizontal_alignment = 1
+
+[node name="FavoriteBaitRow" type="Control" parent="PreviewPanel"]
+editor_description = "鱼详情中的偏好鱼饵类型；通用图标、标题和类型名均为静态节点，可单独调整位置与尺寸。其他图鉴页运行时隐藏。"
+offset_left = 18.0
+offset_top = 271.0
+offset_right = 249.0
+offset_bottom = 301.0
+mouse_filter = 2
+
+[node name="BaitIcon" type="TextureRect" parent="PreviewPanel/FavoriteBaitRow"]
+offset_right = 27.0
+offset_bottom = 27.0
+texture_filter = 1
+mouse_filter = 2
+texture = ExtResource("6_bait_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="PreviewPanel/FavoriteBaitRow"]
+offset_left = 32.0
+offset_top = 3.0
+offset_right = 111.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0.34, 0.24, 0.13, 1)
+theme_override_font_sizes/font_size = 12
+text = "鱼饵类型："
+metadata/l10n_text = "codex.fish.favorite_bait_label"
+
+[node name="BaitName" type="Label" parent="PreviewPanel/FavoriteBaitRow"]
+offset_left = 111.0
+offset_top = 3.0
+offset_right = 231.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0.25, 0.15, 0.08, 1)
+theme_override_font_sizes/font_size = 12
+text = "谷物型"
+metadata/l10n_text = "ui.f0fc5e948c"
+clip_text = true
+
+[node name="SizeRecordRow" type="Control" parent="PreviewPanel"]
+editor_description = "鱼详情底部的尺寸记录；SizeTag、Value 与 MaxTag 均为可独立调整的静态节点。其他图鉴页运行时隐藏。"
+visible = false
+offset_left = 18.0
+offset_top = 237.0
+offset_right = 249.0
+offset_bottom = 265.0
+mouse_filter = 2
+
+[node name="SizeTag" type="PanelContainer" parent="PreviewPanel/SizeRecordRow"]
+offset_top = 2.0
+offset_right = 43.0
+offset_bottom = 25.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("SizeTagBackground")
+
+[node name="Text" type="Label" parent="PreviewPanel/SizeRecordRow/SizeTag"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 11
+text = "尺寸"
+metadata/l10n_text = "codex.fish.size_label"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="PreviewPanel/SizeRecordRow"]
+offset_left = 48.0
+offset_top = 3.0
+offset_right = 183.0
+offset_bottom = 26.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.25, 0.15, 0.08, 1)
+theme_override_font_sizes/font_size = 11
+text = "%d cm"
+metadata/l10n_text = "fishing.size.value"
+vertical_alignment = 1
+
+[node name="MaxTag" type="PanelContainer" parent="PreviewPanel/SizeRecordRow"]
+visible = false
+offset_left = 188.0
+offset_top = 2.0
+offset_right = 231.0
+offset_bottom = 25.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("MaxTagBackground")
+
+[node name="Text" type="Label" parent="PreviewPanel/SizeRecordRow/MaxTag"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.96, 0.78, 1)
+theme_override_font_sizes/font_size = 10
+text = "最大"
+metadata/l10n_text = "fishing.size.maximum_tag"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MinTag" type="PanelContainer" parent="PreviewPanel/SizeRecordRow"]
+visible = false
+modulate = Color(0.48, 0.8, 1, 1)
+offset_left = 128.0
+offset_top = 2.0
+offset_right = 171.0
+offset_bottom = 25.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("MaxTagBackground")
+
+[node name="Text" type="Label" parent="PreviewPanel/SizeRecordRow/MinTag"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.96, 0.78, 1)
+theme_override_font_sizes/font_size = 10
+text = "最小"
+metadata/l10n_text = "fishing.size.minimum_tag"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AchievementDate" type="Label" parent="PreviewPanel"]
+visible = false
+layout_mode = 0
+offset_left = 18.0
+offset_top = 158.0
+offset_right = 249.0
+offset_bottom = 174.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.35, 0.29, 0.18, 1)
+theme_override_font_sizes/font_size = 11
+text = "2026-11-05"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[editable path="PrimaryMenu"]
+[editable path="SecondaryMenu"]
+[editable path="EntriesViewport"]
+[editable path="EntriesViewport/Pages"]
+[editable path="EntriesViewport/Pages/FishPage"]
+[editable path="EntriesViewport/Pages/CropPage"]
+[editable path="EntriesViewport/Pages/BaitPage"]
+[editable path="AchievementPage"]

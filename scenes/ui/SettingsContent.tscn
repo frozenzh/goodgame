@@ -1,0 +1,229 @@
+[gd_scene format=3 uid="uid://dwv3kyir3b6s3"]
+
+[ext_resource type="Texture2D" uid="uid://bhvjbgg7t50i6" path="res://assets/hd/ui/popup_card_light.png" id="1_card"]
+[ext_resource type="PackedScene" uid="uid://vbh3g506ebyd" path="res://scenes/ui/SecondaryButton.tscn" id="2_secondary"]
+
+[sub_resource type="AtlasTexture" id="CardCutout"]
+atlas = ExtResource("1_card")
+region = Rect2(123, 135, 840, 1177)
+
+[node name="SettingsContent" type="Control" unique_id=2002827616]
+editor_description = "参考图设置面板：各行标签、开关与底部操作按钮均为独立静态节点。"
+custom_minimum_size = Vector2(520, 465)
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+
+[node name="OptionsBoard" type="TextureRect" parent="." unique_id=1401646602]
+editor_description = "浅色内板资源，可单独调整。"
+layout_mode = 0
+offset_left = 58.0
+offset_top = 87.0
+offset_right = 462.0
+offset_bottom = 270.0
+mouse_filter = 2
+texture = SubResource("CardCutout")
+expand_mode = 1
+
+[node name="RowDivider1" type="ColorRect" parent="." unique_id=1162110090]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 150.0
+offset_right = 434.0
+offset_bottom = 151.0
+mouse_filter = 2
+color = Color(0.53, 0.35, 0.17, 0.31)
+
+[node name="RowDivider2" type="ColorRect" parent="." unique_id=417306445]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 201.0
+offset_right = 434.0
+offset_bottom = 202.0
+mouse_filter = 2
+color = Color(0.53, 0.35, 0.17, 0.31)
+
+[node name="SoundLabel" type="Label" parent="." unique_id=919306041]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 106.0
+offset_right = 154.0
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(0.29, 0.19, 0.1, 1)
+theme_override_font_sizes/font_size = 18
+text = "音乐"
+vertical_alignment = 1
+metadata/l10n_text = "ui.afb3c40c39"
+
+[node name="SoundToggle" parent="." unique_id=864178180 instance=ExtResource("2_secondary")]
+custom_minimum_size = Vector2(78, 37)
+layout_mode = 1
+offset_left = 153.0
+offset_top = 106.0
+offset_right = 231.0
+offset_bottom = 143.0
+theme_override_font_sizes/font_size = 17
+text = "开启"
+metadata/l10n_text = "ui.256783b7d4"
+
+[node name="DockLabel" type="Label" parent="." unique_id=640063737]
+layout_mode = 0
+offset_left = 268.0
+offset_top = 106.0
+offset_right = 330.0
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(0.29, 0.19, 0.1, 1)
+theme_override_font_sizes/font_size = 18
+text = "贴底"
+vertical_alignment = 1
+metadata/l10n_text = "ui.aa1ab998de"
+
+[node name="DockToggle" parent="." unique_id=990628116 instance=ExtResource("2_secondary")]
+custom_minimum_size = Vector2(78, 37)
+layout_mode = 1
+offset_left = 348.0
+offset_top = 106.0
+offset_right = 426.0
+offset_bottom = 143.0
+theme_override_font_sizes/font_size = 17
+text = "开启"
+metadata/l10n_text = "ui.256783b7d4"
+
+[node name="TopLabel" type="Label" parent="." unique_id=1109749000]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 157.0
+offset_right = 201.0
+offset_bottom = 193.0
+theme_override_colors/font_color = Color(0.29, 0.19, 0.1, 1)
+theme_override_font_sizes/font_size = 18
+text = "置顶"
+vertical_alignment = 1
+metadata/l10n_text = "ui.7bcf18641f"
+
+[node name="TopToggle" parent="." unique_id=1133404509 instance=ExtResource("2_secondary")]
+custom_minimum_size = Vector2(122, 37)
+layout_mode = 1
+offset_left = 231.0
+offset_top = 157.0
+offset_right = 353.0
+offset_bottom = 194.0
+theme_override_font_sizes/font_size = 17
+text = "关闭"
+metadata/l10n_text = "ui.6c14bd7f6f"
+
+[node name="LanguageLabel" type="Label" parent="." unique_id=1381514476]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 208.0
+offset_right = 201.0
+offset_bottom = 244.0
+theme_override_colors/font_color = Color(0.29, 0.19, 0.1, 1)
+theme_override_font_sizes/font_size = 18
+text = "语言"
+vertical_alignment = 1
+metadata/l10n_text = "ui.cd99b225a0"
+
+[node name="LanguageValue" type="OptionButton" parent="." unique_id=300266118]
+editor_description = "静态语言下拉框；选项使用各语言的本名，脚本同步当前选择。"
+custom_minimum_size = Vector2(160, 37)
+layout_mode = 1
+offset_left = 231.0
+offset_top = 208.0
+offset_right = 391.0
+offset_bottom = 245.0
+theme_override_font_sizes/font_size = 16
+selected = 0
+item_count = 2
+popup/item_0/text = "简体中文"
+popup/item_0/id = 0
+popup/item_1/text = "English"
+popup/item_1/id = 1
+
+[node name="HelpButton" parent="." unique_id=1881228598 instance=ExtResource("2_secondary")]
+custom_minimum_size = Vector2(152, 43)
+layout_mode = 1
+offset_left = 280.0
+offset_top = 285.0
+offset_right = 432.0
+offset_bottom = 328.0
+theme_override_font_sizes/font_size = 16
+text = "操作说明"
+metadata/l10n_text = "ui.1ce80e2056"
+
+[node name="ScreenLabel" type="Label" parent="." unique_id=1240899908]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 345.0
+offset_right = 220.0
+offset_bottom = 380.0
+theme_override_colors/font_color = Color(0.29, 0.19, 0.1, 1)
+text = "显示屏幕"
+metadata/l10n_text = "settings.screen"
+
+[node name="ScreenChoice" type="OptionButton" parent="." unique_id=1475667452]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 345.0
+offset_right = 430.0
+offset_bottom = 380.0
+
+[node name="HeightLabel" type="Label" parent="." unique_id=1353159395]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 395.0
+offset_right = 220.0
+offset_bottom = 430.0
+theme_override_colors/font_color = Color(0.29, 0.19, 0.1, 1)
+text = "向上移动"
+metadata/l10n_text = "settings.raise"
+
+[node name="MoveUp" parent="." unique_id=55569549 instance=ExtResource("2_secondary")]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 395.0
+offset_right = 280.0
+offset_bottom = 433.0
+text = "↑"
+
+[node name="MoveDown" parent="." unique_id=759712808 instance=ExtResource("2_secondary")]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 395.0
+offset_right = 400.0
+offset_bottom = 433.0
+text = "↓"
+
+[node name="OffsetPixels" type="Label" parent="."]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 395.0
+offset_right = 350.0
+offset_bottom = 433.0
+mouse_filter = 2
+text = "0 px"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.29, 0.19, 0.1, 1)
+
+[node name="EffectsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 108.0
+offset_right = 335.0
+offset_bottom = 144.0
+text = "音效"
+metadata/l10n_text = "settings.effects"
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.29, 0.19, 0.1, 1)
+vertical_alignment = 1
+
+[node name="EffectsToggle" parent="." instance=ExtResource("2_secondary")]
+layout_mode = 0
+custom_minimum_size = Vector2(78, 48)
+offset_left = 335.0
+offset_top = 161.0
+offset_right = 413.0
+offset_bottom = 209.0
+text = "开启"
+metadata/l10n_text = "ui.256783b7d4"

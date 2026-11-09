@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/PrimaryButton.tscn" id="1_primary"]
+[ext_resource type="PackedScene" path="res://scenes/ui/SecondaryButton.tscn" id="2_secondary"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/icon_coin_simple.png" id="3_coin"]
+
+[node name="InfoActionsContent" type="HBoxContainer"]
+editor_description = "信息+操作弹窗通用静态结构；每个弹窗有自己的实例，可单独调位置、大小和子控件。"
+size_flags_horizontal = 3
+theme_override_constants/separation = 7
+
+[node name="Info" type="Label" parent="."]
+editor_description = "内容文本静态节点；运行时只替换文字。"
+custom_minimum_size = Vector2(215, 0)
+custom_maximum_size = Vector2(360, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+autowrap_mode = 2
+vertical_alignment = 1
+text = "功能说明"
+metadata/l10n_text = "ui.c1dc7219c3"
+
+[node name="Actions" type="VBoxContainer" parent="."]
+editor_description = "四个预置操作位，可在每个弹窗实例中分别改变顺序、尺寸和视觉。"
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Option" type="CheckBox" parent="Actions"]
+visible = false
+layout_mode = 2
+text = "选项"
+metadata/l10n_text = "ui.221ee0cc94"
+
+[node name="Action1" parent="Actions" instance=ExtResource("1_primary")]
+layout_mode = 2
+
+[node name="Action1CostRow" type="HBoxContainer" parent="Actions"]
+editor_description = "用于小屋修建费用；静态金币图标和数字可独立调整。"
+visible = false
+custom_minimum_size = Vector2(125, 25)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Actions/Action1CostRow"]
+custom_minimum_size = Vector2(21, 21)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_coin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Amount" type="Label" parent="Actions/Action1CostRow"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 18
+text = "200"
+
+[node name="Action2" parent="Actions" instance=ExtResource("2_secondary")]
+layout_mode = 2
+
+[node name="Action3" parent="Actions" instance=ExtResource("2_secondary")]
+visible = false
+layout_mode = 2
+
+[node name="Action4" parent="Actions" instance=ExtResource("2_secondary")]
+visible = false
+layout_mode = 2

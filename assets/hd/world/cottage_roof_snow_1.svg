@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1565" height="1005" viewBox="0 0 1565 1005">
+  <defs>
+    <linearGradient id="snow" x1="0" y1="0" x2=".23" y2="1">
+      <stop offset="0" stop-color="#fcfeff"/>
+      <stop offset=".39" stop-color="#f0f8ff"/>
+      <stop offset=".72" stop-color="#deedf8"/>
+      <stop offset="1" stop-color="#c2d8ed"/>
+    </linearGradient>
+    <linearGradient id="depth" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c2d9ee"/>
+      <stop offset=".55" stop-color="#a9c5df"/>
+      <stop offset="1" stop-color="#7695b3"/>
+    </linearGradient>
+    <linearGradient id="crest">
+      <stop offset="0" stop-color="#bfd5ea" stop-opacity=".82"/>
+      <stop offset=".47" stop-color="#ffffff"/>
+      <stop offset=".68" stop-color="#f6fbff"/>
+      <stop offset="1" stop-color="#a7c3de" stop-opacity=".8"/>
+    </linearGradient>
+    <linearGradient id="bank" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".92"/>
+      <stop offset=".48" stop-color="#f7fcff" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#98b5d1" stop-opacity=".7"/>
+    </linearGradient>
+  </defs>
+  <path transform="translate(0 21)" fill="url(#depth)" fill-rule="evenodd" stroke="#829eb8" stroke-width="5" stroke-linejoin="round" d="M781 46Q809 47 826 86L892 112Q910 117 923 133L1002 166Q1017 183 1040 187L1080 209Q1114 207 1134 229L1185 651Q1180 669 1157 667L1125 654Q1090 674 1053 648Q1023 649 989 621Q953 627 924 600Q891 606 860 581Q839 590 818 565Q786 584 752 565Q731 588 701 583Q670 607 643 602Q611 628 576 622Q553 649 525 642Q491 670 449 653L423 667Q393 670 382 650L420 234Q438 211 464 214L518 187Q554 181 577 157L652 130Q672 109 703 102L744 82Q757 50 781 46Z"/>
+  <path fill="url(#snow)" fill-rule="evenodd" stroke="#edf7ff" stroke-width="4" stroke-linejoin="round" d="M781 46Q809 47 826 86L892 112Q910 117 923 133L1002 166Q1017 183 1040 187L1080 209Q1114 207 1134 229L1185 651Q1180 669 1157 667L1125 654Q1090 674 1053 648Q1023 649 989 621Q953 627 924 600Q891 606 860 581Q839 590 818 565Q786 584 752 565Q731 588 701 583Q670 607 643 602Q611 628 576 622Q553 649 525 642Q491 670 449 653L423 667Q393 670 382 650L420 234Q438 211 464 214L518 187Q554 181 577 157L652 130Q672 109 703 102L744 82Q757 50 781 46Z"/>
+  <path fill="url(#crest)" d="M781 52Q796 51 811 78L815 550Q803 571 781 571Q761 570 749 553L749 81Q760 55 781 52Z"/>
+  <g transform="translate(585 257) rotate(-13) scale(1.05)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(674 176) rotate(-6) scale(0.82)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(655 375) rotate(7) scale(1.15)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(531 438) rotate(13) scale(0.85)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(653 517) rotate(-13) scale(1)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(862 188) rotate(-6) scale(0.88)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(931 279) rotate(7) scale(1.1)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(1020 366) rotate(13) scale(0.91)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(910 411) rotate(-13) scale(1.15)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(1047 538) rotate(-6) scale(0.83)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+  <g transform="translate(872 522) rotate(7) scale(0.72)">
+    <path fill="url(#bank)" d="M-64 10Q-51 5-42-7Q-28-24-12-16Q5-31 27-21Q40-15 46-7Q55-4 62 5Q69 14 52 17Q34 22 15 17Q-11 22-26 16Q-53 20-64 10Z"/>
+    <path fill="#ffffff" opacity=".64" d="M-45 5Q-30-14-13-10Q6-22 26-16Q38-12 43-5Q29-9 20-7Q6-12-10-4Q-25-7-45 5Z"/>
+  </g>
+</svg>

@@ -1,0 +1,204 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/SecondaryButton.tscn" id="1_secondary"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PrimaryButton.tscn" id="2_primary"]
+[ext_resource type="PackedScene" path="res://scenes/ui/CropChoiceCard.tscn" id="3_preview"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/plot3x3/wheat.png" id="10_wheat"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/plot3x3/corn.png" id="11_corn"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/plot3x3/white_radish.png" id="12_white_radish"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/plot3x3/strawberry.png" id="13_strawberry"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/plot3x3/tomato.png" id="14_tomato"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/plot3x3/cabbage.png" id="15_cabbage"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/plot3x3/lettuce.png" id="16_lettuce"]
+
+[node name="CropSelectionBoard" type="Control"]
+editor_description = "作物选择总布局；移动 CropContainer 即可调整整排作物卡的位置和大小。"
+custom_minimum_size = Vector2(680, 340)
+mouse_filter = 1
+
+[node name="CropContainer" type="Control" parent="."]
+editor_description = "作物列表的静态定位容器。调整此节点位置/尺寸，八张静态作物卡会整体跟随。"
+layout_mode = 1
+offset_left = 55.0
+offset_top = 71.0
+offset_right = 625.0
+offset_bottom = 253.0
+
+[node name="CropViewport" type="ScrollContainer" parent="CropContainer"]
+editor_description = "只滚动作物卡；位置由 CropContainer 决定。"
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 1
+vertical_scroll_mode = 0
+
+[node name="CropRow" type="HBoxContainer" parent="CropContainer/CropViewport"]
+editor_description = "八张静态卡片的排列节点；卡片显示图标、名称、最多两条解锁植物进度，配置超出八种时补卡。"
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="CropSlot01" parent="CropContainer/CropViewport/CropRow" instance=ExtResource("3_preview")]
+editor_description = "静态作物槽 1：运行时填图标、名称和解锁植物进度。"
+layout_mode = 2
+
+[node name="CropSlot02" parent="CropContainer/CropViewport/CropRow" instance=ExtResource("3_preview")]
+layout_mode = 2
+
+[node name="CropSlot03" parent="CropContainer/CropViewport/CropRow" instance=ExtResource("3_preview")]
+layout_mode = 2
+
+[node name="CropSlot04" parent="CropContainer/CropViewport/CropRow" instance=ExtResource("3_preview")]
+layout_mode = 2
+
+[node name="CropSlot05" parent="CropContainer/CropViewport/CropRow" instance=ExtResource("3_preview")]
+layout_mode = 2
+
+[node name="CropSlot06" parent="CropContainer/CropViewport/CropRow" instance=ExtResource("3_preview")]
+layout_mode = 2
+
+[node name="CropSlot07" parent="CropContainer/CropViewport/CropRow" instance=ExtResource("3_preview")]
+layout_mode = 2
+
+[node name="CropSlot08" parent="CropContainer/CropViewport/CropRow" instance=ExtResource("3_preview")]
+layout_mode = 2
+
+[node name="MatureCropIcon" parent="CropContainer/CropViewport/CropRow/CropSlot01" index="1"]
+texture = ExtResource("10_wheat")
+
+[node name="CropName" parent="CropContainer/CropViewport/CropRow/CropSlot01" index="2"]
+text = "小麦"
+metadata/l10n_text = "ui.44bed50934"
+
+
+
+[node name="MatureCropIcon" parent="CropContainer/CropViewport/CropRow/CropSlot02" index="1"]
+texture = ExtResource("11_corn")
+
+[node name="CropName" parent="CropContainer/CropViewport/CropRow/CropSlot02" index="2"]
+text = "玉米"
+metadata/l10n_text = "ui.8531dc2f3f"
+
+
+
+[node name="CropName" parent="CropContainer/CropViewport/CropRow/CropSlot03" index="2"]
+text = "胡萝卜"
+metadata/l10n_text = "ui.837782f440"
+
+
+
+[node name="MatureCropIcon" parent="CropContainer/CropViewport/CropRow/CropSlot04" index="1"]
+texture = ExtResource("12_white_radish")
+
+[node name="CropName" parent="CropContainer/CropViewport/CropRow/CropSlot04" index="2"]
+text = "白萝卜"
+metadata/l10n_text = "ui.9b1bb8769b"
+
+
+
+[node name="MatureCropIcon" parent="CropContainer/CropViewport/CropRow/CropSlot05" index="1"]
+texture = ExtResource("13_strawberry")
+
+[node name="CropName" parent="CropContainer/CropViewport/CropRow/CropSlot05" index="2"]
+text = "草莓"
+metadata/l10n_text = "ui.54658e4758"
+
+
+
+[node name="MatureCropIcon" parent="CropContainer/CropViewport/CropRow/CropSlot06" index="1"]
+texture = ExtResource("14_tomato")
+
+[node name="CropName" parent="CropContainer/CropViewport/CropRow/CropSlot06" index="2"]
+text = "番茄"
+metadata/l10n_text = "ui.f1b760f1d6"
+
+
+
+[node name="MatureCropIcon" parent="CropContainer/CropViewport/CropRow/CropSlot07" index="1"]
+texture = ExtResource("15_cabbage")
+
+[node name="CropName" parent="CropContainer/CropViewport/CropRow/CropSlot07" index="2"]
+text = "卷心菜"
+metadata/l10n_text = "ui.a4ad6baaa1"
+
+
+
+[node name="MatureCropIcon" parent="CropContainer/CropViewport/CropRow/CropSlot08" index="1"]
+texture = ExtResource("16_lettuce")
+
+[node name="CropName" parent="CropContainer/CropViewport/CropRow/CropSlot08" index="2"]
+text = "生菜"
+metadata/l10n_text = "ui.c286d85970"
+
+
+
+[node name="PreviousCrops" parent="." instance=ExtResource("1_secondary")]
+custom_minimum_size = Vector2(35, 47)
+layout_mode = 1
+offset_left = 15.0
+offset_top = 139.0
+offset_right = 50.0
+offset_bottom = 186.0
+theme_override_font_sizes/font_size = 22
+text = "‹"
+
+[node name="NextCrops" parent="." instance=ExtResource("1_secondary")]
+custom_minimum_size = Vector2(35, 47)
+layout_mode = 1
+offset_left = 630.0
+offset_top = 139.0
+offset_right = 665.0
+offset_bottom = 186.0
+theme_override_font_sizes/font_size = 22
+text = "›"
+
+[node name="RepeatChoice" type="CheckBox" parent="."]
+offset_left = 56.0
+offset_top = 278.0
+offset_right = 251.0
+offset_bottom = 317.0
+theme_override_colors/font_color = Color(0.31, 0.20, 0.11, 1)
+theme_override_colors/font_pressed_color = Color(0.31, 0.20, 0.11, 1)
+theme_override_colors/font_hover_color = Color(0.31, 0.20, 0.11, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.31, 0.20, 0.11, 1)
+theme_override_font_sizes/font_size = 13
+text = "收获后继续种植"
+metadata/l10n_text = "ui.fa9edad718"
+
+[node name="PlantScopeHint" type="Label" parent="."]
+offset_left = 56.0
+offset_top = 48.0
+offset_right = 625.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0.31, 0.20, 0.11, 1)
+theme_override_font_sizes/font_size = 12
+text = "默认按整块地依次播种、浇水和收获；取消后按小格操作"
+metadata/l10n_text = "ui.699ad2cdc3"
+
+[node name="FillEmptyCells" type="CheckBox" parent="."]
+offset_left = 450.0
+offset_top = 273.0
+offset_right = 635.0
+offset_bottom = 312.0
+theme_override_colors/font_color = Color(0.31, 0.20, 0.11, 1)
+theme_override_colors/font_pressed_color = Color(0.31, 0.20, 0.11, 1)
+theme_override_colors/font_hover_color = Color(0.31, 0.20, 0.11, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.31, 0.20, 0.11, 1)
+theme_override_font_sizes/font_size = 13
+button_pressed = true
+text = "整块地为一组"
+metadata/l10n_text = "ui.8f36857b36"
+
+[node name="ConfirmPlant" parent="." instance=ExtResource("2_primary")]
+custom_minimum_size = Vector2(188, 44)
+layout_mode = 1
+offset_left = 246.0
+offset_top = 272.0
+offset_right = 434.0
+offset_bottom = 316.0
+theme_override_font_sizes/font_size = 18
+text = "确定种植"
+metadata/l10n_text = "ui.81028f3bf5"
+

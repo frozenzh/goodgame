@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://bdfac15mtmy86"]
+
+[ext_resource type="Script" uid="uid://4hdrh3hrwlcx" path="res://scripts/world/weather_visual.gd" id="1_visual"]
+[ext_resource type="Script" uid="uid://dd3fbplc88rcw" path="res://scripts/world/weather_particles.gd" id="2_particles"]
+[ext_resource type="AudioStream" uid="uid://dpx5axd10e5m7" path="res://assets/audio/rain_ambient_loop.wav" id="3_rain"]
+[ext_resource type="Script" uid="uid://b0cp7kuhiulfh" path="res://scripts/world/snow_pile.gd" id="5_snow_pile"]
+[ext_resource type="Texture2D" uid="uid://discdapugnvep" path="res://assets/hd/world/snow_pile_small.png" id="6_small"]
+[ext_resource type="Texture2D" uid="uid://bd42itehrxu7a" path="res://assets/hd/world/snow_pile_medium.png" id="7_medium"]
+[ext_resource type="Texture2D" uid="uid://dhptobuv7hib3" path="res://assets/hd/world/snow_pile_large.png" id="8_large"]
+
+[ext_resource type="Texture2D" path="res://assets/hd/world/weather_cloud_small.svg" id="cloud_small"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/weather_cloud_medium.svg" id="cloud_medium"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/weather_cloud_large.svg" id="cloud_large"]
+
+[node name="WeatherVisual" type="Node2D" unique_id=392200719]
+editor_description = "天气表现根节点；Inspector 中的 World Tint 直接调整地图资源颜色，不使用覆盖地图的半透明色块。雨雪粒子与音频在子节点中。"
+script = ExtResource("1_visual")
+
+[node name="RainLayer" type="Node2D" parent="." unique_id=780422443]
+editor_description = "固定上限自绘雨滴；在 Inspector 可调粒子范围，运行数量来自天气配置。"
+script = ExtResource("2_particles")
+particle_count = 90
+
+[node name="SnowLayer" type="Node2D" parent="." unique_id=1388513419]
+editor_description = "固定上限自绘雪片；位置及范围可在 Inspector 调整。"
+script = ExtResource("2_particles")
+kind = "snow"
+bounds = Rect2(-720, 88, 2000, 150)
+
+[node name="SnowPiles" type="Node2D" parent="." unique_id=1070798470]
+editor_description = "积雪静态摆放点。每个雪堆可调整位置、缩放及 Inspector 中的出现进度；运行时随降雪逐个显现。"
+z_index = 9
+z_as_relative = false
+
+[node name="GroundSmallLeft" type="Sprite2D" parent="SnowPiles" unique_id=1528960981]
+editor_description = "左侧牧场区域的小雪堆。"
+texture_filter = 1
+position = Vector2(-335, 180)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_small")
+script = ExtResource("5_snow_pile")
+appear_fraction = 0.08
+
+[node name="GroundSmallFarm" type="Sprite2D" parent="SnowPiles" unique_id=2086960096]
+texture_filter = 1
+position = Vector2(505, 207)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_small")
+script = ExtResource("5_snow_pile")
+appear_fraction = 0.17
+
+[node name="GroundSmallShop" type="Sprite2D" parent="SnowPiles" unique_id=429988354]
+texture_filter = 1
+position = Vector2(971, 171)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_small")
+script = ExtResource("5_snow_pile")
+appear_fraction = 0.28
+
+[node name="PondBankSmallTop" type="Sprite2D" parent="SnowPiles" unique_id=1775519330]
+editor_description = "池塘上侧石岸的小雪堆；雪天较早出现。"
+texture_filter = 1
+position = Vector2(1038.9999, 104.99999)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("6_small")
+script = ExtResource("5_snow_pile")
+appear_fraction = 0.01
+
+[node name="PondBankSmallRight" type="Sprite2D" parent="SnowPiles" unique_id=316846725]
+texture_filter = 1
+position = Vector2(1261, 108)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("6_small")
+script = ExtResource("5_snow_pile")
+appear_fraction = 0.12
+
+[node name="PondSurfaceSmallLeft" type="Sprite2D" parent="SnowPiles" unique_id=1159736531]
+editor_description = "池塘水面浮雪；可直接拖动以避开鱼影。"
+modulate = Color(0.91, 0.97, 1, 0.88)
+z_index = 8
+texture_filter = 1
+position = Vector2(1180, 133)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("6_small")
+script = ExtResource("5_snow_pile")
+appear_fraction = 0.04
+
+[node name="PondSurfaceSmallRight" type="Sprite2D" parent="SnowPiles" unique_id=1551916780]
+modulate = Color(0.91, 0.97, 1, 0.88)
+texture_filter = 1
+position = Vector2(1210, 151)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("6_small")
+script = ExtResource("5_snow_pile")
+appear_fraction = 0.22
+
+[node name="GroundMediumLeft" type="Sprite2D" parent="SnowPiles" unique_id=660121166]
+texture_filter = 1
+position = Vector2(-155, 207)
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("7_medium")
+script = ExtResource("5_snow_pile")
+appear_fraction = 0.39
+
+[node name="GroundMediumFarm" type="Sprite2D" parent="SnowPiles" unique_id=449333025]
+texture_filter = 1
+position = Vector2(630, 204)
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("7_medium")
+script = ExtResource("5_snow_pile")
+appear_fraction = 0.52
+
+[node name="PondBankMediumLeft" type="Sprite2D" parent="SnowPiles" unique_id=1284899273]
+texture_filter = 1
+position = Vector2(1033, 191)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_medium")
+script = ExtResource("5_snow_pile")
+appear_fraction = 0.31
+
+[node name="PondSurfaceMedium" type="Sprite2D" parent="SnowPiles" unique_id=508480161]
+modulate = Color(0.91, 0.97, 1, 0.82)
+texture_filter = 1
+position = Vector2(788, 177)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("7_medium")
+script = ExtResource("5_snow_pile")
+appear_fraction = 0.62
+
+[node name="GroundLargeLeft" type="Sprite2D" parent="SnowPiles" unique_id=1235790965]
+texture_filter = 1
+position = Vector2(-430, 209)
+scale = Vector2(0.038, 0.038)
+texture = ExtResource("8_large")
+script = ExtResource("5_snow_pile")
+appear_fraction = 0.72
+
+[node name="GroundLargeFarm" type="Sprite2D" parent="SnowPiles" unique_id=311151384]
+texture_filter = 1
+position = Vector2(384, 201)
+scale = Vector2(0.038, 0.038)
+texture = ExtResource("8_large")
+script = ExtResource("5_snow_pile")
+appear_fraction = 0.84
+
+[node name="PondBankLarge" type="Sprite2D" parent="SnowPiles" unique_id=850005915]
+editor_description = "池塘右下石岸的大雪堆；雪天后段出现。"
+texture_filter = 1
+position = Vector2(1255, 190)
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("8_large")
+script = ExtResource("5_snow_pile")
+appear_fraction = 0.76
+
+[node name="Clouds" type="Node2D" parent="." unique_id=1708017986]
+editor_description = "小、中、大三朵天气云。每个 Sprite2D 的位置和尺寸可独立调整。"
+
+[node name="SmallCloud" type="Sprite2D" parent="Clouds"]
+texture_filter = 1
+position = Vector2(225, 26)
+scale = Vector2(1.0, 1.0)
+texture = ExtResource("cloud_small")
+
+[node name="MediumCloud" type="Sprite2D" parent="Clouds"]
+texture_filter = 1
+position = Vector2(635, 48)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("cloud_medium")
+
+[node name="LargeCloud" type="Sprite2D" parent="Clouds"]
+texture_filter = 1
+position = Vector2(1045, 42)
+scale = Vector2(1.55, 1.55)
+texture = ExtResource("cloud_large")
+
+[node name="RainAudio" type="AudioStreamPlayer" parent="." unique_id=975156044]
+stream = ExtResource("3_rain")
+bus = &"Weather"

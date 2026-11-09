@@ -1,0 +1,919 @@
+[gd_scene load_steps=63 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/static_world_strip.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/world/PlotTile.tscn" id="2_plot"]
+[ext_resource type="PackedScene" path="res://scenes/world/Worker.tscn" id="3_worker"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/house_level_1_reference.png" id="4_house"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/workbench_4.png" id="5_workbench"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/pond_fishless.png" id="6_pond"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/pond_ice_surface.png" id="37_pond_ice"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/pond_shore_distance.png" id="pond_shore_distance"]
+[ext_resource type="Shader" path="res://shaders/pond_freeze.gdshader" id="38_pond_freeze"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/background_extended.png" id="7_background"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/background_short_grass_overlay.png" id="27_short_grass"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/building_ground_contact.png" id="28_ground_contact"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/building_front_grass.png" id="29_front_grass"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/background_foreground_grass.png" id="20_foreground_grass"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/background_fence.png" id="21_back_fence"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/house_level_2_matching.png" id="12_house"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/house_level_3_matching.png" id="13_house"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/house_level_0_thatch.png" id="31_house_thatch"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/dirt_path_tile.png" id="14_path"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/construction_site.png" id="15_construction"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/pasture_barn.png" id="32_pasture_barn"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/pasture_dog_sleep.png" id="33_pasture_dog_sleep"]
+[ext_resource type="Script" path="res://scripts/world/pasture_manager.gd" id="35_pasture_manager"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/wood_sign.png" id="16_sign"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/shop_v04/fish_shop_front_topdown.png" id="17_shop"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/pond_shadow_broad_sheet.png" id="18_shadow_broad"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/pond_shadow_slender_sheet.png" id="19_shadow_slender"]
+[ext_resource type="Shader" path="res://shaders/building_interactable_outline.gdshader" id="22_building_outline"]
+[ext_resource type="Script" path="res://scripts/world/editor_route_guide.gd" id="23_route_guide"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/shop_v04/fish_shop_level_1_topdown_v3.png" id="24_shop_moss"]
+[ext_resource type="PackedScene" path="res://scenes/world/WeatherVisual.tscn" id="25_weather_visual"]
+[ext_resource type="Shader" path="res://shaders/pond_reed_sway.gdshader" id="27_reed_sway"]
+[ext_resource type="Script" path="res://scripts/world/pond_fish_motion.gd" id="28_fish_motion"]
+[ext_resource type="Script" path="res://scripts/world/pond_rain_ripples.gd" id="29_rain_ripples"]
+[ext_resource type="PackedScene" path="res://scenes/world/CloudFog.tscn" id="36_cloud_fog"]
+[ext_resource type="PackedScene" path="res://scenes/world/WorkbenchWorkBadge.tscn" id="39_work_badge"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/icon_new_unlock_exclamation.svg" id="construction_complete_badge"]
+[ext_resource type="Shader" path="res://shaders/construction_badge_bounce.gdshader" id="construction_badge_bounce"]
+[ext_resource type="SpriteFrames" path="res://assets/hd/world/workbench_smoke.tres" id="workbench_smoke"]
+[ext_resource type="Shader" path="res://shaders/cottage_roof_snow.gdshader" id="roof_snow_shader"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/cottage_roof_snow_1.png" id="roof_snow_1"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/cottage_roof_snow_2.png" id="roof_snow_2"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/cottage_roof_snow_3.png" id="roof_snow_3"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/cottage_roof_snow_4.png" id="roof_snow_4"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/workbench_roof_snow.png" id="roof_snow_workbench"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/fish_shop_level_1_roof_snow.png" id="roof_snow_shop_1"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/fish_shop_roof_snow.png" id="roof_snow_shop"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/pasture_barn_roof_snow.png" id="roof_snow_barn"]
+
+[sub_resource type="ShaderMaterial" id="CottageRoofSnow"]
+resource_local_to_scene = true
+shader = ExtResource("roof_snow_shader")
+
+[sub_resource type="ShaderMaterial" id="WorkbenchRoofSnow"]
+resource_local_to_scene = true
+shader = ExtResource("roof_snow_shader")
+shader_parameter/chimney_opening = Vector4(0.6517, 0.3149, 0.0469, 0.0615)
+
+[sub_resource type="ShaderMaterial" id="ConstructionBadgeBounce"]
+shader = ExtResource("construction_badge_bounce")
+
+[sub_resource type="ShaderMaterial" id="PondReedSwayMaterial"]
+shader = ExtResource("27_reed_sway")
+shader_parameter/sway_pixels = 30.0
+shader_parameter/cycle_seconds = 2.8
+shader_parameter/frame_count = 8
+
+[sub_resource type="ShaderMaterial" id="PondIceMaterial"]
+shader = ExtResource("38_pond_freeze")
+shader_parameter/pond_texture = ExtResource("6_pond")
+shader_parameter/shore_distance_texture = ExtResource("pond_shore_distance")
+shader_parameter/freeze_progress = 0.0
+shader_parameter/melt_opacity = 1.0
+
+[sub_resource type="ShaderMaterial" id="HouseOutline"]
+shader = ExtResource("22_building_outline")
+shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
+shader_parameter/resting_width_texels = 15.0
+shader_parameter/hover_width_texels = 30.0
+shader_parameter/hovered = 0.0
+
+[sub_resource type="ShaderMaterial" id="WorkbenchOutline"]
+shader = ExtResource("22_building_outline")
+shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
+shader_parameter/resting_width_texels = 25.0
+shader_parameter/hover_width_texels = 50.0
+shader_parameter/hovered = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShopOutline"]
+shader = ExtResource("22_building_outline")
+shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
+shader_parameter/resting_width_texels = 13.0
+shader_parameter/hover_width_texels = 26.0
+shader_parameter/hovered = 0.0
+
+[sub_resource type="AtlasTexture" id="BroadFrame0"]
+atlas = ExtResource("18_shadow_broad")
+region = Rect2(0, 0, 543, 724)
+
+[sub_resource type="AtlasTexture" id="BroadFrame1"]
+atlas = ExtResource("18_shadow_broad")
+region = Rect2(543, 0, 543, 724)
+
+[sub_resource type="AtlasTexture" id="BroadFrame2"]
+atlas = ExtResource("18_shadow_broad")
+region = Rect2(1086, 0, 543, 724)
+
+[sub_resource type="AtlasTexture" id="BroadFrame3"]
+atlas = ExtResource("18_shadow_broad")
+region = Rect2(1629, 0, 543, 724)
+
+[sub_resource type="SpriteFrames" id="BroadSwimFrames"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("BroadFrame0")
+}, {
+"duration": 1.0,
+"texture": SubResource("BroadFrame1")
+}, {
+"duration": 1.0,
+"texture": SubResource("BroadFrame2")
+}, {
+"duration": 1.0,
+"texture": SubResource("BroadFrame3")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 3.2
+}]
+
+[sub_resource type="AtlasTexture" id="SlenderFrame0"]
+atlas = ExtResource("19_shadow_slender")
+region = Rect2(0, 0, 543, 724)
+
+[sub_resource type="AtlasTexture" id="SlenderFrame1"]
+atlas = ExtResource("19_shadow_slender")
+region = Rect2(543, 0, 543, 724)
+
+[sub_resource type="AtlasTexture" id="SlenderFrame2"]
+atlas = ExtResource("19_shadow_slender")
+region = Rect2(1086, 0, 543, 724)
+
+[sub_resource type="AtlasTexture" id="SlenderFrame3"]
+atlas = ExtResource("19_shadow_slender")
+region = Rect2(1629, 0, 543, 724)
+
+[sub_resource type="SpriteFrames" id="SlenderSwimFrames"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("SlenderFrame0")
+}, {
+"duration": 1.0,
+"texture": SubResource("SlenderFrame1")
+}, {
+"duration": 1.0,
+"texture": SubResource("SlenderFrame2")
+}, {
+"duration": 1.0,
+"texture": SubResource("SlenderFrame3")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 2.8
+}]
+
+[sub_resource type="RectangleShape2D" id="ShopWalkBlockShape"]
+size = Vector2(75, 66)
+
+[sub_resource type="RectangleShape2D" id="HouseWalkBlockShape"]
+size = Vector2(150, 94)
+
+[sub_resource type="RectangleShape2D" id="WorkbenchWalkBlockShape"]
+size = Vector2(86, 100)
+
+[node name="StaticWorldStrip" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="StaticBackground" type="Node2D" parent="."]
+editor_description = "整条草地背景可独立移动；不参与地块的状态替换。"
+
+[node name="Landscape" type="Sprite2D" parent="StaticBackground"]
+texture_filter = 1
+position = Vector2(0, 150)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("7_background")
+
+[node name="ShortGrassOverlay" type="Sprite2D" parent="StaticBackground"]
+editor_description = "整片透明矮草坪；覆盖背景右侧草地，不改动左侧种植区。可独立移动。"
+texture_filter = 1
+position = Vector2(0, 150)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("27_short_grass")
+
+[node name="BackFence" type="Sprite2D" parent="StaticBackground"]
+editor_description = "最后一排景的整条木栅栏；独立静态 Sprite，可在编辑器中移动和缩放。"
+texture_filter = 1
+position = Vector2(640, 96)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("21_back_fence")
+
+[node name="ForegroundLayer" type="Node2D" parent="."]
+editor_description = "独立草边层；资源底边为水平直线，草丛位于道路、地块和角色后面。"
+
+[node name="ForegroundGrass" type="Sprite2D" parent="ForegroundLayer"]
+texture_filter = 1
+position = Vector2(640, 150)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("20_foreground_grass")
+
+[node name="PastureAreas" type="Node2D" parent="."]
+editor_description = "仅第 3、4 块牧场可见；栅栏、牧场房与动物容器均是可调静态节点。"
+z_index = 2
+script = ExtResource("35_pasture_manager")
+
+[node name="AutoFeedCheck" type="Timer" parent="PastureAreas"]
+wait_time = 2.0
+autostart = true
+
+[node name="PastureBarn" type="Node2D" parent="PastureAreas"]
+position = Vector2(0, 151)
+editor_description = "牧场房静态节点；在此调整牧场房与种植区、栅栏的间距。"
+
+[node name="GroundContact" type="Sprite2D" parent="PastureAreas/PastureBarn"]
+editor_description = "牧场房底部踩实土地；可单独调整位置与缩放。"
+texture_filter = 1
+position = Vector2(0, 42)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("28_ground_contact")
+
+[node name="BarnSprite" type="Sprite2D" parent="PastureAreas/PastureBarn"]
+texture_filter = 1
+position = Vector2(0, -20)
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("32_pasture_barn")
+
+[node name="RoofSnow" type="Sprite2D" parent="PastureAreas/PastureBarn/BarnSprite"]
+editor_description = "与建筑屋顶对齐的雪层；可打开 Visible 预览满雪。"
+visible = false
+texture_filter = 2
+material = SubResource("CottageRoofSnow")
+texture = ExtResource("roof_snow_barn")
+
+[node name="ConstructionOverlay" type="Sprite2D" parent="PastureAreas/PastureBarn"]
+texture_filter = 1
+position = Vector2(0, -18)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("15_construction")
+
+[node name="ConstructionSign" type="Label" parent="PastureAreas/PastureBarn"]
+visible = false
+offset_left = -40.0
+offset_top = -3.0
+offset_right = 40.0
+offset_bottom = 19.0
+theme_override_colors/font_color = Color(1, 0.94, 0.7, 1)
+theme_override_colors/font_shadow_color = Color(0.16, 0.08, 0.04, 1)
+theme_override_font_sizes/font_size = 12
+text = "修建中"
+metadata/l10n_text = "ui.310cd4240e"
+horizontal_alignment = 1
+
+[node name="Dog" type="Sprite2D" parent="PastureAreas"]
+visible = false
+texture_filter = 1
+position = Vector2(39, 194)
+scale = Vector2(0.042, 0.042)
+texture = ExtResource("33_pasture_dog_sleep")
+
+[node name="PathLayer" type="Node2D" parent="."]
+editor_description = "石子路层：所有路段共用一张三块踏石资源。每段都是可独立拖动的静态 Sprite，位于草地之上、田地与建筑之下。"
+
+[node name="PastureSegments" type="Node2D" parent="PathLayer"]
+editor_description = "牧场建成后开放的左侧道路；每段静态踏石可在编辑器独立拖动。"
+
+[node name="AccessBoundary" type="Marker2D" parent="PathLayer/PastureSegments"]
+editor_description = "牧场未建成时角色不可跨过的横向边界；拖动此节点可调整入口。"
+position = Vector2(44, 205)
+
+[node name="PasturePath01" type="Sprite2D" parent="PathLayer/PastureSegments"]
+texture_filter = 1
+position = Vector2(0, 205)
+scale = Vector2(0.04296875, 0.04296875)
+texture = ExtResource("14_path")
+
+[node name="PasturePath02" type="Sprite2D" parent="PathLayer/PastureSegments"]
+texture_filter = 1
+position = Vector2(-88, 205)
+scale = Vector2(0.04296875, 0.04296875)
+texture = ExtResource("14_path")
+
+[node name="PasturePath03" type="Sprite2D" parent="PathLayer/PastureSegments"]
+texture_filter = 1
+position = Vector2(-176, 205)
+scale = Vector2(0.04296875, 0.04296875)
+texture = ExtResource("14_path")
+
+[node name="PasturePath04" type="Sprite2D" parent="PathLayer/PastureSegments"]
+texture_filter = 1
+position = Vector2(-264, 205)
+scale = Vector2(0.04296875, 0.04296875)
+texture = ExtResource("14_path")
+
+[node name="PasturePath05" type="Sprite2D" parent="PathLayer/PastureSegments"]
+texture_filter = 1
+position = Vector2(-352, 205)
+scale = Vector2(0.04296875, 0.04296875)
+texture = ExtResource("14_path")
+
+[node name="PasturePath06" type="Sprite2D" parent="PathLayer/PastureSegments"]
+texture_filter = 1
+position = Vector2(-440, 205)
+scale = Vector2(0.04296875, 0.04296875)
+texture = ExtResource("14_path")
+
+[node name="PlotSegments" type="Node2D" parent="PathLayer"]
+editor_description = "编号从右到左为 Plot01-07；运行时仅在对应地块已解锁时显示下方路段。"
+
+[node name="Plot07Path" type="Sprite2D" parent="PathLayer/PlotSegments"]
+visible = false
+texture_filter = 1
+position = Vector2(88, 205)
+scale = Vector2(0.04296875, 0.04296875)
+texture = ExtResource("14_path")
+
+[node name="Plot06Path" type="Sprite2D" parent="PathLayer/PlotSegments"]
+visible = false
+texture_filter = 1
+position = Vector2(176, 205)
+scale = Vector2(0.04296875, 0.04296875)
+texture = ExtResource("14_path")
+
+[node name="Plot05Path" type="Sprite2D" parent="PathLayer/PlotSegments"]
+visible = false
+texture_filter = 1
+position = Vector2(264, 205)
+scale = Vector2(0.04296875, 0.04296875)
+texture = ExtResource("14_path")
+
+[node name="Plot04Path" type="Sprite2D" parent="PathLayer/PlotSegments"]
+visible = false
+texture_filter = 1
+position = Vector2(352, 205)
+scale = Vector2(0.04296875, 0.04296875)
+texture = ExtResource("14_path")
+
+[node name="Plot03Path" type="Sprite2D" parent="PathLayer/PlotSegments"]
+visible = false
+texture_filter = 1
+position = Vector2(440, 205)
+scale = Vector2(0.04296875, 0.04296875)
+texture = ExtResource("14_path")
+
+[node name="Plot02Path" type="Sprite2D" parent="PathLayer/PlotSegments"]
+texture_filter = 1
+position = Vector2(528, 205)
+scale = Vector2(0.04296875, 0.04296875)
+texture = ExtResource("14_path")
+
+[node name="Plot01Path" type="Sprite2D" parent="PathLayer/PlotSegments"]
+texture_filter = 1
+position = Vector2(616, 205)
+scale = Vector2(0.04296875, 0.04296875)
+texture = ExtResource("14_path")
+
+[node name="SharedSegments" type="Node2D" parent="PathLayer"]
+editor_description = "小屋门口、工具台到钓鱼区域的常驻道路；单段可独立移动。"
+
+[node name="HousePath" type="Sprite2D" parent="PathLayer/SharedSegments"]
+texture_filter = 1
+position = Vector2(704, 205)
+scale = Vector2(0.04296875, 0.04296875)
+texture = ExtResource("14_path")
+
+[node name="WorkbenchPath" type="Sprite2D" parent="PathLayer/SharedSegments"]
+texture_filter = 1
+position = Vector2(792, 205)
+scale = Vector2(0.04296875, 0.04296875)
+texture = ExtResource("14_path")
+
+[node name="PondApproachPath" type="Sprite2D" parent="PathLayer/SharedSegments"]
+texture_filter = 1
+position = Vector2(880, 205)
+scale = Vector2(0.04296875, 0.04296875)
+texture = ExtResource("14_path")
+
+[node name="PondEntryPath" type="Sprite2D" parent="PathLayer/SharedSegments"]
+texture_filter = 1
+position = Vector2(968, 205)
+scale = Vector2(0.04296875, 0.04296875)
+texture = ExtResource("14_path")
+
+[node name="PlotLayer" type="Node2D" parent="."]
+editor_description = "七块地各自是静态场景节点；统一缩放此层可保持间距。"
+position = Vector2(16, 0)
+scale = Vector2(0.55, 0.55)
+
+[node name="PlotNodes" type="Node2D" parent="PlotLayer"]
+editor_description = "每块地可单独移动；在检视器中可预览开垦与胡萝卜阶段。"
+
+[node name="Plot07" parent="PlotLayer/PlotNodes" instance=ExtResource("2_plot")]
+position = Vector2(130, 318)
+
+[node name="Plot06" parent="PlotLayer/PlotNodes" instance=ExtResource("2_plot")]
+position = Vector2(290, 318)
+
+[node name="Plot05" parent="PlotLayer/PlotNodes" instance=ExtResource("2_plot")]
+position = Vector2(450, 318)
+
+[node name="Plot04" parent="PlotLayer/PlotNodes" instance=ExtResource("2_plot")]
+position = Vector2(610, 318)
+
+[node name="Plot03" parent="PlotLayer/PlotNodes" instance=ExtResource("2_plot")]
+position = Vector2(770, 318)
+
+[node name="Plot02" parent="PlotLayer/PlotNodes" instance=ExtResource("2_plot")]
+position = Vector2(930, 318)
+unlocked = true
+
+[node name="Plot01" parent="PlotLayer/PlotNodes" instance=ExtResource("2_plot")]
+position = Vector2(1090, 318)
+unlocked = true
+preview_stage = "mature"
+preview_crop = "wheat"
+
+[node name="ResourceNodes" type="Node2D" parent="."]
+editor_description = "小屋、工具台与池塘是独立静态资源节点，可直接拖动。"
+
+[node name="House" type="Node2D" parent="ResourceNodes"]
+position = Vector2(735, 152)
+editor_description = "小屋四级外观共用此位置；可展开 LevelVisuals 单独调整每一级。"
+
+[node name="GroundContact" type="Sprite2D" parent="ResourceNodes/House"]
+editor_description = "与草坪融合的踩实地基资源；在此微调位置和缩放。"
+texture_filter = 1
+position = Vector2(0, 49)
+scale = Vector2(0.09, 0.09)
+modulate = Color(1, 1, 1, 0.72)
+texture = ExtResource("28_ground_contact")
+
+[node name="LevelVisuals" type="Node2D" parent="ResourceNodes/House"]
+editor_description = "四级静态 Sprite 节点；1 级茅草房，2 级旧瓦屋，3 级整修瓦屋，4 级加高瓦屋。"
+
+[node name="Level1" type="Sprite2D" parent="ResourceNodes/House/LevelVisuals"]
+material = SubResource("HouseOutline")
+texture_filter = 1
+position = Vector2(0, -10)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("31_house_thatch")
+
+[node name="RoofSnow" type="Sprite2D" parent="ResourceNodes/House/LevelVisuals/Level1"]
+editor_description = "与本级屋顶对齐的积雪层；可打开 Visible 预览满雪。"
+visible = false
+texture_filter = 2
+material = SubResource("CottageRoofSnow")
+texture = ExtResource("roof_snow_1")
+
+[node name="Level2" type="Sprite2D" parent="ResourceNodes/House/LevelVisuals"]
+visible = false
+material = SubResource("HouseOutline")
+texture_filter = 1
+position = Vector2(0, -10)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("4_house")
+
+[node name="RoofSnow" type="Sprite2D" parent="ResourceNodes/House/LevelVisuals/Level2"]
+editor_description = "与本级屋顶对齐的积雪层；可打开 Visible 预览满雪。"
+visible = false
+texture_filter = 2
+material = SubResource("CottageRoofSnow")
+texture = ExtResource("roof_snow_2")
+
+[node name="Level3" type="Sprite2D" parent="ResourceNodes/House/LevelVisuals"]
+visible = false
+material = SubResource("HouseOutline")
+texture_filter = 1
+position = Vector2(0, -10)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("12_house")
+
+[node name="RoofSnow" type="Sprite2D" parent="ResourceNodes/House/LevelVisuals/Level3"]
+editor_description = "与本级屋顶对齐的积雪层；可打开 Visible 预览满雪。"
+visible = false
+texture_filter = 2
+material = SubResource("CottageRoofSnow")
+texture = ExtResource("roof_snow_3")
+
+[node name="Level4" type="Sprite2D" parent="ResourceNodes/House/LevelVisuals"]
+visible = false
+material = SubResource("HouseOutline")
+texture_filter = 1
+position = Vector2(0, -17)
+scale = Vector2(0.145, 0.145)
+texture = ExtResource("13_house")
+
+[node name="RoofSnow" type="Sprite2D" parent="ResourceNodes/House/LevelVisuals/Level4"]
+editor_description = "与本级屋顶对齐的积雪层；可打开 Visible 预览满雪。"
+visible = false
+texture_filter = 2
+material = SubResource("CottageRoofSnow")
+texture = ExtResource("roof_snow_4")
+
+[node name="FrontGrass" type="Sprite2D" parent="ResourceNodes/House"]
+editor_description = "建筑前缘草叶真实遮挡地基；可独立调整。"
+texture_filter = 1
+position = Vector2(0, 56)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("29_front_grass")
+
+[node name="SparkleAnchor" type="Marker2D" parent="ResourceNodes/House"]
+editor_description = "小屋升级时的闪光中心；可单独拖动。"
+position = Vector2(0, -18)
+
+[node name="ConstructionVisual" type="Node2D" parent="ResourceNodes/House"]
+editor_description = "小屋施工工地，可调整 Scaffold 的位置和缩放。"
+visible = false
+
+[node name="Scaffold" type="Sprite2D" parent="ResourceNodes/House/ConstructionVisual"]
+texture_filter = 1
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("15_construction")
+
+[node name="SignGroup" type="Node2D" parent="ResourceNodes/House/ConstructionVisual"]
+position = Vector2(0, 22)
+
+[node name="Post" type="Polygon2D" parent="ResourceNodes/House/ConstructionVisual/SignGroup"]
+color = Color(0.39, 0.22, 0.1, 1)
+polygon = PackedVector2Array(-4, 10, 4, 10, 4, 43, -4, 43)
+
+[node name="Board" type="Sprite2D" parent="ResourceNodes/House/ConstructionVisual/SignGroup"]
+texture_filter = 1
+scale = Vector2(0.052, 0.052)
+texture = ExtResource("16_sign")
+
+[node name="Text" type="Label" parent="ResourceNodes/House/ConstructionVisual/SignGroup"]
+offset_left = -53.0
+offset_top = -13.0
+offset_right = 53.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.23, 0.14, 0.08, 1)
+theme_override_colors/font_outline_color = Color(1, 0.88, 0.61, 0.7)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 15
+text = "修建中"
+metadata/l10n_text = "ui.310cd4240e"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CompletionBadge" type="Sprite2D" parent="ResourceNodes/House/ConstructionVisual/SignGroup"]
+editor_description = "完工待验收的红色感叹号；位置和缩放可单独调整。"
+visible = false
+material = SubResource("ConstructionBadgeBounce")
+texture_filter = 1
+position = Vector2(0, 20)
+scale = Vector2(2, 2)
+texture = ExtResource("construction_complete_badge")
+
+[node name="WalkBlocker" type="StaticBody2D" parent="ResourceNodes/House"]
+editor_description = "小屋占地碰撞，跟随 House 移动；交互点在下方通道。"
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResourceNodes/House/WalkBlocker"]
+shape = SubResource("HouseWalkBlockShape")
+
+[node name="Workbench" type="Node2D" parent="ResourceNodes"]
+position = Vector2(866, 157)
+
+[node name="GroundContact" type="Sprite2D" parent="ResourceNodes/Workbench"]
+editor_description = "工作台与草坪接触的踩实地面；可独立调整。"
+texture_filter = 1
+position = Vector2(0, 43)
+scale = Vector2(0.055, 0.07)
+modulate = Color(1, 1, 1, 0.72)
+texture = ExtResource("28_ground_contact")
+
+[node name="Sprite" type="Sprite2D" parent="ResourceNodes/Workbench"]
+editor_description = "交互描边在 Material / Shader Parameters 调整；贴图和位置仍是独立静态节点。"
+material = SubResource("WorkbenchOutline")
+texture_filter = 1
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("5_workbench")
+
+[node name="ChimneySmoke" type="AnimatedSprite2D" parent="ResourceNodes/Workbench/Sprite"]
+editor_description = "工坊空闲时偶尔冒烟，制作时持续播放；移动此节点可对准烟囱口。"
+visible = false
+z_index = 1
+texture_filter = 2
+position = Vector2(232, -223)
+scale = Vector2(1.55, 1.55)
+offset = Vector2(0, -59)
+sprite_frames = ExtResource("workbench_smoke")
+animation = &"smoke"
+
+[node name="RoofSnow" type="Sprite2D" parent="ResourceNodes/Workbench/Sprite"]
+editor_description = "与建筑屋顶对齐的雪层；可打开 Visible 预览满雪。"
+visible = false
+texture_filter = 2
+material = SubResource("WorkbenchRoofSnow")
+texture = ExtResource("roof_snow_workbench")
+
+[node name="ChimneyIdleTimer" type="Timer" parent="ResourceNodes/Workbench/Sprite"]
+one_shot = true
+
+[node name="FrontGrass" type="Sprite2D" parent="ResourceNodes/Workbench"]
+editor_description = "工作台前缘草叶；可独立调整。"
+texture_filter = 1
+position = Vector2(0, 49)
+scale = Vector2(0.055, 0.07)
+texture = ExtResource("29_front_grass")
+
+[node name="WorkPendingBadge" parent="ResourceNodes/Workbench" instance=ExtResource("39_work_badge")]
+offset_left = -51.0
+offset_top = -76.0
+offset_right = 17.0
+offset_bottom = -56.0
+scale = Vector2(1.5, 1.5)
+
+[node name="ConstructionVisual" type="Node2D" parent="ResourceNodes/Workbench"]
+editor_description = "工作台解锁前显示的工地，可调整 Scaffold 的位置和缩放。"
+visible = false
+
+[node name="Scaffold" type="Sprite2D" parent="ResourceNodes/Workbench/ConstructionVisual"]
+texture_filter = 1
+position = Vector2(0, -4)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("15_construction")
+
+[node name="SignGroup" type="Node2D" parent="ResourceNodes/Workbench/ConstructionVisual"]
+position = Vector2(0, 32)
+
+[node name="Post" type="Polygon2D" parent="ResourceNodes/Workbench/ConstructionVisual/SignGroup"]
+color = Color(0.39, 0.22, 0.1, 1)
+polygon = PackedVector2Array(-3, 8, 3, 8, 3, 30, -3, 30)
+
+[node name="Board" type="Sprite2D" parent="ResourceNodes/Workbench/ConstructionVisual/SignGroup"]
+texture_filter = 1
+scale = Vector2(0.042, 0.042)
+texture = ExtResource("16_sign")
+
+[node name="Text" type="Label" parent="ResourceNodes/Workbench/ConstructionVisual/SignGroup"]
+offset_left = -45.0
+offset_top = -11.0
+offset_right = 45.0
+offset_bottom = 11.0
+theme_override_colors/font_color = Color(0.23, 0.14, 0.08, 1)
+theme_override_font_sizes/font_size = 14
+text = "修建中"
+metadata/l10n_text = "ui.310cd4240e"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CompletionBadge" type="Sprite2D" parent="ResourceNodes/Workbench/ConstructionVisual/SignGroup"]
+editor_description = "完工待验收的红色感叹号；位置和缩放可单独调整。"
+visible = false
+material = SubResource("ConstructionBadgeBounce")
+texture_filter = 1
+position = Vector2(0, 18)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("construction_complete_badge")
+
+[node name="SparkleAnchor" type="Marker2D" parent="ResourceNodes/Workbench"]
+position = Vector2(0, -24)
+
+[node name="WalkBlocker" type="StaticBody2D" parent="ResourceNodes/Workbench"]
+editor_description = "工具台占地碰撞；可独立调整框体。"
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResourceNodes/Workbench/WalkBlocker"]
+shape = SubResource("WorkbenchWalkBlockShape")
+
+[node name="Pond" type="Node2D" parent="ResourceNodes"]
+position = Vector2(1140, 160)
+
+[node name="Sprite" type="Sprite2D" parent="ResourceNodes/Pond"]
+editor_description = "池塘静态贴图；Material 中的 PondReedSwayMaterial 让四处芦苇以 8 帧循环左右摆动。可调 Sway Pixels / Cycle Seconds / Frame Count。"
+material = SubResource("PondReedSwayMaterial")
+texture_filter = 1
+scale = Vector2(0.1383036, 0.1383036)
+texture = ExtResource("6_pond")
+
+[node name="WaterShadows" type="Node2D" parent="ResourceNodes/Pond"]
+editor_description = "池塘水面上两条独立鱼影。可整体移动，也可分别调整鱼影的位置、大小、透明度和帧动画。"
+script = ExtResource("28_fish_motion")
+
+[node name="BroadFishShadow" type="AnimatedSprite2D" parent="ResourceNodes/Pond/WaterShadows"]
+editor_description = "左侧宽身鱼影，四帧尾鳍摆动；在 Inspector 中调整 Animation / Speed Scale。"
+texture_filter = 1
+position = Vector2(-24, 7)
+scale = Vector2(0.055, 0.055)
+modulate = Color(0.36, 0.49, 0.72, 0.72)
+sprite_frames = SubResource("BroadSwimFrames")
+animation = &"swim"
+autoplay = "swim"
+
+[node name="SlenderFishShadow" type="AnimatedSprite2D" parent="ResourceNodes/Pond/WaterShadows"]
+editor_description = "右侧细身鱼影，独立四帧动画，便于手动调整位置和透明度。"
+texture_filter = 1
+position = Vector2(43, 10)
+scale = Vector2(0.052, 0.052)
+modulate = Color(0.38, 0.51, 0.75, 0.68)
+sprite_frames = SubResource("SlenderSwimFrames")
+animation = &"swim"
+autoplay = "swim"
+frame = 2
+
+[node name="FrozenWater" type="Sprite2D" parent="ResourceNodes/Pond"]
+editor_description = "独立冰面静态节点。位置和缩放与 Pond/Sprite 一致；雪天沿水岸向水面中央结冰，原池塘水色限定覆盖范围。"
+visible = false
+material = SubResource("PondIceMaterial")
+texture_filter = 1
+scale = Vector2(0.1383036, 0.1383036)
+texture = ExtResource("37_pond_ice")
+
+[node name="RainRipples" type="Node2D" parent="ResourceNodes/Pond"]
+editor_description = "仅雨天显示的椭圆形水面涟漪；移动 Impact01-05 可调整落雨位置。Inspector 中的 Perspective Y Scale 控制俯视压缩比例，其他参数控制大小、线宽、颜色和时长。"
+script = ExtResource("29_rain_ripples")
+
+[node name="Impact01" type="Marker2D" parent="ResourceNodes/Pond/RainRipples"]
+position = Vector2(-47, -13)
+
+[node name="Impact02" type="Marker2D" parent="ResourceNodes/Pond/RainRipples"]
+position = Vector2(-13, -20)
+
+[node name="Impact03" type="Marker2D" parent="ResourceNodes/Pond/RainRipples"]
+position = Vector2(21, -8)
+
+[node name="Impact04" type="Marker2D" parent="ResourceNodes/Pond/RainRipples"]
+position = Vector2(53, 5)
+
+[node name="Impact05" type="Marker2D" parent="ResourceNodes/Pond/RainRipples"]
+position = Vector2(-7, 20)
+
+[node name="SparkleAnchor" type="Marker2D" parent="ResourceNodes/Pond"]
+editor_description = "池塘升级时的闪光中心；可单独拖动。"
+position = Vector2(0, -8)
+
+[node name="WaterBlocker" type="StaticBody2D" parent="ResourceNodes/Pond"]
+editor_description = "只阻挡湖水区域，左侧木板不在碰撞范围内。"
+collision_layer = 2
+collision_mask = 0
+
+[node name="WaterPolygon" type="CollisionPolygon2D" parent="ResourceNodes/Pond/WaterBlocker"]
+editor_description = "沿湖水内缘拖动顶点，左侧钓鱼木板应保持可行走。"
+polygon = PackedVector2Array(-61.75, -28.75, -46.75, -30.625, 87, -28.125, 100.75, -21.25, 103.25, 1.25, 90.75, 22.5, 62, 31.875, 10.75, 35.625, -46.75, 32.5, -63, 22.5, -61.75, 4.375)
+
+[node name="ShopBuilding" type="Node2D" parent="ResourceNodes"]
+editor_description = "文档原图鱼铺静态节点，位于工具台与鱼塘之间；可在编辑器中独立调整。"
+position = Vector2(968, 136)
+
+[node name="GroundContact" type="Sprite2D" parent="ResourceNodes/ShopBuilding"]
+editor_description = "鱼铺与草坪接触的踩实地面；可独立调整。"
+texture_filter = 1
+position = Vector2(2, 36)
+scale = Vector2(0.07, 0.07)
+modulate = Color(1, 1, 1, 0.72)
+texture = ExtResource("28_ground_contact")
+
+[node name="LevelVisuals" type="Node2D" parent="ResourceNodes/ShopBuilding"]
+editor_description = "鱼铺 1–3 级静态外观：1 级屋顶有苔藓，2 级为现有外观，3 级暂沿用 2 级资源；可分别调整 Sprite。"
+
+[node name="Level1" type="Sprite2D" parent="ResourceNodes/ShopBuilding/LevelVisuals"]
+editor_description = "1 级鱼铺；交互描边在 Material / Shader Parameters 调整。"
+material = SubResource("ShopOutline")
+texture_filter = 1
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("24_shop_moss")
+
+[node name="RoofSnow" type="Sprite2D" parent="ResourceNodes/ShopBuilding/LevelVisuals/Level1"]
+editor_description = "与建筑屋顶对齐的雪层；可打开 Visible 预览满雪。"
+visible = false
+texture_filter = 2
+material = SubResource("CottageRoofSnow")
+texture = ExtResource("roof_snow_shop_1")
+
+[node name="Level2" type="Sprite2D" parent="ResourceNodes/ShopBuilding/LevelVisuals"]
+visible = false
+material = SubResource("ShopOutline")
+texture_filter = 1
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("17_shop")
+
+[node name="RoofSnow" type="Sprite2D" parent="ResourceNodes/ShopBuilding/LevelVisuals/Level2"]
+editor_description = "与建筑屋顶对齐的雪层；可打开 Visible 预览满雪。"
+visible = false
+texture_filter = 2
+position = Vector2(16, 0)
+scale = Vector2(0.96, 1)
+material = SubResource("CottageRoofSnow")
+texture = ExtResource("roof_snow_shop")
+
+[node name="Level3" type="Sprite2D" parent="ResourceNodes/ShopBuilding/LevelVisuals"]
+visible = false
+material = SubResource("ShopOutline")
+texture_filter = 1
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("17_shop")
+
+[node name="RoofSnow" type="Sprite2D" parent="ResourceNodes/ShopBuilding/LevelVisuals/Level3"]
+editor_description = "与建筑屋顶对齐的雪层；可打开 Visible 预览满雪。"
+visible = false
+texture_filter = 2
+position = Vector2(16, 0)
+scale = Vector2(0.96, 1)
+material = SubResource("CottageRoofSnow")
+texture = ExtResource("roof_snow_shop")
+
+[node name="FrontGrass" type="Sprite2D" parent="ResourceNodes/ShopBuilding"]
+editor_description = "鱼铺前缘草叶真实遮挡；可独立调整。"
+texture_filter = 1
+position = Vector2(2, 41)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("29_front_grass")
+
+[node name="ConstructionVisual" type="Node2D" parent="ResourceNodes/ShopBuilding"]
+editor_description = "鱼铺解锁前显示的工地，可调整 Scaffold 的位置和缩放。"
+visible = false
+
+[node name="Scaffold" type="Sprite2D" parent="ResourceNodes/ShopBuilding/ConstructionVisual"]
+texture_filter = 1
+scale = Vector2(0.087, 0.087)
+texture = ExtResource("15_construction")
+
+[node name="SignGroup" type="Node2D" parent="ResourceNodes/ShopBuilding/ConstructionVisual"]
+position = Vector2(0, 29)
+
+[node name="Post" type="Polygon2D" parent="ResourceNodes/ShopBuilding/ConstructionVisual/SignGroup"]
+color = Color(0.39, 0.22, 0.1, 1)
+polygon = PackedVector2Array(-4, 10, 4, 10, 4, 38, -4, 38)
+
+[node name="Board" type="Sprite2D" parent="ResourceNodes/ShopBuilding/ConstructionVisual/SignGroup"]
+texture_filter = 1
+scale = Vector2(0.052, 0.052)
+texture = ExtResource("16_sign")
+
+[node name="Text" type="Label" parent="ResourceNodes/ShopBuilding/ConstructionVisual/SignGroup"]
+offset_left = -53.0
+offset_top = -13.0
+offset_right = 53.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.23, 0.14, 0.08, 1)
+theme_override_font_sizes/font_size = 15
+text = "修建中"
+metadata/l10n_text = "ui.310cd4240e"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CompletionBadge" type="Sprite2D" parent="ResourceNodes/ShopBuilding/ConstructionVisual/SignGroup"]
+editor_description = "完工待验收的红色感叹号；位置和缩放可单独调整。"
+visible = false
+material = SubResource("ConstructionBadgeBounce")
+texture_filter = 1
+position = Vector2(0, 20)
+scale = Vector2(2, 2)
+texture = ExtResource("construction_complete_badge")
+
+[node name="SparkleAnchor" type="Marker2D" parent="ResourceNodes/ShopBuilding"]
+position = Vector2(0, -23)
+
+[node name="WalkBlocker" type="StaticBody2D" parent="ResourceNodes/ShopBuilding"]
+editor_description = "鱼铺占地碰撞；随鱼铺节点移动。"
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResourceNodes/ShopBuilding/WalkBlocker"]
+shape = SubResource("ShopWalkBlockShape")
+
+[node name="DynamicAnchors" type="Node2D" parent="."]
+
+[node name="FishVisuals" type="Node2D" parent="DynamicAnchors"]
+
+[node name="FishSpawnPoint" type="Marker2D" parent="DynamicAnchors/FishVisuals"]
+editor_description = "钓鱼成功闪光中心；可单独拖动。"
+position = Vector2(1150, 155)
+
+[node name="WorkerTargets" type="Node2D" parent="DynamicAnchors"]
+editor_description = "角色目标点可以在编辑器中单独拖动。"
+
+[node name="HomePoint" type="Marker2D" parent="DynamicAnchors/WorkerTargets"]
+position = Vector2(735, 195)
+
+[node name="FarmPoint" type="Marker2D" parent="DynamicAnchors/WorkerTargets"]
+position = Vector2(548, 191)
+
+[node name="WorkbenchPoint" type="Marker2D" parent="DynamicAnchors/WorkerTargets"]
+position = Vector2(866, 194)
+
+[node name="FishingPoint" type="Marker2D" parent="DynamicAnchors/WorkerTargets"]
+editor_description = "钓鱼时角色脚底停在木板上；可直接拖动这个标记微调落点。"
+position = Vector2(1056, 144)
+
+[node name="FishingFloatPoint" type="Marker2D" parent="DynamicAnchors/WorkerTargets"]
+editor_description = "鱼漂在池塘中的水面落点。"
+position = Vector2(1127, 141)
+
+[node name="ShopPoint" type="Marker2D" parent="DynamicAnchors/WorkerTargets"]
+position = Vector2(968, 190)
+
+[node name="Worker" parent="DynamicAnchors" instance=ExtResource("3_worker")]
+position = Vector2(735, 195)
+
+[node name="WeatherVisual" parent="." instance=ExtResource("25_weather_visual")]
+z_index = 20
+
+[node name="EditorRouteGuide" type="Node2D" parent="."]
+editor_description = "仅编辑器显示：红实线=当前可见道路，淡红线=尚未显示的田地道路，虚线=道路到工作停靠点。调整路线请拖动 PathLayer 下的道路 Sprite；调整终点请拖动 DynamicAnchors/WorkerTargets 下的 Marker。角色实际路径还会根据碰撞和当前位置动态计算。"
+z_as_relative = false
+z_index = 100
+script = ExtResource("23_route_guide")
+
+[node name="EffectLayer" type="Node2D" parent="."]
+editor_description = "运行时闪光特效统一生成在这里；定位点分别在地块、小屋、池塘和 FishSpawnPoint。"
+
+[node name="CloudFog" parent="." instance=ExtResource("36_cloud_fog")]
+

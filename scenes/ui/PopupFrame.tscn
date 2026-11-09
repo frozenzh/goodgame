@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cry2nugxv4jum"]
+
+[ext_resource type="Texture2D" uid="uid://bpptj358jy8fm" path="res://assets/hd/ui/shop_v04/panel_transparent.png" id="1_panel"]
+[ext_resource type="Texture2D" uid="uid://dspjpr66gh236" path="res://assets/hd/ui/shop_v04/controls_atlas.png" id="2_controls"]
+
+[sub_resource type="StyleBoxTexture" id="PanelArt"]
+content_margin_left = 19.0
+content_margin_top = 13.0
+content_margin_right = 19.0
+content_margin_bottom = 13.0
+texture = ExtResource("1_panel")
+
+[sub_resource type="AtlasTexture" id="CloseArt"]
+atlas = ExtResource("2_controls")
+region = Rect2(1120, 572, 348, 356)
+
+[sub_resource type="StyleBoxTexture" id="CloseStyle"]
+texture = SubResource("CloseArt")
+
+[node name="PopupFrame" type="PanelContainer" unique_id=994503852]
+editor_description = "弹窗静态框架：在 Main 场景中调整本节点位置与尺寸；在这里调整底板、滚动区、关闭按钮。"
+clip_contents = true
+offset_right = 486.0
+offset_bottom = 316.0
+theme_override_styles/panel = SubResource("PanelArt")
+
+[node name="ContentSurface" type="Control" parent="." unique_id=1413025714]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ContentScroll" type="ScrollContainer" parent="ContentSurface" unique_id=808572544]
+editor_description = "弹窗内全部内容可滚动；右边预留关闭按钮。"
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+follow_focus = true
+
+[node name="Content" type="VBoxContainer" parent="ContentSurface/ContentScroll" unique_id=670242376]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 7
+
+[node name="Body" type="HBoxContainer" parent="ContentSurface/ContentScroll/Content" unique_id=979262664]
+editor_description = "数据内容插入点；所有永久性布局与皮肤应保存在场景或卡片模板中。"
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="CloseButton" type="Button" parent="ContentSurface" unique_id=1462704675]
+editor_description = "关闭按钮静态节点；可单独移动和调整尺寸。"
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -41.0
+offset_top = 3.0
+offset_right = 6.0
+offset_bottom = 51.67857
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("CloseStyle")
+theme_override_styles/pressed = SubResource("CloseStyle")
+theme_override_styles/hover = SubResource("CloseStyle")
+theme_override_styles/focus = SubResource("CloseStyle")

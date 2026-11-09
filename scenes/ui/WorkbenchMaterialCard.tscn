@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://vxfl3gh0f6tk"]
+
+[ext_resource type="Texture2D" uid="uid://bhvjbgg7t50i6" path="res://assets/hd/ui/popup_card_light.png" id="1_card"]
+[ext_resource type="Texture2D" uid="uid://cxq3ye4ybiyji" path="res://assets/hd/ui/icon_crop_simple.png" id="2_icon"]
+
+[sub_resource type="AtlasTexture" id="CardCutout"]
+atlas = ExtResource("1_card")
+region = Rect2(123, 135, 840, 1177)
+
+[sub_resource type="StyleBoxTexture" id="CardStyle"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = SubResource("CardCutout")
+
+[node name="WorkbenchMaterialCard" type="PanelContainer" unique_id=1678027524]
+editor_description = "材料槽：图标、名称、需要数量与库存数量都可在本场景调整。"
+custom_minimum_size = Vector2(72, 87)
+theme_override_styles/panel = SubResource("CardStyle")
+
+[node name="Content" type="VBoxContainer" parent="." unique_id=1334671992]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Content" unique_id=928561965]
+texture_filter = 1
+custom_minimum_size = Vector2(39.24, 38)
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.84, 1.84)
+mouse_filter = 2
+texture = ExtResource("2_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="Content" unique_id=1631491433]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29, 0.19, 0.1, 1)
+theme_override_font_sizes/font_size = 11
+text = "小麦"
+metadata/l10n_text = "ui.44bed50934"
+horizontal_alignment = 1
+clip_text = true
+
+[node name="Count" type="Label" parent="Content" unique_id=276705050]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35, 0.29, 0.18, 1)
+theme_override_font_sizes/font_size = 18
+text = "0/0"
+horizontal_alignment = 1

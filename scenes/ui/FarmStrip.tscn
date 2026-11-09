@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://dwf4x40fn00g"]
+
+[ext_resource type="Script" path="res://scripts/ui/farm_strip.gd" id="1_farm"]
+
+[sub_resource type="StyleBoxEmpty" id="ConstructionSignHit"]
+
+[node name="FarmStrip" type="Control" unique_id=1559944997]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_farm")
+
+[node name="CottageFinishHit" type="Button" parent="." unique_id=318637760]
+editor_description = "小屋中央木牌的透明点击区；实际位置跟随世界场景 SignGroup。"
+layout_mode = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("ConstructionSignHit")
+theme_override_styles/pressed = SubResource("ConstructionSignHit")
+theme_override_styles/hover = SubResource("ConstructionSignHit")
+theme_override_styles/focus = SubResource("ConstructionSignHit")
+
+[node name="Plot01" type="Button" parent="." unique_id=92515352]
+editor_description = "第一块田的静态点击区；与地块视觉可分别移动。"
+layout_mode = 0
+offset_left = 46.0
+offset_top = 108.0
+offset_right = 130.0
+offset_bottom = 178.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("ConstructionSignHit")
+theme_override_styles/pressed = SubResource("ConstructionSignHit")
+theme_override_styles/hover = SubResource("ConstructionSignHit")
+
+[node name="Plot02" type="Button" parent="." unique_id=1714747363]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 108.0
+offset_right = 218.0
+offset_bottom = 178.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("ConstructionSignHit")
+theme_override_styles/pressed = SubResource("ConstructionSignHit")
+theme_override_styles/hover = SubResource("ConstructionSignHit")
+
+[node name="Plot03" type="Button" parent="." unique_id=1573722793]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 108.0
+offset_right = 306.0
+offset_bottom = 178.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("ConstructionSignHit")
+theme_override_styles/pressed = SubResource("ConstructionSignHit")
+theme_override_styles/hover = SubResource("ConstructionSignHit")
+
+[node name="Plot04" type="Button" parent="." unique_id=223361343]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 108.0
+offset_right = 394.0
+offset_bottom = 178.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("ConstructionSignHit")
+theme_override_styles/pressed = SubResource("ConstructionSignHit")
+theme_override_styles/hover = SubResource("ConstructionSignHit")
+
+[node name="Plot05" type="Button" parent="." unique_id=1128177016]
+layout_mode = 0
+offset_left = 398.0
+offset_top = 108.0
+offset_right = 482.0
+offset_bottom = 178.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("ConstructionSignHit")
+theme_override_styles/pressed = SubResource("ConstructionSignHit")
+theme_override_styles/hover = SubResource("ConstructionSignHit")
+
+[node name="Plot06" type="Button" parent="." unique_id=1167268880]
+layout_mode = 0
+offset_left = 486.0
+offset_top = 108.0
+offset_right = 570.0
+offset_bottom = 178.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("ConstructionSignHit")
+theme_override_styles/pressed = SubResource("ConstructionSignHit")
+theme_override_styles/hover = SubResource("ConstructionSignHit")
+
+[node name="Plot07" type="Button" parent="." unique_id=658013484]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 108.0
+offset_right = 658.0
+offset_bottom = 178.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("ConstructionSignHit")
+theme_override_styles/pressed = SubResource("ConstructionSignHit")
+theme_override_styles/hover = SubResource("ConstructionSignHit")
+
+[node name="Cottage" type="Button" parent="." unique_id=2015245480]
+editor_description = "小屋静态点击区；调整建筑位置时可在编辑器中同步移动。"
+layout_mode = 0
+offset_left = 656.0
+offset_top = 93.0
+offset_right = 812.0
+offset_bottom = 209.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("ConstructionSignHit")
+theme_override_styles/pressed = SubResource("ConstructionSignHit")
+theme_override_styles/hover = SubResource("ConstructionSignHit")
+
+[node name="Workbench" type="Button" parent="." unique_id=1204961932]
+editor_description = "工作台静态点击区。"
+layout_mode = 0
+offset_left = 816.0
+offset_top = 105.0
+offset_right = 916.0
+offset_bottom = 213.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("ConstructionSignHit")
+theme_override_styles/pressed = SubResource("ConstructionSignHit")
+theme_override_styles/hover = SubResource("ConstructionSignHit")
+
+[node name="Shop" type="Button" parent="." unique_id=1456217989]
+editor_description = "鱼铺静态点击区，位置与尺寸不再由脚本生成。"
+layout_mode = 0
+offset_left = 925.0
+offset_top = 100.0
+offset_right = 1009.0
+offset_bottom = 188.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("ConstructionSignHit")
+theme_override_styles/pressed = SubResource("ConstructionSignHit")
+theme_override_styles/hover = SubResource("ConstructionSignHit")
+
+[node name="Pond" type="Button" parent="." unique_id=1028671687]
+editor_description = "鱼塘静态点击区。"
+layout_mode = 0
+offset_left = 1010.0
+offset_top = 103.0
+offset_right = 1270.0
+offset_bottom = 219.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("ConstructionSignHit")
+theme_override_styles/pressed = SubResource("ConstructionSignHit")
+theme_override_styles/hover = SubResource("ConstructionSignHit")

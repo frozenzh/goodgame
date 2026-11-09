@@ -1,0 +1,85 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/hd/ui/popup_card_light.png" id="1_card"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/icon_crop_simple.png" id="2_crop"]
+
+[sub_resource type="AtlasTexture" id="CardArt"]
+atlas = ExtResource("1_card")
+region = Rect2(123, 135, 840, 1177)
+
+[sub_resource type="StyleBoxFlat" id="SelectedStyle"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.36, 0.62, 0.22, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="PastureFeedCropCard" type="Control"]
+editor_description = "投喂植物卡片模板：底板、植物图标、名称、仓库数量、选中框都可以单独调整。"
+custom_minimum_size = Vector2(83, 84)
+offset_right = 83.0
+offset_bottom = 84.0
+mouse_filter = 1
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = SubResource("CardArt")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 17.0
+offset_top = 4.0
+offset_right = 66.0
+offset_bottom = 48.0
+mouse_filter = 2
+texture = ExtResource("2_crop")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="."]
+offset_left = 3.0
+offset_top = 49.0
+offset_right = 80.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.27, 0.16, 0.08, 1)
+theme_override_font_sizes/font_size = 12
+text = "小麦"
+metadata/l10n_text = "ui.44bed50934"
+horizontal_alignment = 1
+clip_text = true
+
+[node name="Amount" type="Label" parent="."]
+offset_left = 4.0
+offset_top = 65.0
+offset_right = 79.0
+offset_bottom = 82.0
+theme_override_colors/font_color = Color(0.47, 0.29, 0.11, 1)
+theme_override_font_sizes/font_size = 11
+text = "持有 0"
+metadata/l10n_text = "ui.19abbc77f5"
+horizontal_alignment = 1
+
+[node name="SelectedFrame" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("SelectedStyle")
+
+[node name="ClickArea" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+flat = true

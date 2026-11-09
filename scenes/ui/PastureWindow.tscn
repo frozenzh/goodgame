@@ -1,0 +1,209 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/floating_popup_window.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/StaticPopupFrame.tscn" id="2_frame"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PrimaryButton.tscn" id="3_button"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PastureAnimalCard.tscn" id="4_card"]
+[ext_resource type="Texture2D" path="res://assets/hd/ui/popup_card_light.png" id="5_panel"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/pasture_chicken_4dir_8.png" id="6_chicken"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/pasture_pig_4dir_8.png" id="7_pig"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/pasture_sheep_4dir_8.png" id="8_sheep"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/pasture_cow_4dir_8.png" id="9_cow"]
+
+[sub_resource type="AtlasTexture" id="PanelArt"]
+atlas = ExtResource("5_panel")
+region = Rect2(123, 135, 840, 1177)
+
+[sub_resource type="AtlasTexture" id="ChickenFrame"]
+atlas = ExtResource("6_chicken")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="PigFrame"]
+atlas = ExtResource("7_pig")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="SheepFrame"]
+atlas = ExtResource("8_sheep")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="CowFrame"]
+atlas = ExtResource("9_cow")
+region = Rect2(0, 0, 256, 256)
+
+[node name="PastureWindow" type="Window"]
+editor_description = "牧场子窗口：工作台式左侧动物卡片、右侧详情与购买。所有位置可在编辑器静态调整。"
+transparent_bg = true
+size = Vector2i(700, 380)
+transient = true
+unresizable = true
+borderless = true
+transparent = true
+script = ExtResource("1_script")
+
+[node name="PasturePopup" parent="." instance=ExtResource("2_frame")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="TitleText" parent="PasturePopup/ContentSurface/TitlePlank" index="0"]
+text = "牧场养殖"
+metadata/l10n_text = "ui.7a2664fb13"
+
+[node name="Status" type="Label" parent="PasturePopup/ContentSurface"]
+offset_left = 37.0
+offset_top = 70.0
+offset_right = 375.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(0.31, 0.21, 0.1, 1)
+theme_override_font_sizes/font_size = 15
+text = "左侧栅栏 · 0/10 只动物"
+metadata/l10n_text = "ui.0fc33628c4"
+
+[node name="Pen3" parent="PasturePopup/ContentSurface" instance=ExtResource("3_button")]
+offset_left = 36.0
+offset_top = 95.0
+offset_right = 197.0
+offset_bottom = 127.0
+theme_override_font_sizes/font_size = 15
+text = "左侧栅栏"
+metadata/l10n_text = "ui.2480d664f0"
+
+[node name="Pen4" parent="PasturePopup/ContentSurface" instance=ExtResource("3_button")]
+offset_left = 207.0
+offset_top = 95.0
+offset_right = 368.0
+offset_bottom = 127.0
+theme_override_font_sizes/font_size = 15
+text = "右侧栅栏"
+metadata/l10n_text = "ui.6b3e4e0f6a"
+
+[node name="AnimalGrid" type="GridContainer" parent="PasturePopup/ContentSurface"]
+editor_description = "左侧动物卡片区域；移动此节点可整体调整，编辑 PastureAnimalCard 可调卡片内部。"
+offset_left = 35.0
+offset_top = 136.0
+offset_right = 365.0
+offset_bottom = 326.0
+theme_override_constants/h_separation = 9
+theme_override_constants/v_separation = 9
+columns = 2
+
+[node name="ChickenCard" parent="PasturePopup/ContentSurface/AnimalGrid" instance=ExtResource("4_card")]
+layout_mode = 2
+
+[node name="PigCard" parent="PasturePopup/ContentSurface/AnimalGrid" instance=ExtResource("4_card")]
+layout_mode = 2
+
+[node name="Icon" parent="PasturePopup/ContentSurface/AnimalGrid/PigCard" index="1"]
+texture = SubResource("PigFrame")
+
+[node name="Name" parent="PasturePopup/ContentSurface/AnimalGrid/PigCard" index="2"]
+text = "小猪"
+metadata/l10n_text = "ui.c3095b7c23"
+
+[node name="Price" parent="PasturePopup/ContentSurface/AnimalGrid/PigCard" index="3"]
+text = "90 金"
+metadata/l10n_text = "ui.82cc7dfd9f"
+
+[node name="SheepCard" parent="PasturePopup/ContentSurface/AnimalGrid" instance=ExtResource("4_card")]
+layout_mode = 2
+
+[node name="Icon" parent="PasturePopup/ContentSurface/AnimalGrid/SheepCard" index="1"]
+texture = SubResource("SheepFrame")
+
+[node name="Name" parent="PasturePopup/ContentSurface/AnimalGrid/SheepCard" index="2"]
+text = "小羊"
+metadata/l10n_text = "ui.3b3f2d6a40"
+
+[node name="Price" parent="PasturePopup/ContentSurface/AnimalGrid/SheepCard" index="3"]
+text = "140 金"
+metadata/l10n_text = "ui.eb8e9999b7"
+
+[node name="CowCard" parent="PasturePopup/ContentSurface/AnimalGrid" instance=ExtResource("4_card")]
+layout_mode = 2
+
+[node name="Icon" parent="PasturePopup/ContentSurface/AnimalGrid/CowCard" index="1"]
+texture = SubResource("CowFrame")
+
+[node name="Name" parent="PasturePopup/ContentSurface/AnimalGrid/CowCard" index="2"]
+text = "小牛"
+metadata/l10n_text = "ui.06c95e6b4b"
+
+[node name="Price" parent="PasturePopup/ContentSurface/AnimalGrid/CowCard" index="3"]
+text = "220 金"
+metadata/l10n_text = "ui.e709f81b3f"
+
+[node name="DetailPanel" type="TextureRect" parent="PasturePopup/ContentSurface"]
+editor_description = "右侧静态详情区；图标、名称、价格、栏内数量、说明及操作按钮可单独移动。"
+offset_left = 386.0
+offset_top = 98.0
+offset_right = 667.0
+offset_bottom = 332.0
+texture = SubResource("PanelArt")
+expand_mode = 1
+
+[node name="AnimalIcon" type="TextureRect" parent="PasturePopup/ContentSurface/DetailPanel"]
+texture_filter = 1
+offset_left = 22.0
+offset_top = 14.0
+offset_right = 111.0
+offset_bottom = 100.0
+mouse_filter = 2
+texture = SubResource("ChickenFrame")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimalName" type="Label" parent="PasturePopup/ContentSurface/DetailPanel"]
+offset_left = 123.0
+offset_top = 25.0
+offset_right = 258.0
+offset_bottom = 54.0
+theme_override_colors/font_color = Color(0.26, 0.16, 0.08, 1)
+theme_override_font_sizes/font_size = 21
+text = "小鸡"
+metadata/l10n_text = "ui.88b9eae481"
+
+[node name="AnimalPrice" type="Label" parent="PasturePopup/ContentSurface/DetailPanel"]
+offset_left = 124.0
+offset_top = 58.0
+offset_right = 259.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.52, 0.32, 0.11, 1)
+theme_override_font_sizes/font_size = 15
+text = "购买价格 40 金"
+metadata/l10n_text = "ui.3d32fc22bc"
+
+[node name="AnimalInfo" type="Label" parent="PasturePopup/ContentSurface/DetailPanel"]
+offset_left = 22.0
+offset_top = 112.0
+offset_right = 263.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.3, 0.2, 0.11, 1)
+theme_override_font_sizes/font_size = 15
+text = "当前栅栏 0/10 只\n购买后可拖动到另一块栅栏"
+metadata/l10n_text = "ui.f6ac00eb69"
+
+[node name="BuyButton" parent="PasturePopup/ContentSurface/DetailPanel" instance=ExtResource("3_button")]
+offset_left = 18.0
+offset_top = 177.0
+offset_right = 130.0
+offset_bottom = 215.0
+theme_override_font_sizes/font_size = 16
+text = "购买动物"
+metadata/l10n_text = "ui.2bd89384ab"
+
+[node name="Feed" parent="PasturePopup/ContentSurface/DetailPanel" instance=ExtResource("3_button")]
+offset_left = 139.0
+offset_top = 177.0
+offset_right = 266.0
+offset_bottom = 215.0
+theme_override_font_sizes/font_size = 16
+text = "添加植物"
+metadata/l10n_text = "ui.c5b3b94079"
+
+[editable path="PasturePopup"]
+[editable path="PasturePopup/ContentSurface/AnimalGrid/ChickenCard"]
+[editable path="PasturePopup/ContentSurface/AnimalGrid/PigCard"]
+[editable path="PasturePopup/ContentSurface/AnimalGrid/SheepCard"]
+[editable path="PasturePopup/ContentSurface/AnimalGrid/CowCard"]

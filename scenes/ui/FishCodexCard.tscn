@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://3vett87unfqr"]
+
+[ext_resource type="Texture2D" uid="uid://b8e31ue570prj" path="res://assets/hd/fish/fish_001.png" id="2_preview"]
+[ext_resource type="Texture2D" uid="uid://py7122nrfe1u" path="res://assets/hd/ui/rarity_common.png" id="3_rarity"]
+
+[sub_resource type="StyleBoxFlat" id="FocusStyle"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.365, 0.498, 0.302, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="FishCodexCard" type="Control" unique_id=1409140133]
+editor_description = "近正方形鱼卡：上方图标、下方鱼名；尺寸与内部间距均可单独调整。"
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 80.0
+
+[node name="Content" type="VBoxContainer" parent="." unique_id=2073733468]
+z_index = 1
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 80.0
+theme_override_constants/separation = -4
+alignment = 1
+
+[node name="FishIcon" type="TextureRect" parent="Content" unique_id=658361898]
+texture_filter = 1
+custom_minimum_size = Vector2(43, 43)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("2_preview")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FishName" type="Label" parent="Content" unique_id=1439169420]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "小鲫鱼"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+metadata/l10n_text = "ui.87c768c5a0"
+
+[node name="SelectedFrame" type="Panel" parent="." unique_id=787366746]
+editor_description = "当前显示在右侧资料区的鱼卡边框。"
+visible = false
+z_index = 2
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("FocusStyle")
+
+[node name="ClickArea" type="Button" parent="." unique_id=1156052092]
+z_index = 3
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 80.0
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("FocusStyle")
+flat = true
+
+[node name="RarityBack" type="TextureRect" parent="." unique_id=1811927137]
+editor_description = "品质底色：框体之上，图标和鱼名之下；可在场景中单独调整。"
+texture_filter = 1
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 80.0
+mouse_filter = 2
+texture = ExtResource("3_rarity")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MinBadge" type="Label" parent="." unique_id=1080559214]
+editor_description = "钓到该品质最小尺寸后的蓝色标记；可单独调整位置与颜色。"
+visible = false
+z_index = 4
+layout_mode = 0
+offset_left = 38.0
+offset_top = 8.0
+offset_right = 55.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0.22, 0.76, 1, 1)
+theme_override_colors/font_outline_color = Color(0.08, 0.2, 0.28, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+text = "MIN"
+metadata/l10n_text = "fishing.size.minimum_badge"
+
+[node name="MaxBadge" type="Label" parent="." unique_id=1113828631]
+editor_description = "钓到该品质最大尺寸后的金色标记；可单独调整位置与颜色。"
+z_index = 4
+layout_mode = 0
+offset_left = 56.0
+offset_top = 8.0
+offset_right = 74.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(1, 0.75, 0.22, 1)
+theme_override_colors/font_outline_color = Color(0.3, 0.16, 0.04, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+text = "MAX"
+metadata/l10n_text = "fishing.size.maximum_badge"

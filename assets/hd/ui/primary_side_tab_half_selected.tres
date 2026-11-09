@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/hd/ui/primary_side_tab_half_selected.png" id="1_art"]
+
+[resource]
+atlas = ExtResource("1_art")
+region = Rect2(402, 193, 970, 499)
