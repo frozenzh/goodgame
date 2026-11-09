@@ -3,6 +3,7 @@ class_name MainUI
 extends Control
 
 const COLOR_INK := Color("#3f3028")
+const COLOR_INSUFFICIENT_COINS := Color("#c73732")
 const COLOR_BORDER := Color("#6f4c3b")
 const DESIGN_SIZE := Vector2i(1280, 168)
 enum DisplaySize { SMALL, MEDIUM, LARGE }
@@ -153,6 +154,9 @@ var _crop_unlock_notice_queued := false
 var _achievement_toast_queue: Array[Dictionary] = []
 var _achievement_toast_tween: Tween
 var _startup_has_save := false
+var _coin_requirement_labels: Array[Label] = []
+var _task_icon_click_count := 0
+@onready var _task_icon_click_timer: Timer = $TaskButton/ClickTimer
 
 
 # 节点及子节点就绪后完成初始化与信号绑定。
@@ -191,6 +195,7 @@ func _ready() -> void:
 	_setup_pasture_window()
 	_setup_pasture_feed_window()
 	_setup_task_window()
+	_task_icon_click_timer.timeout.connect(_on_task_icon_click_timeout)
 	_connect_game()
 	_startup_has_save = SaveManager.has_saved_game()
 	(start_window.get_node("ButtonRow/ContinueButton") as Button).pressed.connect(_continue_game_from_start)
@@ -513,6 +518,9 @@ func _connect_game() -> void:
 # 响应 job_queue_changed 对应的事件或条件。
 func _on_job_queue_changed() -> void:
 	_refresh_task_window()
+	_refresh_building_action_buttons()
+	if plant_window.visible:
+		_refresh_plant_coin_requirements()
 	if plot_progress_anchor.visible:
 		_update_plot_progress()
 
@@ -641,6 +649,7 @@ func _flush_crop_unlock_notice() -> void:
 # 封装 refresh 的处理，供相关流程复用。
 func _refresh() -> void:
 	_sync_unlock_dots()
+	_refresh_building_action_buttons()
 	var inventory: Dictionary = _dict_prop(_state, "inventory")
 	var basket: Dictionary = _dict_prop(_state, "fish_basket")
 	var coins := int(_prop(_state, "coins", 0))
@@ -663,6 +672,33 @@ func _refresh() -> void:
 		_render_pond_content()
 	if workbench_window.visible and _modal != null and _modal.name == "WorkbenchPopup":
 		_render_workbench()
+	if plant_window.visible:
+		_refresh_plant_coin_requirements()
+	_refresh_coin_requirement_colors()
+
+
+# 为既有费用节点登记所需金币；负数表示当前不消耗金币，恢复节点原有字体颜色。
+func _set_coin_requirement(label: Label, required_coins: int) -> void:
+	if not label.has_meta("coin_requirement_default_color"):
+		label.set_meta("coin_requirement_default_color", label.get_theme_color("font_color"))
+	if not _coin_requirement_labels.has(label):
+		_coin_requirement_labels.append(label)
+	label.set_meta("required_coins", required_coins)
+	var insufficient := required_coins > int(_prop(_state, "coins", 0))
+	label.add_theme_color_override("font_color", COLOR_INSUFFICIENT_COINS if insufficient else label.get_meta("coin_requirement_default_color"))
+
+
+# 金币变化后刷新已登记费用，移除释放的动态溢出条目；可复用同一节点而不残留红色。
+func _refresh_coin_requirement_colors() -> void:
+	var live_labels: Array[Label] = []
+	for label in _coin_requirement_labels:
+		if not is_instance_valid(label) or label.is_queued_for_deletion():
+			continue
+		live_labels.append(label)
+		var required := int(label.get_meta("required_coins", -1))
+		var insufficient := required > int(_prop(_state, "coins", 0))
+		label.add_theme_color_override("font_color", COLOR_INSUFFICIENT_COINS if insufficient else label.get_meta("coin_requirement_default_color"))
+	_coin_requirement_labels = live_labels
 
 
 # 构建 hud，供调用方继续处理。
@@ -685,12 +721,13 @@ func _build_hud() -> void:
 		push_error(TextDB.text("ui.99810e5a04"))
 	var gm_button := get_node_or_null("GMButton") as Button
 	if gm_button != null:
+		gm_button.hide()
 		gm_button.pressed.connect(_open_gm)
 	else:
 		push_error(TextDB.text("ui.fb75045912"))
 	var task_button := get_node_or_null("TaskButton/HitArea") as Button
 	if task_button != null:
-		task_button.pressed.connect(_open_task_window)
+		task_button.pressed.connect(_on_task_icon_pressed)
 	else:
 		push_error(TextDB.text("ui.88867fc978"))
 
@@ -832,8 +869,6 @@ func _on_plot_pressed(index: int, cell_index: int = -1) -> void:
 	var plots: Array = plots_value if plots_value is Array else []
 	var plot: Dictionary = plots[index] if index >= 0 and index < plots.size() and plots[index] is Dictionary else {}
 	var unlocked := bool(plot.get("unlocked", index >= DEFAULT_UNLOCKED_START_INDEX and index < PLOT_COUNT))
-	if not unlocked and not _can_unlock_plot_at_cottage_level(index):
-		return
 	var cells: Array = plot.get("cells", [])
 	var selected_cell: Dictionary = cells[cell_index] if cell_index >= 0 and cell_index < cells.size() and cells[cell_index] is Dictionary else {}
 	var selected_crop := str(selected_cell.get("crop", ""))
@@ -893,6 +928,23 @@ func _setup_task_window() -> void:
 func _dismiss_unfocused_task_window() -> void:
 	if task_window.visible and not task_window.has_focus():
 		task_window.hide()
+
+
+# 队列图标在计时器间隔内连续三次点击打开 GM；稍后处理普通点击，避免首击弹窗抢走后续点击焦点。
+func _on_task_icon_pressed() -> void:
+	_task_icon_click_count += 1
+	if _task_icon_click_count >= 3:
+		_task_icon_click_timer.stop()
+		_task_icon_click_count = 0
+		_open_gm()
+	else:
+		_task_icon_click_timer.start()
+
+
+# 单击或双击未组成三连击时，清空计数并沿用原有队列入口。
+func _on_task_icon_click_timeout() -> void:
+	_task_icon_click_count = 0
+	_open_task_window()
 
 
 # 打开 task_window，供调用方继续处理。
@@ -1055,12 +1107,14 @@ func _refresh_pasture_window() -> void:
 		var card := surface.get_node("AnimalGrid/%sCard" % kind.capitalize()) as Control
 		(card.get_node("Name") as Label).text = TextDB.text(str(PastureManager.NAMES[kind]))
 		(card.get_node("Price") as Label).text = TextDB.text("ui.71acb83c92") % pasture.get_price(kind)
+		_set_coin_requirement(card.get_node("Price") as Label, pasture.get_price(kind))
 		(card.get_node("SelectedFrame") as Control).visible = kind == _pasture_selected_kind
 	var detail := surface.get_node("DetailPanel") as Control
 	var selected_card := surface.get_node("AnimalGrid/%sCard" % _pasture_selected_kind.capitalize()) as Control
 	(detail.get_node("AnimalIcon") as TextureRect).texture = (selected_card.get_node("Icon") as TextureRect).texture
 	(detail.get_node("AnimalName") as Label).text = TextDB.text(str(PastureManager.NAMES[_pasture_selected_kind]))
 	(detail.get_node("AnimalPrice") as Label).text = TextDB.text("ui.fab742762b") % pasture.get_price(_pasture_selected_kind)
+	_set_coin_requirement(detail.get_node("AnimalPrice") as Label, pasture.get_price(_pasture_selected_kind))
 	(detail.get_node("AnimalInfo") as Label).text = TextDB.text("ui.61e8d1fd78") % [count, capacity]
 	(detail.get_node("BuyButton") as Button).disabled = count >= capacity
 
@@ -1264,10 +1318,17 @@ func _open_plot(index: int, cell_index: int = -1) -> void:
 	if not unlocked:
 		var info := locked_content.get_node("Info") as Label
 		info.text = TextDB.text("ui.cce5faf2ce")
+		var farming: Node = _services.get("FarmingSystem")
+		var required_level := int(farming.call("get_plot_required_cottage_level", str(index))) if farming != null else 1
+		if int(_prop(_state, "cottage_level", 1)) < required_level:
+			info.text += "\n" + TextDB.text("ui.4faaa0fa9f") % required_level
 		var unlock := locked_content.get_node("Unlock") as Button
 		_clear_press_connections(unlock)
+		unlock.set_meta("plot_index", index)
+		unlock.disabled = not _can_queue_building_action("unlock_plot", str(index))
 		unlock.text = TextDB.text("ui.1009f1add7")
 		(locked_content.get_node("UnlockCostRow/Amount") as Label).text = str(_unlock_cost(index))
+		_set_coin_requirement(locked_content.get_node("UnlockCostRow/Amount") as Label, _unlock_cost(index))
 		unlock.pressed.connect(_unlock_plot.bind(index))
 	else:
 		var crop_row := selection_board.get_node("CropContainer/CropViewport/CropRow") as HBoxContainer
@@ -1332,6 +1393,7 @@ func _open_plot(index: int, cell_index: int = -1) -> void:
 				(crop_button.get_node("SelectedMark") as Label).visible = true
 				(crop_button.get_node("SelectedBorder") as Panel).visible = true
 				confirm.disabled = not bool(confirm.get_meta("plant_targets_available", false))
+	_refresh_plant_coin_requirements()
 	_show_modal()
 
 
@@ -1367,6 +1429,39 @@ func _update_plant_confirm_availability(grouped: bool, index: int, cell_index: i
 	var available := _has_available_plant_targets(index, cell_index, grouped)
 	confirm.set_meta("plant_targets_available", available)
 	confirm.disabled = _selected_crop_id.is_empty() or not available
+	_refresh_plant_coin_requirements()
+
+
+# 播种费用按本次范围中的空格计算，排除已排队格子；更新已有卡片的费用文本和颜色。
+func _refresh_plant_coin_requirements() -> void:
+	var content := plant_window.get_node("PlotPopup/ContentSurface/PlotContent") as Control
+	var board := content.get_node("SelectionBoard") as Control
+	if not board.visible or _selected_plot_index < 0 or _state == null:
+		return
+	var plot: Dictionary = _state.get_plot(str(_selected_plot_index))
+	var plot_id := str(plot.get("id", _selected_plot_index))
+	var cells: Array = plot.get("cells", [])
+	var grouped := (board.get_node("FillEmptyCells") as CheckBox).button_pressed
+	var queued := _queued_plot_targets(_services.get("JobManager"), plot_id, "plant")
+	var target_count := 0
+	if not queued.has(plot_id + ":*"):
+		for index in range(cells.size()):
+			if str((cells[index] as Dictionary).get("crop", "")).is_empty() and not queued.has("%s:%d" % [plot_id, index]):
+				if grouped:
+					target_count += 1
+				elif _selected_cell_index < 0 or index == _selected_cell_index:
+					target_count = 1
+					break
+	var registry := get_node_or_null("/root/DataRegistry")
+	var row := board.get_node("CropContainer/CropViewport/CropRow") as HBoxContainer
+	for card in row.get_children():
+		if not card is Button or not card.has_meta("crop_id"):
+			continue
+		var crop: Dictionary = registry.get_crop(str(card.get_meta("crop_id"))) if registry != null else {}
+		var total_cost := maxi(0, int(crop.get("plant_cost", 0))) * target_count
+		var label := card.get_node("PlantCost") as Label
+		label.text = TextDB.text("ui.a8dceaba64") % total_cost
+		_set_coin_requirement(label, total_cost)
 
 
 # 判断是否具有 available_plant_targets 对应的条件。
@@ -1728,45 +1823,70 @@ func _water_selected_cell() -> void:
 	# notify("已安排角色依次给 %d 个小格浇水" % queued)
 
 
-# 打开 cottage，供调用方继续处理。
+# 小屋升级展示当前与下一级数值；施工与满级状态沿用同一组静态控件。
 func _open_cottage() -> void:
 	var level := int(_prop(_state, "cottage_level", 1))
-	var cottage_nametext = TextDB.text("ui.024958a070") % level
-	_new_modal(cottage_nametext, "CottagePopup")
+	_new_modal("", "CottagePopup")
 	var content := _modal.get_node("ContentSurface") as Control
-	var basket := _dict_prop(_state, "fish_basket")
 	var construction: Dictionary = _state.call("get_cottage_construction")
-	# var level := int(_prop(_state, "cottage_level", 1))
 	var used := int(_state.call("get_warehouse_used"))
 	var capacity := int(_state.call("get_warehouse_capacity"))
 	var tier := int(_state.call("get_workbench_tier"))
-	var bench_status := TextDB.text("ui.a053e0a88f") % tier if bool(_state.workbench_unlocked) else TextDB.text("ui.1a16588c35")
 	var next_cost := int(_state.call("get_next_cottage_upgrade_cost"))
 	var next_data: Dictionary = _state.call("get_cottage_data", level + 1)
-	var summary := content.get_node("Summary") as Label
-	summary.text = TextDB.text("ui.8e87fc9856") % [
-		level, used, capacity, bench_status, _sum_values(basket)]
-	if not construction.is_empty():
-		var remaining := maxi(0, int(construction.get("ready_at", 0)) - int(Time.get_unix_time_from_system()))
-		summary.text += TextDB.text("ui.607891a188") % [int(construction.get("target_level", level + 1)), TextDB.text("ui.a6f2ebffa7") if remaining == 0 else TextDB.text("ui.a9bbb2be88") % _format_duration(remaining)]
-	var upgrade_text := TextDB.text("ui.f789251f94") if not construction.is_empty() else (TextDB.text("ui.067503a5bf") if next_cost < 0 else TextDB.text("ui.50fcaea577") )
+	var has_next := not next_data.is_empty()
+	(content.get_node("NextUnlocks") as Label).text = _cottage_next_unlocks(level) if has_next else TextDB.text("cottage.compare.no_next")
+	(content.get_node("TitlePlank/TitleText") as Label).text = TextDB.text("cottage.compare.heading")
+	(content.get_node("LevelComparison") as Label).text = TextDB.text("cottage.compare.levels") % [level, level + 1] if has_next else TextDB.text("cottage.compare.current_level") % level
+	(content.get_node("Storage/Current") as Label).text = str(capacity)
+	(content.get_node("Storage/Next") as Label).text = str(int(next_data.get("storage_capacity", capacity)))
+	(content.get_node("Workbench/Current") as Label).text = str(tier)
+	(content.get_node("Workbench/Next") as Label).text = str(int(next_data.get("workbench_tier", tier)))
+	(content.get_node("Storage/Name") as Label).text = TextDB.text("cottage.compare.storage")
+	(content.get_node("Workbench/Name") as Label).text = TextDB.text("cottage.compare.workbench")
+	for row_name in ["Storage", "Workbench"]:
+		(content.get_node(row_name + "/Arrow") as Label).visible = has_next
+		(content.get_node(row_name + "/Next") as Label).visible = has_next
+	(content.get_node("WarehouseUsage") as Label).text = TextDB.text("cottage.compare.usage") % [used, capacity]
 	var upgrade := content.get_node("Upgrade") as Button
 	_clear_press_connections(upgrade)
 	upgrade.visible = true
-	upgrade.text = upgrade_text
-	upgrade.disabled = next_cost < 0 or not construction.is_empty()
-	var upgrade_cost_row := content.get_node("UpgradeCostRow") as HBoxContainer
-	upgrade_cost_row.visible = next_cost >= 0 and construction.is_empty()
-	(upgrade_cost_row.get_node("Amount") as Label).text = str(next_cost)
-	if not upgrade.disabled:
-		upgrade.pressed.connect(_upgrade_cottage)
+	upgrade.text = TextDB.text("ui.067503a5bf") if next_cost < 0 else TextDB.text("ui.50fcaea577")
+	upgrade.disabled = not _can_queue_building_action("upgrade_cottage")
+	if not construction.is_empty():
+		var remaining := maxi(0, int(construction.get("ready_at", 0)) - int(Time.get_unix_time_from_system()))
+		upgrade.text = TextDB.text("cottage.compare.building") + " " + _format_duration(remaining)
+	var cost_row := content.get_node("UpgradeCostRow") as HBoxContainer
+	cost_row.visible = next_cost >= 0 and construction.is_empty()
+	(cost_row.get_node("Amount") as Label).text = str(next_cost)
+	_set_coin_requirement(cost_row.get_node("Amount") as Label, next_cost)
+	upgrade.pressed.connect(_upgrade_cottage)
 	var finish := content.get_node("Finish") as Button
 	_clear_press_connections(finish)
 	finish.visible = not construction.is_empty() and bool(_state.call("is_cottage_construction_ready"))
+	upgrade.visible = not finish.visible
 	if finish.visible:
 		finish.text = TextDB.text("ui.8184ee25f5")
 		finish.pressed.connect(_finish_cottage_construction)
 	_show_modal()
+
+# 按实际地块门槛统计下一级新开放的数量；养殖随四级小屋完工开放。
+func _cottage_next_unlocks(level: int) -> String:
+	var entries: Array[String] = []
+	var farming: Node = _services.get("FarmingSystem")
+	var plots: Array = _prop(_state, "plots", [])
+	var count := 0
+	if farming != null:
+		for index in range(plots.size()):
+			var plot: Dictionary = plots[index]
+			if int(farming.call("get_plot_required_cottage_level", str(plot.get("id", index)))) == level + 1:
+				count += 1
+	if count > 0:
+		entries.append(TextDB.text("cottage.compare.unlock_plots") % count)
+	if level + 1 == 4:
+		entries.append(TextDB.text("cottage.compare.unlock_pasture"))
+	var details := " / ".join(entries) if not entries.is_empty() else TextDB.text("cottage.compare.unlock_none")
+	return TextDB.text("cottage.compare.unlocks") % details
 
 
 # 打开 workbench，供调用方继续处理。
@@ -1944,7 +2064,6 @@ func _workbench_material_data(registry: Node, item_id: String) -> Dictionary:
 # 渲染 workbench_bait_detail，供调用方继续处理。
 func _render_workbench_bait_detail(content: Control, registry: Node, bait: Dictionary) -> void:
 	var bait_id := str(bait.get("id", ""))
-	var inventory := _dict_prop(_state, "inventory")
 	var tier := int(_state.call("get_workbench_tier"))
 	var unlocked_value: Variant = _prop(_state, "unlocked_baits", [])
 	var unlocked: Array = unlocked_value if unlocked_value is Array else []
@@ -1966,13 +2085,12 @@ func _render_workbench_bait_detail(content: Control, registry: Node, bait: Dicti
 	var craftable := available and crafting != null and bool(crafting.call("can_craft", bait_id, 1))
 	var display_state := "lit" if craftable else "gray" if _state.workbench_crafted_baits.has(bait_id) else "silhouette"
 	_style_workbench_target(content, display_state)
-	(content.get_node("DetailPanel/TargetInfo") as Label).text = TextDB.text("ui.6c1d39029a") % [
-		_bait_type_label(str(bait.get("bait_type", ""))),
-		int(inventory.get(bait_id, 0))]
+	(content.get_node("DetailPanel/TargetInfo") as Label).text = TextDB.text("ui.6c1d39029a") % _bait_type_label(str(bait.get("bait_type", "")))
 	(content.get_node("DetailPanel/MaterialsTitle") as Label).text = TextDB.text("ui.4af67d14ea") % _workbench_quantity
 	var material_row := content.get_node("DetailPanel/MaterialRow") as HBoxContainer
 	for index in range(3):
 		var material := material_row.get_child(index) as PanelContainer
+		_set_coin_requirement(material.get_node("Content/Count") as Label, -1)
 		material.visible = index < ingredient_ids.size()
 		if not material.visible:
 			(material.get_node("Content/Icon") as TextureRect).texture = null
@@ -2023,9 +2141,7 @@ func _render_workbench_rod_detail(content: Control, rod: Dictionary) -> void:
 	(content.get_node("DetailPanel/TargetIcon") as TextureRect).texture = _workbench_item_icon(rod, false)
 	(content.get_node("DetailPanel/TargetName") as Label).text = str(rod.get("display_name", rod_id))
 	_style_workbench_target(content, "lit" if owned or is_next and coins >= cost else "silhouette")
-	(content.get_node("DetailPanel/TargetInfo") as Label).text = TextDB.text("ui.45a3667a6b") % [
-		_localized_name(FISH_RARITY_NAMES, str(rod.get("max_fish_rarity", "common")), TextDB.text("ui.7cda072d45")),
-		(TextDB.text("ui.7a7f26a100") if current_id == rod_id else TextDB.text("ui.a2a9f7d962") if owned else TextDB.text("ui.3009ea69da"))]
+	(content.get_node("DetailPanel/TargetInfo") as Label).text = TextDB.text("ui.45a3667a6b") % _localized_name(FISH_RARITY_NAMES, str(rod.get("max_fish_rarity", "common")), TextDB.text("ui.7cda072d45"))
 	(content.get_node("DetailPanel/MaterialsTitle") as Label).text = TextDB.text("ui.52cbe5931b")
 	var material_row := content.get_node("DetailPanel/MaterialRow") as HBoxContainer
 	var coin_card := material_row.get_node("Material1") as PanelContainer
@@ -2033,6 +2149,7 @@ func _render_workbench_rod_detail(content: Control, rod: Dictionary) -> void:
 	(coin_card.get_node("Content/Icon") as TextureRect).texture = COIN_ICON
 	(coin_card.get_node("Content/Name") as Label).text = TextDB.text("ui.61f608b0d9")
 	(coin_card.get_node("Content/Count") as Label).text = "%d/%d" % [coins, cost]
+	_set_coin_requirement(coin_card.get_node("Content/Count") as Label, cost if not owned else -1)
 	(material_row.get_node("Material2") as PanelContainer).visible = false
 	(material_row.get_node("Material3") as PanelContainer).visible = false
 	(content.get_node("DetailPanel/QuantityControl") as HBoxContainer).visible = false
@@ -2113,7 +2230,10 @@ func _render_pond_content() -> void:
 		click.disabled = item_id == bait_id
 		if not click.disabled:
 			click.pressed.connect(_select_pond_bait.bind(item_id))
-	var bait_data: Dictionary = registry.get_bait(bait_id) if registry != null else {}
+	var current_cast := _dict_prop(_state, "fishing_cast")
+	var current_bait_id := str(current_cast.get("bait_id", bait_id))
+	var current_bait_count := int(inventory.get(current_bait_id, 0))
+	var bait_data: Dictionary = registry.get_bait(current_bait_id) if registry != null else {}
 	var bait_type_name := _bait_type_label(str(bait_data.get("bait_type", "")))
 	var seconds := -1
 	var fishing: Node = _services.get("FishingSystem")
@@ -2123,8 +2243,8 @@ func _render_pond_content() -> void:
 	var fishing_active := bool(_dict_prop(_state, "flags").get("fishing_active", false))
 	status.text = TextDB.text("ui.639ca69e55") % [
 		(TextDB.text("ui.c4ca1cd665") if fishing_active else TextDB.text("ui.cd9a1c6428")),
-		(_display_id(bait_id) if not bait_id.is_empty() else TextDB.text("ui.53e2db7016")),
-		("（%s）" % bait_type_name if not bait_type_name.is_empty() else ""), bait_count,
+		(_display_id(current_bait_id) if not current_bait_id.is_empty() else TextDB.text("ui.53e2db7016")),
+		("（%s）" % bait_type_name if not bait_type_name.is_empty() else ""), current_bait_count,
 		(TextDB.text("ui.9d6fe0f3ba") % seconds if seconds >= 0 else "")]
 	if available_baits.is_empty() and not fishing_active:
 		status.text = TextDB.text("ui.86826b0142")
@@ -2140,13 +2260,15 @@ func _render_pond_content() -> void:
 	fishing_button.pressed.connect(_stop_fishing if fishing_active else _start_fishing)
 
 
-# 选择 pond_bait，供调用方继续处理。
+# 点击后更新选择和勾选标记，复用通用提示；本轮仍按快照结算，有进行中抛竿时告知下一轮生效。
 func _select_pond_bait(bait_id: String) -> void:
 	var crafting: Node = _services.get("CraftingSystem")
 	if crafting == null or not bool(crafting.call("select_bait", bait_id)):
 		notify(TextDB.text("ui.807f4a9979"))
 		return
 	_render_pond_content()
+	var message_id := "fishing.bait_switch_next_cast" if not _dict_prop(_state, "fishing_cast").is_empty() else "fishing.bait_switched"
+	notify(TextDB.text(message_id) % _display_id(bait_id))
 
 
 # 选择 pond_tab，供调用方继续处理。
@@ -2224,7 +2346,7 @@ func _render_pond_leaderboard(content: Control) -> void:
 	_fill_leaderboard_row(self_row, service.get_self_entry(), 0, registry, true)
 
 
-# 封装 fill_leaderboard_row 的处理，供相关流程复用。
+# 填充榜单与本人行；鱼名按目录品质着色，每次重填均重设颜色，无鱼或无目录记录时使用普通墨色。
 func _fill_leaderboard_row(row: PanelContainer, entry: Dictionary, fallback_rank: int, registry: Node, is_self: bool) -> void:
 	var rank := int(entry.get("rank", fallback_rank))
 	(row.get_node("Columns/Rank") as Label).text = str(rank) if rank > 0 else "—"
@@ -2232,7 +2354,9 @@ func _fill_leaderboard_row(row: PanelContainer, entry: Dictionary, fallback_rank
 	(row.get_node("Columns/Player") as Label).text = TextDB.text("fishing.leaderboard.self_name") % display_name if is_self else display_name
 	var fish_id := str(entry.get("fish_id", ""))
 	var fish: Dictionary = registry.call("get_fish", fish_id) if registry != null and not fish_id.is_empty() else {}
-	(row.get_node("Columns/Fish") as Label).text = str(fish.get("display_name", fish_id)) if not fish_id.is_empty() else "—"
+	var fish_label := row.get_node("Columns/Fish") as Label
+	fish_label.text = str(fish.get("display_name", fish_id)) if not fish_id.is_empty() else "—"
+	fish_label.add_theme_color_override("font_color", RarityPalette.text_color_for(str(fish.get("rarity", "common"))) if not fish.is_empty() else COLOR_INK)
 	var size_cm := int(entry.get("size_cm", 0))
 	(row.get_node("Columns/Size") as Label).text = TextDB.text("fishing.size.value") % size_cm if size_cm > 0 else "—"
 
@@ -2465,7 +2589,7 @@ func _render_shop_products(content: Control) -> void:
 		var icon_path := str(entry.get("icon_resource", ""))
 		(card.get_node("Content/FishIcon") as TextureRect).texture = load(icon_path) as Texture2D if ResourceLoader.exists(icon_path) else null
 		(card.get_node("Content/StockBoard/StockCount") as Label).text = "×%d" % int(_state.inventory.get(id, 0))
-		(card.get_node("Content/PriceRow/Price") as Label).text = str(entry.get("sell_price", 0))
+		(card.get_node("Content/PriceRow/Price") as Label).text = str(int(entry.get("sell_price", 0)))
 		if id == selection_id:
 			selected = entry
 			card.modulate = Color(0.85, 1.0, 0.79, 1.0)
@@ -2566,7 +2690,7 @@ func _shop_stock_slots(grid: GridContainer, count: int) -> Array[Control]:
 	return _data_slots(grid, SHOP_OWNED_CARD, count, true, rows * columns)
 
 
-# 封装 data_slots 的处理，供相关流程复用。
+# 优先复用静态槽位；超出数量时补建卡片，商店卡片统一初始化为空槽或有货状态。
 func _data_slots(container: Node, template: PackedScene, count: int, keep_empty_shop_slots: bool = false, min_shop_slots: int = 0) -> Array[Control]:
 	# 场景内的卡片是可编辑的固定槽；配置超出槽位时才补充运行时实例。
 	for child in container.get_children():
@@ -2592,6 +2716,8 @@ func _data_slots(container: Node, template: PackedScene, count: int, keep_empty_
 	while result.size() < count:
 		var extra := template.instantiate() as Control
 		extra.set_meta("runtime_extra", true)
+		if keep_empty_shop_slots:
+			_set_shop_slot_occupied(extra, true)
 		container.add_child(extra)
 		result.append(extra)
 	for index in range(maxi(static_index, count), min_shop_slots):
@@ -2665,6 +2791,7 @@ func _open_codex(tab: String = "fish") -> void:
 	var content := _modal.get_node("ContentSurface/CodexContent") as Control
 	(content.get_node("PreviewPanel/PreviewStatus") as Label).hide()
 	(content.get_node("PreviewPanel/AchievementDate") as Label).hide()
+	(content.get_node("PreviewPanel/BaitTypeLabel") as Label).hide()
 	for entry in [{"id":"fish", "name":TextDB.text("ui.92468fdf7c")}, {"id":"bait", "name":TextDB.text("ui.9be962ae57")}, {"id":"crop", "name":TextDB.text("ui.b3aa8ab320")}, {"id":"achievement", "name":TextDB.text("ui.5dc7d7ba71")}]:
 		var tab_button := content.get_node("PrimaryMenu/%sTab" % str(entry.id).capitalize()) as CodexTabButton
 		tab_button.set_caption(str(entry.name))
@@ -2856,10 +2983,12 @@ func _build_fish_codex(content: Control) -> void:
 		var hit_area := card.get_node("ClickArea") as Button
 		var bait_preference := _bait_preference_for_fish(catalog)
 		var preview_info := _fish_preview_info(catalog)
+		var fishing := _services.get("FishingSystem") as FishingSystem
+		var size_limits := fishing.get_size_limits(str(catalog.get("rarity", "common"))) if fishing != null else Vector2i.ZERO
 		_clear_press_connections(hit_area)
-		hit_area.pressed.connect(_select_fish_codex_card.bind(content, grid, card, fish_name, icon.texture, preview_info, known, bait_preference, size_record))
+		hit_area.pressed.connect(_select_fish_codex_card.bind(content, grid, card, fish_name, icon.texture, preview_info, known, bait_preference, size_record, size_limits))
 		if not preview_set:
-			_select_fish_codex_card(content, grid, card, fish_name, icon.texture, preview_info, known, bait_preference, size_record)
+			_select_fish_codex_card(content, grid, card, fish_name, icon.texture, preview_info, known, bait_preference, size_record, size_limits)
 			preview_set = true
 
 
@@ -2881,7 +3010,7 @@ func _fish_preview_info(fish: Dictionary) -> String:
 
 
 # 选择 fish_codex_card，供调用方继续处理。
-func _select_fish_codex_card(content: Control, grid: GridContainer, selected_card: Control, fish_name: String, icon: Texture2D, info: String, known: bool, bait_preference: Dictionary, size_record: Dictionary) -> void:
+func _select_fish_codex_card(content: Control, grid: GridContainer, selected_card: Control, fish_name: String, icon: Texture2D, info: String, known: bool, bait_preference: Dictionary, size_record: Dictionary, size_limits: Vector2i = Vector2i.ZERO) -> void:
 	for card in grid.get_children():
 		(card.get_node("SelectedFrame") as Panel).visible = card == selected_card
 	_set_codex_preview(content, fish_name, icon, info, known, true)
@@ -2898,6 +3027,23 @@ func _select_fish_codex_card(content: Control, grid: GridContainer, selected_car
 		(size_row.get_node("MaxTag") as Control).visible = bool(size_record.get("caught_maximum", false))
 		# (size_row.get_node("MinTag") as Control).visible = bool(size_record.get("caught_minimum", false))
 		(size_row.get_node("MinTag") as Control).visible = false
+	_update_fish_size_ruler(size_row, size_limits, int(size_record.get("largest_cm", 0)))
+
+
+# limits 和 record_cm 均以厘米计；红线使用玩家最大记录，等长范围固定标在左端。
+func _update_fish_size_ruler(size_row: Control, limits: Vector2i, record_cm: int) -> void:
+	var ruler := size_row.get_node("SizeRuler") as Control
+	ruler.visible = size_row.visible and record_cm > 0 and limits.x > 0 and limits.y >= limits.x
+	if not ruler.visible:
+		return
+	(ruler.get_node("Minimum") as Label).text = TextDB.text("fishing.size.value") % limits.x
+	(ruler.get_node("Maximum") as Label).text = TextDB.text("fishing.size.value") % limits.y
+	var ratio := 0.0
+	if limits.y > limits.x:
+		ratio = clampf(float(record_cm - limits.x) / float(limits.y - limits.x), 0.0, 1.0)
+	var marker := ruler.get_node("RecordMarker") as ColorRect
+	marker.anchor_left = ratio
+	marker.anchor_right = ratio
 
 
 # 构建 crop_codex，供调用方继续处理。
@@ -2970,18 +3116,21 @@ func _build_bait_codex(content: Control) -> void:
 		var info := TextDB.text("ui.b62d0ce055") % [_bait_type_label(str(bait.get("bait_type", ""))), _display_id(str(bait.get("source_crop", ""))), int(bait.get("charges_per_batch", 0))]
 		var bait_click := cell.get_node("ClickArea") as Button
 		_clear_press_connections(bait_click)
-		bait_click.pressed.connect(_set_codex_preview.bind(content, label.text, icon.texture, info, known, true))
+		bait_click.pressed.connect(_set_codex_preview.bind(content, label.text, icon.texture, info, known, true, str(bait.get("bait_type", ""))))
 		if not preview_set:
-			_set_codex_preview(content, label.text, icon.texture, info, known, true)
+			_set_codex_preview(content, label.text, icon.texture, info, known, true, str(bait.get("bait_type", "")))
 			preview_set = true
 
 
-# 设置 codex_preview，供调用方继续处理。
-func _set_codex_preview(content: Control, name: String, texture: Texture2D, info: String, known: bool, fish_silhouette: bool = false) -> void:
+# 填充共用图鉴详情；bait_types 为分号分隔的鱼饵类型，默认空值隐藏类型行，未解锁鱼饵也隐藏。
+func _set_codex_preview(content: Control, name: String, texture: Texture2D, info: String, known: bool, fish_silhouette: bool = false, bait_types: String = "") -> void:
 	var preview := content.get_node("PreviewPanel") as Control
 	(preview.get_node("FavoriteBaitRow") as Control).visible = false
 	(preview.get_node("SizeRecordRow") as Control).visible = false
 	(preview.get_node("PreviewName") as Label).text = name
+	var bait_type_label := preview.get_node("BaitTypeLabel") as Label
+	bait_type_label.visible = known and not bait_types.is_empty()
+	bait_type_label.text = _bait_type_label(bait_types) if bait_type_label.visible else ""
 	var preview_icon := preview.get_node("PreviewIcon") as TextureRect
 	preview_icon.texture = texture
 	preview_icon.material = null
@@ -3166,6 +3315,8 @@ func notify(message: String) -> void:
 
 # 封装 new_modal 的处理，供相关流程复用。
 func _new_modal(_title: String, popup_name: String) -> HBoxContainer:
+	_task_icon_click_timer.stop()
+	_task_icon_click_count = 0
 	_remember_crop_scroll()
 	if _shop_timer != null:
 		_shop_timer.stop()
@@ -3371,6 +3522,8 @@ func _focus_first_in_modal() -> void:
 
 # 关闭 modal，供调用方继续处理。
 func _close_modal() -> void:
+	_task_icon_click_timer.stop()
+	_task_icon_click_count = 0
 	_remember_crop_scroll()
 	if _shop_timer != null:
 		_shop_timer.stop()
@@ -3436,6 +3589,48 @@ func _plant_crop(index: int, crop_id: String, repeat_crop: bool = false, grouped
 	_close_modal()
 	# notify("已安排依次播种 %d 个小格" % queued if queued > 0 else "播种指令未能加入队列")
 	_selected_cell_index = -1
+
+
+# 统一检查建筑操作能否入队；target_id 为地块索引，开垦复用系统中的等级、前置条件与同组去重规则。
+func _can_queue_building_action(action: String, target_id: String = "") -> bool:
+	if _state == null:
+		return false
+	var jobs: Node = _services.get("JobManager")
+	if jobs == null or int(jobs.call("get_available_command_slots")) <= 0:
+		return false
+	var pending_commands: Array = jobs.call("get_pending_commands")
+	var cost := -1
+	if action == "unlock_plot":
+		var farming: Node = _services.get("FarmingSystem")
+		if farming == null or not bool(farming.call("can_unlock_plot", target_id)):
+			return false
+		var group_id := str(farming.call("get_plot_unlock_group_id", target_id))
+		for pending in pending_commands:
+			if pending is Dictionary and str(pending.get("action", "")) == action and str(farming.call("get_plot_unlock_group_id", str(pending.get("target_id", "")))) == group_id:
+				return false
+		cost = int(farming.call("get_plot_unlock_cost", target_id))
+	elif action == "upgrade_cottage":
+		if not (_state.call("get_cottage_construction") as Dictionary).is_empty():
+			return false
+		for pending in pending_commands:
+			if pending is Dictionary and str(pending.get("action", "")) == action:
+				return false
+		cost = int(_state.call("get_next_cottage_upgrade_cost"))
+	return cost >= 0 and int(_prop(_state, "coins", 0)) >= cost
+
+
+# 资源或队列变化时刷新现有按钮和费用颜色，保留当前弹窗与信号，条件满足后可直接恢复操作。
+func _refresh_building_action_buttons() -> void:
+	if plant_window.visible:
+		var locked_content := plant_window.get_node("PlotPopup/ContentSurface/PlotContent/LockedContent") as Control
+		if locked_content.visible:
+			var unlock := locked_content.get_node("Unlock") as Button
+			unlock.disabled = not _can_queue_building_action("unlock_plot", str(unlock.get_meta("plot_index", -1)))
+			_set_coin_requirement(locked_content.get_node("UnlockCostRow/Amount") as Label, _unlock_cost(int(unlock.get_meta("plot_index", -1))))
+	if cottage_window.visible:
+		var upgrade := cottage_window.get_node("CottagePopup/ContentSurface/Upgrade") as Button
+		upgrade.disabled = not _can_queue_building_action("upgrade_cottage")
+		_set_coin_requirement(cottage_window.get_node("CottagePopup/ContentSurface/UpgradeCostRow/Amount") as Label, int(_state.call("get_next_cottage_upgrade_cost")))
 
 
 # 封装 unlock_plot 的处理，供相关流程复用。

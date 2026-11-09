@@ -4,20 +4,34 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/StaticPopupFrame.tscn" id="2_frame"]
 [ext_resource type="PackedScene" uid="uid://do7gog1hg3ww4" path="res://scenes/ui/PrimaryButton.tscn" id="3_button"]
 [ext_resource type="Texture2D" uid="uid://ctnjngfbglre8" path="res://assets/hd/ui/icon_coin_simple.png" id="4_coin"]
+[ext_resource type="Texture2D" uid="uid://dltbedb75732b" path="res://assets/hd/ui/icon_cottage_storage.png" id="5_storage"]
+[ext_resource type="Texture2D" uid="uid://wrugn5n1aheq" path="res://assets/hd/ui/icon_cottage_workbench.png" id="6_workbench"]
 
-[node name="CottageWindow" type="Window" unique_id=515340760]
-editor_description = "小屋升级独立子窗口；内容均为可调整的静态节点。"
+[sub_resource type="StyleBoxFlat" id="ComparisonRow"]
+bg_color = Color(0.84, 0.67, 0.39, 0.1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.61, 0.4, 0.18, 0.4)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="CottageWindow" type="Window" unique_id=1518871751]
+editor_description = "小屋升级对比；图标、数值和按钮均可独立调整。"
 transparent_bg = true
 oversampling_override = 1.0
-size = Vector2i(520, 260)
+size = Vector2i(520, 470)
 transient = true
 unresizable = true
 borderless = true
 transparent = true
-min_size = Vector2i(460, 220)
+min_size = Vector2i(520, 470)
 script = ExtResource("1_script")
 
-[node name="CottagePopup" parent="." unique_id=1738186948 instance=ExtResource("2_frame")]
+[node name="CottagePopup" parent="." unique_id=1159383545 instance=ExtResource("2_frame")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -30,70 +44,223 @@ grow_vertical = 2
 anchors_preset = 5
 
 [node name="TitleText" parent="CottagePopup/ContentSurface/TitlePlank" index="0"]
-text = "小屋 Lv.%d"
-metadata/l10n_text = "ui.024958a070"
+text = "小屋"
+metadata/l10n_text = "cottage.compare.heading"
 
 [node name="CloseButton" parent="CottagePopup/ContentSurface" index="1"]
 anchors_preset = 1
-offset_left = -66.0
-offset_top = 5.0
-offset_right = -4.0
-offset_bottom = 67.0
+offset_left = -38.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 38.0
 
-[node name="Summary" type="Label" parent="CottagePopup/ContentSurface" index="2" unique_id=317325338]
-editor_description = "小屋等级、仓库容量、修建进度。"
-layout_mode = 1
+[node name="LevelComparison" type="Label" parent="CottagePopup/ContentSurface" index="2" unique_id=1911664080]
+editor_description = "标题下第一行，展示当前等级与升级目标。"
+layout_mode = 0
 offset_left = 36.0
-offset_top = 69.0
+offset_top = 76.0
 offset_right = 484.0
-offset_bottom = 162.0
+offset_bottom = 110.0
 theme_override_colors/font_color = Color(0.29, 0.18, 0.1, 1)
-theme_override_font_sizes/font_size = 17
-text = "小屋 Lv.1  ·  作物仓库 0/100  ·  工作台未启用
-鱼篓 0；仓库满时成熟作物会留在地里"
-autowrap_mode = 2
-metadata/l10n_text = "ui.b2d5a88e20"
+theme_override_font_sizes/font_size = 23
+text = "当前 LV1 → LV2"
+metadata/l10n_text = "cottage.compare.levels"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Upgrade" parent="CottagePopup/ContentSurface" index="3" unique_id=627743938 instance=ExtResource("3_button")]
+[node name="Storage" type="Panel" parent="CottagePopup/ContentSurface" index="3" unique_id=1706727522]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 125.0
+offset_right = 484.0
+offset_bottom = 183.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("ComparisonRow")
+
+[node name="Icon" type="TextureRect" parent="CottagePopup/ContentSurface/Storage" unique_id=401903822]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 8.0
+offset_right = 54.0
+offset_bottom = 50.0
+mouse_filter = 2
+texture = ExtResource("5_storage")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="CottagePopup/ContentSurface/Storage" unique_id=1432956831]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 14.0
+offset_right = 204.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0.29, 0.18, 0.1, 1)
+theme_override_font_sizes/font_size = 19
+text = "仓库容量"
+vertical_alignment = 1
+metadata/l10n_text = "cottage.compare.storage"
+
+[node name="Current" type="Label" parent="CottagePopup/ContentSurface/Storage" unique_id=199831298]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 14.0
+offset_right = 300.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0.29, 0.18, 0.1, 1)
+theme_override_font_sizes/font_size = 22
+text = "1200"
+horizontal_alignment = 1
+
+[node name="Arrow" type="Label" parent="CottagePopup/ContentSurface/Storage" unique_id=1096366985]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 14.0
+offset_right = 332.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0.55, 0.32, 0.1, 1)
+theme_override_font_sizes/font_size = 22
+text = "→"
+horizontal_alignment = 1
+
+[node name="Next" type="Label" parent="CottagePopup/ContentSurface/Storage" unique_id=125958399]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 14.0
+offset_right = 432.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0.23, 0.39, 0.13, 1)
+theme_override_font_sizes/font_size = 22
+text = "2400"
+horizontal_alignment = 1
+
+[node name="Workbench" type="Panel" parent="CottagePopup/ContentSurface" index="4" unique_id=1413391940]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 195.0
+offset_right = 484.0
+offset_bottom = 253.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("ComparisonRow")
+
+[node name="Icon" type="TextureRect" parent="CottagePopup/ContentSurface/Workbench" unique_id=708202024]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 8.0
+offset_right = 54.0
+offset_bottom = 50.0
+mouse_filter = 2
+texture = ExtResource("6_workbench")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="CottagePopup/ContentSurface/Workbench" unique_id=1183930561]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 14.0
+offset_right = 216.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0.29, 0.18, 0.1, 1)
+theme_override_font_sizes/font_size = 19
+text = "工作台等级"
+metadata/l10n_text = "cottage.compare.workbench"
+
+[node name="Current" type="Label" parent="CottagePopup/ContentSurface/Workbench" unique_id=2083206797]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 14.0
+offset_right = 300.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0.29, 0.18, 0.1, 1)
+theme_override_font_sizes/font_size = 22
+text = "1"
+horizontal_alignment = 1
+
+[node name="Arrow" type="Label" parent="CottagePopup/ContentSurface/Workbench" unique_id=81146103]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 14.0
+offset_right = 332.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0.55, 0.32, 0.1, 1)
+theme_override_font_sizes/font_size = 22
+text = "→"
+horizontal_alignment = 1
+
+[node name="Next" type="Label" parent="CottagePopup/ContentSurface/Workbench" unique_id=405531960]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 14.0
+offset_right = 432.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0.23, 0.39, 0.13, 1)
+theme_override_font_sizes/font_size = 22
+text = "2"
+horizontal_alignment = 1
+
+[node name="NextUnlocks" type="Label" parent="CottagePopup/ContentSurface" index="5" unique_id=666470167]
+editor_description = "按下一级门槛显示地块及养殖解锁信息。"
+layout_mode = 0
+offset_left = 36.0
+offset_top = 266.0
+offset_right = 484.0
+offset_bottom = 298.0
+theme_override_colors/font_color = Color(0.27, 0.39, 0.16, 1)
+theme_override_font_sizes/font_size = 18
+text = "下一级解锁：地块×2"
+metadata/l10n_text = "cottage.compare.unlocks"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WarehouseUsage" type="Label" parent="CottagePopup/ContentSurface" index="6" unique_id=2003986860]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 309.0
+offset_right = 484.0
+offset_bottom = 339.0
+theme_override_colors/font_color = Color(0.4, 0.28, 0.15, 1)
+theme_override_font_sizes/font_size = 18
+text = "仓库当前容量  0 / 1200"
+metadata/l10n_text = "cottage.compare.usage"
+horizontal_alignment = 1
+
+[node name="Upgrade" parent="CottagePopup/ContentSurface" index="7" unique_id=1775483874 instance=ExtResource("3_button")]
 layout_mode = 1
-offset_left = 197.0
-offset_top = 147.0
-offset_right = 311.6567
-offset_bottom = 193.0
+offset_left = 209.0
+offset_top = 336.0
+offset_right = 326.0
+offset_bottom = 395.0
 text = "开始修建"
-metadata/l10n_text = "ui.161ff184e1"
+metadata/l10n_text = "ui.50fcaea577"
 
-[node name="UpgradeCostRow" type="HBoxContainer" parent="CottagePopup/ContentSurface" index="4" unique_id=369356046]
-layout_mode = 1
-offset_left = 266.0
-offset_top = 184.0
-offset_right = 380.0
-offset_bottom = 216.0
-scale = Vector2(1.34, 1.34)
-offset_transform_enabled = true
-offset_transform_position = Vector2(-47.3, 0)
+[node name="UpgradeCostRow" type="HBoxContainer" parent="CottagePopup/ContentSurface" index="8" unique_id=429119370]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 388.0
+offset_right = 349.0
+offset_bottom = 416.0
 theme_override_constants/separation = 6
+alignment = 1
 
-[node name="Icon" type="TextureRect" parent="CottagePopup/ContentSurface/UpgradeCostRow" unique_id=207655626]
+[node name="Icon" type="TextureRect" parent="CottagePopup/ContentSurface/UpgradeCostRow" unique_id=2039960342]
 custom_minimum_size = Vector2(27, 27)
 layout_mode = 2
 texture = ExtResource("4_coin")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Amount" type="Label" parent="CottagePopup/ContentSurface/UpgradeCostRow" unique_id=1589729384]
+[node name="Amount" type="Label" parent="CottagePopup/ContentSurface/UpgradeCostRow" unique_id=2145969079]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.29, 0.18, 0.1, 1)
-theme_override_font_sizes/font_size = 19
-text = "100"
+theme_override_font_sizes/font_size = 20
+text = "400"
 
-[node name="Finish" parent="CottagePopup/ContentSurface" index="5" unique_id=1395844695 instance=ExtResource("3_button")]
+[node name="Finish" parent="CottagePopup/ContentSurface" index="9" unique_id=1379354223 instance=ExtResource("3_button")]
 visible = false
 layout_mode = 1
-offset_left = 266.0
-offset_top = 178.0
-offset_right = 469.0
-offset_bottom = 224.0
+offset_left = 160.0
+offset_top = 358.0
+offset_right = 360.0
+offset_bottom = 406.0
 text = "点击完成修建"
 metadata/l10n_text = "ui.8184ee25f5"
 

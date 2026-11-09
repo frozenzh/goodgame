@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dd1vue0juw4k1" path="res://scripts/systems/codex_system.gd" id="7_codex"]
 [ext_resource type="Script" uid="uid://lh4tuw1yhj23" path="res://scripts/systems/job_manager.gd" id="8_jobs"]
 [ext_resource type="Shader" uid="uid://0da5qodkdqr" path="res://shaders/cottage_roof_snow.gdshader" id="9_ctbwf"]
+[ext_resource type="Shader" uid="uid://b10yqw7xgj08c" path="res://shaders/building_interactable_outline.gdshader" id="9_o80qj"]
 [ext_resource type="PackedScene" path="res://scenes/world/StaticWorldStrip.tscn" id="10_static_world"]
 [ext_resource type="Texture2D" uid="uid://4akoy8bfu3c3" path="res://assets/hd/ui/wood_sign.png" id="11_board"]
 [ext_resource type="Texture2D" uid="uid://ctnjngfbglre8" path="res://assets/hd/ui/icon_coin_simple.png" id="12_coin"]
@@ -38,7 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://ciejhw4nubc2w" path="res://assets/hd/ui/weather_rain.png" id="37_weather_rain"]
 [ext_resource type="Texture2D" uid="uid://dljtnnlxtbb41" path="res://assets/hd/ui/weather_snow.png" id="38_weather_snow"]
 [ext_resource type="Texture2D" uid="uid://bsa3j1iys8wr7" path="res://assets/hd/ui/weather_cloudy.svg" id="38_weather_wind"]
-[ext_resource type="PackedScene" path="res://scenes/ui/AchievementToast.tscn" id="39_achievement_toast"]
+[ext_resource type="PackedScene" uid="uid://bbegftcb5bi3s" path="res://scenes/ui/AchievementToast.tscn" id="39_achievement_toast"]
 [ext_resource type="PackedScene" path="res://scenes/ui/PastureWindow.tscn" id="40_pasture_window"]
 [ext_resource type="PackedScene" path="res://scenes/world/PastureFence.tscn" id="41_pasture_fence"]
 [ext_resource type="PackedScene" path="res://scenes/world/PastureFeedSlot.tscn" id="42_feed_slot"]
@@ -52,17 +53,80 @@
 [ext_resource type="PackedScene" path="res://scenes/world/PastureFeedWorkBadge.tscn" id="53_feed_work_badge"]
 [ext_resource type="PackedScene" path="res://scenes/ui/NewUnlockDot.tscn" id="new_unlock_dot"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ctbwf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o80qj"]
+resource_local_to_scene = true
+shader = ExtResource("9_o80qj")
+shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
+shader_parameter/hover_outline_color = Color(0, 0, 0, 1)
+shader_parameter/resting_width_texels = 0.0
+shader_parameter/hover_width_texels = 26.0
+shader_parameter/hovered = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0sk6p"]
 resource_local_to_scene = true
 shader = ExtResource("9_ctbwf")
 shader_parameter/coverage = 1.0
 shader_parameter/chimney_opening = Vector4(0, 0, 0, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o80qj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e8pg6"]
+resource_local_to_scene = true
+shader = ExtResource("9_o80qj")
+shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
+shader_parameter/hover_outline_color = Color(0, 0, 0, 1)
+shader_parameter/resting_width_texels = 15.0
+shader_parameter/hover_width_texels = 30.0
+shader_parameter/hovered = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h05k6"]
+resource_local_to_scene = true
+shader = ExtResource("9_o80qj")
+shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
+shader_parameter/hover_outline_color = Color(0, 0, 0, 1)
+shader_parameter/resting_width_texels = 0.0
+shader_parameter/hover_width_texels = 30.0
+shader_parameter/hovered = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ex0yv"]
+resource_local_to_scene = true
+shader = ExtResource("9_o80qj")
+shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
+shader_parameter/hover_outline_color = Color(0, 0, 0, 1)
+shader_parameter/resting_width_texels = 25.0
+shader_parameter/hover_width_texels = 50.0
+shader_parameter/hovered = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s3bvh"]
 resource_local_to_scene = true
 shader = ExtResource("9_ctbwf")
 shader_parameter/coverage = 1.0
 shader_parameter/chimney_opening = Vector4(0, 0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hlhe2"]
+resource_local_to_scene = true
+shader = ExtResource("9_o80qj")
+shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
+shader_parameter/hover_outline_color = Color(0, 0, 0, 1)
+shader_parameter/resting_width_texels = 0.0
+shader_parameter/hover_width_texels = 38.0
+shader_parameter/hovered = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_afy01"]
+resource_local_to_scene = true
+shader = ExtResource("9_o80qj")
+shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
+shader_parameter/hover_outline_color = Color(0, 0, 0, 1)
+shader_parameter/resting_width_texels = 13.0
+shader_parameter/hover_width_texels = 26.0
+shader_parameter/hovered = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b6xsk"]
+resource_local_to_scene = true
+shader = ExtResource("9_o80qj")
+shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
+shader_parameter/hover_outline_color = Color(0, 0, 0, 1)
+shader_parameter/resting_width_texels = 0.0
+shader_parameter/hover_width_texels = 34.0
+shader_parameter/hovered = 0.0
 
 [sub_resource type="StyleBoxFlat" id="WeatherTileBase"]
 bg_color = Color(0.13, 0.12, 0.11, 0.42)
@@ -145,7 +209,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 4.2100067
+offset_top = 8.0
+offset_bottom = 4.210022
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_ui")
@@ -323,8 +388,14 @@ position = Vector2(-89, 136)
 [node name="GroundContact" parent="StaticWorldStrip/PastureAreas/PastureBarn" index="0"]
 visible = false
 
+[node name="BarnSprite" parent="StaticWorldStrip/PastureAreas/PastureBarn" index="1"]
+material = SubResource("ShaderMaterial_o80qj")
+
 [node name="RoofSnow" parent="StaticWorldStrip/PastureAreas/PastureBarn/BarnSprite" index="0"]
-material = SubResource("ShaderMaterial_ctbwf")
+material = SubResource("ShaderMaterial_0sk6p")
+
+[node name="ConstructionOverlay" parent="StaticWorldStrip/PastureAreas/PastureBarn" index="2"]
+material = SubResource("ShaderMaterial_o80qj")
 
 [node name="ConstructionSign" parent="StaticWorldStrip/PastureAreas/PastureBarn" index="3"]
 offset_top = -23.0
@@ -413,33 +484,40 @@ position = Vector2(-0.0004905462, 18.354416)
 scale = Vector2(0.06405227, 0.32894737)
 
 [node name="Level1" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals" index="0"]
+material = SubResource("ShaderMaterial_e8pg6")
 position = Vector2(-2.5668945, -10)
 scale = Vector2(0.12526724, 0.13)
 
 [node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals/Level1" index="0"]
-material = SubResource("ShaderMaterial_ctbwf")
+material = SubResource("ShaderMaterial_0sk6p")
 
 [node name="Level2" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals" index="1"]
+material = SubResource("ShaderMaterial_e8pg6")
 position = Vector2(-4.2715597, -10)
 scale = Vector2(0.12454113, 0.13)
 
 [node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals/Level2" index="0"]
-material = SubResource("ShaderMaterial_ctbwf")
+material = SubResource("ShaderMaterial_0sk6p")
 
 [node name="Level3" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals" index="2"]
+material = SubResource("ShaderMaterial_e8pg6")
 position = Vector2(-3.3221495, -17)
 scale = Vector2(0.14075443, 0.145)
 
 [node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals/Level3" index="0"]
-material = SubResource("ShaderMaterial_ctbwf")
+material = SubResource("ShaderMaterial_0sk6p")
+
+[node name="Level4" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals" index="3"]
+material = SubResource("ShaderMaterial_e8pg6")
 
 [node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals/Level4" index="0"]
-material = SubResource("ShaderMaterial_ctbwf")
+material = SubResource("ShaderMaterial_0sk6p")
 
 [node name="FrontGrass" parent="StaticWorldStrip/ResourceNodes/House" index="2"]
 visible = false
 
 [node name="Scaffold" parent="StaticWorldStrip/ResourceNodes/House/ConstructionVisual" index="0"]
+material = SubResource("ShaderMaterial_h05k6")
 position = Vector2(-3.4121094, 6.5717163)
 scale = Vector2(0.115, 0.09689426)
 
@@ -450,6 +528,7 @@ position = Vector2(-3.409091, -31.645576)
 visible = false
 
 [node name="Board" parent="StaticWorldStrip/ResourceNodes/House/ConstructionVisual/SignGroup" index="1"]
+material = SubResource("ShaderMaterial_h05k6")
 position = Vector2(-1.8828125, -11.392822)
 scale = Vector2(0.03698694, 0.052)
 
@@ -457,7 +536,14 @@ scale = Vector2(0.03698694, 0.052)
 offset_top = -25.658226
 offset_bottom = 0.341774
 
-[node name="WalkBlocker" parent="StaticWorldStrip/ResourceNodes/House" index="5"]
+[node name="WorkPendingBadge" parent="StaticWorldStrip/ResourceNodes/House" index="5"]
+offset_left = -36.363686
+offset_top = -56.962013
+offset_right = 17.363548
+offset_bottom = -36.962013
+scale = Vector2(1.175, 1.175)
+
+[node name="WalkBlocker" parent="StaticWorldStrip/ResourceNodes/House" index="6"]
 visible = false
 
 [node name="Workbench" parent="StaticWorldStrip/ResourceNodes" index="1"]
@@ -469,6 +555,7 @@ position = Vector2(-8.924277, 16.151518)
 scale = Vector2(0.0648152, 0.3189793)
 
 [node name="Sprite" parent="StaticWorldStrip/ResourceNodes/Workbench" index="1"]
+material = SubResource("ShaderMaterial_ex0yv")
 position = Vector2(-7.1601563, -7.807678)
 scale = Vector2(0.107086875, 0.10708688)
 
@@ -478,15 +565,20 @@ scale = Vector2(5.9098544, 5.5543976)
 frame_progress = 0.8856634
 
 [node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/Workbench/Sprite" index="1"]
-material = SubResource("ShaderMaterial_o80qj")
+material = SubResource("ShaderMaterial_s3bvh")
 
 [node name="FrontGrass" parent="StaticWorldStrip/ResourceNodes/Workbench" index="2"]
 visible = false
+
+[node name="WorkPendingBadge" parent="StaticWorldStrip/ResourceNodes/Workbench" index="3"]
+offset_left = -49.484863
+offset_right = 4.32312
 
 [node name="ConstructionVisual" parent="StaticWorldStrip/ResourceNodes/Workbench" index="4"]
 position = Vector2(-6.651537, -0.5151459)
 
 [node name="Scaffold" parent="StaticWorldStrip/ResourceNodes/Workbench/ConstructionVisual" index="0"]
+material = SubResource("ShaderMaterial_hlhe2")
 position = Vector2(-1.2021484, 8.575806)
 scale = Vector2(0.11590549, 0.08877845)
 
@@ -495,6 +587,9 @@ position = Vector2(-3.0302763, -36.363632)
 
 [node name="Post" parent="StaticWorldStrip/ResourceNodes/Workbench/ConstructionVisual/SignGroup" index="0"]
 visible = false
+
+[node name="Board" parent="StaticWorldStrip/ResourceNodes/Workbench/ConstructionVisual/SignGroup" index="1"]
+material = SubResource("ShaderMaterial_hlhe2")
 
 [node name="Text" parent="StaticWorldStrip/ResourceNodes/Workbench/ConstructionVisual/SignGroup" index="2"]
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -521,16 +616,23 @@ position = Vector2(-6.1496043, 0.56693023)
 scale = Vector2(0.87, 1)
 
 [node name="Level1" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/LevelVisuals" index="0"]
+material = SubResource("ShaderMaterial_afy01")
 position = Vector2(0.90527344, 0)
 
 [node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/LevelVisuals/Level1" index="0"]
-material = SubResource("ShaderMaterial_ctbwf")
+material = SubResource("ShaderMaterial_0sk6p")
+
+[node name="Level2" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/LevelVisuals" index="1"]
+material = SubResource("ShaderMaterial_afy01")
 
 [node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/LevelVisuals/Level2" index="0"]
-material = SubResource("ShaderMaterial_ctbwf")
+material = SubResource("ShaderMaterial_0sk6p")
+
+[node name="Level3" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/LevelVisuals" index="2"]
+material = SubResource("ShaderMaterial_afy01")
 
 [node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/LevelVisuals/Level3" index="0"]
-material = SubResource("ShaderMaterial_ctbwf")
+material = SubResource("ShaderMaterial_0sk6p")
 
 [node name="FrontGrass" parent="StaticWorldStrip/ResourceNodes/ShopBuilding" index="2"]
 visible = false
@@ -540,6 +642,7 @@ position = Vector2(-4.574801, -0.22047146)
 scale = Vector2(0.7, 0.7)
 
 [node name="Scaffold" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/ConstructionVisual" index="0"]
+material = SubResource("ShaderMaterial_b6xsk")
 position = Vector2(-0.15527344, 18.850952)
 scale = Vector2(0.101263106, 0.08075788)
 
@@ -551,6 +654,7 @@ scale = Vector2(0.83, 0.83)
 visible = false
 
 [node name="Board" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/ConstructionVisual/SignGroup" index="1"]
+material = SubResource("ShaderMaterial_b6xsk")
 position = Vector2(-1.3550482, 0.78307104)
 scale = Vector2(0.04222316, 0.052)
 
@@ -580,6 +684,10 @@ position = Vector2(826, 152.57)
 
 [node name="FishingPoint" parent="StaticWorldStrip/DynamicAnchors/WorkerTargets" index="3"]
 position = Vector2(1055, 116.57)
+
+[node name="RestBadge" parent="StaticWorldStrip/DynamicAnchors/WorkerTargets/FishingPoint" index="0"]
+offset_left = -37.0
+offset_right = 19.0
 
 [node name="ShopPoint" parent="StaticWorldStrip/DynamicAnchors/WorkerTargets" index="5"]
 position = Vector2(922, 147.57)
@@ -795,7 +903,7 @@ theme_override_styles/panel = SubResource("WeatherTileBase")
 [node name="Icon" type="Sprite2D" parent="Overlay/WeatherBar/Wind" unique_id=1467657621]
 texture_filter = 1
 position = Vector2(14, 14)
-scale = Vector2(0.81, 0.81)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("38_weather_wind")
 
 [node name="Dim" type="ColorRect" parent="Overlay/WeatherBar/Wind" unique_id=491229143]
@@ -1019,6 +1127,8 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
+offset_top = -3.0
+offset_bottom = -3.0
 grow_horizontal = 0
 mouse_filter = 2
 
@@ -1075,7 +1185,8 @@ theme_override_styles/hover = SubResource("HudClickArea")
 theme_override_styles/disabled = SubResource("HudClickArea")
 
 [node name="GMButton" parent="." unique_id=643208801 instance=ExtResource("18_gm_button")]
-editor_description = "主游戏右上角 GM 入口；可在此静态调整位置和尺寸。"
+editor_description = "隐藏的原 GM 入口；运行时通过队列图标连续点击三次打开 GM 面板。"
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -1088,15 +1199,15 @@ grow_horizontal = 0
 text = "GM"
 
 [node name="TaskButton" type="Control" parent="." unique_id=2116389894]
-editor_description = "GM 左侧的角色任务入口；图标和透明点击区均是静态节点。"
+editor_description = "角色任务入口；单击打开队列，快速连续三次点击打开 GM。连击间隔可在 ClickTimer 中调整。"
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -110.0
-offset_top = 4.0
-offset_right = -80.0
-offset_bottom = 32.0
+offset_left = -39.0
+offset_top = 6.0
+offset_right = -9.0
+offset_bottom = 34.0
 grow_horizontal = 0
 
 [node name="Icon" type="TextureRect" parent="TaskButton" unique_id=2028277962]
@@ -1110,17 +1221,26 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="HitArea" type="Button" parent="TaskButton" unique_id=1872641490]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 focus_mode = 0
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("HudClickArea")
 theme_override_styles/pressed = SubResource("HudClickArea")
 theme_override_styles/hover = SubResource("HudClickArea")
 
+[node name="ClickTimer" type="Timer" parent="TaskButton" unique_id=896123480]
+editor_description = "队列图标连击判定：每次点击重新计时，超时打开队列，三次点击立即打开 GM。间隔单位为秒。"
+wait_time = 0.45
+one_shot = true
+
 [node name="PlotProgressAnchor" type="Control" parent="." unique_id=1447553559]
 editor_description = "种植中地块的小进度提示：运行时锚定到地块；Panel 静态节点位于地块右侧，可手动调相对位置和尺寸。"
+visible = false
 z_index = 20
 anchors_preset = 0
 mouse_filter = 1
@@ -1235,15 +1355,16 @@ one_shot = true
 
 [node name="AchievementToast" parent="." unique_id=482859285 instance=ExtResource("39_achievement_toast")]
 editor_description = "成就条锚定主窗口右侧；可在此调整右边距、垂直位置和尺寸。"
+visible = false
 z_index = 30
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -329.0
-offset_top = 66.0
+offset_top = 2.0
 offset_right = -23.0
-offset_bottom = 118.0
+offset_bottom = 54.0
 grow_horizontal = 0
 
 [node name="PlantWindow" parent="." unique_id=508654900 instance=ExtResource("29_plant_window")]
@@ -1371,6 +1492,8 @@ text = "这是你的小屋"
 metadata/l10n_text = "tutorial.house"
 
 [editable path="StaticWorldStrip"]
+[editable path="StaticWorldStrip/ResourceNodes/House/WorkPendingBadge"]
+[editable path="StaticWorldStrip/DynamicAnchors/WorkerTargets/FishingPoint/RestBadge"]
 [editable path="StaticWorldStrip/CloudFog"]
 [editable path="AchievementToast"]
 [editable path="ResetPopup"]

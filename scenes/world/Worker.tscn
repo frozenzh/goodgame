@@ -89,6 +89,15 @@
 [ext_resource type="Texture2D" uid="uid://1tf5oa6qmgxq" path="res://assets/hd/worker/frames/actor_up_08.png" id="85_up_8"]
 [ext_resource type="Texture2D" uid="uid://bbmnnsm1js0dg" path="res://assets/hd/worker/watering_8frame_sheet.png" id="86_watering"]
 
+[ext_resource type="Texture2D" path="res://assets/hd/worker/frames/actor_work_01.png" id="work_1"]
+[ext_resource type="Texture2D" path="res://assets/hd/worker/frames/actor_work_02.png" id="work_2"]
+[ext_resource type="Texture2D" path="res://assets/hd/worker/frames/actor_work_03.png" id="work_3"]
+[ext_resource type="Texture2D" path="res://assets/hd/worker/frames/actor_work_04.png" id="work_4"]
+[ext_resource type="Texture2D" path="res://assets/hd/worker/frames/actor_work_05.png" id="work_5"]
+[ext_resource type="Texture2D" path="res://assets/hd/worker/frames/actor_work_06.png" id="work_6"]
+[ext_resource type="Texture2D" path="res://assets/hd/worker/frames/actor_work_07.png" id="work_7"]
+[ext_resource type="Texture2D" path="res://assets/hd/worker/frames/actor_work_08.png" id="work_8"]
+
 [sub_resource type="CircleShape2D" id="WorkerFootShape"]
 radius = 5.0
 
@@ -142,7 +151,7 @@ atlas = ExtResource("86_watering")
 region = Rect2(1852.375, 0, 264.625, 743)
 
 [sub_resource type="SpriteFrames" id="WorkerFrames"]
-animations = [{
+animations = [{"frames": [{"duration": 1.0, "texture": ExtResource("work_1")}, {"duration": 1.0, "texture": ExtResource("work_2")}, {"duration": 1.0, "texture": ExtResource("work_3")}, {"duration": 1.0, "texture": ExtResource("work_4")}, {"duration": 1.0, "texture": ExtResource("work_5")}, {"duration": 1.0, "texture": ExtResource("work_6")}, {"duration": 1.0, "texture": ExtResource("work_7")}, {"duration": 1.0, "texture": ExtResource("work_8")}], "loop": true, "name": &"working", "speed": 8.0}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_down_1")

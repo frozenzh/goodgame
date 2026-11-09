@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3]
+[gd_scene load_steps=68 format=3]
 
 [ext_resource type="Script" path="res://scripts/world/static_world_strip.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://scenes/world/PlotTile.tscn" id="2_plot"]
@@ -49,6 +49,8 @@
 [ext_resource type="Texture2D" path="res://assets/hd/world/fish_shop_roof_snow.png" id="roof_snow_shop"]
 [ext_resource type="Texture2D" path="res://assets/hd/world/pasture_barn_roof_snow.png" id="roof_snow_barn"]
 
+[ext_resource type="PackedScene" path="res://scenes/world/AnimalFootShadow.tscn" id="animal_foot_shadow"]
+
 [sub_resource type="ShaderMaterial" id="CottageRoofSnow"]
 resource_local_to_scene = true
 shader = ExtResource("roof_snow_shader")
@@ -75,6 +77,7 @@ shader_parameter/freeze_progress = 0.0
 shader_parameter/melt_opacity = 1.0
 
 [sub_resource type="ShaderMaterial" id="HouseOutline"]
+resource_local_to_scene = true
 shader = ExtResource("22_building_outline")
 shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
 shader_parameter/resting_width_texels = 15.0
@@ -82,6 +85,7 @@ shader_parameter/hover_width_texels = 30.0
 shader_parameter/hovered = 0.0
 
 [sub_resource type="ShaderMaterial" id="WorkbenchOutline"]
+resource_local_to_scene = true
 shader = ExtResource("22_building_outline")
 shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
 shader_parameter/resting_width_texels = 25.0
@@ -89,10 +93,47 @@ shader_parameter/hover_width_texels = 50.0
 shader_parameter/hovered = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShopOutline"]
+resource_local_to_scene = true
 shader = ExtResource("22_building_outline")
 shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
 shader_parameter/resting_width_texels = 13.0
 shader_parameter/hover_width_texels = 26.0
+shader_parameter/hovered = 0.0
+
+[sub_resource type="ShaderMaterial" id="BarnOutline"]
+resource_local_to_scene = true
+shader = ExtResource("22_building_outline")
+shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
+shader_parameter/hover_outline_color = Color(0, 0, 0, 1)
+shader_parameter/resting_width_texels = 0.0
+shader_parameter/hover_width_texels = 26.0
+shader_parameter/hovered = 0.0
+
+[sub_resource type="ShaderMaterial" id="HouseConstructionOutline"]
+resource_local_to_scene = true
+shader = ExtResource("22_building_outline")
+shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
+shader_parameter/hover_outline_color = Color(0, 0, 0, 1)
+shader_parameter/resting_width_texels = 0.0
+shader_parameter/hover_width_texels = 30.0
+shader_parameter/hovered = 0.0
+
+[sub_resource type="ShaderMaterial" id="WorkbenchConstructionOutline"]
+resource_local_to_scene = true
+shader = ExtResource("22_building_outline")
+shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
+shader_parameter/hover_outline_color = Color(0, 0, 0, 1)
+shader_parameter/resting_width_texels = 0.0
+shader_parameter/hover_width_texels = 38.0
+shader_parameter/hovered = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShopConstructionOutline"]
+resource_local_to_scene = true
+shader = ExtResource("22_building_outline")
+shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
+shader_parameter/hover_outline_color = Color(0, 0, 0, 1)
+shader_parameter/resting_width_texels = 0.0
+shader_parameter/hover_width_texels = 34.0
 shader_parameter/hovered = 0.0
 
 [sub_resource type="AtlasTexture" id="BroadFrame0"]
@@ -232,6 +273,7 @@ scale = Vector2(0.08, 0.08)
 texture = ExtResource("28_ground_contact")
 
 [node name="BarnSprite" type="Sprite2D" parent="PastureAreas/PastureBarn"]
+material = SubResource("BarnOutline")
 texture_filter = 1
 position = Vector2(0, -20)
 scale = Vector2(0.115, 0.115)
@@ -245,6 +287,7 @@ material = SubResource("CottageRoofSnow")
 texture = ExtResource("roof_snow_barn")
 
 [node name="ConstructionOverlay" type="Sprite2D" parent="PastureAreas/PastureBarn"]
+material = SubResource("BarnOutline")
 texture_filter = 1
 position = Vector2(0, -18)
 scale = Vector2(0.12, 0.12)
@@ -269,6 +312,8 @@ texture_filter = 1
 position = Vector2(39, 194)
 scale = Vector2(0.042, 0.042)
 texture = ExtResource("33_pasture_dog_sleep")
+
+[node name="FootShadow" parent="PastureAreas/Dog" instance=ExtResource("animal_foot_shadow")]
 
 [node name="PathLayer" type="Node2D" parent="."]
 editor_description = "石子路层：所有路段共用一张三块踏石资源。每段都是可独立拖动的静态 Sprite，位于草地之上、田地与建筑之下。"
@@ -519,6 +564,7 @@ editor_description = "小屋施工工地，可调整 Scaffold 的位置和缩放
 visible = false
 
 [node name="Scaffold" type="Sprite2D" parent="ResourceNodes/House/ConstructionVisual"]
+material = SubResource("HouseConstructionOutline")
 texture_filter = 1
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("15_construction")
@@ -531,6 +577,7 @@ color = Color(0.39, 0.22, 0.1, 1)
 polygon = PackedVector2Array(-4, 10, 4, 10, 4, 43, -4, 43)
 
 [node name="Board" type="Sprite2D" parent="ResourceNodes/House/ConstructionVisual/SignGroup"]
+material = SubResource("HouseConstructionOutline")
 texture_filter = 1
 scale = Vector2(0.052, 0.052)
 texture = ExtResource("16_sign")
@@ -557,6 +604,18 @@ texture_filter = 1
 position = Vector2(0, 20)
 scale = Vector2(2, 2)
 texture = ExtResource("construction_complete_badge")
+
+[node name="WorkPendingBadge" parent="ResourceNodes/House" instance=ExtResource("39_work_badge")]
+editor_description = "小屋升级或验收在角色队列中时显示等待标签；可独立调整位置与尺寸。"
+offset_left = -34.0
+offset_top = -98.0
+offset_right = 34.0
+offset_bottom = -78.0
+scale = Vector2(1.5, 1.5)
+
+[node name="State" parent="ResourceNodes/House/WorkPendingBadge/Content" index="1"]
+text = "等待中"
+metadata/l10n_text = "world.work.cottage_waiting"
 
 [node name="WalkBlocker" type="StaticBody2D" parent="ResourceNodes/House"]
 editor_description = "小屋占地碰撞，跟随 House 移动；交互点在下方通道。"
@@ -624,6 +683,7 @@ editor_description = "工作台解锁前显示的工地，可调整 Scaffold 的
 visible = false
 
 [node name="Scaffold" type="Sprite2D" parent="ResourceNodes/Workbench/ConstructionVisual"]
+material = SubResource("WorkbenchConstructionOutline")
 texture_filter = 1
 position = Vector2(0, -4)
 scale = Vector2(0.08, 0.08)
@@ -637,6 +697,7 @@ color = Color(0.39, 0.22, 0.1, 1)
 polygon = PackedVector2Array(-3, 8, 3, 8, 3, 30, -3, 30)
 
 [node name="Board" type="Sprite2D" parent="ResourceNodes/Workbench/ConstructionVisual/SignGroup"]
+material = SubResource("WorkbenchConstructionOutline")
 texture_filter = 1
 scale = Vector2(0.042, 0.042)
 texture = ExtResource("16_sign")
@@ -821,6 +882,7 @@ editor_description = "鱼铺解锁前显示的工地，可调整 Scaffold 的位
 visible = false
 
 [node name="Scaffold" type="Sprite2D" parent="ResourceNodes/ShopBuilding/ConstructionVisual"]
+material = SubResource("ShopConstructionOutline")
 texture_filter = 1
 scale = Vector2(0.087, 0.087)
 texture = ExtResource("15_construction")
@@ -833,6 +895,7 @@ color = Color(0.39, 0.22, 0.1, 1)
 polygon = PackedVector2Array(-4, 10, 4, 10, 4, 38, -4, 38)
 
 [node name="Board" type="Sprite2D" parent="ResourceNodes/ShopBuilding/ConstructionVisual/SignGroup"]
+material = SubResource("ShopConstructionOutline")
 texture_filter = 1
 scale = Vector2(0.052, 0.052)
 texture = ExtResource("16_sign")
@@ -893,6 +956,17 @@ position = Vector2(866, 194)
 editor_description = "钓鱼时角色脚底停在木板上；可直接拖动这个标记微调落点。"
 position = Vector2(1056, 144)
 
+[node name="RestBadge" parent="DynamicAnchors/WorkerTargets/FishingPoint" instance=ExtResource("39_work_badge")]
+editor_description = "连续钓鱼后的休息标签；固定在钓鱼位置，复用通用工作标签，可独立调整偏移、尺寸和样式。"
+offset_left = -34.0
+offset_top = -36.0
+offset_right = 34.0
+offset_bottom = -16.0
+
+[node name="State" parent="DynamicAnchors/WorkerTargets/FishingPoint/RestBadge/Content" index="1"]
+text = "休息中"
+metadata/l10n_text = "world.work.fishing_resting"
+
 [node name="FishingFloatPoint" type="Marker2D" parent="DynamicAnchors/WorkerTargets"]
 editor_description = "鱼漂在池塘中的水面落点。"
 position = Vector2(1127, 141)
@@ -916,4 +990,7 @@ script = ExtResource("23_route_guide")
 editor_description = "运行时闪光特效统一生成在这里；定位点分别在地块、小屋、池塘和 FishSpawnPoint。"
 
 [node name="CloudFog" parent="." instance=ExtResource("36_cloud_fog")]
+
+[editable path="ResourceNodes/House/WorkPendingBadge"]
+[editable path="DynamicAnchors/WorkerTargets/FishingPoint/RestBadge"]
 

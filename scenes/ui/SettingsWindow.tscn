@@ -120,6 +120,7 @@ offset_right = 177.0
 offset_bottom = 326.0
 theme_override_font_sizes/font_size = 18
 text = "屏幕"
+metadata/l10n_text = "settings.screen_short"
 vertical_alignment = 1
 
 [node name="ScreenChoice" parent="SettingsPopup/ContentSurface/SettingsContent" index="13" unique_id=1475667452]
@@ -135,6 +136,7 @@ offset_right = 177.0
 offset_bottom = 382.0
 theme_override_font_sizes/font_size = 18
 text = "移动"
+metadata/l10n_text = "settings.move_short"
 vertical_alignment = 1
 
 [node name="MoveUp" parent="SettingsPopup/ContentSurface/SettingsContent" index="15" unique_id=55569549]
@@ -176,6 +178,7 @@ offset_bottom = 95.0
 theme_override_colors/font_color = Color(0.29, 0.19, 0.1, 1)
 theme_override_font_sizes/font_size = 22
 text = "显示"
+metadata/l10n_text = "settings.display_size"
 vertical_alignment = 1
 
 [node name="DisplaySizeChoice" type="OptionButton" parent="SettingsPopup/ContentSurface/SettingsContent" unique_id=626066042]

@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bl2sbm78pffpy" path="res://assets/hd/ui/button_leaf_disabled.png" id="9_8qi8a"]
 [ext_resource type="Texture2D" uid="uid://dotpfwttsxcib" path="res://assets/hd/ui/icon_bait_simple.png" id="bait_hover_icon"]
 [ext_resource type="StyleBox" path="res://assets/hd/ui/seed_hover_panel_style.tres" id="hover_style"]
+[ext_resource type="PackedScene" uid="uid://dgff724wmp7ic" path="res://scenes/world/DropToast.tscn" id="sale_reward_toast"]
 [ext_resource type="Texture2D" uid="uid://dspjpr66gh236" path="res://assets/hd/ui/shop_v04/controls_atlas.png" id="shop_close_controls"]
 [ext_resource type="Texture2D" uid="uid://c35bfs70hrip6" path="res://assets/hd/ui/shop_v04/button_green_blank.png" id="shop_content_1_green"]
 [ext_resource type="Texture2D" uid="uid://bjjiy3ae6khi" path="res://assets/hd/ui/shop_v04/button_gold_blank.png" id="shop_content_2_gold"]
@@ -747,25 +748,164 @@ theme_override_styles/hover = SubResource("ShopCloseStyle")
 theme_override_styles/focus = SubResource("ShopCloseStyle")
 
 [node name="PrimaryMenu" parent="ShopPopup/ContentSurface" unique_id=785788242 instance=ExtResource("9_5tjof")]
-editor_description = "参考图顶部一级筛选；独立于内容滚动区，可在此移动或缩放。"
+editor_description = "商店一级菜单；保留原位置和缩放。各 Tab 居中且不横向拉伸，点击宽度调整 Tab 的 custom_minimum_size.x，背景尺寸在 Background 中独立调整。"
 layout_mode = 0
 offset_left = -182.0
 offset_top = 97.0
 offset_right = 204.06555
 offset_bottom = 246.18031
 scale = Vector2(1.22, 1.22)
+mouse_filter = 2
 theme_override_constants/separation = -5
 
-[node name="Label" parent="ShopPopup/ContentSurface/PrimaryMenu/BaitTab" parent_id_path=PackedInt32Array(785788242, 584166748) index="1" unique_id=795194535]
+[node name="FishTab" parent="ShopPopup/ContentSurface/PrimaryMenu" index="0" unique_id=2124413509]
+editor_description = "商店点击区；固定最小宽度并居中，不随一级菜单容器横向拉伸。背景和文字仍为独立静态节点。"
+custom_minimum_size = Vector2(100, 40)
+size_flags_horizontal = 4
+
+[node name="Background" parent="ShopPopup/ContentSurface/PrimaryMenu/FishTab" index="0" unique_id=710098088]
+editor_description = "保留商店原有约 134×100 的贴图绘制区域；原图含透明留白，背景居中固定尺寸，不随点击宽度变化。"
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -68.032775
+offset_top = -32.0
+offset_right = 66.032775
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 1
+mouse_filter = 2
+
+[node name="Label" parent="ShopPopup/ContentSurface/PrimaryMenu/FishTab" index="1" unique_id=1025227193]
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+mouse_filter = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BaitTab" parent="ShopPopup/ContentSurface/PrimaryMenu" index="1" unique_id=584166748]
+editor_description = "商店点击区；固定最小宽度并居中，不随一级菜单容器横向拉伸。背景和文字仍为独立静态节点。"
+custom_minimum_size = Vector2(100, 40)
+size_flags_horizontal = 4
+
+[node name="Background" parent="ShopPopup/ContentSurface/PrimaryMenu/BaitTab" index="0" unique_id=1068163353]
+editor_description = "保留商店原有约 134×100 的贴图绘制区域；原图含透明留白，背景居中固定尺寸，不随点击宽度变化。"
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -68.032775
+offset_top = -32.0
+offset_right = 66.032775
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 1
+mouse_filter = 2
+
+[node name="Label" parent="ShopPopup/ContentSurface/PrimaryMenu/BaitTab" index="1" unique_id=795194535]
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+mouse_filter = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 text = "产品"
 metadata/l10n_text = "shop.products.tab"
 
-[node name="Label" parent="ShopPopup/ContentSurface/PrimaryMenu/CropTab" parent_id_path=PackedInt32Array(785788242, 1945718160) index="1" unique_id=346027626]
+[node name="CropTab" parent="ShopPopup/ContentSurface/PrimaryMenu" index="2" unique_id=1945718160]
+editor_description = "商店点击区；固定最小宽度并居中，不随一级菜单容器横向拉伸。背景和文字仍为独立静态节点。"
+custom_minimum_size = Vector2(100, 40)
+size_flags_horizontal = 4
+
+[node name="Background" parent="ShopPopup/ContentSurface/PrimaryMenu/CropTab" index="0" unique_id=1414616153]
+editor_description = "保留商店原有约 134×100 的贴图绘制区域；原图含透明留白，背景居中固定尺寸，不随点击宽度变化。"
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -68.032775
+offset_top = -32.0
+offset_right = 66.032775
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 1
+mouse_filter = 2
+
+[node name="Label" parent="ShopPopup/ContentSurface/PrimaryMenu/CropTab" index="1" unique_id=346027626]
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+mouse_filter = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 text = "作物"
 metadata/l10n_text = "ui.58f12b65f7"
 
 [node name="AchievementTab" parent="ShopPopup/ContentSurface/PrimaryMenu" index="3" unique_id=1135268102]
+editor_description = "成就页入口；背景与文字均为静态子节点。"
 visible = false
+custom_minimum_size = Vector2(100, 40)
+size_flags_horizontal = 4
+
+[node name="Background" parent="ShopPopup/ContentSurface/PrimaryMenu/AchievementTab" index="0" unique_id=796153466]
+editor_description = "保留商店原有约 134×100 的贴图绘制区域；原图含透明留白，背景居中固定尺寸，不随点击宽度变化。"
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -68.032775
+offset_top = -32.0
+offset_right = 66.032775
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 1
+mouse_filter = 2
+
+[node name="Label" parent="ShopPopup/ContentSurface/PrimaryMenu/AchievementTab" index="1" unique_id=2087347063]
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+mouse_filter = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="OfferBaitHover" type="PanelContainer" parent="." unique_id=583738644]
 editor_description = "高价收购鱼卡悬停面板；移动此节点可调整提示位置。"
@@ -807,6 +947,22 @@ stretch_mode = 5
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.97, 0.86, 1)
 theme_override_font_sizes/font_size = 13
+
+[node name="SaleRewardWindow" type="Window" parent="." unique_id=1952144213]
+editor_description = "商店上方的金币获取提示窗口；内部复用通用 DropToast。"
+transparent_bg = true
+size = Vector2i(260, 110)
+visible = false
+transient = true
+unresizable = true
+borderless = true
+transparent = true
+unfocusable = true
+mouse_passthrough = true
+
+[node name="DropToast" parent="SaleRewardWindow" unique_id=2142571103 instance=ExtResource("sale_reward_toast")]
+position = Vector2(130, 100)
+reusable = true
 
 [editable path="ShopPopup/ContentSurface/ContentScroll/Content/Body/ShopContent/OwnedSection/Content/OwnedScroll/ProductGrid/ProductSlot01"]
 [editable path="ShopPopup/ContentSurface/ContentScroll/Content/Body/ShopContent/OwnedSection/Content/OwnedScroll/ProductGrid/ProductSlot02"]

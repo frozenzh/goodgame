@@ -11,7 +11,7 @@
       "recipe": {
         "wheat": 2
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -25,7 +25,7 @@
       "recipe": {
         "corn": 2
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -39,7 +39,7 @@
       "recipe": {
         "carrot": 2
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -53,7 +53,7 @@
       "recipe": {
         "white_radish": 2
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -67,7 +67,7 @@
       "recipe": {
         "strawberry": 1
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -81,7 +81,7 @@
       "recipe": {
         "tomato": 1
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -95,7 +95,7 @@
       "recipe": {
         "cabbage": 1
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -109,7 +109,7 @@
       "recipe": {
         "lettuce": 1
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -124,7 +124,7 @@
         "barley": 2,
         "sweet_potato": 1
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -139,7 +139,7 @@
         "oat": 2,
         "beet": 1
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -154,7 +154,7 @@
         "rice": 2,
         "cucumber": 1
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -169,7 +169,7 @@
         "sorghum": 2,
         "watermelon": 1
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -184,7 +184,7 @@
         "rye": 2,
         "bok_choy": 1
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -199,7 +199,7 @@
         "potato": 2,
         "kale": 1
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -214,7 +214,7 @@
         "sweet_potato": 2,
         "blueberry": 1
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -229,7 +229,7 @@
         "beet": 2,
         "pumpkin": 1
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -244,7 +244,7 @@
         "turnip": 2,
         "spinach": 1
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -259,7 +259,7 @@
         "burdock": 2,
         "kale": 1
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -274,7 +274,7 @@
         "pumpkin": 2,
         "celery": 1
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"
@@ -289,7 +289,7 @@
         "eggplant": 2,
         "water_spinach": 1
       },
-      "charges_per_batch": 10,
+      "charges_per_batch": 2,
       "craft_seconds": 8.0,
       "required_workbench_tier": 1,
       "icon_resource": "res://assets/hd/ui/icon_bait_simple.png"

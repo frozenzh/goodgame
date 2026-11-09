@@ -3,6 +3,23 @@ class_name StaticWorldStrip
 extends Node2D
 
 const PLOT_COUNT := 7
+const BUILDING_HOVER_SPRITES := {
+	"cottage": [
+		"ResourceNodes/House/LevelVisuals/Level1", "ResourceNodes/House/LevelVisuals/Level2",
+		"ResourceNodes/House/LevelVisuals/Level3", "ResourceNodes/House/LevelVisuals/Level4",
+		"ResourceNodes/House/ConstructionVisual/Scaffold", "ResourceNodes/House/ConstructionVisual/SignGroup/Board",
+	],
+	"workbench": [
+		"ResourceNodes/Workbench/Sprite", "ResourceNodes/Workbench/ConstructionVisual/Scaffold",
+		"ResourceNodes/Workbench/ConstructionVisual/SignGroup/Board",
+	],
+	"shop": [
+		"ResourceNodes/ShopBuilding/LevelVisuals/Level1", "ResourceNodes/ShopBuilding/LevelVisuals/Level2",
+		"ResourceNodes/ShopBuilding/LevelVisuals/Level3", "ResourceNodes/ShopBuilding/ConstructionVisual/Scaffold",
+		"ResourceNodes/ShopBuilding/ConstructionVisual/SignGroup/Board",
+	],
+	"pasture": ["PastureAreas/PastureBarn/BarnSprite", "PastureAreas/PastureBarn/ConstructionOverlay"],
+}
 const DEFAULT_UNLOCKED_START_INDEX := 5
 const SPARKLE_BURST := preload("res://scenes/world/SparkleBurst.tscn")
 const DISCOVERY_CELEBRATION := preload("res://scenes/world/NewDiscoveryCelebration.tscn")
@@ -95,6 +112,9 @@ func _on_fish_size_caught(fish_id: String, size_cm: int, _is_minimum: bool, is_m
 
 # 响应 item_dropped 对应的事件或条件。
 func _on_item_dropped(item_type: String, item_id: String, amount: int, source_key: String) -> void:
+	var shop_window := get_parent().get_node_or_null("ShopWindow") as Window
+	if item_type == "coins" and source_key == "shop" and shop_window != null and shop_window.visible:
+		return
 	var anchor := _drop_anchor(source_key)
 	if anchor == null:
 		return
@@ -376,33 +396,22 @@ func hit_test_building(global_point: Vector2) -> String:
 	return ""
 
 
-# 设置 building_hover，供调用方继续处理。
+# zone 来自建筑像素命中检测；施工入口与成品共用分组，所有等级同步切换，隐藏外观不会残留悬停状态。
 func set_building_hover(zone: String) -> void:
 	var target := zone.trim_prefix("finish_")
-	if target not in ["cottage", "workbench", "shop"]:
+	if not BUILDING_HOVER_SPRITES.has(target):
 		target = ""
 	if target == _hovered_building:
 		return
 	_hovered_building = target
-	var house_sprite: Sprite2D = null
-	for level in ["Level1", "Level2", "Level3", "Level4"]:
-		var candidate := house_level_visuals.get_node_or_null(level) as Sprite2D
-		if candidate != null and candidate.visible:
-			house_sprite = candidate
-			break
-	var workbench_sprite := get_node_or_null("ResourceNodes/Workbench/Sprite") as Sprite2D
-	var shop_sprite := shop_level_visuals.get_node_or_null("Level1") as Sprite2D
-	for entry in [
-		{"id": "cottage", "sprite": house_sprite},
-		{"id": "workbench", "sprite": workbench_sprite},
-		{"id": "shop", "sprite": shop_sprite},
-	]:
-		var sprite := entry["sprite"] as Sprite2D
-		if sprite == null:
-			continue
-		var outline := sprite.material as ShaderMaterial
-		if outline != null:
-			outline.set_shader_parameter("hovered", 1.0 if entry["id"] == target else 0.0)
+	for building_id in BUILDING_HOVER_SPRITES:
+		for sprite_path in BUILDING_HOVER_SPRITES[building_id]:
+			var sprite := get_node_or_null(NodePath(sprite_path)) as Sprite2D
+			if sprite == null:
+				continue
+			var outline := sprite.material as ShaderMaterial
+			if outline != null:
+				outline.set_shader_parameter("hovered", 1.0 if building_id == target else 0.0)
 
 
 # 封装 hit_test_plot 的处理，供相关流程复用。
@@ -492,6 +501,13 @@ func _refresh_facility_work_statuses(jobs: Node) -> void:
 	if not jobs.has_method("get_facility_work_status"):
 		return
 	var status: Dictionary = jobs.call("get_facility_work_status")
+	var cottage: Dictionary = status.get("cottage", {}) if status.get("cottage", {}) is Dictionary else {}
+	_set_facility_work_badge(
+		get_node_or_null("ResourceNodes/House/WorkPendingBadge") as Control,
+		cottage,
+		"world.work.cottage_waiting",
+		"world.work.cottage_waiting"
+	)
 	var craft: Dictionary = status.get("craft", {}) if status.get("craft", {}) is Dictionary else {}
 	_sync_workbench_smoke(int(craft.get("running_count", 0)) > 0)
 	_set_facility_work_badge(

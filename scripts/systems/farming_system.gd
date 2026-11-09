@@ -150,7 +150,7 @@ func plant_cell(plot_id: Variant, cell_index: int, crop_id: String, repeat_crop:
 	return true
 
 
-# 封装 water_cell 的处理，供相关流程复用。
+# 为本轮作物补水，now_unix 单位为秒；首次浇水覆盖种子和叶片两阶段，未浇水作物仍可在叶片期首次补水。
 func water_cell(plot_id: Variant, cell_index: int, now_unix: int = 0) -> bool:
 	var state: Variant = _state()
 	if state == null or cell_index < 0 or cell_index >= 9:
@@ -169,9 +169,13 @@ func water_cell(plot_id: Variant, cell_index: int, now_unix: int = 0) -> bool:
 	if stage == "seed":
 		var future_leaf_seconds := maxi(1, int(cell.get("mature_at", now)) - int(cell.get("leaf_at", now)))
 		cell["leaf_at"] = now + maxi(1, ceili(float(int(cell.get("leaf_at", now)) - now) / dry_multiplier))
-		cell["mature_at"] = int(cell["leaf_at"]) + future_leaf_seconds
+		# 原先叶片阶段等待第二次浇水才加速，暂时停用并保留原式。
+		# cell["mature_at"] = int(cell["leaf_at"]) + future_leaf_seconds
+		cell["mature_at"] = int(cell["leaf_at"]) + maxi(1, ceili(float(future_leaf_seconds) / dry_multiplier))
 	else:
 		cell["mature_at"] = now + maxi(1, ceili(float(int(cell.get("mature_at", now)) - now) / dry_multiplier))
+	cell["watered_seed"] = true
+	cell["watered_leaf"] = true
 	_sync_plot_summary(plot)
 	_emit("crop_watered", [str(plot.get("id", plot_id)), cell_index, stage])
 	_request_save()
@@ -454,7 +458,7 @@ func harvest_plot(plot_id: Variant, now_unix: int = 0) -> bool:
 	return true
 
 
-# 封装 refresh 的处理，供相关流程复用。
+# 刷新成熟状态，并让旧存档已完成的首次浇水覆盖叶片期；第二次浇水的自动入队代码注释保留。
 func refresh(now_unix: int = 0) -> Dictionary:
 	var state: Variant = _state()
 	var summary := {"crops": {}, "harvested_plots": [], "mature_plots": []}
@@ -462,6 +466,7 @@ func refresh(now_unix: int = 0) -> Dictionary:
 		return summary
 	var current := _now() if now_unix <= 0 else now_unix
 	var weather_watering := is_weather_watering()
+	var watering_inherited := false
 	if weather_watering:
 		_auto_water_for_weather(current)
 	for value in state.plots:
@@ -470,20 +475,31 @@ func refresh(now_unix: int = 0) -> Dictionary:
 		var plot: Dictionary = value
 		var cells: Array = plot.get("cells", [])
 		var has_mature := false
-		var leaf_watering_targets: Array[String] = []
+		# var leaf_watering_targets: Array[String] = []
 		for index in range(cells.size()):
 			var cell: Dictionary = cells[index]
+			if bool(cell.get("watered_seed", false)) and not bool(cell.get("watered_leaf", false)):
+				cell["watered_leaf"] = true
+				watering_inherited = true
+				if not str(cell.get("crop", "")).is_empty() and int(cell.get("mature_at", 0)) > current:
+					var leaf_start := maxi(current, int(cell.get("leaf_at", current)))
+					var dry_multiplier := maxf(1.0, GameConfig.get_float("farming", "unwatered_growth_multiplier"))
+					cell["mature_at"] = leaf_start + maxi(1, ceili(float(int(cell["mature_at"]) - leaf_start) / dry_multiplier))
+					_sync_plot_summary(plot)
 			var stage := cell_stage(cell, current)
 			if stage == "mature":
 				has_mature = true
-			elif stage == "leaf" and not weather_watering and not bool(cell.get("watered_leaf", false)):
-				leaf_watering_targets.append("%s:%d" % [str(plot.get("id", "")), index])
-		if not leaf_watering_targets.is_empty():
-			var jobs := get_tree().root.find_child("JobManager", true, false)
-			if jobs != null:
-				jobs.enqueue_task_batch("water_cell", leaf_watering_targets, [], TextDB.text("ui.1d21339af2"), TextDB.text("ui.eadd8c7b22"), true)
+			# 叶片阶段不再自动追加第二次浇水，原实现保留供恢复。
+			# elif stage == "leaf" and not weather_watering and not bool(cell.get("watered_leaf", false)):
+			# 	leaf_watering_targets.append("%s:%d" % [str(plot.get("id", "")), index])
+		# if not leaf_watering_targets.is_empty():
+		# 	var jobs := get_tree().root.find_child("JobManager", true, false)
+		# 	if jobs != null:
+		# 		jobs.enqueue_task_batch("water_cell", leaf_watering_targets, [], TextDB.text("ui.1d21339af2"), TextDB.text("ui.eadd8c7b22"), true)
 		if has_mature or cells.is_empty() and _plot_state(plot, current) == "mature":
 			summary["mature_plots"].append(str(plot.get("id", "")))
+	if watering_inherited:
+		_request_save()
 	return summary
 
 

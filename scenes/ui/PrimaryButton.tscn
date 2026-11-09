@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://do7gog1hg3ww4"]
 
 [ext_resource type="Texture2D" uid="uid://dspjpr66gh236" path="res://assets/hd/ui/shop_v04/controls_atlas.png" id="1_atlas"]
+[ext_resource type="Texture2D" uid="uid://bl2sbm78pffpy" path="res://assets/hd/ui/button_leaf_disabled.png" id="2_7cwix"]
 
 [sub_resource type="AtlasTexture" id="NormalArt"]
 atlas = ExtResource("1_atlas")
@@ -23,17 +24,8 @@ region = Rect2(544, 170, 450, 292)
 [sub_resource type="StyleBoxTexture" id="HoverStyle"]
 texture = SubResource("HoverArt")
 
-[sub_resource type="StyleBoxFlat" id="DisabledStyle"]
-bg_color = Color(0.44, 0.45, 0.34, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.32, 0.33, 0.25, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w5igx"]
+texture = ExtResource("2_7cwix")
 
 [sub_resource type="StyleBoxEmpty" id="FocusStyle"]
 
@@ -46,11 +38,13 @@ mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(1, 0.973, 0.906, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.973, 0.906, 1)
 theme_override_colors/font_hover_color = Color(1, 0.973, 0.906, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("NormalStyle")
 theme_override_styles/pressed = SubResource("PressedStyle")
 theme_override_styles/hover = SubResource("HoverStyle")
-theme_override_styles/disabled = SubResource("DisabledStyle")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_w5igx")
 theme_override_styles/focus = SubResource("FocusStyle")
 text = "确定"
 metadata/l10n_text = "ui.f526c89937"

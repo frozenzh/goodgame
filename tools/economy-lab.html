@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DreamingBelow · 经济调参台</title>
+<style>
+:root{color-scheme:light;--ink:#183b36;--muted:#667b76;--paper:#f4f6f1;--card:#fff;--line:#dce4db;--green:#287a63;--orange:#be7733;--blue:#5682ae;--red:#bb4e48}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.6 system-ui,"Microsoft YaHei",sans-serif}button,input,select{font:inherit}button{cursor:pointer;background:#fff;border:1px solid var(--line);border-radius:7px;padding:8px 13px;color:var(--ink)}button:hover{border-color:var(--green)}button.primary{background:var(--ink);color:#fff}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #89b6d6;outline-offset:2px}header{background:var(--ink);color:#fff;padding:30px max(28px,calc((100vw - 1440px)/2))}header small{letter-spacing:3px;color:#b5cdbd}h1{font-size:28px;font-weight:600;margin:6px 0}header p{color:#d0ded4;margin:0}.top{display:flex;justify-content:space-between;align-items:center;gap:20px}.badge{font-size:12px;border:1px solid #65867c;padding:5px 12px;border-radius:20px;white-space:nowrap}main{max-width:1496px;padding:24px 28px 50px;margin:auto}.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:20px}.toolbar span{margin-right:auto;color:var(--muted);font-size:12px}.layout{display:grid;grid-template-columns:330px minmax(0,1fr);gap:22px;align-items:start}.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:18px}h2{font-size:17px;margin:0 0 14px}h3{font-size:14px;margin:20px 0 10px}.kicker{font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:block;margin-bottom:12px;font-size:12px;color:var(--muted)}input,select{width:100%;padding:7px 8px;background:#fbfcfa;border:1px solid var(--line);border-radius:6px;color:var(--ink);margin-top:4px}input[type=number]{min-width:72px}input:invalid{border-color:var(--red)}.note{font-size:12px;color:var(--muted);margin:8px 0}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}.metric{background:var(--card);border:1px solid var(--line);padding:16px;border-radius:10px}.metric small{color:var(--muted)}.value{font-size:25px;line-height:1.4;font-weight:650;font-variant-numeric:tabular-nums}.metric p{font-size:11px;color:var(--muted);margin:3px 0}.charthead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.charthead h2{margin-bottom:5px}.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px}.legend i{display:inline-block;width:19px;height:3px;margin-right:5px;vertical-align:middle}.chart{position:relative}.chart svg{display:block;width:100%;height:auto}.tooltip{position:absolute;pointer-events:none;background:var(--ink);color:#fff;border-radius:8px;padding:10px 13px;font-size:12px;box-shadow:0 4px 18px #0002;white-space:pre;z-index:1}.tablewrap{overflow:auto;max-height:420px}table{border-collapse:collapse;width:100%;font-size:12px}th,td{border-bottom:1px solid var(--line);padding:9px 8px;text-align:right;white-space:nowrap}th:first-child,td:first-child{text-align:left}th{font-weight:500;color:var(--muted);position:sticky;top:0;background:white;z-index:1}td input{width:88px;padding:5px;margin:0}td .wide{width:105px}.alert{background:#fff3e5;border-left:3px solid var(--orange);padding:10px 14px;margin-bottom:18px;font-size:12px}.alert:empty{display:none}.formula{padding:12px;background:#f1f5ee;border-radius:7px;font-size:12px;margin-top:12px}details summary{cursor:pointer;font-weight:600}details p,details li{font-size:12px;color:var(--muted)}.flow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0;font-size:12px}.flow b{background:#edf3e9;padding:5px 10px;border-radius:5px}.tabbar{display:flex;gap:8px;margin-bottom:14px}.tabbar button[aria-selected=true]{background:var(--ink);color:white}.negative{color:var(--red)}#status{font-size:12px;color:var(--muted)}footer{font-size:12px;color:var(--muted);margin-top:20px}@media(max-width:1050px){.layout{grid-template-columns:280px minmax(0,1fr)}.metrics{grid-template-columns:repeat(2,1fr)}}@media(max-width:760px){.layout{display:block}main{padding:18px 14px}header{padding:22px 18px}h1{font-size:23px}.badge{display:none}.row{gap:9px}.panel{padding:16px}.metrics{gap:8px}.value{font-size:23px}}
+</style>
+</head>
+<body>
+<header><div class="top"><div><small>DREAMINGBELOW / BALANCE LAB</small><h1>种植 → 鱼饵 → 鱼 · 经济调参台</h1><p>用当前项目数据建立起点，观察利润、回本与产能积压。</p></div><div class="badge">本地数据快照 · 2026.11.09</div></div></header>
+<main>
+<div class="toolbar"><span>可离线使用 · 修改即时重算 · 参数只保存在此页面</span><button id="save">固定当前方案作对比</button><button id="reset">恢复项目默认</button><button id="export">导出参数 JSON</button><button id="import">导入参数</button><button class="primary" id="csv">导出曲线 CSV</button><input id="file" type="file" accept="application/json,.json" hidden></div>
+<div class="layout"><aside>
+<section class="panel"><div class="kicker">01 / production plan</div><h2>选择生产链</h2><label class="field">生产模式<select id="strategy"><option value="linear">线性整轮 · 钓完再种</option><option value="continuous">连续补种 · 农活优先</option></select></label><label class="field">目标鱼饵<select id="bait"></select></label><label class="field">鱼竿 · 限定可钓品质<select id="rod"></select></label><div class="row"><label class="field">种植大地块数（最多 7 块）<input id="largePlots" type="number" min="1" max="7" step="1"></label><label class="field">总小格数（每块 9 格）<input id="land" type="number" min="9" max="63" step="1" readonly></label><label class="field">观察时间（小时）<input id="hours" type="number" min="0.1" max="168" step="0.1"></label></div><button id="allocate">按配方自动分配地块</button><p class="note">默认满种 7 块地、共 63 株。每株播种均扣金币，并逐株计算播种、浇水、收获时间。</p><div id="allocation"></div></section>
+<section class="panel"><div class="kicker">02 / processing & sales</div><h2>制作与售卖</h2><div class="row"><label class="field">每批鱼饵数量<input id="charges" type="number" min="1" max="1000" step="1"></label><label class="field">每批额外金币<input id="fee" type="number" min="0" max="100000" step="0.1"></label><label class="field">制饵耗时（秒 / 批）<input id="craft" type="number" min="0" max="3600" step="0.1"></label><label class="field">鱼价整体倍率<input id="priceScale" type="number" min="0" max="100" step="0.1"></label><label class="field">平均每杆耗时（秒）<input id="cast" type="number" min="0.1" max="3600" step="0.1"></label><label class="field">额外休息（秒 / 杆）<input id="rest" type="number" min="0" max="3600" step="0.1"></label></div><label class="field">鱼饵备货目标（份，0 = 持续制饵）<input id="buffer" type="number" min="0" max="100000" step="1"></label><label class="field">期望成功率（%）<input id="success" type="number" min="0" max="100" step="1"></label><label class="field">一次性建设投入（金币）<input id="setup" type="number" min="0" max="1000000" step="1"></label><p class="note">线性模式把本轮原料全部制饵、钓完后再种；备货目标仅用于连续模式。连续模式默认备货 20 份。切换配方会恢复该配方的默认参数。项目制饵额外金币默认为 0。鱼价倍率默认 1，模拟普通直售；提高倍率可试算高价收购。</p></section>
+<section class="panel"><div class="kicker">03 / time budget</div><h2>劳动与权重</h2><div class="row"><label class="field">播种（秒 / 株）<input id="plant" type="number" min="0" max="3600" step="0.1"></label><label class="field">浇水（秒 / 株）<input id="water" type="number" min="0" max="3600" step="0.1"></label><label class="field">收获（秒 / 株）<input id="harvest" type="number" min="0" max="3600" step="0.1"></label><label class="field">鱼饵偏好权重<input id="matching" type="number" min="0" max="100" step="0.1"></label><label class="field">高级饵稀有鱼权重<input id="rareBoost" type="number" min="1" max="100" step="0.1"></label></div><p class="note">默认额外休息为 0。有原料时补足鱼饵，其余可用时间全部钓鱼；缺饵且原料未成熟时等待。所有劳动共享一个角色。</p></section>
+</aside><article>
+<div id="warnings" class="alert" role="status"></div>
+<div class="metrics"><div class="metric"><small>钓鱼链 · 累计净利润</small><div class="value" id="profit">—</div><p id="profitSub"></p></div><div class="metric"><small>同地块 · 作物直售净利润</small><div class="value" id="cropProfit">—</div><p id="cropSub"></p></div><div class="metric"><small>单杆期望直售价</small><div class="value" id="ev">—</div><p id="poolCount"></p></div><div class="metric"><small>鱼饵期末积压</small><div class="value" id="backlog">—</div><p id="backlogSub"></p></div></div>
+<section class="panel"><div class="charthead"><div><div class="kicker">cash flow / expected value</div><h2>累计净利润随时间变化</h2></div><div class="legend"><span><i style="background:var(--green)"></i>当前钓鱼链</span><span><i style="background:var(--orange)"></i>同地块作物直售</span><span id="compareLegend" hidden><i style="background:var(--blue)"></i>固定对比方案</span></div></div><p class="note">横轴为小时，纵轴为累计收入减已发生支出（金币）。鱼获按期望售价即时卖出，库存不计入现金利润。</p><div class="chart" id="chart"></div><p id="status" aria-live="polite"></p></section>
+<section class="panel"><div class="kicker">7 plots / shared worker</div><h2>7 块地的劳动时间与剩余钓鱼时间</h2><p class="note" id="timeSummary"></p><div class="tablewrap"><table><thead><tr><th>时间用途</th><th>累计分钟</th><th>观察期占比</th></tr></thead><tbody id="timeRows"></tbody></table></div></section><section class="panel"><div class="kicker">unit economics</div><h2>这一批原料，做饵还是直接卖？</h2><div class="flow" id="flow"></div><div class="tablewrap"><table><thead><tr><th>项目</th><th>金币 / 批</th></tr></thead><tbody id="unit"></tbody></table></div><div class="formula" id="formula"></div></section>
+<section class="panel"><div class="kicker">parameters / editable source</div><h2>原料与鱼价</h2><div class="tabbar" role="tablist" aria-label="参数表"><button id="cropTab" role="tab" aria-selected="true" aria-controls="cropPanel">作物与配方</button><button id="fishTab" role="tab" aria-selected="false" aria-controls="fishPanel">可钓鱼与价格</button></div><div id="cropPanel" role="tabpanel" aria-labelledby="cropTab"><p class="note">每个值都可独立修改。产量与需求按整数计算，单批成本按种植成本 / 收获数折算。</p><div class="tablewrap"><table><thead><tr><th>原料</th><th>播种 / 株</th><th>产量 / 株</th><th>生长秒数</th><th>直售 / 个</th><th>配方用量 / 批</th></tr></thead><tbody id="cropRows"></tbody></table></div></div><div id="fishPanel" role="tabpanel" aria-labelledby="fishTab" hidden><p class="note">可钓范围由鱼饵类型与鱼竿品质决定；概率会随权重自动重算。单条鱼价和基础权重可单独修改。</p><div class="tablewrap"><table><thead><tr><th>鱼类</th><th>品质</th><th>原价 / 条</th><th>基础权重</th><th>出现概率</th><th>调整后售价</th></tr></thead><tbody id="fishRows"></tbody></table></div></div></section>
+<details class="panel" open><summary>计算口径与项目来源</summary><ul><li>数据取自当前项目 data/catalog 的 crops、baits、fish、rods，以及 data/config 的 farming、fishing、worker。此文件内嵌快照，后续项目改表需重新同步。</li><li>曲线是简化的单角色离散事件模型。线性整轮模式依次完成满种与浇水、收获本轮作物、将可用原料全部制饵、用完鱼饵后再种下一轮。连续模式按收获、即时补种、低库存补饵、钓鱼的优先级调度。虚线默认对照另一模式。</li><li>默认 7 块大地共 63 格，从空地和零库存开始，假定设施、目标配方与鱼竿已可用，资金充足，允许显示负现金流。建设投入仅在起点扣除，不自动计入升级价格。</li><li>成功率默认 100%。鱼池使用当前标签匹配、鱼竿品质上限、基础权重、最爱鱼饵倍率与高级饵加权规则。鱼价倍率统一作用于所有匹配鱼，是可调情景，不模拟随机高价栏刷新。</li><li>生长按已浇水、无肥力加速计时。天气、变异增产、仓储上限、离线结算、走路和其他玩法占用未建模。鱼获用概率期望值，不展示随机波动区间。</li><li>播种时扣金币，生长期间可处理其他农活和钓鱼。线性模式收获后保持空地直到本轮钓鱼结束；连续模式收获后逐株补种。单批折算允许原料按单位分摊种植成本；时间曲线使用整株收获和整批制饵。剩余作物、鱼饵和在田作物在期末仍是库存，不加入现金净利润。</li></ul><p id="source"></p></details>
+<footer>DreamingBelow（桌下田园） · 参数试算工具</footer>
+</article></div></main>
+<script id="project-data" type="application/json">{"crops":[{"id":"wheat","display_name":"小麦","rarity":"common","grow_seconds":180,"plant_cost":2,"harvest_amount":4,"sell_price":1,"mutation_chance":0.01,"mature_visual_width":30,"mature_visual_height":56,"bait_type":"grain","bait_links":["wheat_bait"],"growth_stage_count":3,"initially_unlocked":true,"unlock_requirements":[],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/wheat_tall.png","icon_resource":"res://assets/hd/world/plot3x3/wheat.png"},{"id":"corn","display_name":"玉米","rarity":"common","grow_seconds":350,"plant_cost":3,"harvest_amount":8,"sell_price":1,"mutation_chance":0.01,"mature_visual_width":42,"mature_visual_height":88,"bait_type":"grain","bait_links":["corn_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"wheat","harvest_amount":12}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/corn_tall.png","icon_resource":"res://assets/hd/world/plot3x3/corn.png"},{"id":"carrot","display_name":"胡萝卜","rarity":"common","grow_seconds":200,"plant_cost":4,"harvest_amount":6,"sell_price":1,"mutation_chance":0.01,"mature_visual_width":38,"mature_visual_height":46,"bait_type":"root","bait_links":["carrot_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"wheat","harvest_amount":24}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/carrot.png","icon_resource":"res://assets/hd/world/plot3x3/carrot.png"},{"id":"white_radish","display_name":"白萝卜","rarity":"common","grow_seconds":200,"plant_cost":4,"harvest_amount":6,"sell_price":1,"mutation_chance":0.01,"mature_visual_width":38,"mature_visual_height":48,"bait_type":"root","bait_links":["white_radish_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"carrot","harvest_amount":54}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/white_radish.png","icon_resource":"res://assets/hd/world/plot3x3/white_radish.png"},{"id":"strawberry","display_name":"草莓","rarity":"common","grow_seconds":1200,"plant_cost":10,"harvest_amount":15,"sell_price":1,"mutation_chance":0.01,"mature_visual_width":45,"mature_visual_height":45,"bait_type":"fruit","bait_links":["strawberry_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"corn","harvest_amount":144},{"crop_id":"carrot","harvest_amount":108}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/strawberry.png","icon_resource":"res://assets/hd/world/plot3x3/strawberry.png"},{"id":"tomato","display_name":"番茄","rarity":"common","grow_seconds":600,"plant_cost":7,"harvest_amount":8,"sell_price":2,"mutation_chance":0.01,"mature_visual_width":43,"mature_visual_height":61,"bait_type":"fruit","bait_links":["tomato_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"strawberry","harvest_amount":270}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/tomato.png","icon_resource":"res://assets/hd/world/plot3x3/tomato.png"},{"id":"cabbage","display_name":"卷心菜","rarity":"common","grow_seconds":480,"plant_cost":5,"harvest_amount":6,"sell_price":2,"mutation_chance":0.01,"mature_visual_width":43,"mature_visual_height":39,"bait_type":"leaf","bait_links":["cabbage_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"white_radish","harvest_amount":108}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/cabbage.png","icon_resource":"res://assets/hd/world/plot3x3/cabbage.png"},{"id":"lettuce","display_name":"生菜","rarity":"common","grow_seconds":540,"plant_cost":6,"harvest_amount":8,"sell_price":1,"mutation_chance":0.01,"mature_visual_width":43,"mature_visual_height":41,"bait_type":"leaf","bait_links":["lettuce_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"cabbage","harvest_amount":108}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/lettuce.png","icon_resource":"res://assets/hd/world/plot3x3/lettuce.png"},{"id":"barley","display_name":"大麦","rarity":"common","grow_seconds":240,"plant_cost":3,"harvest_amount":4,"sell_price":1,"mutation_chance":0.01,"mature_visual_width":34,"mature_visual_height":61,"bait_type":"grain","bait_links":["barley_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"wheat","harvest_amount":108}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/barley.png","icon_resource":"res://assets/hd/world/plot3x3/barley.png"},{"id":"oat","display_name":"燕麦","rarity":"common","grow_seconds":300,"plant_cost":4,"harvest_amount":4,"sell_price":2,"mutation_chance":0.01,"mature_visual_width":34,"mature_visual_height":64,"bait_type":"grain","bait_links":["oat_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"barley","harvest_amount":108}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/oat.png","icon_resource":"res://assets/hd/world/plot3x3/oat.png"},{"id":"rice","display_name":"水稻","rarity":"epic","grow_seconds":1500,"plant_cost":23,"harvest_amount":7,"sell_price":5,"mutation_chance":0.01,"mature_visual_width":39,"mature_visual_height":70,"bait_type":"grain","bait_links":["rice_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"oat","harvest_amount":144},{"crop_id":"corn","harvest_amount":216}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/rice.png","icon_resource":"res://assets/hd/world/plot3x3/rice.png"},{"id":"sorghum","display_name":"高粱","rarity":"good","grow_seconds":720,"plant_cost":8,"harvest_amount":5,"sell_price":2,"mutation_chance":0.01,"mature_visual_width":39,"mature_visual_height":83,"bait_type":"grain","bait_links":["sorghum_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"corn","harvest_amount":216},{"crop_id":"barley","harvest_amount":108}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/sorghum.png","icon_resource":"res://assets/hd/world/plot3x3/sorghum.png"},{"id":"rye","display_name":"黑麦","rarity":"rare","grow_seconds":1080,"plant_cost":13,"harvest_amount":6,"sell_price":3,"mutation_chance":0.01,"mature_visual_width":58,"mature_visual_height":75,"bait_type":"grain","bait_links":["rye_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"sorghum","harvest_amount":135},{"crop_id":"rice","harvest_amount":126}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/rye.png","icon_resource":"res://assets/hd/world/plot3x3/rye.png"},{"id":"potato","display_name":"土豆","rarity":"common","grow_seconds":360,"plant_cost":4,"harvest_amount":4,"sell_price":2,"mutation_chance":0.01,"mature_visual_width":43,"mature_visual_height":39,"bait_type":"root","bait_links":["potato_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"carrot","harvest_amount":108}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/potato.png","icon_resource":"res://assets/hd/world/plot3x3/potato.png"},{"id":"sweet_potato","display_name":"红薯","rarity":"common","grow_seconds":420,"plant_cost":5,"harvest_amount":4,"sell_price":2,"mutation_chance":0.01,"mature_visual_width":46,"mature_visual_height":40,"bait_type":"root","bait_links":["sweet_potato_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"potato","harvest_amount":108}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/sweet_potato.png","icon_resource":"res://assets/hd/world/plot3x3/sweet_potato.png"},{"id":"beet","display_name":"甜菜","rarity":"good","grow_seconds":600,"plant_cost":7,"harvest_amount":5,"sell_price":2,"mutation_chance":0.01,"mature_visual_width":40,"mature_visual_height":46,"bait_type":"root","bait_links":["beet_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"white_radish","harvest_amount":162},{"crop_id":"potato","harvest_amount":108}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/beet.png","icon_resource":"res://assets/hd/world/plot3x3/beet.png"},{"id":"turnip","display_name":"芜菁","rarity":"good","grow_seconds":660,"plant_cost":8,"harvest_amount":5,"sell_price":2,"mutation_chance":0.01,"mature_visual_width":40,"mature_visual_height":46,"bait_type":"root","bait_links":["turnip_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"beet","harvest_amount":135}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/turnip.png","icon_resource":"res://assets/hd/world/plot3x3/turnip.png"},{"id":"burdock","display_name":"牛蒡","rarity":"rare","grow_seconds":1140,"plant_cost":14,"harvest_amount":6,"sell_price":3,"mutation_chance":0.01,"mature_visual_width":38,"mature_visual_height":72,"bait_type":"root","bait_links":["burdock_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"turnip","harvest_amount":135},{"crop_id":"sweet_potato","harvest_amount":108}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/burdock.png","icon_resource":"res://assets/hd/world/plot3x3/burdock.png"},{"id":"pumpkin","display_name":"南瓜","rarity":"common","grow_seconds":480,"plant_cost":6,"harvest_amount":3,"sell_price":3,"mutation_chance":0.01,"mature_visual_width":53,"mature_visual_height":43,"bait_type":"fruit","bait_links":["pumpkin_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"tomato","harvest_amount":144}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/pumpkin.png","icon_resource":"res://assets/hd/world/plot3x3/pumpkin.png"},{"id":"eggplant","display_name":"茄子","rarity":"good","grow_seconds":780,"plant_cost":9,"harvest_amount":5,"sell_price":3,"mutation_chance":0.01,"mature_visual_width":39,"mature_visual_height":67,"bait_type":"fruit","bait_links":["eggplant_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"tomato","harvest_amount":216},{"crop_id":"pumpkin","harvest_amount":54}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/eggplant.png","icon_resource":"res://assets/hd/world/plot3x3/eggplant.png"},{"id":"cucumber","display_name":"黄瓜","rarity":"common","grow_seconds":540,"plant_cost":6,"harvest_amount":5,"sell_price":2,"mutation_chance":0.01,"mature_visual_width":44,"mature_visual_height":62,"bait_type":"fruit","bait_links":["cucumber_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"pumpkin","harvest_amount":81}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/cucumber.png","icon_resource":"res://assets/hd/world/plot3x3/cucumber.png"},{"id":"watermelon","display_name":"西瓜","rarity":"epic","grow_seconds":1800,"plant_cost":25,"harvest_amount":4,"sell_price":8,"mutation_chance":0.01,"mature_visual_width":58,"mature_visual_height":43,"bait_type":"fruit","bait_links":["watermelon_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"cucumber","harvest_amount":135},{"crop_id":"strawberry","harvest_amount":270},{"crop_id":"pumpkin","harvest_amount":81}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/watermelon.png","icon_resource":"res://assets/hd/world/plot3x3/watermelon.png"},{"id":"blueberry","display_name":"蓝莓","rarity":"rare","grow_seconds":1200,"plant_cost":15,"harvest_amount":6,"sell_price":4,"mutation_chance":0.01,"mature_visual_width":48,"mature_visual_height":57,"bait_type":"fruit","bait_links":["blueberry_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"strawberry","harvest_amount":405},{"crop_id":"eggplant","harvest_amount":135}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/blueberry.png","icon_resource":"res://assets/hd/world/plot3x3/blueberry.png"},{"id":"spinach","display_name":"菠菜","rarity":"common","grow_seconds":270,"plant_cost":3,"harvest_amount":4,"sell_price":1,"mutation_chance":0.01,"mature_visual_width":43,"mature_visual_height":39,"bait_type":"leaf","bait_links":["spinach_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"lettuce","harvest_amount":144}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/spinach.png","icon_resource":"res://assets/hd/world/plot3x3/spinach.png"},{"id":"bok_choy","display_name":"小白菜","rarity":"common","grow_seconds":330,"plant_cost":4,"harvest_amount":4,"sell_price":2,"mutation_chance":0.01,"mature_visual_width":42,"mature_visual_height":43,"bait_type":"leaf","bait_links":["bok_choy_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"cabbage","harvest_amount":162}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/bok_choy.png","icon_resource":"res://assets/hd/world/plot3x3/bok_choy.png"},{"id":"kale","display_name":"羽衣甘蓝","rarity":"rare","grow_seconds":960,"plant_cost":12,"harvest_amount":6,"sell_price":3,"mutation_chance":0.01,"mature_visual_width":46,"mature_visual_height":55,"bait_type":"leaf","bait_links":["kale_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"spinach","harvest_amount":108},{"crop_id":"bok_choy","harvest_amount":108}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/kale.png","icon_resource":"res://assets/hd/world/plot3x3/kale.png"},{"id":"celery","display_name":"芹菜","rarity":"good","grow_seconds":630,"plant_cost":8,"harvest_amount":5,"sell_price":2,"mutation_chance":0.01,"mature_visual_width":38,"mature_visual_height":65,"bait_type":"leaf","bait_links":["celery_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"spinach","harvest_amount":144}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/celery.png","icon_resource":"res://assets/hd/world/plot3x3/celery.png"},{"id":"water_spinach","display_name":"空心菜","rarity":"good","grow_seconds":570,"plant_cost":7,"harvest_amount":5,"sell_price":2,"mutation_chance":0.01,"mature_visual_width":44,"mature_visual_height":53,"bait_type":"leaf","bait_links":["water_spinach_bait"],"growth_stage_count":3,"initially_unlocked":false,"unlock_requirements":[{"crop_id":"celery","harvest_amount":135},{"crop_id":"kale","harvest_amount":108}],"seed_resource":"res://assets/hd/world/plot3x3/seed.png","leaf_resource":"res://assets/hd/world/plot3x3/leaf.png","mature_resource":"res://assets/hd/world/plot3x3/water_spinach.png","icon_resource":"res://assets/hd/world/plot3x3/water_spinach.png"}],"baits":[{"id":"wheat_bait","display_name":"小麦饵","rarity":"common","bait_type":"grain","source_crop":"wheat","recipe":{"wheat":2},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"corn_bait","display_name":"玉米饵","rarity":"common","bait_type":"grain","source_crop":"corn","recipe":{"corn":2},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"carrot_bait","display_name":"胡萝卜饵","rarity":"common","bait_type":"root","source_crop":"carrot","recipe":{"carrot":2},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"white_radish_bait","display_name":"白萝卜饵","rarity":"common","bait_type":"root","source_crop":"white_radish","recipe":{"white_radish":2},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"strawberry_bait","display_name":"草莓饵","rarity":"common","bait_type":"fruit","source_crop":"strawberry","recipe":{"strawberry":1},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"tomato_bait","display_name":"番茄饵","rarity":"common","bait_type":"fruit","source_crop":"tomato","recipe":{"tomato":1},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"cabbage_bait","display_name":"卷心菜饵","rarity":"common","bait_type":"leaf","source_crop":"cabbage","recipe":{"cabbage":1},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"lettuce_bait","display_name":"生菜饵","rarity":"common","bait_type":"leaf","source_crop":"lettuce","recipe":{"lettuce":1},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"barley_bait","display_name":"大麦饵","rarity":"good","bait_type":"grain;root","source_crop":"barley","recipe":{"barley":2,"sweet_potato":1},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"oat_bait","display_name":"燕麦饵","rarity":"good","bait_type":"grain;root","source_crop":"oat","recipe":{"oat":2,"beet":1},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"rice_bait","display_name":"水稻饵","rarity":"good","bait_type":"grain;fruit","source_crop":"rice","recipe":{"rice":2,"cucumber":1},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"sorghum_bait","display_name":"高粱饵","rarity":"good","bait_type":"grain;fruit","source_crop":"sorghum","recipe":{"sorghum":2,"watermelon":1},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"rye_bait","display_name":"黑麦饵","rarity":"good","bait_type":"grain;leaf","source_crop":"rye","recipe":{"rye":2,"bok_choy":1},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"potato_bait","display_name":"土豆饵","rarity":"good","bait_type":"grain;leaf","source_crop":"potato","recipe":{"potato":2,"kale":1},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"sweet_potato_bait","display_name":"红薯饵","rarity":"good","bait_type":"root;fruit","source_crop":"sweet_potato","recipe":{"sweet_potato":2,"blueberry":1},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"beet_bait","display_name":"甜菜饵","rarity":"good","bait_type":"root;fruit","source_crop":"beet","recipe":{"beet":2,"pumpkin":1},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"turnip_bait","display_name":"芜菁饵","rarity":"good","bait_type":"root;leaf","source_crop":"turnip","recipe":{"turnip":2,"spinach":1},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"burdock_bait","display_name":"牛蒡饵","rarity":"good","bait_type":"root;leaf","source_crop":"burdock","recipe":{"burdock":2,"kale":1},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"pumpkin_bait","display_name":"南瓜饵","rarity":"good","bait_type":"fruit;leaf","source_crop":"pumpkin","recipe":{"pumpkin":2,"celery":1},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"},{"id":"eggplant_bait","display_name":"茄子饵","rarity":"good","bait_type":"fruit;leaf","source_crop":"eggplant","recipe":{"eggplant":2,"water_spinach":1},"charges_per_batch":2,"craft_seconds":8.0,"required_workbench_tier":1,"icon_resource":"res://assets/hd/ui/icon_bait_simple.png"}],"fish":[{"id":"fish_001","display_name":"小鲫鱼","rarity":"common","preferred_bait_type":"grain","favorite_bait_id":"wheat_bait","base_weight":10.0,"sell_price":10,"icon_resource":"res://assets/hd/fish/fish_001.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_002","display_name":"泥鳅","rarity":"common","preferred_bait_type":"root","favorite_bait_id":"white_radish_bait","base_weight":10.0,"sell_price":10,"icon_resource":"res://assets/hd/fish/fish_002.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_003","display_name":"白条鱼","rarity":"common","preferred_bait_type":"leaf","favorite_bait_id":"cabbage_bait","base_weight":10.0,"sell_price":10,"icon_resource":"res://assets/hd/fish/fish_003.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_004","display_name":"小鲤鱼","rarity":"common","preferred_bait_type":"grain","favorite_bait_id":"corn_bait","base_weight":10.0,"sell_price":10,"icon_resource":"res://assets/hd/fish/fish_004.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_005","display_name":"青鳉","rarity":"common","preferred_bait_type":"leaf","favorite_bait_id":"cabbage_bait","base_weight":10.0,"sell_price":10,"icon_resource":"res://assets/hd/fish/fish_005.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_006","display_name":"河虾虎","rarity":"common","preferred_bait_type":"root","favorite_bait_id":"white_radish_bait","base_weight":10.0,"sell_price":10,"icon_resource":"res://assets/hd/fish/fish_006.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_007","display_name":"红鳍鱼","rarity":"common","preferred_bait_type":"fruit","favorite_bait_id":"strawberry_bait","base_weight":10.0,"sell_price":10,"icon_resource":"res://assets/hd/fish/fish_007.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_008","display_name":"草鱼苗","rarity":"common","preferred_bait_type":"leaf","favorite_bait_id":"lettuce_bait","base_weight":10.0,"sell_price":10,"icon_resource":"res://assets/hd/fish/fish_008.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_009","display_name":"银鳞鱼","rarity":"common","preferred_bait_type":"grain","favorite_bait_id":"wheat_bait","base_weight":10.0,"sell_price":10,"icon_resource":"res://assets/hd/fish/fish_009.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_010","display_name":"黄尾鱼","rarity":"common","preferred_bait_type":"fruit","favorite_bait_id":"tomato_bait","base_weight":10.0,"sell_price":10,"icon_resource":"res://assets/hd/fish/fish_010.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_011","display_name":"圆头鳅","rarity":"common","preferred_bait_type":"root","favorite_bait_id":"carrot_bait","base_weight":10.0,"sell_price":10,"icon_resource":"res://assets/hd/fish/fish_011.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_012","display_name":"小河鲈","rarity":"common","preferred_bait_type":"root","favorite_bait_id":"white_radish_bait","base_weight":10.0,"sell_price":10,"icon_resource":"res://assets/hd/fish/fish_012.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_013","display_name":"花斑鲤","rarity":"good","preferred_bait_type":"grain","favorite_bait_id":"rice_bait","base_weight":5.0,"sell_price":20,"icon_resource":"res://assets/hd/fish/fish_013.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_014","display_name":"青背鲈","rarity":"good","preferred_bait_type":"root","favorite_bait_id":"beet_bait","base_weight":5.0,"sell_price":20,"icon_resource":"res://assets/hd/fish/fish_014.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_015","display_name":"长须鲶","rarity":"good","preferred_bait_type":"root","favorite_bait_id":"turnip_bait","base_weight":5.0,"sell_price":20,"icon_resource":"res://assets/hd/fish/fish_015.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_016","display_name":"金纹鳟","rarity":"good","preferred_bait_type":"leaf","favorite_bait_id":"eggplant_bait","base_weight":5.0,"sell_price":20,"icon_resource":"res://assets/hd/fish/fish_016.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_017","display_name":"白玉鲫","rarity":"good","preferred_bait_type":"grain","favorite_bait_id":"wheat_bait","base_weight":5.0,"sell_price":20,"icon_resource":"res://assets/hd/fish/fish_017.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_018","display_name":"荷叶鳊","rarity":"good","preferred_bait_type":"leaf","favorite_bait_id":"lettuce_bait","base_weight":5.0,"sell_price":20,"icon_resource":"res://assets/hd/fish/fish_018.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_019","display_name":"斑点狗鱼","rarity":"good","preferred_bait_type":"root","favorite_bait_id":"barley_bait","base_weight":5.0,"sell_price":20,"icon_resource":"res://assets/hd/fish/fish_019.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_020","display_name":"夕照鱼","rarity":"good","preferred_bait_type":"fruit","favorite_bait_id":"sorghum_bait","base_weight":5.0,"sell_price":20,"icon_resource":"res://assets/hd/fish/fish_020.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_021","display_name":"月影鱼","rarity":"rare","preferred_bait_type":"fruit","favorite_bait_id":"sweet_potato_bait","base_weight":2.0,"sell_price":50,"icon_resource":"res://assets/hd/fish/fish_021.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_022","display_name":"琥珀鲤","rarity":"rare","preferred_bait_type":"grain","favorite_bait_id":"sorghum_bait","base_weight":2.0,"sell_price":50,"icon_resource":"res://assets/hd/fish/fish_022.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_023","display_name":"翡翠鳟","rarity":"rare","preferred_bait_type":"leaf","favorite_bait_id":"pumpkin_bait","base_weight":2.0,"sell_price":50,"icon_resource":"res://assets/hd/fish/fish_023.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_024","display_name":"雷纹鳗","rarity":"rare","preferred_bait_type":"leaf","favorite_bait_id":"eggplant_bait","base_weight":2.0,"sell_price":50,"icon_resource":"res://assets/hd/fish/fish_024.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_025","display_name":"赤纹龙鱼","rarity":"rare","preferred_bait_type":"fruit","favorite_bait_id":"rice_bait","base_weight":2.0,"sell_price":50,"icon_resource":"res://assets/hd/fish/fish_025.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_026","display_name":"星点河豚","rarity":"rare","preferred_bait_type":"fruit","favorite_bait_id":"sorghum_bait","base_weight":2.0,"sell_price":50,"icon_resource":"res://assets/hd/fish/fish_026.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_027","display_name":"玻光锦鲤","rarity":"epic","preferred_bait_type":"grain","favorite_bait_id":"rice_bait","base_weight":0.8,"sell_price":200,"icon_resource":"res://assets/hd/fish/fish_027.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_028","display_name":"巨须鲶王","rarity":"epic","preferred_bait_type":"root","favorite_bait_id":"beet_bait","base_weight":0.8,"sell_price":200,"icon_resource":"res://assets/hd/fish/fish_028.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_029","display_name":"萤河灵鱼","rarity":"epic","preferred_bait_type":"fruit","favorite_bait_id":"pumpkin_bait","base_weight":0.8,"sell_price":200,"icon_resource":"res://assets/hd/fish/fish_029.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_030","display_name":"云纹龙鲤","rarity":"epic","preferred_bait_type":"grain","favorite_bait_id":"potato_bait","base_weight":0.8,"sell_price":200,"icon_resource":"res://assets/hd/fish/fish_030.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_031","display_name":"麦穗鱼","rarity":"common","preferred_bait_type":"grain","favorite_bait_id":"wheat_bait","base_weight":10.0,"sell_price":10,"icon_resource":"res://assets/hd/fish/fish_031.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_032","display_name":"石鳅","rarity":"common","preferred_bait_type":"root","favorite_bait_id":"white_radish_bait","base_weight":10.0,"sell_price":10,"icon_resource":"res://assets/hd/fish/fish_032.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_033","display_name":"绿鳍鱼","rarity":"common","preferred_bait_type":"leaf","favorite_bait_id":"cabbage_bait","base_weight":10.0,"sell_price":10,"icon_resource":"res://assets/hd/fish/fish_033.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_034","display_name":"樱点鱼","rarity":"common","preferred_bait_type":"fruit","favorite_bait_id":"tomato_bait","base_weight":10.0,"sell_price":10,"icon_resource":"res://assets/hd/fish/fish_034.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_035","display_name":"赤尾鲤","rarity":"good","preferred_bait_type":"grain","favorite_bait_id":"barley_bait","base_weight":5.0,"sell_price":20,"icon_resource":"res://assets/hd/fish/fish_035.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_036","display_name":"苇叶鳊","rarity":"good","preferred_bait_type":"leaf","favorite_bait_id":"potato_bait","base_weight":5.0,"sell_price":20,"icon_resource":"res://assets/hd/fish/fish_036.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_037","display_name":"彩虹鳉","rarity":"good","preferred_bait_type":"fruit","favorite_bait_id":"sweet_potato_bait","base_weight":5.0,"sell_price":20,"icon_resource":"res://assets/hd/fish/fish_037.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_038","display_name":"岩纹鲶","rarity":"rare","preferred_bait_type":"root","favorite_bait_id":"oat_bait","base_weight":2.0,"sell_price":50,"icon_resource":"res://assets/hd/fish/fish_038.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_039","display_name":"碧波鳗","rarity":"rare","preferred_bait_type":"leaf","favorite_bait_id":"turnip_bait","base_weight":2.0,"sell_price":50,"icon_resource":"res://assets/hd/fish/fish_039.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0},{"id":"fish_040","display_name":"星霜锦鱼","rarity":"epic","preferred_bait_type":"fruit","favorite_bait_id":"beet_bait","base_weight":0.8,"sell_price":200,"icon_resource":"res://assets/hd/fish/fish_040.png","icon_region_x":0,"icon_region_y":0,"icon_region_width":0,"icon_region_height":0}],"rods":[{"id":"basic_rod","display_name":"普通鱼竿","tier":1,"rarity":"common","max_fish_rarity":"common","upgrade_cost":0,"icon_resource":"res://assets/hd/ui/icon_rod_simple.svg"},{"id":"good_rod","display_name":"优秀鱼竿","tier":2,"rarity":"good","max_fish_rarity":"good","upgrade_cost":600,"icon_resource":"res://assets/hd/ui/icon_rod_simple.svg"},{"id":"rare_rod","display_name":"稀有鱼竿","tier":3,"rarity":"rare","max_fish_rarity":"rare","upgrade_cost":3600,"icon_resource":"res://assets/hd/ui/icon_rod_simple.svg"},{"id":"epic_rod","display_name":"史诗鱼竿","tier":4,"rarity":"epic","max_fish_rarity":"epic","upgrade_cost":12000,"icon_resource":"res://assets/hd/ui/icon_rod_simple.svg"}],"farming":{"default_grow_seconds":60.0,"fallback_max_reduction":0.3,"fallback_reduction_per_level":0.15,"harvest_action_seconds":1.0,"max_fertility":3,"plant_action_seconds":1.0,"unwatered_growth_multiplier":1.5,"water_action_seconds":1.0},"fishing":{"cast_max_seconds":13,"cast_min_seconds":7,"common_size_max_cm":35,"common_size_min_cm":10,"epic_size_max_cm":130,"epic_size_min_cm":70,"good_size_max_cm":60,"good_size_min_cm":25,"high_rarity_bait_rare_epic_weight_multiplier":5.0,"leaderboard_demo_bot_count":24,"leaderboard_url":"http://127.0.0.1:8765","matching_bait_weight":1.5,"rare_size_max_cm":90,"rare_size_min_cm":45},"worker":{"action_seconds":3.0,"arrival_distance":2.5,"fish_break_max_count":12,"fish_break_max_seconds":30.0,"fish_break_min_count":8,"fish_break_min_seconds":12.0,"fish_retry_max_seconds":10.0,"fish_retry_min_seconds":5.0,"move_speed":50.0,"reset_rest_seconds":1.0,"rest_lane_threshold_y":185.0,"road_travel_cost":0.25,"route_corner_clearance":9.0,"safe_lane_y":210.0,"wander_edge_margin":12.0,"wander_horizontal_radius":125.0,"wander_rest_max_seconds":3.0,"wander_rest_min_seconds":1.0,"wander_vertical_bias":0.22,"wander_vertical_radius":14.0,"wander_walk_max_seconds":5.0,"wander_walk_min_seconds":3.0,"world_x_max":1252.0,"world_x_min":28.0,"world_y_max":215.0,"world_y_min":165.0},"snapshot":"2026-11-09"}</script>
+<script>
+'use strict';
+const DATA = JSON.parse(document.getElementById('project-data').textContent);
+const RANK = ['common','good','rare','epic'];
+const RARITY = {common:'普通',good:'优秀',rare:'稀有',epic:'史诗'};
+const clone = value => JSON.parse(JSON.stringify(value));
+
+// 建立当前配方的参数副本。默认值从项目数据读取，额外费用与投入初始为零。
+function defaults(baitId, rodId='basic_rod', land=63, hours=8) {
+  const bait = DATA.baits.find(entry => entry.id === baitId);
+  const f = DATA.fishing;
+  const state = {baitId,rodId,land,largePlots:land/9,hours,strategy:'linear',charges:bait.charges_per_batch,fee:0,craft:bait.craft_seconds,
+    priceScale:1,cast:(f.cast_min_seconds+f.cast_max_seconds)/2,
+    rest:0,
+    success:100,setup:0,buffer:20,plant:DATA.farming.plant_action_seconds,water:DATA.farming.water_action_seconds,
+    harvest:DATA.farming.harvest_action_seconds,matching:f.matching_bait_weight,rareBoost:f.high_rarity_bait_rare_epic_weight_multiplier,
+    recipe:clone(bait.recipe),crops:clone(DATA.crops.filter(crop => crop.id in bait.recipe)),fish:clone(DATA.fish),allocation:{}};
+  allocate(state);
+  return state;
+}
+
+// 根据每种原料的需求、产量与生长时间分配整数小格，每种原料至少一格。
+function allocate(state) {
+  const scores = state.crops.map(crop => state.recipe[crop.id]*crop.grow_seconds/crop.harvest_amount);
+  state.allocation = Object.fromEntries(state.crops.map(crop => [crop.id,0]));
+  for (let n=0;n<state.land;n++) {
+    let best=0, priority=-Infinity;
+    state.crops.forEach((crop,index) => {
+      const assigned = state.allocation[crop.id];
+      const score = assigned === 0 ? 1e15 + scores[index] : scores[index]/assigned;
+      if (score>priority) {priority=score;best=index;}
+    });
+    state.allocation[state.crops[best].id]++;
+  }
+}
+
+// 使用项目的品质和标签过滤，再应用最爱饵与高级饵权重，返回每条鱼概率与取整售价。
+function pool(state) {
+  const bait = DATA.baits.find(entry => entry.id === state.baitId);
+  const rod = DATA.rods.find(entry => entry.id === state.rodId);
+  const candidates = state.fish.filter(fish => bait.bait_type.split(';').includes(fish.preferred_bait_type)
+    && RANK.indexOf(fish.rarity)>=0 && RANK.indexOf(fish.rarity)<=RANK.indexOf(rod.max_fish_rarity));
+  const weighted = candidates.map(fish => {
+    let weight=fish.base_weight;
+    if (bait.rarity!=='common' && ['rare','epic'].includes(fish.rarity)) weight*=state.rareBoost;
+    if (fish.favorite_bait_id===bait.id) weight*=state.matching;
+    return {...fish,weight,price:Math.ceil(fish.sell_price*state.priceScale)};
+  });
+  const total=weighted.reduce((sum,fish)=>sum+fish.weight,0);
+  return weighted.map(fish=>({...fish,probability:total>0?fish.weight/total:0}));
+}
+
+// 线性模式整轮种植、收获、制饵和钓鱼，饵用完才再种。连续模式即时补种。
+// 支出在开工时扣除，产物和收入在完工时入账，两种模式共享相同的成本与时间计算。
+function simulate(state, cropSale=false) {
+  const end=state.hours*3600, fishes=pool(state);
+  const ev=fishes.reduce((sum,fish)=>sum+fish.price*fish.probability,0)*state.success/100;
+  const plots=state.crops.flatMap(crop=>Array.from({length:state.allocation[crop.id]||0},()=>({crop,ready:0,empty:true})));
+  const inventory=Object.fromEntries(state.crops.map(crop=>[crop.id,0]));
+  const timeSpent={plant:0,water:0,harvest:0,craft:0,fish:0,rest:0,idle:0};
+  let t=0, income=0, cost=state.setup, bait=0, produced=0, casts=0, batches=0, harvested=0, steps=0, busy=0;
+  let breakEven=null;
+  const linear=state.strategy==='linear';
+  let stage='plant';
+  const points=[{t:0,value:-cost}];
+  function record() {
+    const value=income-cost;
+    if (breakEven===null && income>0 && value>=0) breakEven=t;
+    points.push({t,value});
+  }
+  function work(seconds, phase, finish) {
+    const duration=Math.max(0,seconds),actual=Math.min(duration,end-t);
+    timeSpent[phase]+=actual;
+    busy+=actual;t+=actual;
+    if(actual<duration){record();return false;}
+    finish();record();return true;
+  }
+  while(t<end && steps++<150000) {
+    const ingredientsReady=Object.entries(state.recipe).every(([id,count])=>inventory[id]>=count);
+    if(linear){
+      if(stage==='plant' && plots.every(plot=>!plot.empty))stage='harvest';
+      if(stage==='harvest' && plots.every(plot=>plot.empty))stage=cropSale?'plant':'craft';
+      if(stage==='craft' && !ingredientsReady)stage='fish';
+      if(stage==='fish' && bait<1){stage='plant';continue;}
+    }
+    const ripe=(!linear || stage==='harvest') && plots.find(plot=>!plot.empty && plot.ready<=t);
+    if(ripe) {
+      if(!work(state.harvest,'harvest',()=>{
+        harvested+=ripe.crop.harvest_amount;
+        if(cropSale) income+=ripe.crop.harvest_amount*ripe.crop.sell_price;
+        else inventory[ripe.crop.id]+=ripe.crop.harvest_amount;
+        ripe.empty=true;
+      }))break;
+      continue;
+    }
+    const empty=(!linear || stage==='plant') && plots.find(plot=>plot.empty);
+    if(empty) {
+      cost+=empty.crop.plant_cost;record();
+      if(!work(state.plant,'plant',()=>{}))break;
+      if(!work(state.water,'water',()=>{empty.empty=false;empty.ready=t+empty.crop.grow_seconds;}))break;
+      continue;
+    }
+    const craftable=!cropSale && ingredientsReady && (linear?stage==='craft':state.buffer===0 || bait<state.buffer);
+    if(craftable) {
+      Object.entries(state.recipe).forEach(([id,count])=>inventory[id]-=count);
+      cost+=state.fee;record();
+      if(!work(state.craft,'craft',()=>{bait+=state.charges;produced+=state.charges;batches++;}))break;
+      continue;
+    }
+    if(!cropSale && (!linear || stage==='fish') && bait>=1 && fishes.some(fish=>fish.probability>0)) {
+      bait--;
+      if(!work(state.cast,'fish',()=>{income+=ev;casts++;}))break;
+      if(!work(state.rest,'rest',()=>{}))break;
+      continue;
+    }
+    const next=Math.min(...plots.filter(plot=>!plot.empty).map(plot=>plot.ready));
+    const waitUntil=Math.min(end,Math.max(t+0.05,next));
+    timeSpent.idle+=waitUntil-t;t=waitUntil;record();
+  }
+  const limited=t<end;
+  if(!limited && points[points.length-1].t<end)points.push({t:end,value:income-cost});
+  return {points,income,cost,profit:income-cost,inventory,bait,produced,casts,batches,harvested,breakEven,busy,limited,ev,timeSpent};
+}
+
+// 页面交互只操作内嵌数据的副本，支持参数快照、可移植导入与 CSV 输出。
+const $=id=>document.getElementById(id);
+const fmt=(value,digits=1)=>Number(value).toLocaleString('zh-CN',{maximumFractionDigits:digits});
+const esc=value=>String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+const fields=['largePlots','land','hours','charges','fee','craft','priceScale','cast','rest','success','setup','buffer','plant','water','harvest','matching','rareBoost'];
+let state=defaults(DATA.baits[0].id), comparison=null, last=null, timer;
+$('bait').innerHTML=DATA.baits.filter(bait=>bait.recipe && Object.keys(bait.recipe).length).map(bait=>`<option value="${esc(bait.id)}">${esc(bait.display_name)}</option>`).join('');
+$('rod').innerHTML=DATA.rods.map(rod=>`<option value="${esc(rod.id)}">${esc(rod.display_name)}</option>`).join('');
+
+// 渲染原料输入和分地输入。修改全局参数时保留输入焦点及尚在编辑的数值。
+function showInputs() {
+  $('bait').value=state.baitId;$('rod').value=state.rodId;
+  $('strategy').value=state.strategy;
+  $('buffer').disabled=state.strategy==='linear';
+  fields.forEach(key=>$(key).value=state[key]);
+  $('allocation').innerHTML=state.crops.map(crop=>`<label class="field">${esc(crop.display_name)} · 小格<input type="number" min="0" max="63" step="1" data-land="${esc(crop.id)}" value="${state.allocation[crop.id]}"></label>`).join('');
+  $('cropRows').innerHTML=state.crops.map(crop=>`<tr><td>${esc(crop.display_name)}</td>${['plant_cost','harvest_amount','grow_seconds','sell_price','recipe'].map(key=>`<td><input aria-label="${esc(crop.display_name)} ${key}" type="number" min="${['harvest_amount','grow_seconds','recipe'].includes(key)?1:0}" max="1000000" step="1" data-crop="${esc(crop.id)}" data-key="${key}" value="${key==='recipe'?state.recipe[crop.id]:crop[key]}"></td>`).join('')}</tr>`).join('');
+}
+
+// 输入必须满足范围和整数约束，非法输入保留上一次有效曲线并明确提示。
+function readInputs() {
+  const invalid=[...document.querySelectorAll('input[type=number]')].find(input=>!input.checkValidity() || input.value==='');
+  if(invalid){$('warnings').textContent='请输入范围内的有效数值，曲线暂保留上次有效结果。';return false;}
+  fields.forEach(key=>state[key]=Number($(key).value));state.rodId=$('rod').value;
+  state.strategy=$('strategy').value;
+  $('buffer').disabled=state.strategy==='linear';
+  document.querySelectorAll('[data-land]').forEach(input=>state.allocation[input.dataset.land]=Number(input.value));
+  document.querySelectorAll('[data-crop]').forEach(input=>{
+    const crop=state.crops.find(entry=>entry.id===input.dataset.crop);
+    if(input.dataset.key==='recipe')state.recipe[crop.id]=Number(input.value);
+    else crop[input.dataset.key]=Number(input.value);
+  });
+  document.querySelectorAll('[data-fish]').forEach(input=>state.fish.find(entry=>entry.id===input.dataset.fish)[input.dataset.key]=Number(input.value));
+  const allocated=Object.values(state.allocation).reduce((sum,n)=>sum+n,0);
+  if(allocated!==state.land){$('warnings').textContent=`已分配 ${allocated} 格，可用 ${state.land} 格。请调整分地或点击自动分配。`;return false;}
+  return true;
+}
+
+// 按时间查找阶梯现金流，支出和收入跳变保持可见。
+function valueAt(points,time) {
+  let lo=0,hi=points.length;
+  while(lo<hi){const mid=(lo+hi)>>1;if(points[mid].t<=time)lo=mid+1;else hi=mid;}
+  return points[Math.max(0,lo-1)].value;
+}
+
+// 绘制带零轴和悬停读数的 SVG 曲线。按固定时间采样控制长时段图形大小。
+function draw(series) {
+  const width=900,height=330,pad={l:68,r:18,t:20,b:42},end=state.hours*3600;
+  const values=series.flatMap(line=>line.result.points.map(point=>point.value));
+  let min=values.reduce((value,next)=>Math.min(value,next),0),max=values.reduce((value,next)=>Math.max(value,next),1);
+  const gap=(max-min)*0.08;min-=gap;max+=gap;
+  const x=t=>pad.l+t/end*(width-pad.l-pad.r),y=value=>height-pad.b-(value-min)/(max-min)*(height-pad.t-pad.b);
+  let svg=`<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="累计净利润曲线，横轴小时，纵轴金币">`;
+  for(let i=0;i<=5;i++){
+    const value=min+(max-min)*i/5,yy=y(value),time=end*i/5;
+    svg+=`<line x1="${pad.l}" y1="${yy}" x2="${width-pad.r}" y2="${yy}" stroke="#e3e9e1"/><text x="${pad.l-10}" y="${yy+4}" text-anchor="end" fill="#667b76" font-size="11">${fmt(value,0)}</text><text x="${x(time)}" y="${height-12}" text-anchor="middle" fill="#667b76" font-size="11">${fmt(time/3600)}h</text>`;
+  }
+  svg+=`<line x1="${pad.l}" x2="${width-pad.r}" y1="${y(0)}" y2="${y(0)}" stroke="#b8c7bc"/>`;
+  series.forEach(line=>{
+    const pts=Array.from({length:801},(_,i)=>({t:end*i/800,value:valueAt(line.result.points,end*i/800)}));
+    let path=`M${x(0)},${y(pts[0].value)}`;
+    pts.slice(1).forEach(point=>path+=`H${x(point.t)}V${y(point.value)}`);
+    svg+=`<path d="${path}" fill="none" stroke="${line.color}" stroke-width="2" ${line.dashed?'stroke-dasharray="5 4"':''}/>`;
+  });
+  svg+=`<line id="cursor" y1="${pad.t}" y2="${height-pad.b}" stroke="#82958a" visibility="hidden"/><rect id="hoverZone" x="${pad.l}" y="${pad.t}" width="${width-pad.l-pad.r}" height="${height-pad.t-pad.b}" fill="transparent"/></svg><div class="tooltip" id="tip" hidden></div>`;
+  $('chart').innerHTML=svg;
+  $('hoverZone').addEventListener('pointermove',event=>{
+    const rect=$('chart').querySelector('svg').getBoundingClientRect();
+    const xx=Math.max(pad.l,Math.min(width-pad.r,(event.clientX-rect.left)*width/rect.width));
+    const time=(xx-pad.l)/(width-pad.l-pad.r)*end;
+    $('cursor').setAttribute('x1',xx);$('cursor').setAttribute('x2',xx);$('cursor').setAttribute('visibility','visible');
+    $('tip').hidden=false;$('tip').textContent=`${fmt(time/3600,2)} 小时\n`+series.map(line=>`${line.name}  ${fmt(valueAt(line.result.points,time))} 金`).join('\n');
+    $('tip').style.left=Math.max(0,Math.min(rect.width-230,event.clientX-rect.left+12))+'px';$('tip').style.top='18px';
+  });
+  $('hoverZone').addEventListener('pointerleave',()=>{$('tip').hidden=true;$('cursor').setAttribute('visibility','hidden');});
+}
+
+// 单批原料以单位成本折算，库存详情和时间模型使用同一组输入。
+function update() {
+  if(!readInputs())return;
+  const fishes=pool(state), chain=simulate(state), sale=simulate(state,true);
+  const series=[{name:'当前钓鱼链',result:chain,color:'#287a63'},{name:'作物直售',result:sale,color:'#be7733'}];
+  const other=clone(comparison || state);
+  other.hours=state.hours;
+  if(!comparison)other.strategy=state.strategy==='linear'?'continuous':'linear';
+  const compareName=comparison?'固定对比方案':other.strategy==='linear'?'线性整轮':'连续补种';
+  series.push({name:compareName,result:simulate(other),color:'#5682ae',dashed:true});
+  last={chain,sale,series};
+  const warnings=[];
+  const farmTime=chain.timeSpent.plant+chain.timeSpent.water+chain.timeSpent.harvest;
+  if(farmTime>=state.hours*3600*0.9)warnings.push(`当前农活占用 ${fmt(farmTime/(state.hours*3600)*100)}% 的时间，剩余时间需分给制饵与钓鱼；积压作物尚未卖出，不计入现金净收益。`);
+  if(state.crops.some(crop=>!state.allocation[crop.id]))warnings.push('部分配料没有分配小格，制饵可能因缺料停滞。');
+  if(!fishes.some(fish=>fish.probability>0))warnings.push('当前鱼竿、鱼饵或权重下没有可钓鱼，钓鱼收入为零。');
+  if(series.some(line=>line.result.limited))warnings.push('达到计算步数上限，请缩短观察时间或增加动作耗时；当前曲线仅覆盖已算时段。');
+  $('warnings').textContent=warnings.join(' ');
+  $('profit').textContent=fmt(chain.profit);$('profit').classList.toggle('negative',chain.profit<0);
+  $('profitSub').textContent=`收入 ${fmt(chain.income)} − 支出 ${fmt(chain.cost)}`;
+  $('cropProfit').textContent=fmt(sale.profit);$('cropSub').textContent=`比钓鱼链 ${fmt(sale.profit-chain.profit)} 金`;
+  $('ev').textContent=fmt(chain.ev,2);$('poolCount').textContent=`${fishes.filter(fish=>fish.probability>0).length} 种有效鱼 · 已含成功率`;
+  $('backlog').textContent=fmt(chain.bait,0);$('backlogSub').textContent=`已制 ${chain.produced} 份 · 完成 ${chain.casts} 杆`;
+  $('compareLegend').hidden=false;
+  $('compareLegend').innerHTML='<i style="background:var(--blue)"></i>'+compareName;
+  draw(series);
+  const ingredientCost=state.crops.reduce((sum,crop)=>sum+state.recipe[crop.id]*crop.plant_cost/crop.harvest_amount,0);
+  const directSale=state.crops.reduce((sum,crop)=>sum+state.recipe[crop.id]*crop.sell_price,0);
+  const fishRevenue=state.charges*chain.ev;
+  $('flow').innerHTML=state.crops.map(crop=>`<b>${esc(crop.display_name)} × ${state.recipe[crop.id]}</b>`).join(' + ')+` → <b>鱼饵 × ${state.charges}</b> → <b>期望鱼收入 ${fmt(fishRevenue)} 金</b>`;
+  $('unit').innerHTML=[['原料折算种植成本',ingredientCost],['额外制饵金币',state.fee],['原料直接卖出收入',directSale],['原料直售净利润',directSale-ingredientCost],['钓鱼链期望收入',fishRevenue],['钓鱼链期望净利润',fishRevenue-ingredientCost-state.fee],['放弃直售、改做饵的增益',fishRevenue-directSale-state.fee]].map(([label,value])=>`<tr><td>${label}</td><td>${fmt(value,2)}</td></tr>`).join('');
+  $('formula').textContent=`单批净利润 = ${state.charges} 份鱼饵 × ${fmt(chain.ev,2)} 金/杆 − ${fmt(ingredientCost,2)} 金原料成本 − ${fmt(state.fee)} 金制饵费。`;
+  const stock=state.crops.map(crop=>`${crop.display_name} ${chain.inventory[crop.id]}`).join('、');
+  $('status').textContent=`首次现金回本 ${chain.breakEven===null?'观察期内未达到':fmt(chain.breakEven/3600,2)+'h'} · 劳动占用 ${fmt(chain.busy/(state.hours*3600)*100)}% · 期末原料 ${stock} · 回本后补种仍可能短暂转负。`;
+  $('fishRows').innerHTML=fishes.map(fish=>`<tr><td>${esc(fish.display_name)}</td><td>${RARITY[fish.rarity]}</td>${['sell_price','base_weight'].map(key=>`<td><input aria-label="${esc(fish.display_name)} ${key}" type="number" min="0" max="1000000" step="${key==='sell_price'?1:0.1}" data-fish="${fish.id}" data-key="${key}" value="${fish[key]}"></td>`).join('')}<td>${fmt(fish.probability*100,2)}%</td><td>${fmt(fish.price)}</td></tr>`).join('');
+  const phaseNames={plant:'播种',water:'浇水',harvest:'收获',craft:'制作鱼饵',fish:'钓鱼',rest:'额外休息',idle:'缺饵等待原料'};
+  $('timeRows').innerHTML=Object.entries(phaseNames).map(([key,name])=>`<tr><td>${name}</td><td>${fmt(chain.timeSpent[key]/60,2)}</td><td>${fmt(chain.timeSpent[key]/(state.hours*3600)*100,2)}%</td></tr>`).join('');
+  const roundCost=state.crops.reduce((sum,crop)=>sum+state.allocation[crop.id]*crop.plant_cost,0);
+  $('timeSummary').textContent=`${state.largePlots} 块大地 × 9 格 = ${state.land} 株；首轮满种花费 ${fmt(roundCost)} 金。观察期内农活占 ${fmt(farmTime/60,1)} 分钟，钓鱼占 ${fmt(chain.timeSpent.fish/60,1)} 分钟。`;
+  try{localStorage.setItem('dreamingbelow-economy-v3',JSON.stringify({state,comparison}));}catch{}
+}
+
+// 保存浏览器下载文件，使用 UTF-8 BOM 兼容 Excel 打开 CSV。
+function download(name,text,type) {
+  const url=URL.createObjectURL(new Blob([text],{type})),link=document.createElement('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+
+// 导入只接受当前数据快照中存在的配方、鱼竿、作物和数值范围，避免污染计算状态。
+function validateImport(raw) {
+  if(!raw || typeof raw!=='object' || !DATA.baits.some(bait=>bait.id===raw.baitId) || !DATA.rods.some(rod=>rod.id===raw.rodId))throw Error('配方或鱼竿不属于此项目快照');
+  const target=defaults(raw.baitId,raw.rodId);
+  target.strategy=raw.strategy ?? 'continuous';
+  if(!['linear','continuous'].includes(target.strategy))throw Error('生产模式无效');
+  raw={...raw,largePlots:raw.largePlots ?? raw.land/9};
+  fields.forEach(key=>{
+    const input=$(key),value=raw[key];
+    if(!Number.isFinite(value) || value<Number(input.min) || value>Number(input.max) || (input.step==='1' && !Number.isInteger(value)))throw Error('全局参数无效 '+key);
+    target[key]=value;
+  });
+  if(target.land!==target.largePlots*9)throw Error('每块大地必须对应 9 个小格');
+  target.crops.forEach(crop=>{
+    const source=raw.crops?.find(entry=>entry.id===crop.id);
+    for(const key of ['plant_cost','harvest_amount','grow_seconds','sell_price']){
+      const value=source?.[key],minimum=['harvest_amount','grow_seconds'].includes(key)?1:0;
+      if(!Number.isInteger(value)||value<minimum||value>1000000)throw Error('作物参数无效');crop[key]=value;
+    }
+    if(!Number.isInteger(raw.recipe?.[crop.id])||raw.recipe[crop.id]<1||raw.recipe[crop.id]>1000000)throw Error('配方数量无效');
+    target.recipe[crop.id]=raw.recipe[crop.id];
+    if(!Number.isInteger(raw.allocation?.[crop.id])||raw.allocation[crop.id]<0||raw.allocation[crop.id]>63)throw Error('分地参数无效');
+    target.allocation[crop.id]=raw.allocation[crop.id];
+  });
+  if(Object.values(target.allocation).reduce((sum,n)=>sum+n,0)!==target.land)throw Error('分配小格与可用小格数量不一致');
+  target.fish.forEach(fish=>{
+    const source=raw.fish?.find(entry=>entry.id===fish.id);
+    for(const key of ['sell_price','base_weight']){
+      const value=source?.[key];if(!Number.isFinite(value)||value<0||value>1000000||(key==='sell_price'&&!Number.isInteger(value)))throw Error('鱼价或权重无效');fish[key]=value;
+    }
+  });
+  return target;
+}
+
+// 所有数值变化都即时排队重算，鱼价编辑完再更新表格以保留键盘输入焦点。
+document.addEventListener('input',event=>{
+  if(event.target.type!=='number')return;
+  clearTimeout(timer);
+  if(event.target.id==='largePlots' && event.target.checkValidity() && event.target.value!==''){
+    state.largePlots=Number(event.target.value);state.land=state.largePlots*9;
+    $('land').value=state.land;allocate(state);
+    document.querySelectorAll('[data-land]').forEach(input=>input.value=state.allocation[input.dataset.land]);
+  }
+  if(event.target.dataset.fish)return;
+  timer=setTimeout(update,180);
+});
+document.addEventListener('change',event=>{
+  if(event.target.dataset.fish)update();
+});
+$('bait').addEventListener('change',()=>{state=defaults($('bait').value,state.rodId,state.land,state.hours);showInputs();update();});
+$('rod').addEventListener('change',update);
+$('strategy').addEventListener('change',update);
+$('allocate').addEventListener('click',()=>{
+  const land=Number($('land').value);if(!Number.isInteger(land)||land<1||land>63)return;
+  state.land=land;
+  document.querySelectorAll('[data-crop]').forEach(input=>{
+    const crop=state.crops.find(entry=>entry.id===input.dataset.crop);
+    if(!input.checkValidity()||input.value==='')return;
+    if(input.dataset.key==='recipe')state.recipe[crop.id]=Number(input.value);
+    else crop[input.dataset.key]=Number(input.value);
+  });
+  fields.forEach(key=>{const value=Number($(key).value);if($(key).checkValidity()&&$(key).value!=='')state[key]=value;});
+  allocate(state);showInputs();update();
+});
+$('save').addEventListener('click',()=>{if(!readInputs())return;comparison=clone(state);update();});
+$('reset').addEventListener('click',()=>{state=defaults(DATA.baits[0].id);comparison=null;showInputs();update();});
+$('export').addEventListener('click',()=>{if(readInputs())download('dreamingbelow-economy-params.json',JSON.stringify({schema:1,snapshot:DATA.snapshot,state,comparison},null,2),'application/json');});
+$('import').addEventListener('click',()=>$('file').click());
+$('file').addEventListener('change',async()=>{
+  try{const file=$('file').files[0];if(!file)return;if(file.size>2000000)throw Error('文件超过 2 MB');const raw=JSON.parse(await file.text());if(raw.schema!==1)throw Error('参数文件版本不匹配');const next=validateImport(raw.state),other=raw.comparison?validateImport(raw.comparison):null;state=next;comparison=other;showInputs();update();}
+  catch(error){$('warnings').textContent='导入失败 · '+error.message;}finally{$('file').value='';}
+});
+$('csv').addEventListener('click',()=>{
+  if(!readInputs())return;update();
+  const rows=[['小时',...last.series.map(line=>line.name+'累计净利润')]];
+  for(let index=0;index<=480;index++){const time=state.hours*3600*index/480;rows.push([(time/3600).toFixed(4),...last.series.map(line=>valueAt(line.result.points,time).toFixed(4))]);}
+  download('dreamingbelow-profit-curves.csv','\uFEFF'+rows.map(row=>row.join(',')).join('\r\n'),'text/csv;charset=utf-8');
+});
+for(const id of ['crop','fish'])$(id+'Tab').addEventListener('click',()=>{for(const key of ['crop','fish']){$(key+'Tab').setAttribute('aria-selected',String(id===key));$(key+'Panel').hidden=id!==key;}});
+try{const saved=JSON.parse(localStorage.getItem('dreamingbelow-economy-v3'));if(saved){state=validateImport(saved.state);comparison=saved.comparison?validateImport(saved.comparison):null;}}catch{}
+$('source').textContent=`快照 ${DATA.snapshot} · ${DATA.crops.length} 种作物 / ${DATA.baits.length} 种鱼饵 / ${DATA.fish.length} 种鱼 / ${DATA.rods.length} 根鱼竿。`;
+showInputs();update();
+</script>
+</body></html>

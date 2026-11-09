@@ -58,173 +58,53 @@ offset_top = 91.0
 offset_right = 394.0
 offset_bottom = 322.0
 
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot01" index="0" unique_id=2073733468]
-layout_mode = 0
-
 [node name="SelectedFrame" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot01" index="1" unique_id=787366746]
-layout_mode = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-
-[node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot01" index="2" unique_id=1156052092]
-layout_mode = 0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot01" index="3" unique_id=1811927137]
-layout_mode = 0
-
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot02" index="0" unique_id=2073733468]
-layout_mode = 0
 
 [node name="SelectedFrame" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot02" index="1" unique_id=787366746]
-layout_mode = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-
-[node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot02" index="2" unique_id=1156052092]
-layout_mode = 0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot02" index="3" unique_id=1811927137]
-layout_mode = 0
-
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot03" index="0" unique_id=2073733468]
-layout_mode = 0
 
 [node name="SelectedFrame" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot03" index="1" unique_id=787366746]
-layout_mode = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-
-[node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot03" index="2" unique_id=1156052092]
-layout_mode = 0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot03" index="3" unique_id=1811927137]
-layout_mode = 0
-
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot04" index="0" unique_id=2073733468]
-layout_mode = 0
 
 [node name="SelectedFrame" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot04" index="1" unique_id=787366746]
-layout_mode = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-
-[node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot04" index="2" unique_id=1156052092]
-layout_mode = 0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot04" index="3" unique_id=1811927137]
-layout_mode = 0
-
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot05" index="0" unique_id=2073733468]
-layout_mode = 0
 
 [node name="SelectedFrame" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot05" index="1" unique_id=787366746]
-layout_mode = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-
-[node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot05" index="2" unique_id=1156052092]
-layout_mode = 0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot05" index="3" unique_id=1811927137]
-layout_mode = 0
-
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot06" index="0" unique_id=2073733468]
-layout_mode = 0
 
 [node name="SelectedFrame" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot06" index="1" unique_id=787366746]
-layout_mode = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-
-[node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot06" index="2" unique_id=1156052092]
-layout_mode = 0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot06" index="3" unique_id=1811927137]
-layout_mode = 0
-
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot07" index="0" unique_id=2073733468]
-layout_mode = 0
 
 [node name="SelectedFrame" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot07" index="1" unique_id=787366746]
-layout_mode = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-
-[node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot07" index="2" unique_id=1156052092]
-layout_mode = 0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot07" index="3" unique_id=1811927137]
-layout_mode = 0
-
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot08" index="0" unique_id=2073733468]
-layout_mode = 0
 
 [node name="SelectedFrame" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot08" index="1" unique_id=787366746]
-layout_mode = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-
-[node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot08" index="2" unique_id=1156052092]
-layout_mode = 0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot08" index="3" unique_id=1811927137]
-layout_mode = 0
-
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot09" index="0" unique_id=2073733468]
-layout_mode = 0
 
 [node name="SelectedFrame" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot09" index="1" unique_id=787366746]
-layout_mode = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-
-[node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot09" index="2" unique_id=1156052092]
-layout_mode = 0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot09" index="3" unique_id=1811927137]
-layout_mode = 0
-
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot10" index="0" unique_id=2073733468]
-layout_mode = 0
 
 [node name="SelectedFrame" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot10" index="1" unique_id=787366746]
-layout_mode = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-
-[node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot10" index="2" unique_id=1156052092]
-layout_mode = 0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot10" index="3" unique_id=1811927137]
-layout_mode = 0
-
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot11" index="0" unique_id=2073733468]
-layout_mode = 0
 
 [node name="SelectedFrame" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot11" index="1" unique_id=787366746]
-layout_mode = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-
-[node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot11" index="2" unique_id=1156052092]
-layout_mode = 0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot11" index="3" unique_id=1811927137]
-layout_mode = 0
-
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot12" index="0" unique_id=2073733468]
-layout_mode = 0
 
 [node name="SelectedFrame" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot12" index="1" unique_id=787366746]
-layout_mode = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-
-[node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot12" index="2" unique_id=1156052092]
-layout_mode = 0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/FishPage/FishSlot12" index="3" unique_id=1811927137]
-layout_mode = 0
 
 [node name="CropPage" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages" index="1" unique_id=1922867278]
 scale = Vector2(1.4, 1.4)
@@ -233,168 +113,144 @@ theme_override_constants/v_separation = 1
 columns = 3
 
 [node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot01" index="0" unique_id=1093441234]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 80.0
 offset_bottom = 80.0
 
 [node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot01" index="1" unique_id=1383432478]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 70.0
 offset_bottom = 76.0
 
 [node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot01" index="2" unique_id=1903912335]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 80.0
 offset_bottom = 80.0
 
 [node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot02" index="0" unique_id=1093441234]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 80.0
 offset_bottom = 80.0
 
 [node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot02" index="1" unique_id=1383432478]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 70.0
 offset_bottom = 76.0
 
 [node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot02" index="2" unique_id=1903912335]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 80.0
 offset_bottom = 80.0
 
 [node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot03" index="0" unique_id=1093441234]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 80.0
 offset_bottom = 80.0
 
 [node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot03" index="1" unique_id=1383432478]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 70.0
 offset_bottom = 76.0
 
 [node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot03" index="2" unique_id=1903912335]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 80.0
 offset_bottom = 80.0
 
 [node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot04" index="0" unique_id=1093441234]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 80.0
 offset_bottom = 80.0
 
 [node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot04" index="1" unique_id=1383432478]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 70.0
 offset_bottom = 76.0
 
 [node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot04" index="2" unique_id=1903912335]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 80.0
 offset_bottom = 80.0
 
 [node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot05" index="0" unique_id=1093441234]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 80.0
 offset_bottom = 80.0
 
 [node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot05" index="1" unique_id=1383432478]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 70.0
 offset_bottom = 76.0
 
 [node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot05" index="2" unique_id=1903912335]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 80.0
 offset_bottom = 80.0
 
 [node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot06" index="0" unique_id=1093441234]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 80.0
 offset_bottom = 80.0
 
 [node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot06" index="1" unique_id=1383432478]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 70.0
 offset_bottom = 76.0
 
 [node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot06" index="2" unique_id=1903912335]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 80.0
 offset_bottom = 80.0
 
 [node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot07" index="0" unique_id=1093441234]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 80.0
 offset_bottom = 80.0
 
 [node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot07" index="1" unique_id=1383432478]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 70.0
 offset_bottom = 76.0
 
 [node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot07" index="2" unique_id=1903912335]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 80.0
 offset_bottom = 80.0
 
 [node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot08" index="0" unique_id=1093441234]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 80.0
 offset_bottom = 80.0
 
 [node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot08" index="1" unique_id=1383432478]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 70.0
 offset_bottom = 76.0
 
 [node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/CropPage/CropSlot08" index="2" unique_id=1903912335]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 80.0
@@ -406,109 +262,53 @@ theme_override_constants/h_separation = 1
 theme_override_constants/v_separation = 1
 columns = 3
 
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot01" index="0" unique_id=1430397844]
-layout_mode = 0
-
 [node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot01" index="1" unique_id=207845823]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 70.0
 offset_bottom = 76.0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot01" index="2" unique_id=1577052421]
-layout_mode = 0
-
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot02" index="0" unique_id=1430397844]
-layout_mode = 0
 
 [node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot02" index="1" unique_id=207845823]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 70.0
 offset_bottom = 76.0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot02" index="2" unique_id=1577052421]
-layout_mode = 0
-
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot03" index="0" unique_id=1430397844]
-layout_mode = 0
 
 [node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot03" index="1" unique_id=207845823]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 70.0
 offset_bottom = 76.0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot03" index="2" unique_id=1577052421]
-layout_mode = 0
-
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot04" index="0" unique_id=1430397844]
-layout_mode = 0
 
 [node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot04" index="1" unique_id=207845823]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 70.0
 offset_bottom = 76.0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot04" index="2" unique_id=1577052421]
-layout_mode = 0
-
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot05" index="0" unique_id=1430397844]
-layout_mode = 0
 
 [node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot05" index="1" unique_id=207845823]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 70.0
 offset_bottom = 76.0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot05" index="2" unique_id=1577052421]
-layout_mode = 0
-
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot06" index="0" unique_id=1430397844]
-layout_mode = 0
 
 [node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot06" index="1" unique_id=207845823]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 70.0
 offset_bottom = 76.0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot06" index="2" unique_id=1577052421]
-layout_mode = 0
-
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot07" index="0" unique_id=1430397844]
-layout_mode = 0
 
 [node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot07" index="1" unique_id=207845823]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 70.0
 offset_bottom = 76.0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot07" index="2" unique_id=1577052421]
-layout_mode = 0
-
-[node name="Content" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot08" index="0" unique_id=1430397844]
-layout_mode = 0
 
 [node name="ClickArea" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot08" index="1" unique_id=207845823]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 70.0
 offset_bottom = 76.0
-
-[node name="RarityBack" parent="CodexPopup/ContentSurface/CodexContent/EntriesViewport/Pages/BaitPage/BaitSlot08" index="2" unique_id=1577052421]
-layout_mode = 0
 
 [node name="AchievementPage" parent="CodexPopup/ContentSurface/CodexContent" index="3"]
 custom_minimum_size = Vector2(343.6, 240)
@@ -596,13 +396,65 @@ offset_top = 185.03
 offset_right = 172.39001
 offset_bottom = 213.03
 
-[node name="SizeTag" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow" index="0"]
+[node name="SizeRuler" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow" index="0"]
+anchors_preset = 0
+offset_left = -24.0
+offset_top = -45.0
+offset_right = 97.32
+offset_bottom = -3.0
+
+[node name="Baseline" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="0"]
+anchors_preset = 10
+
+[node name="Tick00" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="1"]
+anchor_left = 0.0
+anchor_right = 0.0
+
+[node name="Tick01" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="2"]
+anchors_preset = -1
+
+[node name="Tick02" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="3"]
+anchors_preset = -1
+
+[node name="Tick03" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="4"]
+anchors_preset = -1
+
+[node name="Tick04" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="5"]
+anchors_preset = -1
+
+[node name="Tick05" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="6"]
+anchors_preset = 5
+
+[node name="Tick06" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="7"]
+anchors_preset = -1
+
+[node name="Tick07" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="8"]
+anchors_preset = -1
+
+[node name="Tick08" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="9"]
+anchors_preset = -1
+
+[node name="Tick09" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="10"]
+anchors_preset = -1
+
+[node name="Tick10" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="11"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+
+[node name="Maximum" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="13"]
+anchors_preset = 1
+
+[node name="RecordMarker" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="14"]
+anchors_preset = 5
+
+[node name="SizeTag" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow" index="1"]
 visible = false
 layout_mode = 0
 offset_top = 0.0
 offset_bottom = 23.0
 
-[node name="Value" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow" index="1"]
+[node name="Value" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow" index="2"]
 layout_mode = 0
 offset_left = 11.0
 offset_top = -21.0
@@ -612,7 +464,7 @@ theme_override_font_sizes/font_size = 15
 text = "12cm"
 horizontal_alignment = 1
 
-[node name="MaxTag" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow" index="2"]
+[node name="MaxTag" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow" index="3"]
 visible = true
 layout_mode = 0
 offset_left = 97.0
@@ -620,7 +472,7 @@ offset_top = -168.0
 offset_right = 140.0
 offset_bottom = -145.0
 
-[node name="MinTag" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow" index="3"]
+[node name="MinTag" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow" index="4"]
 layout_mode = 0
 offset_left = 56.0
 offset_top = -168.0
@@ -634,6 +486,13 @@ offset_top = 224.03
 offset_right = 245.39001
 offset_bottom = 241.03
 theme_override_font_sizes/font_size = 16
+
+[node name="BaitTypeLabel" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel" index="7"]
+visible = true
+offset_left = 20.390007
+offset_top = 216.03
+offset_right = 251.39001
+offset_bottom = 238.03
 
 [node name="FishEntriesBounds" type="ReferenceRect" parent="CodexPopup/ContentSurface/CodexContent" unique_id=1702572318]
 editor_description = "鱼页内容范围：拖动这个编辑器参考框，运行时 EntriesViewport 会采用相同位置与大小。"

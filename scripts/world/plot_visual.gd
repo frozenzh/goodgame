@@ -103,7 +103,7 @@ func set_work_status(status: Dictionary) -> void:
 	_refresh_work_badge()
 
 
-# 刷新 work_badge，供调用方继续处理。
+# 同步静态队列标签；开垦标签只在等待或前往阶段显示，实际劳动开始后隐藏。
 func _refresh_work_badge() -> void:
 	if Engine.is_editor_hint():
 		return
@@ -112,8 +112,12 @@ func _refresh_work_badge() -> void:
 		return
 	var plant: Dictionary = _work_status.get("plant", {}) if _work_status.get("plant", {}) is Dictionary else {}
 	var harvest: Dictionary = _work_status.get("harvest", {}) if _work_status.get("harvest", {}) is Dictionary else {}
+	var unlock_status: Dictionary = _work_status.get("unlock", {}) if _work_status.get("unlock", {}) is Dictionary else {}
 	var plant_row := badge.get_node_or_null("Rows/PlantRow") as Control
 	var harvest_row := badge.get_node_or_null("Rows/HarvestRow") as Control
+	var unlock_row := badge.get_node_or_null("Rows/UnlockRow") as Control
+	if unlock_row != null:
+		unlock_row.visible = not unlocked and int(unlock_status.get("waiting_count", 0)) > 0
 	if plant_row != null:
 		plant_row.visible = int(plant.get("total_count", 0)) > 0
 		var label := plant_row.get_node_or_null("State") as Label
@@ -124,7 +128,7 @@ func _refresh_work_badge() -> void:
 		var label := harvest_row.get_node_or_null("State") as Label
 		if label != null:
 			label.text = TextDB.text("plot.work.harvest_running") if int(harvest.get("running_count", 0)) > 0 else TextDB.text("plot.work.harvest_waiting")
-	badge.visible = plant_row != null and plant_row.visible or harvest_row != null and harvest_row.visible
+	badge.visible = plant_row != null and plant_row.visible or harvest_row != null and harvest_row.visible or unlock_row != null and unlock_row.visible
 
 
 # 随渲染帧更新状态，时间增量以秒计。

@@ -61,7 +61,7 @@ func craft_bait(bait_id: String, batches: int = 1, now_unix: int = 0, worker_fin
 	return job.duplicate(true)
 
 
-# 选择 bait，供调用方继续处理。
+# 更新后续抛竿的鱼饵选择；进行中的 fishing_cast 保留已消耗的原鱼饵和进度，下一轮由 start_cast 读取新选择。
 func select_bait(bait_id: String) -> bool:
 	var state: Variant = _state()
 	var registry: Variant = _registry()

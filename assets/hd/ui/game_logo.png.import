@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://by67waonc32ie"
-path="res://.godot/imported/game_logo.png-ed3da6518efdbaad6fa7dab6c1b61c3d.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://assets/hd/ui/game_logo.png"
-dest_files=["res://.godot/imported/game_logo.png-ed3da6518efdbaad6fa7dab6c1b61c3d.ctex"]
 
 [params]
 

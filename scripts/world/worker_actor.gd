@@ -43,6 +43,7 @@ enum Phase { WALK, REST, COMMAND, EXECUTING, FISHING, RETURNING, CELEBRATING, MA
 @onready var fishing_bobber: Node2D = $FishingBobber
 @onready var fishing_progress: ProgressBar = $FishingProgress
 @onready var action_progress: ProgressBar = $ActionProgress
+@onready var fishing_rest_badge: Control = $"../WorkerTargets/FishingPoint/RestBadge"
 
 var _world: StaticWorldStrip
 var _job_manager: JobManager
@@ -65,6 +66,7 @@ var _auto_fishing_requested := false
 var _fish_since_break := 0
 var _fish_break_target := 0
 var _fish_break_seconds := 0.0
+var _taking_fishing_break := false
 var _discovery_plays_remaining := 0
 var _pending_discoveries := 0
 var _phase_before_discovery := Phase.REST
@@ -98,6 +100,7 @@ func _ready() -> void:
 	_wander_origin = global_position
 	fishing_progress.hide()
 	action_progress.hide()
+	fishing_rest_badge.hide()
 	# Resolve the route on the first physics tick, after collision space is ready.
 	_phase = Phase.REST
 	_phase_seconds = 0.0
@@ -111,6 +114,8 @@ func _on_game_reset() -> void:
 	_auto_fishing_requested = false
 	_fish_since_break = 0
 	_fish_break_seconds = 0.0
+	_taking_fishing_break = false
+	fishing_rest_badge.hide()
 	_discovery_plays_remaining = 0
 	_pending_discoveries = 0
 	_house_celebration_plays_remaining = 0
@@ -163,6 +168,20 @@ func _physics_process(delta: float) -> void:
 	_update_action_progress()
 	if _pending_discoveries > 0 and _phase in [Phase.WALK, Phase.REST, Phase.FISHING]:
 		_begin_next_discovery_celebration()
+	_update_fishing_rest_badge()
+
+
+# 仅显示连续钓鱼触发的休息；标签固定在钓鱼点，接任务、手动移动或恢复钓鱼时清除。
+func _update_fishing_rest_badge() -> void:
+	var state = get_node_or_null("/root/GameState")
+	if _taking_fishing_break:
+		if (
+			_fish_break_seconds <= 0.0 or _is_fishing_active() or not _idle_fishing_enabled()
+			or state == null or bool(state.flags.get("fishing_manual_pause", false))
+			or _phase in [Phase.COMMAND, Phase.EXECUTING, Phase.FISHING, Phase.MANUAL_MOVE]
+		):
+			_taking_fishing_break = false
+	fishing_rest_badge.visible = _taking_fishing_break and _phase in [Phase.WALK, Phase.REST, Phase.RETURNING]
 
 
 # 队首变化时中断当前动作并重新寻路，建筑验收也可打断庆祝。
@@ -288,7 +307,11 @@ func _execute_command(delta: float) -> void:
 
 # 封装 play_work_animation 的处理，供相关流程复用。
 func _play_work_animation() -> void:
-	var desired: StringName = &"watering" if _command_action == "water_cell" else &"up"
+	var desired: StringName = &"up"
+	if _command_action == "water_cell":
+		desired = &"watering"
+	elif _command_action in ["plant", "plant_cell", "harvest", "harvest_cell", "craft_bait"]:
+		desired = &"working"
 	animated_sprite.scale = Vector2(0.18, 0.18) if desired == &"watering" else _normal_sprite_scale
 	if animated_sprite.animation != desired or not animated_sprite.is_playing():
 		animated_sprite.play(desired)
@@ -403,6 +426,7 @@ func _on_fish_caught(_fish_id: String, _first_time: bool) -> void:
 	_fish_since_break = 0
 	_fish_break_target = _random.randi_range(fish_break_count.x, fish_break_count.y)
 	_fish_break_seconds = _random.randf_range(fish_break_seconds.x, fish_break_seconds.y)
+	_taking_fishing_break = true
 	if _fishing_system != null:
 		_fishing_system.stop_fishing("rest_break")
 	_start_idle_from_here()

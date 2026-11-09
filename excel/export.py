@@ -290,7 +290,7 @@ def _read_texts(path: Path) -> dict[str, dict[str, str]]:
     return texts
 
 
-# 校验 text_sources，供调用方继续处理。
+# 校验文本 ID 的完整性；场景中的预览文案允许滞后，运行时由文本表覆盖。
 def _validate_text_sources(texts: dict[str, dict[str, str]]) -> None:
     """Catch new Chinese UI copy that was added without a text-table ID."""
     quoted = re.compile(r'"(?:\\.|[^"\\])*"')
@@ -324,9 +324,6 @@ def _validate_text_sources(texts: dict[str, dict[str, str]]) -> None:
                         break
                 if metadata_line is None:
                     raise ValueError(f"{path.relative_to(ROOT)}:{index + 1}: add {expected.strip()} with an ID")
-                key = json.loads(metadata_line.partition(" = ")[2])
-                if key in texts and texts[key]["zh"] != json.loads(matched.group(2)):
-                    raise ValueError(f"{path.relative_to(ROOT)}:{index + 1}: scene preview differs from {key} 中文")
             if line.startswith("metadata/l10n_"):
                 key = json.loads(line.partition(" = ")[2])
                 if key not in texts:

@@ -523,6 +523,62 @@
     "en": "Size",
     "zh": "尺寸"
   },
+  "cottage.compare.building": {
+    "en": "Building",
+    "zh": "修建中"
+  },
+  "cottage.compare.current_level": {
+    "en": "Current LV%d",
+    "zh": "当前 LV%d"
+  },
+  "cottage.compare.heading": {
+    "en": "Cottage",
+    "zh": "小屋"
+  },
+  "cottage.compare.levels": {
+    "en": "Current LV%d → LV%d",
+    "zh": "当前 LV%d → LV%d"
+  },
+  "cottage.compare.no_next": {
+    "en": "Maximum level reached",
+    "zh": "已达到最高等级"
+  },
+  "cottage.compare.storage": {
+    "en": "Storage capacity",
+    "zh": "仓库容量"
+  },
+  "cottage.compare.unlock_none": {
+    "en": "No new unlocks",
+    "zh": "无新增内容"
+  },
+  "cottage.compare.unlock_pasture": {
+    "en": "Animal husbandry",
+    "zh": "养殖"
+  },
+  "cottage.compare.unlock_plots": {
+    "en": "Plots ×%d",
+    "zh": "地块×%d"
+  },
+  "cottage.compare.unlocks": {
+    "en": "Next unlocks: %s",
+    "zh": "下一级解锁：%s"
+  },
+  "cottage.compare.usage": {
+    "en": "Warehouse  %d / %d",
+    "zh": "仓库当前容量  %d / %d"
+  },
+  "cottage.compare.workbench": {
+    "en": "Workbench tier",
+    "zh": "工作台等级"
+  },
+  "fishing.bait_switch_next_cast": {
+    "en": "Selected %s; applies to the next cast.",
+    "zh": "已选择%s，将在下一轮钓鱼时使用"
+  },
+  "fishing.bait_switched": {
+    "en": "Bait selected: %s",
+    "zh": "已切换鱼饵：%s"
+  },
   "fishing.leaderboard.bot": {
     "en": "Bot %02d",
     "zh": "机器人 %02d"
@@ -575,9 +631,17 @@
     "en": "MAX",
     "zh": "MAX"
   },
+  "fishing.size.maximum_tag": {
+    "en": "MAX",
+    "zh": "最大"
+  },
   "fishing.size.minimum_badge": {
     "en": "MIN",
     "zh": "小"
+  },
+  "fishing.size.minimum_tag": {
+    "en": "MIN",
+    "zh": "最小"
   },
   "fishing.size.record": {
     "en": "Smallest %d cm / largest %d cm",
@@ -638,6 +702,34 @@
   "plot.work.plant_waiting": {
     "en": "Queued to plant",
     "zh": "待播种"
+  },
+  "settings.display_size": {
+    "en": "Display size",
+    "zh": "显示"
+  },
+  "settings.effects": {
+    "en": "Sound effects",
+    "zh": "音效"
+  },
+  "settings.move_short": {
+    "en": "Move",
+    "zh": "移动"
+  },
+  "settings.raise": {
+    "en": "Move up",
+    "zh": "向上移动"
+  },
+  "settings.screen": {
+    "en": "Display",
+    "zh": "显示屏幕"
+  },
+  "settings.screen_number": {
+    "en": "Display %d",
+    "zh": "屏幕 %d"
+  },
+  "settings.screen_short": {
+    "en": "Display",
+    "zh": "屏幕"
   },
   "shop.products.count": {
     "en": "%d items",
@@ -1044,8 +1136,8 @@
     "zh": "小麦"
   },
   "ui.45a3667a6b": {
-    "en": "Can catch up to %s · %s",
-    "zh": "最高可钓%s · %s"
+    "en": "Can catch up to %s",
+    "zh": "最高可钓%s"
   },
   "ui.468e24b50f": {
     "en": "Growth",
@@ -1060,8 +1152,8 @@
     "zh": "默认整块地为一组；取消勾选后只操作首个空小格"
   },
   "ui.4af67d14ea": {
-    "en": "Materials · Owned/Required (%d batches)",
-    "zh": "制作材料 · 已有/所需（%d批）"
+    "en": "Materials (%d batches)",
+    "zh": "制作材料（%d批）"
   },
   "ui.4bcb5cb405": {
     "en": "Clear",
@@ -1304,8 +1396,8 @@
     "zh": "关闭"
   },
   "ui.6c1d39029a": {
-    "en": "%s · Owned: %d",
-    "zh": "%s · 已持有 %d"
+    "en": "%s",
+    "zh": "%s"
   },
   "ui.6c95c1ab53": {
     "en": "Sale failed: fish basket empty or fish shop locked",
@@ -2099,6 +2191,10 @@
     "en": "Cloudy",
     "zh": "多云"
   },
+  "world.work.cottage_waiting": {
+    "en": "Waiting",
+    "zh": "等待中"
+  },
   "world.work.craft_running": {
     "en": "Crafting",
     "zh": "制作中"
@@ -2115,28 +2211,8 @@
     "en": "Queued to feed",
     "zh": "待喂食"
   },
-  "fishing.size.minimum_tag": {
-    "zh": "最小",
-    "en": "MIN"
-  },
-  "fishing.size.maximum_tag": {
-    "zh": "最大",
-    "en": "MAX"
-  },
-  "settings.screen": {
-    "zh": "显示屏幕",
-    "en": "Display"
-  },
-  "settings.screen_number": {
-    "zh": "屏幕 %d",
-    "en": "Display %d"
-  },
-  "settings.raise": {
-    "zh": "向上移动",
-    "en": "Move up"
-  },
-  "settings.effects": {
-    "zh": "音效",
-    "en": "Sound effects"
+  "world.work.fishing_resting": {
+    "en": "Resting",
+    "zh": "休息中"
   }
 }

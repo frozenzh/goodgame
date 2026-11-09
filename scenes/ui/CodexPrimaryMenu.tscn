@@ -8,17 +8,19 @@
 [sub_resource type="StyleBoxEmpty" id="EmptyStyle"]
 
 [node name="PrimaryMenu" type="VBoxContainer" unique_id=785788242]
-editor_description = "图鉴一级分类；每个按钮展开后可单独替换 Background 贴图、调整 Label。"
+editor_description = "共享一级菜单；按钮居中且不横向拉伸。点击宽度调整各 Tab 的 custom_minimum_size.x；背景使用固定尺寸，不随点击区缩放。"
 custom_minimum_size = Vector2(352, 42)
 offset_right = 352.0
 offset_bottom = 169.0
+mouse_filter = 2
 theme_override_constants/separation = -15
 metadata/_edit_vertical_guides_ = [200.0]
 
 [node name="FishTab" type="Button" parent="." unique_id=2124413509]
-editor_description = "点击区；Background 和 Label 是独立静态节点。"
+editor_description = "独立点击区；通过 custom_minimum_size.x 调整宽度，保持水平 Shrink Center。Background 固定尺寸，Label 跟随点击区居中。"
 custom_minimum_size = Vector2(82, 40)
 layout_mode = 2
+size_flags_horizontal = 4
 focus_mode = 0
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("EmptyStyle")
@@ -30,16 +32,16 @@ script = ExtResource("1_script")
 selected_background = ExtResource("2_8k4v6")
 
 [node name="Background" type="TextureRect" parent="FishTab" unique_id=710098088]
+editor_description = "原图含透明留白；保持 100×100 固定绘制区域。调整父按钮点击宽度不会缩放贴图，需要改变美术尺寸时在此调整。"
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 125.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
 offset_top = -32.0
-offset_right = -127.0
-offset_bottom = 28.0
+offset_right = 50.0
+offset_bottom = 68.0
 grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_normal")
 expand_mode = 1
@@ -62,9 +64,10 @@ vertical_alignment = 1
 metadata/l10n_text = "ui.92468fdf7c"
 
 [node name="BaitTab" type="Button" parent="." unique_id=584166748]
-editor_description = "点击区；Background 和 Label 是独立静态节点。"
+editor_description = "独立点击区；通过 custom_minimum_size.x 调整宽度，保持水平 Shrink Center。Background 固定尺寸，Label 跟随点击区居中。"
 custom_minimum_size = Vector2(82, 40)
 layout_mode = 2
+size_flags_horizontal = 4
 focus_mode = 0
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("EmptyStyle")
@@ -76,16 +79,16 @@ script = ExtResource("1_script")
 selected_background = ExtResource("2_8k4v6")
 
 [node name="Background" type="TextureRect" parent="BaitTab" unique_id=1068163353]
+editor_description = "原图含透明留白；保持 100×100 固定绘制区域。调整父按钮点击宽度不会缩放贴图，需要改变美术尺寸时在此调整。"
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 125.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
 offset_top = -32.0
-offset_right = -127.0
-offset_bottom = 28.0
+offset_right = 50.0
+offset_bottom = 68.0
 grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("4_1aegr")
 expand_mode = 1
@@ -108,9 +111,10 @@ vertical_alignment = 1
 metadata/l10n_text = "ui.9be962ae57"
 
 [node name="CropTab" type="Button" parent="." unique_id=1945718160]
-editor_description = "点击区；Background 和 Label 是独立静态节点。"
+editor_description = "独立点击区；通过 custom_minimum_size.x 调整宽度，保持水平 Shrink Center。Background 固定尺寸，Label 跟随点击区居中。"
 custom_minimum_size = Vector2(82, 40)
 layout_mode = 2
+size_flags_horizontal = 4
 focus_mode = 0
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("EmptyStyle")
@@ -122,16 +126,16 @@ script = ExtResource("1_script")
 selected_background = ExtResource("2_8k4v6")
 
 [node name="Background" type="TextureRect" parent="CropTab" unique_id=1414616153]
+editor_description = "原图含透明留白；保持 100×100 固定绘制区域。调整父按钮点击宽度不会缩放贴图，需要改变美术尺寸时在此调整。"
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 125.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
 offset_top = -32.0
-offset_right = -127.0
-offset_bottom = 28.0
+offset_right = 50.0
+offset_bottom = 68.0
 grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_normal")
 expand_mode = 1
@@ -154,9 +158,10 @@ vertical_alignment = 1
 metadata/l10n_text = "ui.b3aa8ab320"
 
 [node name="AchievementTab" type="Button" parent="." unique_id=1135268102]
-editor_description = "成就页入口；背景与文字均为静态子节点。"
+editor_description = "成就入口；点击区宽度由 custom_minimum_size.x 控制，背景固定尺寸，文字跟随点击区居中。"
 custom_minimum_size = Vector2(82, 40)
 layout_mode = 2
+size_flags_horizontal = 4
 focus_mode = 0
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("EmptyStyle")
@@ -168,16 +173,16 @@ script = ExtResource("1_script")
 selected_background = ExtResource("2_8k4v6")
 
 [node name="Background" type="TextureRect" parent="AchievementTab" unique_id=796153466]
+editor_description = "原图含透明留白；保持 100×100 固定绘制区域。调整父按钮点击宽度不会缩放贴图，需要改变美术尺寸时在此调整。"
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 125.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
 offset_top = -32.0
-offset_right = -127.0
-offset_bottom = 28.0
+offset_right = 50.0
+offset_bottom = 68.0
 grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_normal")
 expand_mode = 1
@@ -188,10 +193,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 156.0
-offset_top = 9.0
-offset_right = -156.0
-offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.941, 0.784, 1)

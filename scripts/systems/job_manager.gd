@@ -193,6 +193,7 @@ func get_plot_work_status(plot_id: String) -> Dictionary:
 func get_facility_work_status() -> Dictionary:
 	var status := {
 		"craft": {"total_count": 0, "waiting_count": 0, "running_count": 0},
+		"cottage": {"total_count": 0, "waiting_count": 0, "running_count": 0},
 		"pasture": {}
 	}
 	for value in _queue():
@@ -203,6 +204,8 @@ func get_facility_work_status() -> Dictionary:
 		var entry: Dictionary
 		if action == "craft_bait":
 			entry = status["craft"]
+		elif action in ["upgrade_cottage", "complete_cottage"]:
+			entry = status["cottage"]
 		elif action == "feed_pasture":
 			var target_parts := str(command.get("target_id", "")).split(":")
 			if target_parts.size() != 2:
@@ -222,11 +225,12 @@ func get_facility_work_status() -> Dictionary:
 	return status
 
 
-# 构建 plot_work_status，供调用方继续处理。
+# 汇总指定地块的播种、收获和开垦状态；plot_id 对应存档地块 ID。
 static func build_plot_work_status(commands: Array, plot_id: String, labor_command_id: int = -1) -> Dictionary:
 	var status := {
 		"plant": {"total_count": 0, "waiting_count": 0, "running_count": 0, "grouped_count": 0, "crop_counts": {}, "target_ids": []},
-		"harvest": {"total_count": 0, "waiting_count": 0, "running_count": 0, "grouped_count": 0, "crop_counts": {}, "target_ids": []}
+		"harvest": {"total_count": 0, "waiting_count": 0, "running_count": 0, "grouped_count": 0, "crop_counts": {}, "target_ids": []},
+		"unlock": {"total_count": 0, "waiting_count": 0, "running_count": 0}
 	}
 	var seen := {"plant": {}, "harvest": {}}
 	for value in commands:
@@ -234,6 +238,12 @@ static func build_plot_work_status(commands: Array, plot_id: String, labor_comma
 			continue
 		var command: Dictionary = value
 		var action := str(command.get("action", ""))
+		if action == "unlock_plot" and str(command.get("target_id", "")) == plot_id:
+			var unlock_status: Dictionary = status["unlock"]
+			unlock_status["total_count"] += 1
+			var phase := "running_count" if int(command.get("id", -1)) == labor_command_id else "waiting_count"
+			unlock_status[phase] += 1
+			continue
 		var kind := "plant" if action in ["plant", "plant_cell"] else "harvest" if action in ["harvest", "harvest_cell"] else ""
 		if kind.is_empty():
 			continue

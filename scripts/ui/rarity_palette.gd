@@ -13,6 +13,19 @@ const EPIC_WIDE := preload("res://assets/hd/ui/rarity_epic_wide.png")
 const RARE_WIDE := preload("res://assets/hd/ui/rarity_rare_wide.png")
 
 
+# 品质文字使用适合浅色面板的深色调，沿用普通绿、优秀蓝、稀有紫、史诗金的统一映射。
+static func text_color_for(rarity: String) -> Color:
+	match rarity:
+		"good":
+			return Color("#2f75ba")
+		"rare":
+			return Color("#9950b6")
+		"epic":
+			return Color("#af7919")
+		_:
+			return Color("#398942")
+
+
 # 封装 texture_for 的处理，供相关流程复用。
 static func texture_for(rarity: String, wide: bool = false) -> Texture2D:
 	match rarity:

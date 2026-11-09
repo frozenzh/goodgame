@@ -75,7 +75,7 @@ func _select_first_owned_bait(state: Variant) -> void:
 			return
 
 
-# 启动 cast，供调用方继续处理。
+# 每轮开始时读取所选鱼饵并消耗一个，写入本轮快照；途中切换选择不会改变本轮的鱼饵或结束时间。
 func start_cast(now_unix: int = 0) -> bool:
 	var state: Variant = _state()
 	if state == null or not state.fishing_cast.is_empty() or not can_fish():

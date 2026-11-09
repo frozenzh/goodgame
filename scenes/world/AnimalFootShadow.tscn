@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/world/animal_foot_shadow.gd" id="1_shadow"]
+
+[node name="FootShadow" type="Node2D"]
+editor_description = "脚底接触阴影，随动物帧和睡姿定位；可调 Opacity 和 Width Ratio。"
+show_behind_parent = true
+script = ExtResource("1_shadow")

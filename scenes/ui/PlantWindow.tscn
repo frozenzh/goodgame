@@ -4,8 +4,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/StaticPopupFrame.tscn" id="2_popup"]
 [ext_resource type="PackedScene" path="res://scenes/ui/PlotContent.tscn" id="3_content"]
 [ext_resource type="Texture2D" uid="uid://bi2mnng1dpk2n" path="res://assets/hd/world/plot3x3/carrot.png" id="4_preview"]
-
-[ext_resource type="StyleBoxFlat" path="res://assets/hd/ui/seed_hover_panel_style.tres" id="5_hover_style"]
+[ext_resource type="StyleBox" path="res://assets/hd/ui/seed_hover_panel_style.tres" id="5_hover_style"]
 
 [node name="PlantWindow" type="Window" unique_id=1831373116]
 editor_description = "参考图种植子窗口；可在 Inspector 调整窗口尺寸与桌面偏移。"
@@ -64,9 +63,7 @@ offset_left = 171.07
 offset_top = 120.55
 offset_right = 316.07
 offset_bottom = 192.55
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 20
 
 [node name="UnlockCostRow" parent="PlotPopup/ContentSurface/PlotContent/LockedContent" index="2"]
 offset_left = 179.07

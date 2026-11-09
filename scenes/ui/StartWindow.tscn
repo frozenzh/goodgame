@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://7xq6ksuwkmhf"]
 
 [ext_resource type="Script" uid="uid://de3k0mh2su8rj" path="res://scripts/ui/start_window.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://by67waonc32ie" path="res://assets/hd/ui/game_logo.png" id="2_logo"]
+[ext_resource type="Texture2D" uid="uid://digvbq55hi3o2" path="res://logo.png" id="2_m3m01"]
 [ext_resource type="PackedScene" uid="uid://do7gog1hg3ww4" path="res://scenes/ui/PrimaryButton.tscn" id="3_button"]
 
 [sub_resource type="AtlasTexture" id="LogoChinese"]
-atlas = ExtResource("2_logo")
+atlas = ExtResource("2_m3m01")
 region = Rect2(173, 485, 1411, 342)
 
 [sub_resource type="AtlasTexture" id="LogoEnglish"]
-atlas = ExtResource("2_logo")
+atlas = ExtResource("2_m3m01")
 region = Rect2(162, 110, 1426, 330)
 
 [node name="StartWindow" type="Window" unique_id=1553315914]
@@ -39,7 +39,6 @@ stretch_mode = 5
 
 [node name="LogoEN" type="TextureRect" parent="." unique_id=1276030226]
 editor_description = "英文版 Logo；运行时按语言切换，编辑时可临时打开 Visible 调整。"
-visible = false
 texture_filter = 1
 offset_left = 18.0
 offset_right = 742.0

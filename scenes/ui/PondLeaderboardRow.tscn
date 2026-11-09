@@ -33,8 +33,10 @@ metadata/l10n_text = "fishing.leaderboard.player"
 clip_text = true
 
 [node name="Fish" type="Label" parent="Columns"]
+editor_description = "排行榜鱼名；运行时根据鱼目录的 rarity 使用对应品质色，包含本人排名行。"
 layout_mode = 2
 custom_minimum_size = Vector2(112, 0)
+theme_override_colors/font_color = Color(0.223529, 0.537255, 0.258824, 1)
 theme_override_font_sizes/font_size = 13
 text = "小鲫鱼"
 metadata/l10n_text = "catalog.fish.fish_001.display_name"

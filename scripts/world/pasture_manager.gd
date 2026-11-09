@@ -10,6 +10,7 @@ const ANIMAL_ARTS := {
 	"dog": preload("res://assets/hd/world/pasture_dog_walk_8.png"),
 }
 const SLEEP_ART := preload("res://assets/hd/world/pasture_dog_sleep.png")
+const FOOT_SHADOW := preload("res://scenes/world/AnimalFootShadow.tscn")
 const TYPES := ["chicken", "pig", "sheep", "cow"]
 const NAMES := {"chicken": "ui.88b9eae481", "pig": "ui.c3095b7c23", "sheep": "ui.3b3f2d6a40", "cow": "ui.06c95e6b4b"}
 const FRAME_COUNT := 8
@@ -437,6 +438,7 @@ func _rebuild_sprites() -> void:
 		sprite.scale = Vector2(0.12, 0.12)
 		sprite.position = Vector2(float(animal["x"]), float(animal["y"]))
 		layer.add_child(sprite)
+		sprite.add_child(FOOT_SHADOW.instantiate())
 		_sprites[int(animal["id"])] = sprite
 		_walk_targets[int(animal["id"])] = Vector2(randf_range(-85.0, 85.0), randf_range(120.0, 180.0))
 		_walk_speeds[int(animal["id"])] = randf_range(_cfg_float("animal_walk_min_speed"), _cfg_float("animal_walk_max_speed"))

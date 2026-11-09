@@ -153,6 +153,31 @@ theme_override_font_sizes/font_size = 13
 text = "待收获"
 metadata/l10n_text = "plot.work.harvest_waiting"
 
+[node name="UnlockRow" type="HBoxContainer" parent="PendingBadge/Rows" unique_id=42954487]
+editor_description = "开垦排队时的等待标签；可独立调整位置与尺寸。"
+visible = false
+custom_minimum_size = Vector2(80, 17)
+layout_mode = 0
+offset_right = 82.0
+offset_bottom = 17.0
+mouse_filter = 2
+theme_override_constants/separation = 3
+
+[node name="Hourglass" type="TextureRect" parent="PendingBadge/Rows/UnlockRow" unique_id=1099321338]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("pending_hourglass")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="State" type="Label" parent="PendingBadge/Rows/UnlockRow" unique_id=1521570551]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94, 0.77, 1)
+theme_override_font_sizes/font_size = 13
+text = "等待中"
+metadata/l10n_text = "world.work.cottage_waiting"
+
 [node name="StateVisuals" type="Node2D" parent="." unique_id=1082060829]
 editor_description = "所有地块状态的静态节点组；未开垦、已开垦各为一张完整 3×3 正方形土地资源。"
 
@@ -828,8 +853,7 @@ offset = Vector2(0, -121.6)
 [node name="MatureWhiteRadishCells" type="Node2D" parent="StateVisuals" unique_id=1383862504]
 editor_description = "3×3 单株静态节点；可拖动整个组，也可单独移动九个格心。"
 visible = false
-position = Vector2(0, -2)
-scale = Vector2(1.13, 1.13)
+position = Vector2(0, 1)
 
 [node name="Cell_1_1" type="Sprite2D" parent="StateVisuals/MatureWhiteRadishCells" unique_id=560391019]
 texture_filter = 1
@@ -1546,6 +1570,7 @@ texture = ExtResource("newcrop_9")
 
 [node name="Mature_burdock_Cells" type="Node2D" parent="StateVisuals" unique_id=92872545]
 editor_description = "成熟植物 burdock 的静态九宫格；可移动整组或单格。预览和游戏均使用这里的贴图和布局。"
+visible = false
 position = Vector2(0, -3)
 scale = Vector2(1.3, 1.3)
 
