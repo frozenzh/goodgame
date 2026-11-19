@@ -1,28 +1,47 @@
 {
   "steps": [
     {
-      "id": "resources",
-      "target_path": "Overlay/CoinGroup/Board",
-      "title_id": "tutorial.resources.title",
-      "text_id": "tutorial.resources.text",
-      "padding": 5,
-      "dialog_position": [420, 10]
+      "id": "harvest_initial",
+      "title_id": "tutorial.harvest_initial.title",
+      "text_id": "tutorial.harvest_initial.text",
+      "completion": "initial_harvest",
+      "plot_id": "6",
+      "view_node": "Step01Harvest"
     },
     {
-      "id": "first_plot",
-      "target_path": "StaticWorldStrip/PlotLayer/PlotNodes/Plot01/StateVisuals/ClearedSprite",
-      "title_id": "tutorial.first_plot.title",
-      "text_id": "tutorial.first_plot.text",
-      "padding": 7,
-      "dialog_position": [835, 10]
+      "id": "complete_workbench",
+      "title_id": "tutorial.complete_workbench.title",
+      "text_id": "tutorial.complete_workbench.text",
+      "completion": "workbench_built",
+      "view_node": "Step02Workbench"
     },
     {
-      "id": "pond",
-      "target_path": "StaticWorldStrip/ResourceNodes/Pond/Sprite",
-      "title_id": "tutorial.pond.title",
-      "text_id": "tutorial.pond.text",
-      "padding": 5,
-      "dialog_position": [580, 10]
+      "id": "craft_bait",
+      "title_id": "tutorial.craft_bait.title",
+      "text_id": "tutorial.craft_bait.text",
+      "completion": "bait_crafted",
+      "view_node": "Step03Bait"
+    },
+    {
+      "id": "go_fishing",
+      "title_id": "tutorial.go_fishing.title",
+      "text_id": "tutorial.go_fishing.text",
+      "completion": "fish_caught",
+      "view_node": "Step04Fishing"
+    },
+    {
+      "id": "complete_shop",
+      "title_id": "tutorial.complete_shop.title",
+      "text_id": "tutorial.complete_shop.text",
+      "completion": "shop_built",
+      "view_node": "Step05Shop"
+    },
+    {
+      "id": "sell_fish",
+      "title_id": "tutorial.sell_fish.title",
+      "text_id": "tutorial.sell_fish.text",
+      "completion": "fish_sold",
+      "view_node": "Step06Sell"
     }
   ]
 }

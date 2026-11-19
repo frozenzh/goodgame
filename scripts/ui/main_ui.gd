@@ -84,6 +84,7 @@ const FISH_RARITY_TABS := [
 @onready var workbench_window: Window = $WorkbenchWindow
 @onready var pond_window: Window = $PondWindow
 @onready var overlay: Control = $Overlay
+@onready var _pause_button: Button = get_node_or_null("Overlay/RightIcons/PauseButton") as Button
 @onready var _toast: PanelContainer = $Notification
 @onready var _toast_message: Label = $Notification/Message
 @onready var _toast_timer: Timer = $Notification/Timer
@@ -115,6 +116,7 @@ var _shop_selected_fish := ""
 var _shop_tab := "fish"
 var _shop_selected_product := ""
 var _shop_selected_crop := ""
+var _shop_rendered_refresh_at := -1
 var _workbench_tab := "bait"
 var _pond_tab := "bait"
 var _leaderboard_ranks: Dictionary = {}
@@ -199,7 +201,14 @@ func _ready() -> void:
 	_connect_game()
 	_startup_has_save = SaveManager.has_saved_game()
 	(start_window.get_node("ButtonRow/ContinueButton") as Button).pressed.connect(_continue_game_from_start)
-	(start_window.get_node("ButtonRow/NewGameButton") as Button).pressed.connect(_new_game_from_start)
+	start_window.connect("new_game_confirmed", Callable(self, "_new_game_from_start"))
+	start_window.connect("slot_load_requested", Callable(self, "_load_start_save_slot"))
+	if _pause_button != null:
+		_pause_button.remove_meta("l10n_text")
+		_pause_button.pressed.connect(_toggle_start_menu)
+	else:
+		push_error("Main.tscn is missing Overlay/RightIcons/PauseButton; reload the saved scene.")
+	SaveManager.finish_pending_restore()
 	call_deferred("_apply_desktop_window")
 	call_deferred("_layout_overlays")
 	if not SaveManager.startup_choice_done:
@@ -216,13 +225,21 @@ func _ready() -> void:
 
 
 # 显示 start_window，供调用方继续处理。
-func _show_start_window() -> void:
-	if SaveManager.startup_choice_done:
+func _show_start_window(force: bool = false) -> void:
+	if SaveManager.startup_choice_done and not force:
 		return
-	(start_window.get_node("ButtonRow/ContinueButton") as Button).visible = _startup_has_save
+	_close_modal()
+	_hide_plot_progress()
+	if SaveManager.startup_choice_done:
+		SaveManager.save_game()
+	get_node("/root/TimeManager").begin_menu_pause()
+	start_window.call("reset_view")
+	var continue_button := start_window.get_node("ButtonRow/ContinueButton") as Button
+	continue_button.show()
+	continue_button.disabled = not (SaveManager.startup_choice_done or SaveManager.has_saved_game())
 	(start_window.get_node("LogoZH") as TextureRect).visible = TextDB.language == "zh"
 	(start_window.get_node("LogoEN") as TextureRect).visible = TextDB.language == "en"
-	_position_building_window(start_window, "House")
+	_position_start_window()
 	var final_position: Vector2i = start_window.position
 	start_window.position = final_position + Vector2i(0, -24)
 	_set_start_window_opacity(0.5)
@@ -231,6 +248,7 @@ func _show_start_window() -> void:
 	start_window.transparent_bg = true
 	start_window.transparent = true
 	get_tree().paused = true
+	_set_pause_button_state(true)
 	start_window.grab_focus()
 	var entrance := create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	entrance.set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
@@ -238,9 +256,23 @@ func _show_start_window() -> void:
 	entrance.tween_method(_set_start_window_opacity, 0.5, 1.0, 0.38)
 
 
+# 开始窗口固定在目标屏幕可用区域的中心加桌面像素偏移，不依赖小屋坐标或显示比例。
+func _position_start_window() -> void:
+	if DisplayServer.get_name() == "headless":
+		return
+	var screen := clampi(int(_state.settings.get("display_screen", DisplayServer.window_get_current_screen())), 0, maxi(0, DisplayServer.get_screen_count() - 1))
+	var usable := DisplayServer.screen_get_usable_rect(screen)
+	var offset: Vector2i = start_window.get("desktop_offset")
+	var centered := usable.position + (usable.size - start_window.size) / 2 + offset
+	start_window.position = Vector2i(
+		clampi(centered.x, usable.position.x, maxi(usable.position.x, usable.end.x - start_window.size.x)),
+		clampi(centered.y, usable.position.y, maxi(usable.position.y, usable.end.y - start_window.size.y))
+	)
+
+
 # 设置 start_window_opacity，供调用方继续处理。
 func _set_start_window_opacity(alpha: float) -> void:
-	for node_name in ["LogoZH", "LogoEN", "ButtonRow"]:
+	for node_name in ["LogoZH", "LogoEN", "ButtonRow", "SavesButton", "ExitButton"]:
 		var visual := start_window.get_node(node_name) as CanvasItem
 		var tint := visual.modulate
 		tint.a = alpha
@@ -249,9 +281,36 @@ func _set_start_window_opacity(alpha: float) -> void:
 
 # 封装 continue_game_from_start 的处理，供相关流程复用。
 func _continue_game_from_start() -> void:
+	get_node("/root/TimeManager").end_menu_pause()
 	SaveManager.startup_choice_done = true
 	start_window.hide()
 	get_tree().paused = false
+	_set_pause_button_state(false)
+	SaveManager.save_game()
+
+
+# 暂停时显示继续图标，运行时显示暂停图标。
+func _set_pause_button_state(paused: bool) -> void:
+	if _pause_button != null:
+		_pause_button.text = ""
+		_pause_button.icon = preload("res://assets/hd/ui/icon_play.png") if paused else preload("res://assets/hd/ui/icon_pause.png")
+
+
+# 右下角按钮在暂停状态也接收点击，随时打开开始菜单或继续当前游戏。
+func _toggle_start_menu() -> void:
+	if start_window.visible:
+		_continue_game_from_start()
+	else:
+		_show_start_window(true)
+
+
+# 读取所选槽后重建主场景，所有角色、队列和建筑都使用存档中的完整状态。
+func _load_start_save_slot(slot: int) -> void:
+	if not SaveManager.stage_slot_load(slot):
+		return
+	SaveManager.startup_choice_done = true
+	get_tree().paused = false
+	get_tree().call_deferred("reload_current_scene")
 
 
 # 封装 new_game_from_start 的处理，供相关流程复用。
@@ -262,6 +321,8 @@ func _new_game_from_start() -> void:
 	SaveManager.startup_choice_done = true
 	start_window.hide()
 	get_tree().paused = false
+	_set_pause_button_state(false)
+	get_node("TutorialGuide").call("start_guide")
 
 
 # 封装 gui_input 的处理，供相关流程复用。
@@ -471,6 +532,8 @@ func _apply_desktop_window() -> void:
 		clampi(usable.end.y - window.size.y - int(_state.settings.get("display_raise", 0)), usable.position.y, maxi(usable.position.y, usable.end.y - window.size.y))
 	)
 
+	if start_window.visible:
+		_position_start_window()
 
 # 处理未被界面消费的键盘事件。
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -1052,6 +1115,8 @@ func _setup_pasture_window() -> void:
 		(card.get_node("ClickArea") as Button).pressed.connect(_select_pasture_animal.bind(kind))
 	(surface.get_node("DetailPanel/BuyButton") as Button).pressed.connect(func(): _buy_pasture_animal(_pasture_selected_kind))
 	(surface.get_node("DetailPanel/Feed") as Button).pressed.connect(_feed_pasture)
+	(surface.get_node("HarvestRow/Harvest") as Button).pressed.connect(_harvest_pasture)
+	pasture.products_changed.connect(_refresh_pasture_window)
 
 
 # 打开 pasture，供调用方继续处理。
@@ -1116,6 +1181,14 @@ func _refresh_pasture_window() -> void:
 	(detail.get_node("AnimalPrice") as Label).text = TextDB.text("ui.fab742762b") % pasture.get_price(_pasture_selected_kind)
 	_set_coin_requirement(detail.get_node("AnimalPrice") as Label, pasture.get_price(_pasture_selected_kind))
 	(detail.get_node("AnimalInfo") as Label).text = TextDB.text("ui.61e8d1fd78") % [count, capacity]
+	(detail.get_node("Lifetime") as Label).text = TextDB.text("pasture.lifetime") % pasture.get_lifetime_hours(_pasture_selected_kind)
+	var pending := pasture.get_pending_products()
+	var total := 0
+	for product_id in ["egg", "milk", "wool", "pork"]:
+		var amount := maxi(0, int(pending.get(product_id, 0)))
+		(surface.get_node("HarvestRow/%s/Count" % product_id.capitalize()) as Label).text = "×%d" % amount
+		total += amount
+	(surface.get_node("HarvestRow/Harvest") as Button).disabled = total == 0
 	(detail.get_node("BuyButton") as Button).disabled = count >= capacity
 
 
@@ -1125,6 +1198,12 @@ func _buy_pasture_animal(kind: String) -> void:
 		notify(TextDB.text("ui.770c993a87") % TextDB.text(str(PastureManager.NAMES[kind])))
 	else:
 		notify(TextDB.text("ui.dce8e58c81"))
+	_refresh_pasture_window()
+
+
+# 将牧场累计产出统一领取到仓库，并立即刷新数量。
+func _harvest_pasture() -> void:
+	pasture.harvest_products()
 	_refresh_pasture_window()
 
 
@@ -1564,8 +1643,27 @@ func _hide_plot_progress() -> void:
 	plot_progress_anchor.visible = false
 
 
-# 更新 plot_progress，供调用方继续处理。
+# 先填充当前状态再收紧高度，最后限制整窗位置；各状态提前返回也能统一完成布局。
 func _update_plot_progress() -> void:
+	_fill_plot_progress()
+	if not plot_progress_anchor.visible:
+		return
+	var panel := plot_progress_anchor.get_node("Panel") as PanelContainer
+	panel.call("fit_content_height")
+	var centers := static_world.get_plot_centers()
+	if _plot_progress_index < 0 or _plot_progress_index >= centers.size() or not centers[_plot_progress_index] is Vector2:
+		_hide_plot_progress()
+		return
+	var center: Vector2 = get_global_transform().affine_inverse() * (centers[_plot_progress_index] as Vector2)
+	var visible_top := size.y - float(DESIGN_SIZE.y)
+	plot_progress_anchor.position = Vector2(
+		clampf(center.x, -panel.position.x, float(_display_width) - panel.position.x - panel.size.x),
+		clampf(center.y, visible_top - panel.position.y, size.y - panel.position.y - panel.size.y)
+	)
+
+
+# 按选中地块或小格填充种植、生长和收获状态，隐藏无关控件，使其不参与窗口最小高度。
+func _fill_plot_progress() -> void:
 	if _plot_progress_index < 0:
 		return
 	var plots_value = _prop(_state, "plots", [])
@@ -1583,19 +1681,6 @@ func _update_plot_progress() -> void:
 	var selected_cell: Dictionary = selected_cells[_plot_progress_cell_index] if _plot_progress_cell_index >= 0 and _plot_progress_cell_index < selected_cells.size() else {}
 	if not selected_cell.is_empty():
 		crop_id = str(selected_cell.get("crop", ""))
-	var centers := static_world.get_plot_centers()
-	if _plot_progress_index >= centers.size() or not centers[_plot_progress_index] is Vector2:
-		_hide_plot_progress()
-		return
-	var center: Vector2 = get_global_transform().affine_inverse() * (centers[_plot_progress_index] as Vector2)
-	var panel := plot_progress_anchor.get_node("Panel") as Control
-	# Keep the editable panel offset beside the plot, then clamp the whole panel
-	# into the visible 1280×168 strip (scene-local Y 62..230).
-	var visible_top := size.y - float(DESIGN_SIZE.y)
-	plot_progress_anchor.position = Vector2(
-		clampf(center.x, -panel.position.x, float(_display_width) - panel.position.x - panel.size.x),
-		clampf(center.y, visible_top - panel.position.y, size.y - panel.position.y - panel.size.y)
-	)
 	plot_progress_bar.visible = true
 	plot_progress_time.visible = true
 	var now := int(Time.get_unix_time_from_system())
@@ -2182,6 +2267,10 @@ func _render_pond_content() -> void:
 	var bait_tab := content.get_node("CategoryTabs/BaitTab") as CodexTabButton
 	var rod_tab := content.get_node("CategoryTabs/RodTab") as CodexTabButton
 	var leaderboard_tab := content.get_node("CategoryTabs/LeaderboardTab") as CodexTabButton
+	# 通用模板默认是鱼饵；按实际页签文本 ID 重填，导出实例和语言切换都使用同一名称。
+	bait_tab.set_caption(TextDB.text("ui.9be962ae57"))
+	rod_tab.set_caption(TextDB.text("ui.0a303232da"))
+	leaderboard_tab.set_caption(TextDB.text("fishing.leaderboard.tab"))
 	_clear_press_connections(bait_tab)
 	_clear_press_connections(rod_tab)
 	_clear_press_connections(leaderboard_tab)
@@ -2427,6 +2516,7 @@ func _open_shop() -> void:
 	if shop == null:
 		return
 	shop.refresh_offers_if_due()
+	_shop_rendered_refresh_at = int(_state.shop_refresh_at)
 	var basket := _dict_prop(_state, "fish_basket")
 	var content := _shop_content
 	var menu := _modal.get_node("ContentSurface/PrimaryMenu") as Control
@@ -2459,9 +2549,19 @@ func _open_shop() -> void:
 	var owned_grid := content.get_node("OwnedSection/Content/OwnedScroll/OwnedGrid") as GridContainer
 	var registry := get_node_or_null("/root/DataRegistry")
 	var owned_ids: Array[String] = []
+	var high_price_ids: Dictionary = {}
+	for offer in _state.shop_offers:
+		if offer is Dictionary and float(offer.get("multiplier", 1.0)) > 1.0:
+			high_price_ids[str(offer.get("fish_id", ""))] = true
+	var regular_ids: Array[String] = []
+	# 稳定分组：本轮高价鱼置顶，两组内部保留鱼篓顺序，不因点击选鱼而来回跳动。
 	for fish_id in basket.keys():
 		if int(basket[fish_id]) > 0:
-			owned_ids.append(str(fish_id))
+			if high_price_ids.has(str(fish_id)):
+				owned_ids.append(str(fish_id))
+			else:
+				regular_ids.append(str(fish_id))
+	owned_ids.append_array(regular_ids)
 	var owned_slots := _shop_stock_slots(owned_grid, owned_ids.size())
 	for slot_index in range(owned_ids.size()):
 		var fish_id := owned_ids[slot_index]
@@ -2469,6 +2569,7 @@ func _open_shop() -> void:
 		var fish: Dictionary = registry.get_fish(str(fish_id)) if registry != null else {}
 		var card := owned_slots[slot_index]
 		_set_card_rarity(card, fish)
+		(card.get_node("Content/HighPriceHighlight") as Control).visible = high_price_ids.has(fish_id)
 		(card.get_node("Content/FishName") as Label).text = str(fish.get("display_name", fish_id))
 		(card.get_node("Content/FishIcon") as TextureRect).texture = _fish_icon_texture(fish)
 		(card.get_node("Content/StockBoard/StockCount") as Label).text = "×%d" % owned
@@ -2670,8 +2771,11 @@ func _sell_all_shop_products() -> void:
 	_open_shop()
 
 
-# 响应 shop_timer_tick 对应的事件或条件。
+# 后台可能先刷新报价；打开的鱼类页同步重排与高亮，不能只更新倒计时留下上一轮标记。
 func _on_shop_timer_tick() -> void:
+	if _shop_tab == "fish" and _shop_rendered_refresh_at != int(_state.shop_refresh_at):
+		_open_shop()
+		return
 	var countdown := _shop_content.get_node_or_null("HighPriceSection/Content/CountdownRow/Countdown") as Label
 	if countdown != null:
 		_update_shop_countdown(countdown)
@@ -2730,6 +2834,10 @@ func _data_slots(container: Node, template: PackedScene, count: int, keep_empty_
 
 # 设置 shop_slot_occupied，供调用方继续处理。
 func _set_shop_slot_occupied(slot: Control, occupied: bool) -> void:
+	# 鱼、作物和产品共用卡片；每次复用先清理高价框，避免空格或其他页残留高亮。
+	var high_price_frame := slot.get_node_or_null("Content/HighPriceHighlight") as Control
+	if high_price_frame != null:
+		high_price_frame.hide()
 	(slot.get_node("BackgroundLayers/EmptySlotBackground") as Control).visible = not occupied
 	(slot.get_node("Content") as Control).visible = occupied
 	(slot.get_node("RarityBack") as Control).visible = occupied

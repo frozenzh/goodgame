@@ -429,6 +429,42 @@ func _mature_cell_sprite(index: int, crop: String) -> Sprite2D:
 	return null
 
 
+# 返回实际可见植物上部的世界坐标，供蝴蝶停留；优先叶片/成熟植物，只有种子时才使用种子位置。
+# 直接读取静态精灵变换，保留编辑器布置、每种植物尺寸以及变异大作物的位置。
+func get_ambient_perch_points() -> Array[Vector2]:
+	var plants: Array[Vector2] = []
+	var seeds: Array[Vector2] = []
+	var visuals := get_node_or_null("StateVisuals")
+	if visuals == null or not unlocked:
+		return plants
+	var groups: Array = ["LeafCells"] + MATURE_SPRITES.values() + ["MatureOtherCells", "MutationVisual", "SeedCells"]
+	for group_name in groups:
+		var group := visuals.get_node_or_null(NodePath(str(group_name)))
+		if group == null:
+			continue
+		for child in group.get_children():
+			var plant := child as Sprite2D
+			if plant == null or plant.texture == null or not plant.is_visible_in_tree():
+				continue
+			var point := _ambient_plant_perch(plant)
+			if str(group_name) == "SeedCells":
+				seeds.append(point)
+			else:
+				plants.append(point)
+	return seeds if plants.is_empty() else plants
+
+
+# 从植物上部向下找实际不透明像素，避免带透明留白的贴图让蝴蝶停在植物上方的空气中。
+func _ambient_plant_perch(plant: Sprite2D) -> Vector2:
+	var rect := plant.get_rect()
+	for row in range(2, 15):
+		for fraction in [0.5, 0.4, 0.6, 0.3, 0.7]:
+			var point := rect.position + rect.size * Vector2(float(fraction), float(row) / 20.0)
+			if plant.is_pixel_opaque(point):
+				return plant.to_global(point)
+	return plant.to_global(rect.get_center())
+
+
 # 封装 play_harvest_motion 的处理，供相关流程复用。
 func play_harvest_motion(cell_index: int, duration: float) -> void:
 	if not unlocked or _runtime_cells.size() != 9:

@@ -1,0 +1,153 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/gm_building_levels_window.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/StaticPopupFrame.tscn" id="2_frame"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PrimaryButton.tscn" id="3_primary"]
+[ext_resource type="PackedScene" path="res://scenes/ui/SecondaryButton.tscn" id="4_secondary"]
+
+[sub_resource type="Theme" id="ReadableLabels"]
+Label/colors/font_color = Color(0.28, 0.17, 0.09, 1)
+
+[node name="GMBuildingLevelsWindow" type="Window"]
+editor_description = "GM建筑等级独立静态窗口；所有标签、下拉框、提示及按钮可在此调整。"
+visible = false
+size = Vector2i(500, 370)
+min_size = Vector2i(500, 370)
+transparent_bg = true
+transparent = true
+borderless = true
+unresizable = true
+transient = true
+exclusive = true
+oversampling_override = 1.0
+script = ExtResource("1_script")
+theme = SubResource("ReadableLabels")
+
+[node name="Frame" parent="." instance=ExtResource("2_frame")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleText" parent="Frame/ContentSurface/TitlePlank" index="0"]
+text = "建筑等级"
+metadata/l10n_text = "gm.buildings.title"
+
+[node name="CottageLabel" type="Label" parent="Frame/ContentSurface"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 86.0
+offset_right = 224.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 18
+text = "小屋等级"
+metadata/l10n_text = "gm.buildings.cottage"
+
+[node name="CottageLevel" type="OptionButton" parent="Frame/ContentSurface"]
+editor_description = "小屋1–4级；应用时才写入状态，切换选择可预览工坊关联等级。"
+layout_mode = 0
+offset_left = 242.0
+offset_top = 86.0
+offset_right = 450.0
+offset_bottom = 122.0
+item_count = 4
+selected = 0
+popup/item_0/text = "1"
+popup/item_0/id = 1
+popup/item_1/text = "2"
+popup/item_1/id = 2
+popup/item_2/text = "3"
+popup/item_2/id = 3
+popup/item_3/text = "4"
+popup/item_3/id = 4
+
+[node name="ShopLabel" type="Label" parent="Frame/ContentSurface"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 135.0
+offset_right = 224.0
+offset_bottom = 171.0
+theme_override_font_sizes/font_size = 18
+text = "商店等级"
+metadata/l10n_text = "gm.buildings.shop"
+
+[node name="ShopLevel" type="OptionButton" parent="Frame/ContentSurface"]
+editor_description = "商店未建成或1–3级；未建成不会清空库存与出售记录。"
+layout_mode = 0
+offset_left = 242.0
+offset_top = 135.0
+offset_right = 450.0
+offset_bottom = 171.0
+item_count = 4
+selected = 0
+popup/item_0/text = "0"
+popup/item_0/id = 0
+popup/item_1/text = "1"
+popup/item_1/id = 1
+popup/item_2/text = "2"
+popup/item_2/id = 2
+popup/item_3/text = "3"
+popup/item_3/id = 3
+
+[node name="WorkbenchLabel" type="Label" parent="Frame/ContentSurface"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 184.0
+offset_right = 262.0
+offset_bottom = 216.0
+theme_override_font_sizes/font_size = 17
+text = "工坊等级（随小屋）"
+metadata/l10n_text = "gm.buildings.workbench"
+
+[node name="WorkbenchLevel" type="Label" parent="Frame/ContentSurface"]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 184.0
+offset_right = 450.0
+offset_bottom = 216.0
+theme_override_font_sizes/font_size = 18
+text = "1"
+
+[node name="Hint" type="Label" parent="Frame/ContentSurface"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 227.0
+offset_right = 450.0
+offset_bottom = 269.0
+theme_override_font_sizes/font_size = 14
+text = "GM直接设置，不消耗金币。工坊等级跟随小屋。"
+autowrap_mode = 3
+metadata/l10n_text = "gm.buildings.hint"
+
+[node name="Status" type="Label" parent="Frame/ContentSurface"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 273.0
+offset_right = 450.0
+offset_bottom = 314.0
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 3
+
+[node name="ApplyButton" parent="Frame/ContentSurface" instance=ExtResource("3_primary")]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 322.0
+offset_right = 233.0
+offset_bottom = 357.0
+text = "应用等级"
+metadata/l10n_text = "gm.buildings.apply"
+
+[node name="CancelButton" parent="Frame/ContentSurface" instance=ExtResource("4_secondary")]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 322.0
+offset_right = 417.0
+offset_bottom = 357.0
+text = "关闭"
+metadata/l10n_text = "gm.buildings.close"
+
+[editable path="Frame"]

@@ -1069,13 +1069,13 @@ func _queue() -> Array:
 	return value.duplicate(true) if value is Array else []
 
 
-# 封装 settle_offline 的处理，供相关流程复用。
+# 仅结算制作和钓鱼的离线记录；植物与动物生产不参与离线补算。
 func settle_offline(seconds: int, from_unix: int, to_unix: int) -> Dictionary:
 	var result := {
 		"seconds": seconds, "from_unix": from_unix, "to_unix": to_unix,
 		"farming": {}, "crafting": {}, "fishing": {}
 	}
-	for system_name in ["FarmingSystem", "CraftingSystem", "FishingSystem"]:
+	for system_name in ["CraftingSystem", "FishingSystem"]:
 		var system = _find_system(system_name)
 		if system != null and system.has_method("settle_offline"):
 			result[system_name.trim_suffix("System").to_lower()] = system.settle_offline(seconds, from_unix, to_unix)

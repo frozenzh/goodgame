@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://de3k0mh2su8rj" path="res://scripts/ui/start_window.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://digvbq55hi3o2" path="res://logo.png" id="2_m3m01"]
 [ext_resource type="PackedScene" uid="uid://do7gog1hg3ww4" path="res://scenes/ui/PrimaryButton.tscn" id="3_button"]
+[ext_resource type="PackedScene" path="res://scenes/ui/SaveSlotsPanel.tscn" id="4_saves"]
 
 [sub_resource type="AtlasTexture" id="LogoChinese"]
 atlas = ExtResource("2_m3m01")
@@ -12,12 +13,24 @@ region = Rect2(173, 485, 1411, 342)
 atlas = ExtResource("2_m3m01")
 region = Rect2(162, 110, 1426, 330)
 
+[sub_resource type="StyleBoxFlat" id="SaveConfirmStyle"]
+bg_color = Color(0.96, 0.85, 0.64, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.39, 0.22, 0.1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="StartWindow" type="Window" unique_id=1553315914]
 process_mode = 3
-editor_description = "游戏启动选择窗口。Logo、按钮行和两个按钮均为静态节点；Desktop Offset 调整它相对小屋的位置。"
+editor_description = "开始/暂停菜单；Logo、继续、新游戏、存档列表和二次确认层均为静态节点。Desktop Offset 调整它相对小屋的位置。"
 transparent_bg = true
 oversampling_override = 1.0
-size = Vector2i(1135, 497)
+size = Vector2i(1135, 570)
 transient = true
 unresizable = true
 borderless = true
@@ -49,7 +62,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="ButtonRow" type="HBoxContainer" parent="." unique_id=1898150154]
-editor_description = "两个按钮的静态排列容器；没有存档时只显示新游戏并自动居中。"
+editor_description = "继续游戏与新游戏保持固定排列；没有存档时继续游戏仅禁用，不隐藏或改变布局。"
 offset_left = 203.0
 offset_top = 295.0
 offset_right = 731.0
@@ -58,6 +71,7 @@ theme_override_constants/separation = 24
 alignment = 1
 
 [node name="ContinueButton" parent="ButtonRow" unique_id=558855030 instance=ExtResource("3_button")]
+editor_description = "始终保留的继续游戏按钮；无存档且无当前游戏时显示禁用样式。"
 custom_minimum_size = Vector2(216, 90.62)
 layout_mode = 2
 theme_override_font_sizes/font_size = 29
@@ -70,3 +84,84 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "新游戏"
 metadata/l10n_text = "startup.new_game"
+
+[node name="SavesButton" parent="." unique_id=1512400308 instance=ExtResource("3_button")]
+editor_description = "继续游戏下方的存档入口；位置和尺寸独立可调。"
+offset_left = 248.0
+offset_top = 383.0
+offset_right = 382.0
+offset_bottom = 451.0
+theme_override_font_sizes/font_size = 27
+text = "存档"
+metadata/l10n_text = "save_slots.title"
+
+[node name="ExitButton" parent="." unique_id=115121923 instance=ExtResource("3_button")]
+editor_description = "存档下方的退出游戏按钮；退出前保留当前自动存档，位置和尺寸可独立调整。"
+offset_left = 248.0
+offset_top = 459.0
+offset_right = 382.0
+offset_bottom = 527.0
+theme_override_font_sizes/font_size = 27
+text = "退出"
+metadata/l10n_text = "save_slots.exit"
+
+[node name="SavePanel" parent="." unique_id=1665517576 instance=ExtResource("4_saves")]
+
+[node name="SaveConfirm" type="ColorRect" parent="." unique_id=2033527462]
+editor_description = "保存替换、删除、新游戏的二次确认遮罩；静态内容可独立调整。"
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.48)
+
+[node name="Panel" type="PanelContainer" parent="SaveConfirm" unique_id=890847812]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -110.0
+offset_right = 340.0
+offset_bottom = 110.0
+theme_override_styles/panel = SubResource("SaveConfirmStyle")
+
+[node name="Margin" type="MarginContainer" parent="SaveConfirm/Panel" unique_id=1533529456]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 20
+
+[node name="Content" type="VBoxContainer" parent="SaveConfirm/Panel/Margin" unique_id=1309397912]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Message" type="Label" parent="SaveConfirm/Panel/Margin/Content" unique_id=1509906827]
+custom_minimum_size = Vector2(620, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.25, 0.15, 0.08, 1)
+theme_override_font_sizes/font_size = 22
+text = "确认操作？"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/l10n_text = "save_slots.confirm"
+
+[node name="Buttons" type="HBoxContainer" parent="SaveConfirm/Panel/Margin/Content" unique_id=965346031]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Confirm" parent="SaveConfirm/Panel/Margin/Content/Buttons" unique_id=1493988121 instance=ExtResource("3_button")]
+custom_minimum_size = Vector2(180, 54)
+layout_mode = 2
+
+[node name="Cancel" parent="SaveConfirm/Panel/Margin/Content/Buttons" unique_id=1266600855 instance=ExtResource("3_button")]
+custom_minimum_size = Vector2(180, 54)
+layout_mode = 2
+text = "取消"
+metadata/l10n_text = "save_slots.cancel"
+
+[editable path="SavePanel"]

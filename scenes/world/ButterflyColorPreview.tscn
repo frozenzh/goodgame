@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3]
+[ext_resource type="SpriteFrames" path="res://assets/hd/world/ambient_fauna/butterfly_gold_frames.tres" id="gold"]
+[ext_resource type="SpriteFrames" path="res://assets/hd/world/ambient_fauna/butterfly_blue_frames.tres" id="blue"]
+[ext_resource type="SpriteFrames" path="res://assets/hd/world/ambient_fauna/butterfly_pink_frames.tres" id="pink"]
+[ext_resource type="SpriteFrames" path="res://assets/hd/world/ambient_fauna/butterfly_purple_frames.tres" id="purple"]
+[ext_resource type="SpriteFrames" path="res://assets/hd/world/ambient_fauna/butterfly_mint_frames.tres" id="mint"]
+[node name="ButterflyColorPreview" type="Node2D"]
+texture_filter = 1
+[node name="gold" type="AnimatedSprite2D" parent="."]
+position = Vector2(60, 80)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("gold")
+animation = &"fly"
+autoplay = "fly"
+[node name="blue" type="AnimatedSprite2D" parent="."]
+position = Vector2(160, 80)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("blue")
+animation = &"fly"
+autoplay = "fly"
+[node name="pink" type="AnimatedSprite2D" parent="."]
+position = Vector2(260, 80)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("pink")
+animation = &"fly"
+autoplay = "fly"
+[node name="purple" type="AnimatedSprite2D" parent="."]
+position = Vector2(360, 80)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("purple")
+animation = &"fly"
+autoplay = "fly"
+[node name="mint" type="AnimatedSprite2D" parent="."]
+position = Vector2(460, 80)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("mint")
+animation = &"fly"
+autoplay = "fly"

@@ -1,0 +1,1091 @@
+{
+	"achievement_event_sequence": 76,
+	"achievement_last_processed_event_id": 76,
+	"achievement_schema_version": 1,
+	"achievement_stats": {
+		"bait_craft_successes": 1,
+		"crafted_bait_ids": [
+			"wheat_bait"
+		],
+		"fish_catch_successes": 36,
+		"fish_sale_successes": 9,
+		"harvest_successes": 27,
+		"upgraded_rod_catches": 0
+	},
+	"achievement_unlocks": {
+		"ACH_COTTAGE_LEVEL_2": {
+			"migrated": false,
+			"unlocked_at": 1794319683.0
+		},
+		"ACH_COTTAGE_LEVEL_3": {
+			"migrated": false,
+			"unlocked_at": 1794319818.0
+		},
+		"ACH_FIRST_BAIT": {
+			"migrated": false,
+			"unlocked_at": 1794318689.0
+		},
+		"ACH_FIRST_FISH": {
+			"migrated": false,
+			"unlocked_at": 1794318705.0
+		},
+		"ACH_FIRST_HARVEST": {
+			"migrated": false,
+			"unlocked_at": 1794318651.0
+		},
+		"ACH_FIRST_SALE": {
+			"migrated": false,
+			"unlocked_at": 1794318739.0
+		}
+	},
+	"base_fish_interval_seconds": 18,
+	"codex_milestones": [],
+	"coins": 1726,
+	"cottage_level": 4,
+	"crafted_baits": [
+		"wheat_bait"
+	],
+	"crafting_jobs": [],
+	"discovered_crops": [
+		"wheat",
+		"carrot"
+	],
+	"discovered_fish": [
+		"fish_009",
+		"fish_001",
+		"fish_004",
+		"fish_031"
+	],
+	"fish_basket": {},
+	"fish_fertilizer": 0,
+	"fish_size_records": {
+		"fish_001": {
+			"caught_maximum": false,
+			"caught_minimum": false,
+			"largest_cm": 34.0,
+			"last_cm": 34.0,
+			"smallest_cm": 15.0
+		},
+		"fish_004": {
+			"caught_maximum": false,
+			"caught_minimum": false,
+			"largest_cm": 28.0,
+			"last_cm": 28.0,
+			"smallest_cm": 18.0
+		},
+		"fish_009": {
+			"caught_maximum": false,
+			"caught_minimum": false,
+			"largest_cm": 28.0,
+			"last_cm": 26.0,
+			"smallest_cm": 19.0
+		},
+		"fish_031": {
+			"caught_maximum": false,
+			"caught_minimum": false,
+			"largest_cm": 33.0,
+			"last_cm": 13.0,
+			"smallest_cm": 13.0
+		}
+	},
+	"fishing_cast": {},
+	"flags": {
+		"fishing_active": false,
+		"fishing_manual_pause": false,
+		"fishing_started_by_idle": false,
+		"idle_auto_fish_first_sale_done": true,
+		"mvp_codex_complete": false,
+		"pasture_animals": [
+			{
+				"area": 4.0,
+				"hunger": 0,
+				"id": 1.0,
+				"productive_seconds": 817.52989477738,
+				"type": "cow",
+				"x": 74.5118255615234,
+				"y": 152.316360473633
+			},
+			{
+				"area": 4.0,
+				"hunger": 0,
+				"id": 2.0,
+				"productive_seconds": 814.596265332939,
+				"type": "cow",
+				"x": 85.1125564575195,
+				"y": 153.307601928711
+			},
+			{
+				"area": 4.0,
+				"hunger": 0,
+				"id": 3.0,
+				"productive_seconds": 813.511543110718,
+				"type": "cow",
+				"x": 25.5137329101563,
+				"y": 151.287567138672
+			},
+			{
+				"area": 4.0,
+				"hunger": 0,
+				"id": 4.0,
+				"productive_seconds": 812.06015422183,
+				"type": "cow",
+				"x": 85.1207122802734,
+				"y": 152.418640136719
+			},
+			{
+				"area": 4.0,
+				"hunger": 0,
+				"id": 5.0,
+				"productive_seconds": 811.875431999608,
+				"type": "cow",
+				"x": 20.1745758056641,
+				"y": 141.969802856445
+			},
+			{
+				"area": 4.0,
+				"hunger": 0,
+				"id": 6.0,
+				"productive_seconds": 810.140709777388,
+				"type": "cow",
+				"x": 80.9104385375977,
+				"y": 149.29052734375
+			},
+			{
+				"area": 4.0,
+				"hunger": 0,
+				"id": 7.0,
+				"productive_seconds": 811.522654221831,
+				"type": "cow",
+				"x": 71.8460159301758,
+				"y": 152.219284057617
+			},
+			{
+				"area": 4.0,
+				"hunger": 0,
+				"id": 8.0,
+				"productive_seconds": 811.337931999609,
+				"type": "cow",
+				"x": 54.1985015869141,
+				"y": 154.609832763672
+			},
+			{
+				"area": 4.0,
+				"hunger": 0,
+				"id": 9.0,
+				"productive_seconds": 811.153705332942,
+				"type": "cow",
+				"x": 14.9430627822876,
+				"y": 156.468994140625
+			},
+			{
+				"area": 4.0,
+				"hunger": 0,
+				"id": 10.0,
+				"productive_seconds": 810.953581999609,
+				"type": "cow",
+				"x": 52.1769332885742,
+				"y": 150.020202636719
+			}
+		],
+		"pasture_feed_slots": {
+			"3": [
+				{
+					"queue": []
+				}
+			],
+			"4": [
+				{
+					"queue": [
+						{
+							"count": 949,
+							"crop": "carrot"
+						}
+					]
+				}
+			]
+		},
+		"pasture_serial": 10.0,
+		"tutorial_first_fish_sale_done": true,
+		"tutorial_initial_harvest_before": 1794318641.0,
+		"tutorial_intro_active": false,
+		"tutorial_intro_completed": true,
+		"tutorial_intro_step": 6.0,
+		"tutorial_intro_waiting_step": -1.0,
+		"worker_command_serial": 101,
+		"worker_commands": []
+	},
+	"harvested_crop_totals": {
+		"carrot": 108,
+		"wheat": 36
+	},
+	"inventory": {},
+	"last_save_unix": 1794321228,
+	"leaderboard_pending": [
+		{
+			"caught_at": 1794318705.0,
+			"display_name": "玩家-60fb",
+			"fish_id": "fish_009",
+			"player_id": "60fbcea0f190fab746c6e5bb41da2eda",
+			"size_cm": 20.0
+		},
+		{
+			"caught_at": 1794318725.0,
+			"display_name": "玩家-60fb",
+			"fish_id": "fish_004",
+			"player_id": "60fbcea0f190fab746c6e5bb41da2eda",
+			"size_cm": 22.0
+		},
+		{
+			"caught_at": 1794318760.0,
+			"display_name": "玩家-60fb",
+			"fish_id": "fish_009",
+			"player_id": "60fbcea0f190fab746c6e5bb41da2eda",
+			"size_cm": 25.0
+		},
+		{
+			"caught_at": 1794318868.0,
+			"display_name": "玩家-60fb",
+			"fish_id": "fish_001",
+			"player_id": "60fbcea0f190fab746c6e5bb41da2eda",
+			"size_cm": 29.0
+		},
+		{
+			"caught_at": 1794318975.0,
+			"display_name": "玩家-60fb",
+			"fish_id": "fish_031",
+			"player_id": "60fbcea0f190fab746c6e5bb41da2eda",
+			"size_cm": 33.0
+		},
+		{
+			"caught_at": 1794319117.0,
+			"display_name": "玩家-60fb",
+			"fish_id": "fish_001",
+			"player_id": "60fbcea0f190fab746c6e5bb41da2eda",
+			"size_cm": 34.0
+		}
+	],
+	"owned_upgrades": [],
+	"playtime_seconds": 2520,
+	"plots": [
+		{
+			"cells": [
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				}
+			],
+			"crop": "",
+			"fertility": 0,
+			"id": "0",
+			"mature_at": 0,
+			"mutation": {},
+			"planned_crop": "",
+			"planted_at": 0,
+			"unlocked": false
+		},
+		{
+			"cells": [
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				}
+			],
+			"crop": "",
+			"fertility": 0,
+			"id": "1",
+			"mature_at": 0,
+			"mutation": {},
+			"planned_crop": "",
+			"planted_at": 0,
+			"unlocked": false
+		},
+		{
+			"cells": [
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				}
+			],
+			"crop": "",
+			"fertility": 0,
+			"id": "2",
+			"mature_at": 0,
+			"mutation": {},
+			"planned_crop": "",
+			"planted_at": 0,
+			"unlocked": false
+		},
+		{
+			"cells": [
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				}
+			],
+			"crop": "",
+			"fertility": 0,
+			"id": "3",
+			"mature_at": 0,
+			"mutation": {},
+			"planned_crop": "",
+			"planted_at": 0,
+			"unlocked": false
+		},
+		{
+			"cells": [
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				},
+				{
+					"crop": "",
+					"grouped": true,
+					"leaf_at": 0,
+					"mature_at": 0,
+					"planned_crop": "",
+					"planted_at": 0,
+					"watered_leaf": false,
+					"watered_seed": false
+				}
+			],
+			"crop": "",
+			"fertility": 0,
+			"id": "4",
+			"mature_at": 0,
+			"mutation": {},
+			"planned_crop": "",
+			"planted_at": 0,
+			"unlocked": false
+		},
+		{
+			"cells": [
+				{
+					"crop": "white_radish",
+					"grouped": true,
+					"leaf_at": 1794319833,
+					"mature_at": 1794319883,
+					"planned_crop": "",
+					"planted_at": 1794319783,
+					"watered_leaf": true,
+					"watered_seed": true
+				},
+				{
+					"crop": "white_radish",
+					"grouped": true,
+					"leaf_at": 1794319834,
+					"mature_at": 1794319884,
+					"planned_crop": "",
+					"planted_at": 1794319784,
+					"watered_leaf": true,
+					"watered_seed": true
+				},
+				{
+					"crop": "white_radish",
+					"grouped": true,
+					"leaf_at": 1794319836,
+					"mature_at": 1794319886,
+					"planned_crop": "",
+					"planted_at": 1794319786,
+					"watered_leaf": true,
+					"watered_seed": true
+				},
+				{
+					"crop": "white_radish",
+					"grouped": true,
+					"leaf_at": 1794319838,
+					"mature_at": 1794319888,
+					"planned_crop": "",
+					"planted_at": 1794319788,
+					"watered_leaf": true,
+					"watered_seed": true
+				},
+				{
+					"crop": "white_radish",
+					"grouped": true,
+					"leaf_at": 1794319839,
+					"mature_at": 1794319889,
+					"planned_crop": "",
+					"planted_at": 1794319789,
+					"watered_leaf": true,
+					"watered_seed": true
+				},
+				{
+					"crop": "white_radish",
+					"grouped": true,
+					"leaf_at": 1794319840,
+					"mature_at": 1794319890,
+					"planned_crop": "",
+					"planted_at": 1794319790,
+					"watered_leaf": true,
+					"watered_seed": true
+				},
+				{
+					"crop": "white_radish",
+					"grouped": true,
+					"leaf_at": 1794319842,
+					"mature_at": 1794319892,
+					"planned_crop": "",
+					"planted_at": 1794319792,
+					"watered_leaf": true,
+					"watered_seed": true
+				},
+				{
+					"crop": "white_radish",
+					"grouped": true,
+					"leaf_at": 1794319844,
+					"mature_at": 1794319894,
+					"planned_crop": "",
+					"planted_at": 1794319794,
+					"watered_leaf": true,
+					"watered_seed": true
+				},
+				{
+					"crop": "white_radish",
+					"grouped": true,
+					"leaf_at": 1794319845,
+					"mature_at": 1794319895,
+					"planned_crop": "",
+					"planted_at": 1794319795,
+					"watered_leaf": true,
+					"watered_seed": true
+				}
+			],
+			"crop": "white_radish",
+			"fertility": 0,
+			"id": "5",
+			"mature_at": 1794319895,
+			"mutation": {},
+			"planned_crop": "",
+			"planted_at": 1794319783,
+			"unlocked": true
+		},
+		{
+			"cells": [
+				{
+					"crop": "white_radish",
+					"grouped": true,
+					"leaf_at": 1794319816,
+					"mature_at": 1794319866,
+					"planned_crop": "",
+					"planted_at": 1794319766,
+					"watered_leaf": true,
+					"watered_seed": true
+				},
+				{
+					"crop": "white_radish",
+					"grouped": true,
+					"leaf_at": 1794319818,
+					"mature_at": 1794319868,
+					"planned_crop": "",
+					"planted_at": 1794319768,
+					"watered_leaf": true,
+					"watered_seed": true
+				},
+				{
+					"crop": "white_radish",
+					"grouped": true,
+					"leaf_at": 1794319819,
+					"mature_at": 1794319869,
+					"planned_crop": "",
+					"planted_at": 1794319769,
+					"watered_leaf": true,
+					"watered_seed": true
+				},
+				{
+					"crop": "white_radish",
+					"grouped": true,
+					"leaf_at": 1794319821,
+					"mature_at": 1794319871,
+					"planned_crop": "",
+					"planted_at": 1794319771,
+					"watered_leaf": true,
+					"watered_seed": true
+				},
+				{
+					"crop": "white_radish",
+					"grouped": true,
+					"leaf_at": 1794319822,
+					"mature_at": 1794319872,
+					"planned_crop": "",
+					"planted_at": 1794319772,
+					"watered_leaf": true,
+					"watered_seed": true
+				},
+				{
+					"crop": "white_radish",
+					"grouped": true,
+					"leaf_at": 1794319824,
+					"mature_at": 1794319874,
+					"planned_crop": "",
+					"planted_at": 1794319774,
+					"watered_leaf": true,
+					"watered_seed": true
+				},
+				{
+					"crop": "white_radish",
+					"grouped": true,
+					"leaf_at": 1794319826,
+					"mature_at": 1794319876,
+					"planned_crop": "",
+					"planted_at": 1794319776,
+					"watered_leaf": true,
+					"watered_seed": true
+				},
+				{
+					"crop": "white_radish",
+					"grouped": true,
+					"leaf_at": 1794319827,
+					"mature_at": 1794319877,
+					"planned_crop": "",
+					"planted_at": 1794319777,
+					"watered_leaf": true,
+					"watered_seed": true
+				},
+				{
+					"crop": "white_radish",
+					"grouped": true,
+					"leaf_at": 1794319828,
+					"mature_at": 1794319878,
+					"planned_crop": "",
+					"planted_at": 1794319778,
+					"watered_leaf": true,
+					"watered_seed": true
+				}
+			],
+			"crop": "white_radish",
+			"fertility": 0,
+			"id": "6",
+			"mature_at": 1794319878,
+			"mutation": {},
+			"planned_crop": "",
+			"planted_at": 1794319766,
+			"unlocked": true
+		}
+	],
+	"pond_level": 1,
+	"save_version": 10,
+	"saved_local_time": "2026-11-10 22:33:48",
+	"selected_bait": "wheat_bait",
+	"selected_rod": "basic_rod",
+	"settings": {
+		"always_on_top": false,
+		"always_on_top_user_set": false,
+		"ambient_enabled": true,
+		"animation_intensity": "standard",
+		"auto_dock_on_start": true,
+		"display_raise": 0.0,
+		"display_screen": 1.0,
+		"display_size": 2,
+		"idle_auto_fish": true,
+		"leaderboard_best_cm": 34.0,
+		"leaderboard_best_fish_id": "fish_001",
+		"leaderboard_player_id": "60fbcea0f190fab746c6e5bb41da2eda",
+		"leaderboard_week_start": 1794182400.0,
+		"sound_enabled": true,
+		"unlock_dot_entries": {
+			"achievement": [
+				"ACH_COTTAGE_LEVEL_2",
+				"ACH_COTTAGE_LEVEL_3",
+				"ACH_FIRST_BAIT",
+				"ACH_FIRST_FISH",
+				"ACH_FIRST_HARVEST",
+				"ACH_FIRST_SALE"
+			],
+			"bait": [
+				"wheat_bait"
+			],
+			"crop": [
+				"wheat",
+				"carrot"
+			],
+			"fish_common": [
+				"fish_009",
+				"fish_001",
+				"fish_004",
+				"fish_031"
+			],
+			"fish_epic": [],
+			"fish_good": [],
+			"fish_rare": []
+		},
+		"unlock_dot_unread": {
+			"achievement": [
+				"ACH_COTTAGE_LEVEL_2",
+				"ACH_COTTAGE_LEVEL_3"
+			],
+			"crop": [
+				"carrot"
+			]
+		},
+		"weather_ambient_enabled": true,
+		"weather_effect_mode": "standard"
+	},
+	"shop_level": 1,
+	"shop_offers": [
+		{
+			"fish_id": "fish_024",
+			"multiplier": 1.7
+		},
+		{
+			"fish_id": "fish_010",
+			"multiplier": 1.7
+		},
+		{
+			"fish_id": "fish_006",
+			"multiplier": 1.6
+		}
+	],
+	"shop_refresh_at": 1794325954,
+	"shop_unlocked": true,
+	"unlocked_baits": [
+		"wheat_bait",
+		"corn_bait",
+		"carrot_bait",
+		"white_radish_bait",
+		"strawberry_bait",
+		"tomato_bait",
+		"cabbage_bait",
+		"lettuce_bait",
+		"potato_bait"
+	],
+	"unlocked_crops": [
+		"wheat",
+		"corn",
+		"carrot",
+		"white_radish",
+		"potato"
+	],
+	"unlocked_rods": [
+		"basic_rod"
+	],
+	"weather_state": {
+		"ends_at": 1794321378,
+		"id": "rain",
+		"rng_state": "-5650458019533229623",
+		"started_at": 1794320712
+	},
+	"workbench_crafted_baits": [
+		"wheat_bait"
+	],
+	"workbench_unlocked": true
+}

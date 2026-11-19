@@ -1,0 +1,27 @@
+[
+  {
+    "color": "gold",
+    "sprite_frames": "res://assets/hd/world/ambient_fauna/butterfly_gold_frames.tres",
+    "alpha_identical": true
+  },
+  {
+    "color": "blue",
+    "sprite_frames": "res://assets/hd/world/ambient_fauna/butterfly_blue_frames.tres",
+    "alpha_identical": true
+  },
+  {
+    "color": "pink",
+    "sprite_frames": "res://assets/hd/world/ambient_fauna/butterfly_pink_frames.tres",
+    "alpha_identical": true
+  },
+  {
+    "color": "purple",
+    "sprite_frames": "res://assets/hd/world/ambient_fauna/butterfly_purple_frames.tres",
+    "alpha_identical": true
+  },
+  {
+    "color": "mint",
+    "sprite_frames": "res://assets/hd/world/ambient_fauna/butterfly_mint_frames.tres",
+    "alpha_identical": true
+  }
+]

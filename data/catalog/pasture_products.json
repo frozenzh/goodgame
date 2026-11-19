@@ -6,7 +6,7 @@
       "id": "egg",
       "display_name": "鸡蛋",
       "source_animal": "chicken",
-      "sell_price": 12,
+      "sell_price": 80,
       "icon_resource": "res://assets/hd/ui/pasture_egg.tres",
       "rarity": "common"
     },
@@ -14,7 +14,7 @@
       "id": "milk",
       "display_name": "牛奶",
       "source_animal": "cow",
-      "sell_price": 35,
+      "sell_price": 300,
       "icon_resource": "res://assets/hd/ui/pasture_milk.tres",
       "rarity": "common"
     },
@@ -22,7 +22,7 @@
       "id": "wool",
       "display_name": "羊毛",
       "source_animal": "sheep",
-      "sell_price": 28,
+      "sell_price": 240,
       "icon_resource": "res://assets/hd/ui/pasture_wool.tres",
       "rarity": "common"
     },
@@ -30,7 +30,7 @@
       "id": "pork",
       "display_name": "猪肉",
       "source_animal": "pig",
-      "sell_price": 40,
+      "sell_price": 180,
       "icon_resource": "res://assets/hd/ui/pasture_pork.tres",
       "rarity": "common"
     }

@@ -2,7 +2,7 @@ extends Node
 
 ## Runtime tuning exported from excel/*.xlsx. Export before starting the game.
 const CONFIG_DIR := "res://data/config"
-const MODULES := ["worker", "fishing", "farming", "random_events", "time_save", "ui", "shop", "weather", "pasture"]
+const MODULES := ["worker", "fishing", "farming", "random_events", "time_save", "ui", "shop", "weather", "pasture", "ambient_fauna"]
 
 var _modules: Dictionary = {}
 

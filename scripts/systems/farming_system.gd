@@ -2,8 +2,8 @@
 class_name FarmingSystem
 extends Node
 
-## Timestamp-driven plots. Mature crops remain in the field until the player
-## orders a harvest; repeat planting is queued after the harvest commands.
+## 植物使用运行期间的截止时间；读档时平移时间轴、菜单暂停时冻结，离线不推进。
+## 成熟后保留在地里，收获指令结束后再安排重复种植。
 
 @onready var GameConfig: Node = get_node("/root/GameConfig")
 var _mutation_rng := RandomNumberGenerator.new()
@@ -503,9 +503,9 @@ func refresh(now_unix: int = 0) -> Dictionary:
 	return summary
 
 
-# 封装 settle_offline 的处理，供相关流程复用。
-func settle_offline(_seconds: int, _from_unix: int, to_unix: int) -> Dictionary:
-	return refresh(to_unix)
+# 植物只在游戏运行时推进；保留兼容入口，离线结算不得刷新生长或自动浇水。
+func settle_offline(_seconds: int, _from_unix: int, _to_unix: int) -> Dictionary:
+	return {}
 
 
 # 封装 harvest_plot 的处理，供相关流程复用。

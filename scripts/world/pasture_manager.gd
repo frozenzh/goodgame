@@ -13,6 +13,8 @@ const SLEEP_ART := preload("res://assets/hd/world/pasture_dog_sleep.png")
 const FOOT_SHADOW := preload("res://scenes/world/AnimalFootShadow.tscn")
 const TYPES := ["chicken", "pig", "sheep", "cow"]
 const NAMES := {"chicken": "ui.88b9eae481", "pig": "ui.c3095b7c23", "sheep": "ui.3b3f2d6a40", "cow": "ui.06c95e6b4b"}
+signal products_changed
+
 const FRAME_COUNT := 8
 const FEED_SLOT_COUNT := 1
 
@@ -46,6 +48,33 @@ func _cfg_float(key: String) -> float:
 # 读取 price，供调用方继续处理。
 func get_price(kind: String) -> int:
 	return _cfg_int("%s_price" % kind)
+
+
+# 动物寿命按游戏运行小时计；旧存档从零岁继续计时。
+func get_lifetime_hours(kind: String) -> float:
+	return maxf(1.0, _cfg_float("%s_lifetime_hours" % kind))
+
+
+# 返回全牧场尚未入库的产出，避免界面修改存档中的字典。
+func get_pending_products() -> Dictionary:
+	return get_node("/root/GameState").flags.get("pasture_pending_products", {}).duplicate(true)
+
+
+# 收获全部待领取产出；先清空待领取数据，重复点击不会重复入库。
+func harvest_products() -> int:
+	if not is_unlocked():
+		return 0
+	var pending := get_pending_products()
+	get_node("/root/GameState").flags["pasture_pending_products"] = {}
+	var total := 0
+	for product_id in ["egg", "milk", "wool", "pork"]:
+		var amount := maxi(0, int(pending.get(product_id, 0)))
+		if amount > 0:
+			DropService.grant_item(product_id, amount, "pasture", "pasture_product")
+			total += amount
+	_save()
+	products_changed.emit()
+	return total
 
 
 # 读取 pen_capacity，供调用方继续处理。
@@ -136,7 +165,7 @@ func buy_animal(kind: String, area_id: int) -> bool:
 		return false
 	var id := int(state.flags.get("pasture_serial", 0)) + 1
 	state.flags["pasture_serial"] = id
-	var record: Dictionary = {"id": id, "type": kind, "area": area_id, "x": randf_range(-70, 70), "y": randf_range(125, 175), "hunger": 0, "productive_seconds": 0.0}
+	var record: Dictionary = {"id": id, "type": kind, "area": area_id, "x": randf_range(-70, 70), "y": randf_range(125, 175), "hunger": 0, "productive_seconds": 0.0, "age_seconds": 0.0}
 	_animals.append(record)
 	_rebuild_sprites()
 	_save()
@@ -483,9 +512,14 @@ func _process(delta: float) -> void:
 		_frame_time -= frame_period
 		_frame_index = (_frame_index + 1) % FRAME_COUNT
 		frame_changed = true
+	var expired: Array[Dictionary] = []
 	for animal in _animals:
 		var id := int(animal["id"])
 		var kind := str(animal.get("type", ""))
+		animal["age_seconds"] = float(animal.get("age_seconds", 0.0)) + delta
+		if float(animal["age_seconds"]) >= get_lifetime_hours(kind) * 3600.0:
+			expired.append(animal)
+			continue
 		if int(animal.get("hunger", 0)) < _cfg_int("hungry_alert_ticks"):
 			var productive := float(animal.get("productive_seconds", 0.0)) + delta
 			var interval := maxf(60.0, _cfg_float("%s_product_minutes" % kind) * 60.0)
@@ -494,7 +528,12 @@ func _process(delta: float) -> void:
 				animal["productive_seconds"] = productive
 				var product_id := _product_for_animal(kind)
 				if not product_id.is_empty():
-					DropService.grant_item(product_id, 1, "pasture:%d" % int(animal.get("area", 3)), "pasture_product")
+					var pending := get_pending_products()
+					# 每个生产周期的数量来自牧场源表，累加到已有待领取库存。
+					var amount := maxi(1, _cfg_int("%s_product_amount" % kind))
+					pending[product_id] = int(pending.get(product_id, 0)) + amount
+					get_node("/root/GameState").flags["pasture_pending_products"] = pending
+					products_changed.emit()
 				_save()
 			else:
 				animal["productive_seconds"] = productive
@@ -537,6 +576,12 @@ func _process(delta: float) -> void:
 		sprite.position = sprite.position.move_toward(target, float(_walk_speeds.get(id, 10.0)) * delta)
 		animal["x"] = sprite.position.x
 		animal["y"] = sprite.position.y
+	if not expired.is_empty():
+		for animal in expired:
+			_animals.erase(animal)
+		_rebuild_sprites()
+		_save()
+		products_changed.emit()
 	_update_dog(delta)
 	if _hunger_time >= _cfg_float("hunger_tick_seconds"):
 		_hunger_time -= _cfg_float("hunger_tick_seconds")

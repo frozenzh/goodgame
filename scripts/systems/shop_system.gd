@@ -93,6 +93,11 @@ func sell_fish(fish_id: String, amount: int) -> int:
 	if not state.remove_fish(fish_id, sell_amount):
 		return 0
 	DropService.grant_coins(gained, "shop")
+	# 首次真实卖鱼后只自动开启一次；后续卖鱼不覆盖玩家手动关闭的偏好。
+	if gained > 0 and not bool(state.flags.get("idle_auto_fish_first_sale_done", false)):
+		state.flags["idle_auto_fish_first_sale_done"] = true
+		state.settings["idle_auto_fish"] = true
+		state.flags["fishing_manual_pause"] = false
 	_emit("fish_sold", [fish_id, sell_amount, gained])
 	_emit("achievement_action", [state.next_achievement_event_id(), "fish_sold", {"fish_id": fish_id, "amount": sell_amount, "coins": gained}])
 	_request_save()

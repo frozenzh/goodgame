@@ -32,6 +32,7 @@ WORKBOOKS = {
     "商店.xlsx": "shop",
     "天气.xlsx": "weather",
     "牧场.xlsx": "pasture",
+    "环境生物.xlsx": "ambient_fauna",
 }
 HEADERS = ("key", "中文备注", "value", "type", "min", "max", "description")
 TEXT_HEADERS = ("id", "中文", "English", "来源备注")
@@ -108,6 +109,23 @@ PAIR_CHECKS = {
         ("level_3_multiplier_min", "level_3_multiplier_max"),
     ),
     "weather": (("duration_min_seconds", "duration_max_seconds"), ("wind_gust_min_seconds", "wind_gust_max_seconds")),
+    "ambient_fauna": (
+        ("butterfly_plot_min", "butterfly_plot_max"),
+        ("butterfly_life_min", "butterfly_life_max"),
+        ("butterfly_respawn_delay_min", "butterfly_respawn_delay_max"),
+        ("butterfly_mature_delay_min", "butterfly_mature_delay_max"),
+        ("butterfly_harvest_exit_min", "butterfly_harvest_exit_max"),
+        ("butterfly_rest_min", "butterfly_rest_max"),
+        ("bird_flock_min", "bird_flock_max"),
+        ("bird_life_min", "bird_life_max"),
+        ("bird_cooldown_min", "bird_cooldown_max"),
+        ("bird_relocation_min", "bird_relocation_max"),
+        ("bird_relocation_wait_min", "bird_relocation_wait_max"),
+        ("bird_relocation_flight_min", "bird_relocation_flight_max"),
+        ("initial_wait_min", "initial_wait_max"),
+        ("fade_in_min", "fade_in_max"),
+        ("weather_exit_min", "weather_exit_max"),
+    ),
 }
 
 

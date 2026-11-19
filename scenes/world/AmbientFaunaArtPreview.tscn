@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="SpriteFrames" path="res://assets/hd/world/ambient_fauna/butterfly_frames.tres" id="1"]
+[ext_resource type="SpriteFrames" path="res://assets/hd/world/ambient_fauna/bird_frames.tres" id="2"]
+
+[node name="AmbientFaunaArtPreview" type="Node2D"]
+texture_filter = 1
+
+[node name="GrassPanel" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 760, 0, 760, 320, 0, 320)
+color = Color(0.36, 0.48, 0.23, 1)
+
+[node name="Title" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 12.0
+text = "Ambient fauna / native size + 5x art inspection"
+
+[node name="ButterflyFlight" type="AnimatedSprite2D" parent="."]
+position = Vector2(72, 90)
+sprite_frames = ExtResource("1")
+animation = &"fly"
+autoplay = "fly"
+
+[node name="ButterflyPerch" type="AnimatedSprite2D" parent="."]
+position = Vector2(152, 90)
+sprite_frames = ExtResource("1")
+animation = &"perch"
+autoplay = "perch"
+
+[node name="BirdFlight" type="AnimatedSprite2D" parent="."]
+position = Vector2(272, 100)
+sprite_frames = ExtResource("2")
+animation = &"fly"
+autoplay = "fly"
+offset = Vector2(0, -12)
+
+[node name="BirdStand" type="AnimatedSprite2D" parent="."]
+position = Vector2(392, 100)
+sprite_frames = ExtResource("2")
+animation = &"stand"
+offset = Vector2(0, -12)
+
+[node name="BirdPeck" type="AnimatedSprite2D" parent="."]
+position = Vector2(512, 100)
+sprite_frames = ExtResource("2")
+animation = &"peck"
+autoplay = "peck"
+offset = Vector2(0, -12)
+
+[node name="ButterflyLarge" type="AnimatedSprite2D" parent="."]
+position = Vector2(112, 224)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("1")
+animation = &"fly"
+autoplay = "fly"
+
+[node name="BirdLarge" type="AnimatedSprite2D" parent="."]
+position = Vector2(342, 264)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("2")
+animation = &"fly"
+autoplay = "fly"
+offset = Vector2(0, -12)
+
+[node name="BirdPeckLarge" type="AnimatedSprite2D" parent="."]
+position = Vector2(582, 264)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("2")
+animation = &"peck"
+autoplay = "peck"
+offset = Vector2(0, -12)

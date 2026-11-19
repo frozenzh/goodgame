@@ -405,6 +405,9 @@ offset_bottom = -3.0
 
 [node name="Baseline" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="0"]
 anchors_preset = 10
+offset_top = 14.0
+offset_bottom = 15.0
+grow_horizontal = 2
 
 [node name="Tick00" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="1"]
 anchor_left = 0.0
@@ -424,6 +427,9 @@ anchors_preset = -1
 
 [node name="Tick05" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="6"]
 anchors_preset = 5
+offset_top = 0.0
+offset_bottom = 12.0
+grow_horizontal = 2
 
 [node name="Tick06" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="7"]
 anchors_preset = -1
@@ -441,12 +447,21 @@ anchors_preset = -1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
+offset_left = -0.9999924
+offset_right = 7.6293945e-06
+grow_horizontal = 0
 
 [node name="Maximum" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="13"]
 anchors_preset = 1
+offset_top = 19.0
+offset_bottom = 37.0
+grow_horizontal = 0
 
 [node name="RecordMarker" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow/SizeRuler" index="14"]
 anchors_preset = 5
+offset_top = 0.0
+offset_bottom = 21.0
+grow_horizontal = 2
 
 [node name="SizeTag" parent="CodexPopup/ContentSurface/CodexContent/PreviewPanel/SizeRecordRow" index="1"]
 visible = false

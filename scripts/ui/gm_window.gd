@@ -19,6 +19,9 @@ func _ready() -> void:
 	$GMPopup/ContentSurface/RainButton.pressed.connect(_set_weather.bind("rain"))
 	$GMPopup/ContentSurface/SnowButton.pressed.connect(_set_weather.bind("snow"))
 	$GMPopup/ContentSurface/WindButton.pressed.connect(_set_weather.bind("wind"))
+	$GMPopup/ContentSurface/AmbientFaunaButton.pressed.connect(_trigger_ambient_fauna)
+	$GMPopup/ContentSurface/BuildingLevelsButton.pressed.connect(_open_building_levels)
+	visibility_changed.connect(_sync_building_window_visibility)
 	var bus := get_node_or_null("/root/EventBus")
 	if bus != null:
 		bus.game_loaded.connect(_populate_resources)
@@ -40,6 +43,17 @@ func _populate_resources() -> void:
 				var item: Dictionary = value
 				_add_option(str(item.get("display_name", item.get("id", ""))), category, str(item.get("id", "")))
 	resource_option.select(0)
+
+
+# 打开静态建筑等级子窗口，窗口自己管理下拉选择、应用和保存。
+func _open_building_levels() -> void:
+	$BuildingLevelsWindow.open_editor()
+
+
+# 父GM窗口关闭时一并收起子窗口，避免菜单切换后留下独立窗口。
+func _sync_building_window_visibility() -> void:
+	if not visible:
+		$BuildingLevelsWindow.hide()
 
 
 # 添加 option，供调用方继续处理。
@@ -142,6 +156,19 @@ func _set_weather(weather_id: String) -> void:
 # 设置 status，供调用方继续处理。
 func _set_status(message: String) -> void:
 	status_label.text = message
+
+
+# 手动触发环境生物，不更改天气和存档；显示本次新增数量，已有活动或安全条件不足时允许为零。
+func _trigger_ambient_fauna() -> void:
+	var fauna := get_parent().get_node_or_null("StaticWorldStrip/AmbientFauna")
+	if fauna == null or not fauna.has_method("trigger_activity"):
+		_set_status(TextDB.text("gm.ambient_unavailable"))
+		return
+	var result: Dictionary = fauna.call("trigger_activity")
+	if not bool(result.get("weather_allowed", false)):
+		_set_status(TextDB.text("gm.ambient_sunny_required"))
+		return
+	_set_status(TextDB.text("gm.ambient_triggered") % [int(result.get("butterflies", 0)), int(result.get("birds", 0))])
 
 
 # 请求 save，供调用方继续处理。

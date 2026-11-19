@@ -6,6 +6,74 @@ extends Node
 var _timer: Timer
 var _last_tick_unix := 0
 var _pending_offline: Dictionary = {}
+var _menu_pause_unix := 0
+
+
+# 打开开始菜单时冻结生产时钟；暂停时间不属于离线结算。
+func begin_menu_pause() -> void:
+	if _menu_pause_unix == 0:
+		_menu_pause_unix = now_unix()
+
+
+# 读档前将植物时间轴平移到当前时刻，保留保存瞬间的生长进度。
+# 使用完整有符号间隔，不受离线结算上限限制，也兼容电脑时间回拨；不修改其他系统。
+func restore_crop_runtime(data: Dictionary) -> void:
+	var saved_at := int(data.get("last_save_unix", 0))
+	if saved_at <= 0:
+		return
+	var offset := now_unix() - saved_at
+	for plot in data.get("plots", []):
+		for cell in plot.get("cells", []):
+			for key in ["planted_at", "leaf_at", "mature_at"]:
+				if int(cell.get(key, 0)) > 0:
+					cell[key] = int(cell[key]) + offset
+		for key in ["planted_at", "mature_at"]:
+			if int(plot.get(key, 0)) > 0:
+				plot[key] = int(plot[key]) + offset
+
+
+# 只平移生产、天气、施工及商店倒计时，成就获取时间和存档时间保持真实电脑时间。
+func _shift_active_times(data: Dictionary, seconds: int) -> void:
+	if seconds <= 0:
+		return
+	if int(data.get("shop_refresh_at", 0)) > 0:
+		data["shop_refresh_at"] = int(data["shop_refresh_at"]) + seconds
+	for plot in data.get("plots", []):
+		for cell in plot.get("cells", []):
+			for key in ["planted_at", "leaf_at", "mature_at"]:
+				if int(cell.get(key, 0)) > 0:
+					cell[key] = int(cell[key]) + seconds
+		for key in ["planted_at", "mature_at"]:
+			if int(plot.get(key, 0)) > 0:
+				plot[key] = int(plot[key]) + seconds
+	var timed_records: Array = [data.get("weather_state", {}), data.get("fishing_cast", {}), data.get("flags", {}).get("cottage_construction", {})]
+	timed_records.append_array(data.get("crafting_jobs", []))
+	for record in timed_records:
+		for key in ["started_at", "ends_at", "ready_at", "finish_at"]:
+			if int(record.get(key, 0)) > 0:
+				record[key] = int(record[key]) + seconds
+
+
+# 保存暂停中的快照时只修改副本，避免重复保存累加偏移。
+func adjust_paused_snapshot(data: Dictionary) -> void:
+	if _menu_pause_unix > 0:
+		_shift_active_times(data, maxi(0, now_unix() - _menu_pause_unix))
+
+
+# 继续当前游戏时平移活动状态的时间戳，并重置 tick 基准以排除菜单停留时间。
+func end_menu_pause() -> void:
+	if _menu_pause_unix > 0:
+		var state: Variant = get_node("/root/GameState")
+		var data := {"plots": state.plots, "weather_state": state.weather_state, "fishing_cast": state.fishing_cast, "flags": state.flags, "crafting_jobs": state.crafting_jobs, "shop_refresh_at": state.shop_refresh_at}
+		_shift_active_times(data, maxi(0, now_unix() - _menu_pause_unix))
+		state.shop_refresh_at = int(data["shop_refresh_at"])
+	clear_menu_pause()
+
+
+# 新游戏或读取另一存档时丢弃旧菜单暂停信息。
+func clear_menu_pause() -> void:
+	_menu_pause_unix = 0
+	_last_tick_unix = now_unix()
 
 
 # 节点及子节点就绪后完成初始化与信号绑定。

@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/GMBuildingLevelsWindow.tscn" id="5_building_levels"]
 
 [ext_resource type="Script" path="res://scripts/ui/gm_window.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://scenes/ui/StaticPopupFrame.tscn" id="2_frame"]
@@ -21,12 +23,12 @@ corner_radius_bottom_left = 7
 editor_description = "GM 独立子窗口；可以在此场景中调整资源、作物、鱼类图鉴和天气操作的静态位置。"
 transparent_bg = true
 oversampling_override = 1.0
-size = Vector2i(620, 520)
+size = Vector2i(620, 570)
 transient = true
 unresizable = true
 borderless = true
 transparent = true
-min_size = Vector2i(620, 520)
+min_size = Vector2i(620, 570)
 script = ExtResource("1_script")
 
 [node name="GMPopup" parent="." instance=ExtResource("2_frame")]
@@ -201,22 +203,46 @@ metadata/l10n_text = "weather.wind.name"
 
 [node name="Status" type="Label" parent="GMPopup/ContentSurface"]
 offset_left = 61.0
-offset_top = 406.0
+offset_top = 455.0
 offset_right = 559.0
-offset_bottom = 444.0
+offset_bottom = 493.0
 theme_override_colors/font_color = Color(0.35, 0.23, 0.14, 1)
 theme_override_font_sizes/font_size = 14
 text = "选择资源并输入数量后点击增加"
 metadata/l10n_text = "ui.fcc61d231a"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="ResetProgressButton" parent="GMPopup/ContentSurface" instance=ExtResource("3_primary")]
 offset_left = 218.0
-offset_top = 455.0
+offset_top = 505.0
 offset_right = 402.0
-offset_bottom = 498.0
+offset_bottom = 548.0
 text = "重置进度"
 metadata/l10n_text = "ui.a2ce837b56"
 
+[node name="AmbientFaunaButton" parent="GMPopup/ContentSurface" instance=ExtResource("4_secondary")]
+editor_description = "立即触发成熟地块蝴蝶和一群小鸟，跳过等待；仅雨天禁止，仍遵守成熟作物、安全落点和数量上限。"
+layout_mode = 0
+offset_left = 50.0
+offset_top = 410.0
+offset_right = 305.0
+offset_bottom = 449.0
+text = "触发蝴蝶和小鸟"
+metadata/l10n_text = "gm.trigger_ambient"
+
+[node name="BuildingLevelsButton" parent="GMPopup/ContentSurface" instance=ExtResource("4_secondary")]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 410.0
+offset_right = 570.0
+offset_bottom = 449.0
+text = "建筑等级"
+metadata/l10n_text = "gm.buildings.title"
+
+[node name="BuildingLevelsWindow" parent="." instance=ExtResource("5_building_levels")]
+visible = false
+
 [editable path="GMPopup"]
+[editable path="BuildingLevelsWindow"]

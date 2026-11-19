@@ -305,12 +305,13 @@ func _execute_command(delta: float) -> void:
 	_sync_command()
 
 
-# 封装 play_work_animation 的处理，供相关流程复用。
+# 实际劳动阶段统一选择操作帧动画；建筑升级启动和完工确认也使用working，完工后的庆祝仍由独立状态处理。
+# 浇水保留专用动画和缩放；其他操作沿用角色静态节点的正常缩放。
 func _play_work_animation() -> void:
 	var desired: StringName = &"up"
 	if _command_action == "water_cell":
 		desired = &"watering"
-	elif _command_action in ["plant", "plant_cell", "harvest", "harvest_cell", "craft_bait"]:
+	elif _command_action in ["plant", "plant_cell", "harvest", "harvest_cell", "craft_bait", "upgrade_cottage", "upgrade_pond"] or _command_action in JobManager.BUILDING_COMPLETION_ACTIONS:
 		desired = &"working"
 	animated_sprite.scale = Vector2(0.18, 0.18) if desired == &"watering" else _normal_sprite_scale
 	if animated_sprite.animation != desired or not animated_sprite.is_playing():

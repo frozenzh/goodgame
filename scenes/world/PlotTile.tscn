@@ -39,6 +39,8 @@
 [ext_resource type="Texture2D" uid="uid://njirhakjv5gp" path="res://assets/ui/icon_basket_pixel.svg" id="pending_basket"]
 [ext_resource type="Texture2D" uid="uid://vo87gg57uye6" path="res://assets/ui/icon_hourglass_pixel.svg" id="pending_hourglass"]
 
+[ext_resource type="PackedScene" path="res://scenes/world/CropSoilContact.tscn" id="soil_contact"]
+
 [sub_resource type="StyleBoxFlat" id="PendingBadgePanel"]
 content_margin_left = 4.0
 content_margin_top = 2.0
@@ -453,12 +455,16 @@ scale = Vector2(0.035, 0.043)
 texture = ExtResource("18_mutation_preview")
 offset = Vector2(0, -274.2857)
 
+[node name="SoilContact" parent="StateVisuals/MatureWheatCells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/MatureWheatCells" unique_id=1534567914]
 texture_filter = 1
 position = Vector2(0, -38)
 scale = Vector2(0.035, 0.043)
 texture = ExtResource("18_mutation_preview")
 offset = Vector2(0, -274.2857)
+
+[node name="SoilContact" parent="StateVisuals/MatureWheatCells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/MatureWheatCells" unique_id=99808497]
 texture_filter = 1
@@ -467,12 +473,16 @@ scale = Vector2(0.035, 0.043)
 texture = ExtResource("18_mutation_preview")
 offset = Vector2(0, -274.2857)
 
+[node name="SoilContact" parent="StateVisuals/MatureWheatCells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/MatureWheatCells" unique_id=291715678]
 texture_filter = 1
 position = Vector2(-19.269226, 1.039505)
 scale = Vector2(0.035, 0.043)
 texture = ExtResource("18_mutation_preview")
 offset = Vector2(0, -274.2857)
+
+[node name="SoilContact" parent="StateVisuals/MatureWheatCells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/MatureWheatCells" unique_id=1908880122]
 texture_filter = 1
@@ -481,12 +491,16 @@ scale = Vector2(0.035, 0.043)
 texture = ExtResource("18_mutation_preview")
 offset = Vector2(0, -274.2857)
 
+[node name="SoilContact" parent="StateVisuals/MatureWheatCells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/MatureWheatCells" unique_id=296831137]
 texture_filter = 1
 position = Vector2(18.40866, 1.0394669)
 scale = Vector2(0.035, 0.043)
 texture = ExtResource("18_mutation_preview")
 offset = Vector2(0, -274.2857)
+
+[node name="SoilContact" parent="StateVisuals/MatureWheatCells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/MatureWheatCells" unique_id=1122970667]
 texture_filter = 1
@@ -495,6 +509,8 @@ scale = Vector2(0.035, 0.043)
 texture = ExtResource("18_mutation_preview")
 offset = Vector2(0, -274.2857)
 
+[node name="SoilContact" parent="StateVisuals/MatureWheatCells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/MatureWheatCells" unique_id=845739163]
 texture_filter = 1
 position = Vector2(-0.5, 39.039505)
@@ -502,12 +518,16 @@ scale = Vector2(0.035, 0.043)
 texture = ExtResource("18_mutation_preview")
 offset = Vector2(0, -274.2857)
 
+[node name="SoilContact" parent="StateVisuals/MatureWheatCells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/MatureWheatCells" unique_id=1736525086]
 texture_filter = 1
 position = Vector2(18.40866, 39.039474)
 scale = Vector2(0.035, 0.043)
 texture = ExtResource("18_mutation_preview")
 offset = Vector2(0, -274.2857)
+
+[node name="SoilContact" parent="StateVisuals/MatureWheatCells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="MatureCarrotCells" type="Node2D" parent="StateVisuals" unique_id=2058435829]
 editor_description = "3×3 单株静态节点；可拖动整个组，也可单独移动九个格心。"
@@ -522,12 +542,16 @@ scale = Vector2(0.04, 0.046)
 texture = ExtResource("8_carrot")
 offset = Vector2(0, -140.54349)
 
+[node name="SoilContact" parent="StateVisuals/MatureCarrotCells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/MatureCarrotCells" unique_id=1367084707]
 texture_filter = 1
 position = Vector2(0, -43.362335)
 scale = Vector2(0.04, 0.046)
 texture = ExtResource("8_carrot")
 offset = Vector2(0, -140.54349)
+
+[node name="SoilContact" parent="StateVisuals/MatureCarrotCells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/MatureCarrotCells" unique_id=970747673]
 texture_filter = 1
@@ -536,12 +560,16 @@ scale = Vector2(0.04, 0.046)
 texture = ExtResource("8_carrot")
 offset = Vector2(0, -140.54349)
 
+[node name="SoilContact" parent="StateVisuals/MatureCarrotCells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/MatureCarrotCells" unique_id=1130026954]
 texture_filter = 1
 position = Vector2(-31.152168, -10.36232)
 scale = Vector2(0.04, 0.046)
 texture = ExtResource("8_carrot")
 offset = Vector2(0, -140.54349)
+
+[node name="SoilContact" parent="StateVisuals/MatureCarrotCells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/MatureCarrotCells" unique_id=1129691071]
 texture_filter = 1
@@ -550,12 +578,16 @@ scale = Vector2(0.04, 0.046)
 texture = ExtResource("8_carrot")
 offset = Vector2(0, -140.54349)
 
+[node name="SoilContact" parent="StateVisuals/MatureCarrotCells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/MatureCarrotCells" unique_id=1202938234]
 texture_filter = 1
 position = Vector2(32.021713, -10.36232)
 scale = Vector2(0.04, 0.046)
 texture = ExtResource("8_carrot")
 offset = Vector2(0, -140.54349)
+
+[node name="SoilContact" parent="StateVisuals/MatureCarrotCells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/MatureCarrotCells" unique_id=139720440]
 texture_filter = 1
@@ -564,6 +596,8 @@ scale = Vector2(0.04, 0.046)
 texture = ExtResource("8_carrot")
 offset = Vector2(0, -140.54349)
 
+[node name="SoilContact" parent="StateVisuals/MatureCarrotCells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/MatureCarrotCells" unique_id=1853587385]
 texture_filter = 1
 position = Vector2(0, 23.471054)
@@ -571,12 +605,16 @@ scale = Vector2(0.04, 0.046)
 texture = ExtResource("8_carrot")
 offset = Vector2(0, -140.54349)
 
+[node name="SoilContact" parent="StateVisuals/MatureCarrotCells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/MatureCarrotCells" unique_id=57054436]
 texture_filter = 1
 position = Vector2(32.021713, 23.471054)
 scale = Vector2(0.04, 0.046)
 texture = ExtResource("8_carrot")
 offset = Vector2(0, -140.54349)
+
+[node name="SoilContact" parent="StateVisuals/MatureCarrotCells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="MatureCabbageCells" type="Node2D" parent="StateVisuals" unique_id=1328727111]
 editor_description = "3×3 单株静态节点；可拖动整个组，也可单独移动九个格心。"
@@ -590,12 +628,16 @@ scale = Vector2(0.04, 0.042)
 texture = ExtResource("9_cabbage")
 offset = Vector2(0, -46.76923)
 
+[node name="SoilContact" parent="StateVisuals/MatureCabbageCells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/MatureCabbageCells" unique_id=1881616349]
 texture_filter = 1
 position = Vector2(0, -38)
 scale = Vector2(0.04, 0.042)
 texture = ExtResource("9_cabbage")
 offset = Vector2(0, -46.76923)
+
+[node name="SoilContact" parent="StateVisuals/MatureCabbageCells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/MatureCabbageCells" unique_id=1755360323]
 texture_filter = 1
@@ -604,6 +646,8 @@ scale = Vector2(0.04, 0.042)
 texture = ExtResource("9_cabbage")
 offset = Vector2(0, -46.76923)
 
+[node name="SoilContact" parent="StateVisuals/MatureCabbageCells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/MatureCabbageCells" unique_id=2076181368]
 texture_filter = 1
 position = Vector2(-38, 0)
@@ -611,11 +655,15 @@ scale = Vector2(0.04, 0.042)
 texture = ExtResource("9_cabbage")
 offset = Vector2(0, -46.76923)
 
+[node name="SoilContact" parent="StateVisuals/MatureCabbageCells/Cell_2_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/MatureCabbageCells" unique_id=1175686277]
 texture_filter = 1
 scale = Vector2(0.04, 0.042)
 texture = ExtResource("9_cabbage")
 offset = Vector2(0, -46.76923)
+
+[node name="SoilContact" parent="StateVisuals/MatureCabbageCells/Cell_2_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/MatureCabbageCells" unique_id=1874490910]
 texture_filter = 1
@@ -624,12 +672,16 @@ scale = Vector2(0.04, 0.042)
 texture = ExtResource("9_cabbage")
 offset = Vector2(0, -46.76923)
 
+[node name="SoilContact" parent="StateVisuals/MatureCabbageCells/Cell_2_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/MatureCabbageCells" unique_id=800479242]
 texture_filter = 1
 position = Vector2(-38, 38)
 scale = Vector2(0.04, 0.042)
 texture = ExtResource("9_cabbage")
 offset = Vector2(0, -46.76923)
+
+[node name="SoilContact" parent="StateVisuals/MatureCabbageCells/Cell_3_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/MatureCabbageCells" unique_id=1142346165]
 texture_filter = 1
@@ -638,12 +690,16 @@ scale = Vector2(0.04, 0.042)
 texture = ExtResource("9_cabbage")
 offset = Vector2(0, -46.76923)
 
+[node name="SoilContact" parent="StateVisuals/MatureCabbageCells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/MatureCabbageCells" unique_id=1154043362]
 texture_filter = 1
 position = Vector2(38, 38)
 scale = Vector2(0.04, 0.042)
 texture = ExtResource("9_cabbage")
 offset = Vector2(0, -46.76923)
+
+[node name="SoilContact" parent="StateVisuals/MatureCabbageCells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="MatureTomatoCells" type="Node2D" parent="StateVisuals" unique_id=1148813973]
 editor_description = "3×3 单株静态节点；可拖动整个组，也可单独移动九个格心。"
@@ -658,12 +714,16 @@ scale = Vector2(0.04, 0.061)
 texture = ExtResource("10_tomato")
 offset = Vector2(0, -249.18033)
 
+[node name="SoilContact" parent="StateVisuals/MatureTomatoCells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/MatureTomatoCells" unique_id=1134710595]
 texture_filter = 1
 position = Vector2(-3, -38)
 scale = Vector2(0.04, 0.061)
 texture = ExtResource("10_tomato")
 offset = Vector2(0, -249.18033)
+
+[node name="SoilContact" parent="StateVisuals/MatureTomatoCells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/MatureTomatoCells" unique_id=1714388580]
 texture_filter = 1
@@ -672,12 +732,16 @@ scale = Vector2(0.04, 0.061)
 texture = ExtResource("10_tomato")
 offset = Vector2(0, -249.18033)
 
+[node name="SoilContact" parent="StateVisuals/MatureTomatoCells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/MatureTomatoCells" unique_id=136469399]
 texture_filter = 1
 position = Vector2(-41, 0)
 scale = Vector2(0.04, 0.061)
 texture = ExtResource("10_tomato")
 offset = Vector2(0, -249.18033)
+
+[node name="SoilContact" parent="StateVisuals/MatureTomatoCells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/MatureTomatoCells" unique_id=2011850829]
 texture_filter = 1
@@ -686,12 +750,16 @@ scale = Vector2(0.04, 0.061)
 texture = ExtResource("10_tomato")
 offset = Vector2(0, -249.18033)
 
+[node name="SoilContact" parent="StateVisuals/MatureTomatoCells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/MatureTomatoCells" unique_id=470270164]
 texture_filter = 1
 position = Vector2(35, 0)
 scale = Vector2(0.04, 0.061)
 texture = ExtResource("10_tomato")
 offset = Vector2(0, -249.18033)
+
+[node name="SoilContact" parent="StateVisuals/MatureTomatoCells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/MatureTomatoCells" unique_id=1599870410]
 texture_filter = 1
@@ -700,6 +768,8 @@ scale = Vector2(0.04, 0.061)
 texture = ExtResource("10_tomato")
 offset = Vector2(0, -249.18033)
 
+[node name="SoilContact" parent="StateVisuals/MatureTomatoCells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/MatureTomatoCells" unique_id=824432014]
 texture_filter = 1
 position = Vector2(-3, 38)
@@ -707,12 +777,16 @@ scale = Vector2(0.04, 0.061)
 texture = ExtResource("10_tomato")
 offset = Vector2(0, -249.18033)
 
+[node name="SoilContact" parent="StateVisuals/MatureTomatoCells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/MatureTomatoCells" unique_id=833856827]
 texture_filter = 1
 position = Vector2(35, 38)
 scale = Vector2(0.04, 0.061)
 texture = ExtResource("10_tomato")
 offset = Vector2(0, -249.18033)
+
+[node name="SoilContact" parent="StateVisuals/MatureTomatoCells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="MatureCornCells" type="Node2D" parent="StateVisuals" unique_id=468034104]
 editor_description = "3×3 单株静态节点；可拖动整个组，也可单独移动九个格心。"
@@ -727,12 +801,16 @@ scale = Vector2(0.05, 0.055)
 texture = ExtResource("11_corn")
 offset = Vector2(0, -510.25)
 
+[node name="SoilContact" parent="StateVisuals/MatureCornCells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/MatureCornCells" unique_id=484980660]
 texture_filter = 1
 position = Vector2(0, -38)
 scale = Vector2(0.05, 0.055)
 texture = ExtResource("11_corn")
 offset = Vector2(0, -510.25)
+
+[node name="SoilContact" parent="StateVisuals/MatureCornCells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/MatureCornCells" unique_id=1618702542]
 texture_filter = 1
@@ -741,6 +819,8 @@ scale = Vector2(0.05, 0.055)
 texture = ExtResource("11_corn")
 offset = Vector2(0, -510.25)
 
+[node name="SoilContact" parent="StateVisuals/MatureCornCells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/MatureCornCells" unique_id=1490990814]
 texture_filter = 1
 position = Vector2(-30.366425, 0)
@@ -748,11 +828,15 @@ scale = Vector2(0.05, 0.055)
 texture = ExtResource("11_corn")
 offset = Vector2(0, -510.25)
 
+[node name="SoilContact" parent="StateVisuals/MatureCornCells/Cell_2_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/MatureCornCells" unique_id=353959416]
 texture_filter = 1
 scale = Vector2(0.05, 0.055)
 texture = ExtResource("11_corn")
 offset = Vector2(0, -510.25)
+
+[node name="SoilContact" parent="StateVisuals/MatureCornCells/Cell_2_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/MatureCornCells" unique_id=133621103]
 texture_filter = 1
@@ -761,12 +845,16 @@ scale = Vector2(0.05, 0.055)
 texture = ExtResource("11_corn")
 offset = Vector2(0, -510.25)
 
+[node name="SoilContact" parent="StateVisuals/MatureCornCells/Cell_2_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/MatureCornCells" unique_id=1153150947]
 texture_filter = 1
 position = Vector2(-30.366425, 38)
 scale = Vector2(0.05, 0.055)
 texture = ExtResource("11_corn")
 offset = Vector2(0, -510.25)
+
+[node name="SoilContact" parent="StateVisuals/MatureCornCells/Cell_3_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/MatureCornCells" unique_id=336450644]
 texture_filter = 1
@@ -775,12 +863,16 @@ scale = Vector2(0.05, 0.055)
 texture = ExtResource("11_corn")
 offset = Vector2(0, -510.25)
 
+[node name="SoilContact" parent="StateVisuals/MatureCornCells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/MatureCornCells" unique_id=871053742]
 texture_filter = 1
 position = Vector2(31.1297, 38)
 scale = Vector2(0.05, 0.055)
 texture = ExtResource("11_corn")
 offset = Vector2(0, -510.25)
+
+[node name="SoilContact" parent="StateVisuals/MatureCornCells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="MatureStrawberryCells" type="Node2D" parent="StateVisuals" unique_id=2043849716]
 editor_description = "3×3 单株静态节点；可拖动整个组，也可单独移动九个格心。"
@@ -795,12 +887,16 @@ scale = Vector2(0.04, 0.042)
 texture = ExtResource("12_strawberry")
 offset = Vector2(0, -121.6)
 
+[node name="SoilContact" parent="StateVisuals/MatureStrawberryCells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/MatureStrawberryCells" unique_id=247203560]
 texture_filter = 1
 position = Vector2(0, -32.117645)
 scale = Vector2(0.04, 0.042)
 texture = ExtResource("12_strawberry")
 offset = Vector2(0, -121.6)
+
+[node name="SoilContact" parent="StateVisuals/MatureStrawberryCells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/MatureStrawberryCells" unique_id=1783763617]
 texture_filter = 1
@@ -809,6 +905,8 @@ scale = Vector2(0.04, 0.042)
 texture = ExtResource("12_strawberry")
 offset = Vector2(0, -121.6)
 
+[node name="SoilContact" parent="StateVisuals/MatureStrawberryCells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/MatureStrawberryCells" unique_id=567813091]
 texture_filter = 1
 position = Vector2(-33.79831, 0)
@@ -816,11 +914,15 @@ scale = Vector2(0.04, 0.042)
 texture = ExtResource("12_strawberry")
 offset = Vector2(0, -121.6)
 
+[node name="SoilContact" parent="StateVisuals/MatureStrawberryCells/Cell_2_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/MatureStrawberryCells" unique_id=953644858]
 texture_filter = 1
 scale = Vector2(0.04, 0.042)
 texture = ExtResource("12_strawberry")
 offset = Vector2(0, -121.6)
+
+[node name="SoilContact" parent="StateVisuals/MatureStrawberryCells/Cell_2_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/MatureStrawberryCells" unique_id=1217389582]
 texture_filter = 1
@@ -829,12 +931,16 @@ scale = Vector2(0.04, 0.042)
 texture = ExtResource("12_strawberry")
 offset = Vector2(0, -121.6)
 
+[node name="SoilContact" parent="StateVisuals/MatureStrawberryCells/Cell_2_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/MatureStrawberryCells" unique_id=2036019907]
 texture_filter = 1
 position = Vector2(-33.8025, 32.88237)
 scale = Vector2(0.04, 0.042)
 texture = ExtResource("12_strawberry")
 offset = Vector2(0, -121.6)
+
+[node name="SoilContact" parent="StateVisuals/MatureStrawberryCells/Cell_3_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/MatureStrawberryCells" unique_id=84882090]
 texture_filter = 1
@@ -843,12 +949,16 @@ scale = Vector2(0.04, 0.042)
 texture = ExtResource("12_strawberry")
 offset = Vector2(0, -121.6)
 
+[node name="SoilContact" parent="StateVisuals/MatureStrawberryCells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/MatureStrawberryCells" unique_id=1803414277]
 texture_filter = 1
 position = Vector2(34.634476, 32.88237)
 scale = Vector2(0.04, 0.042)
 texture = ExtResource("12_strawberry")
 offset = Vector2(0, -121.6)
+
+[node name="SoilContact" parent="StateVisuals/MatureStrawberryCells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="MatureWhiteRadishCells" type="Node2D" parent="StateVisuals" unique_id=1383862504]
 editor_description = "3×3 单株静态节点；可拖动整个组，也可单独移动九个格心。"
@@ -862,12 +972,16 @@ scale = Vector2(0.065, 0.065)
 texture = ExtResource("13_radish")
 offset = Vector2(0, -161.75)
 
+[node name="SoilContact" parent="StateVisuals/MatureWhiteRadishCells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/MatureWhiteRadishCells" unique_id=978483185]
 texture_filter = 1
 position = Vector2(1.2803612, -35.97352)
 scale = Vector2(0.065, 0.065)
 texture = ExtResource("13_radish")
 offset = Vector2(0, -161.75)
+
+[node name="SoilContact" parent="StateVisuals/MatureWhiteRadishCells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/MatureWhiteRadishCells" unique_id=189220516]
 texture_filter = 1
@@ -876,12 +990,16 @@ scale = Vector2(0.065, 0.065)
 texture = ExtResource("13_radish")
 offset = Vector2(0, -161.75)
 
+[node name="SoilContact" parent="StateVisuals/MatureWhiteRadishCells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/MatureWhiteRadishCells" unique_id=988245566]
 texture_filter = 1
 position = Vector2(-34.06477, 0.25657082)
 scale = Vector2(0.065, 0.065)
 texture = ExtResource("13_radish")
 offset = Vector2(0, -161.75)
+
+[node name="SoilContact" parent="StateVisuals/MatureWhiteRadishCells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/MatureWhiteRadishCells" unique_id=1441830221]
 texture_filter = 1
@@ -890,12 +1008,16 @@ scale = Vector2(0.065, 0.065)
 texture = ExtResource("13_radish")
 offset = Vector2(0, -161.75)
 
+[node name="SoilContact" parent="StateVisuals/MatureWhiteRadishCells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/MatureWhiteRadishCells" unique_id=355259177]
 texture_filter = 1
 position = Vector2(36.625515, 0.2565689)
 scale = Vector2(0.065, 0.065)
 texture = ExtResource("13_radish")
 offset = Vector2(0, -161.75)
+
+[node name="SoilContact" parent="StateVisuals/MatureWhiteRadishCells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/MatureWhiteRadishCells" unique_id=54782684]
 texture_filter = 1
@@ -904,6 +1026,8 @@ scale = Vector2(0.065, 0.065)
 texture = ExtResource("13_radish")
 offset = Vector2(0, -161.75)
 
+[node name="SoilContact" parent="StateVisuals/MatureWhiteRadishCells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/MatureWhiteRadishCells" unique_id=149662336]
 texture_filter = 1
 position = Vector2(0.758234, 34.681366)
@@ -911,12 +1035,16 @@ scale = Vector2(0.065, 0.065)
 texture = ExtResource("13_radish")
 offset = Vector2(0, -161.75)
 
+[node name="SoilContact" parent="StateVisuals/MatureWhiteRadishCells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/MatureWhiteRadishCells" unique_id=25429017]
 texture_filter = 1
 position = Vector2(36.10339, 34.681366)
 scale = Vector2(0.065, 0.065)
 texture = ExtResource("13_radish")
 offset = Vector2(0, -161.75)
+
+[node name="SoilContact" parent="StateVisuals/MatureWhiteRadishCells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="MatureLettuceCells" type="Node2D" parent="StateVisuals" unique_id=2100788546]
 editor_description = "3×3 单株静态节点；可拖动整个组，也可单独移动九个格心。"
@@ -930,12 +1058,16 @@ scale = Vector2(0.042, 0.043)
 texture = ExtResource("14_lettuce")
 offset = Vector2(0, -74.14634)
 
+[node name="SoilContact" parent="StateVisuals/MatureLettuceCells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/MatureLettuceCells" unique_id=1302015804]
 texture_filter = 1
 position = Vector2(0, -38)
 scale = Vector2(0.042, 0.043)
 texture = ExtResource("14_lettuce")
 offset = Vector2(0, -74.14634)
+
+[node name="SoilContact" parent="StateVisuals/MatureLettuceCells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/MatureLettuceCells" unique_id=563970195]
 texture_filter = 1
@@ -944,6 +1076,8 @@ scale = Vector2(0.042, 0.043)
 texture = ExtResource("14_lettuce")
 offset = Vector2(0, -74.14634)
 
+[node name="SoilContact" parent="StateVisuals/MatureLettuceCells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/MatureLettuceCells" unique_id=1663829653]
 texture_filter = 1
 position = Vector2(-38, 0)
@@ -951,11 +1085,15 @@ scale = Vector2(0.042, 0.043)
 texture = ExtResource("14_lettuce")
 offset = Vector2(0, -74.14634)
 
+[node name="SoilContact" parent="StateVisuals/MatureLettuceCells/Cell_2_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/MatureLettuceCells" unique_id=2071502894]
 texture_filter = 1
 scale = Vector2(0.042, 0.043)
 texture = ExtResource("14_lettuce")
 offset = Vector2(0, -74.14634)
+
+[node name="SoilContact" parent="StateVisuals/MatureLettuceCells/Cell_2_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/MatureLettuceCells" unique_id=1251297592]
 texture_filter = 1
@@ -964,12 +1102,16 @@ scale = Vector2(0.042, 0.043)
 texture = ExtResource("14_lettuce")
 offset = Vector2(0, -74.14634)
 
+[node name="SoilContact" parent="StateVisuals/MatureLettuceCells/Cell_2_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/MatureLettuceCells" unique_id=672772255]
 texture_filter = 1
 position = Vector2(-38, 38)
 scale = Vector2(0.042, 0.043)
 texture = ExtResource("14_lettuce")
 offset = Vector2(0, -74.14634)
+
+[node name="SoilContact" parent="StateVisuals/MatureLettuceCells/Cell_3_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/MatureLettuceCells" unique_id=1714320129]
 texture_filter = 1
@@ -978,12 +1120,16 @@ scale = Vector2(0.042, 0.043)
 texture = ExtResource("14_lettuce")
 offset = Vector2(0, -74.14634)
 
+[node name="SoilContact" parent="StateVisuals/MatureLettuceCells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/MatureLettuceCells" unique_id=856912324]
 texture_filter = 1
 position = Vector2(38, 38)
 scale = Vector2(0.042, 0.043)
 texture = ExtResource("14_lettuce")
 offset = Vector2(0, -74.14634)
+
+[node name="SoilContact" parent="StateVisuals/MatureLettuceCells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="MatureOtherCells" type="Node2D" parent="StateVisuals" unique_id=6443890]
 editor_description = "新增植物共用的成熟期九宫格静态定位节点。调整组或单格位置后，运行时会按植物表替换图片。编辑预览可在 PlotTile 的 preview_crop 输入植物 ID。"
@@ -996,11 +1142,15 @@ position = Vector2(-33.04132, -34.694214)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("12_strawberry")
 
+[node name="SoilContact" parent="StateVisuals/MatureOtherCells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/MatureOtherCells" unique_id=995604516]
 texture_filter = 1
 position = Vector2(0, -34.694214)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("12_strawberry")
+
+[node name="SoilContact" parent="StateVisuals/MatureOtherCells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/MatureOtherCells" unique_id=1914358134]
 texture_filter = 1
@@ -1008,11 +1158,15 @@ position = Vector2(33.04132, -34.694214)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("12_strawberry")
 
+[node name="SoilContact" parent="StateVisuals/MatureOtherCells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/MatureOtherCells" unique_id=952104375]
 texture_filter = 1
 position = Vector2(-33.04132, -2.4793396)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("12_strawberry")
+
+[node name="SoilContact" parent="StateVisuals/MatureOtherCells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/MatureOtherCells" unique_id=848881043]
 texture_filter = 1
@@ -1020,11 +1174,15 @@ position = Vector2(0, -2.4793396)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("12_strawberry")
 
+[node name="SoilContact" parent="StateVisuals/MatureOtherCells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/MatureOtherCells" unique_id=1617119936]
 texture_filter = 1
 position = Vector2(33.04132, -2.4793396)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("12_strawberry")
+
+[node name="SoilContact" parent="StateVisuals/MatureOtherCells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/MatureOtherCells" unique_id=1010681007]
 texture_filter = 1
@@ -1032,17 +1190,23 @@ position = Vector2(-33.04132, 31.388428)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("12_strawberry")
 
+[node name="SoilContact" parent="StateVisuals/MatureOtherCells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/MatureOtherCells" unique_id=1594519321]
 texture_filter = 1
 position = Vector2(0, 31.388428)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("12_strawberry")
 
+[node name="SoilContact" parent="StateVisuals/MatureOtherCells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/MatureOtherCells" unique_id=505022890]
 texture_filter = 1
 position = Vector2(33.04132, 31.388428)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("12_strawberry")
+
+[node name="SoilContact" parent="StateVisuals/MatureOtherCells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_barley_Cells" type="Node2D" parent="StateVisuals" unique_id=1599450678]
 editor_description = "成熟植物 barley 的静态九宫格；可移动整组或单格。预览和游戏均使用这里的贴图和布局。"
@@ -1054,11 +1218,15 @@ position = Vector2(-37, -57)
 scale = Vector2(0.047005583, 0.047005583)
 texture = ExtResource("newcrop_1")
 
+[node name="SoilContact" parent="StateVisuals/Mature_barley_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_barley_Cells" unique_id=840199858]
 texture_filter = 1
 position = Vector2(0, -56)
 scale = Vector2(0.047005583, 0.047005583)
 texture = ExtResource("newcrop_1")
+
+[node name="SoilContact" parent="StateVisuals/Mature_barley_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_barley_Cells" unique_id=85406418]
 texture_filter = 1
@@ -1066,11 +1234,15 @@ position = Vector2(38, -56)
 scale = Vector2(0.047005583, 0.047005583)
 texture = ExtResource("newcrop_1")
 
+[node name="SoilContact" parent="StateVisuals/Mature_barley_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_barley_Cells" unique_id=559877371]
 texture_filter = 1
 position = Vector2(-38, -18)
 scale = Vector2(0.047005583, 0.047005583)
 texture = ExtResource("newcrop_1")
+
+[node name="SoilContact" parent="StateVisuals/Mature_barley_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_barley_Cells" unique_id=2119551419]
 texture_filter = 1
@@ -1078,11 +1250,15 @@ position = Vector2(0, -18)
 scale = Vector2(0.047005583, 0.047005583)
 texture = ExtResource("newcrop_1")
 
+[node name="SoilContact" parent="StateVisuals/Mature_barley_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_barley_Cells" unique_id=1193895524]
 texture_filter = 1
 position = Vector2(38, -18)
 scale = Vector2(0.047005583, 0.047005583)
 texture = ExtResource("newcrop_1")
+
+[node name="SoilContact" parent="StateVisuals/Mature_barley_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_barley_Cells" unique_id=1910470051]
 texture_filter = 1
@@ -1090,17 +1266,23 @@ position = Vector2(-38, 24)
 scale = Vector2(0.047005583, 0.047005583)
 texture = ExtResource("newcrop_1")
 
+[node name="SoilContact" parent="StateVisuals/Mature_barley_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_barley_Cells" unique_id=1960655696]
 texture_filter = 1
 position = Vector2(0, 24)
 scale = Vector2(0.047005583, 0.047005583)
 texture = ExtResource("newcrop_1")
 
+[node name="SoilContact" parent="StateVisuals/Mature_barley_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_barley_Cells" unique_id=1104697163]
 texture_filter = 1
 position = Vector2(38, 24)
 scale = Vector2(0.047005583, 0.047005583)
 texture = ExtResource("newcrop_1")
+
+[node name="SoilContact" parent="StateVisuals/Mature_barley_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_oat_Cells" type="Node2D" parent="StateVisuals" unique_id=968533913]
 editor_description = "成熟植物 oat 的静态九宫格；可移动整组或单格。预览和游戏均使用这里的贴图和布局。"
@@ -1112,11 +1294,15 @@ position = Vector2(-38, -50)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_2")
 
+[node name="SoilContact" parent="StateVisuals/Mature_oat_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_oat_Cells" unique_id=1410865396]
 texture_filter = 1
 position = Vector2(0, -50)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_2")
+
+[node name="SoilContact" parent="StateVisuals/Mature_oat_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_oat_Cells" unique_id=1468190096]
 texture_filter = 1
@@ -1124,11 +1310,15 @@ position = Vector2(38, -50)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_2")
 
+[node name="SoilContact" parent="StateVisuals/Mature_oat_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_oat_Cells" unique_id=534713477]
 texture_filter = 1
 position = Vector2(-38, -14)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_2")
+
+[node name="SoilContact" parent="StateVisuals/Mature_oat_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_oat_Cells" unique_id=717800647]
 texture_filter = 1
@@ -1136,11 +1326,15 @@ position = Vector2(0, -14)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_2")
 
+[node name="SoilContact" parent="StateVisuals/Mature_oat_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_oat_Cells" unique_id=2140810891]
 texture_filter = 1
 position = Vector2(38, -14)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_2")
+
+[node name="SoilContact" parent="StateVisuals/Mature_oat_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_oat_Cells" unique_id=1683712731]
 texture_filter = 1
@@ -1148,17 +1342,23 @@ position = Vector2(-38, 24)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_2")
 
+[node name="SoilContact" parent="StateVisuals/Mature_oat_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_oat_Cells" unique_id=686929439]
 texture_filter = 1
 position = Vector2(0, 24)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_2")
 
+[node name="SoilContact" parent="StateVisuals/Mature_oat_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_oat_Cells" unique_id=360808602]
 texture_filter = 1
 position = Vector2(38, 24)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_2")
+
+[node name="SoilContact" parent="StateVisuals/Mature_oat_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_rice_Cells" type="Node2D" parent="StateVisuals" unique_id=1819304619]
 editor_description = "成熟植物 rice 的静态九宫格；可移动整组或单格。预览和游戏均使用这里的贴图和布局。"
@@ -1170,11 +1370,15 @@ position = Vector2(-38, -48)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_3")
 
+[node name="SoilContact" parent="StateVisuals/Mature_rice_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_rice_Cells" unique_id=1715036752]
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_3")
+
+[node name="SoilContact" parent="StateVisuals/Mature_rice_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_rice_Cells" unique_id=1626436823]
 texture_filter = 1
@@ -1182,11 +1386,15 @@ position = Vector2(38, -48)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_3")
 
+[node name="SoilContact" parent="StateVisuals/Mature_rice_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_rice_Cells" unique_id=329312408]
 texture_filter = 1
 position = Vector2(-38, -10)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_3")
+
+[node name="SoilContact" parent="StateVisuals/Mature_rice_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_rice_Cells" unique_id=731220822]
 texture_filter = 1
@@ -1194,11 +1402,15 @@ position = Vector2(0, -10)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_3")
 
+[node name="SoilContact" parent="StateVisuals/Mature_rice_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_rice_Cells" unique_id=2121501944]
 texture_filter = 1
 position = Vector2(38, -10)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_3")
+
+[node name="SoilContact" parent="StateVisuals/Mature_rice_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_rice_Cells" unique_id=2129385185]
 texture_filter = 1
@@ -1206,17 +1418,23 @@ position = Vector2(-38, 28)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_3")
 
+[node name="SoilContact" parent="StateVisuals/Mature_rice_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_rice_Cells" unique_id=1080704818]
 texture_filter = 1
 position = Vector2(0, 28)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_3")
 
+[node name="SoilContact" parent="StateVisuals/Mature_rice_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_rice_Cells" unique_id=1826037248]
 texture_filter = 1
 position = Vector2(38, 28)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_3")
+
+[node name="SoilContact" parent="StateVisuals/Mature_rice_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_sorghum_Cells" type="Node2D" parent="StateVisuals" unique_id=1514888148]
 editor_description = "成熟植物 sorghum 的静态九宫格；可移动整组或单格。运行时图片和大小读取植物表。"
@@ -1228,11 +1446,15 @@ position = Vector2(-38, -59)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_4")
 
+[node name="SoilContact" parent="StateVisuals/Mature_sorghum_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_sorghum_Cells" unique_id=1108572550]
 texture_filter = 1
 position = Vector2(0, -59)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_4")
+
+[node name="SoilContact" parent="StateVisuals/Mature_sorghum_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_sorghum_Cells" unique_id=1740787426]
 texture_filter = 1
@@ -1240,11 +1462,15 @@ position = Vector2(38, -59)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_4")
 
+[node name="SoilContact" parent="StateVisuals/Mature_sorghum_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_sorghum_Cells" unique_id=441550403]
 texture_filter = 1
 position = Vector2(-38, -19)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_4")
+
+[node name="SoilContact" parent="StateVisuals/Mature_sorghum_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_sorghum_Cells" unique_id=874683674]
 texture_filter = 1
@@ -1252,11 +1478,15 @@ position = Vector2(0, -19)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_4")
 
+[node name="SoilContact" parent="StateVisuals/Mature_sorghum_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_sorghum_Cells" unique_id=2106533076]
 texture_filter = 1
 position = Vector2(38, -19)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_4")
+
+[node name="SoilContact" parent="StateVisuals/Mature_sorghum_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_sorghum_Cells" unique_id=577309494]
 texture_filter = 1
@@ -1264,17 +1494,23 @@ position = Vector2(-38, 20)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_4")
 
+[node name="SoilContact" parent="StateVisuals/Mature_sorghum_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_sorghum_Cells" unique_id=1206028761]
 texture_filter = 1
 position = Vector2(0, 20)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_4")
 
+[node name="SoilContact" parent="StateVisuals/Mature_sorghum_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_sorghum_Cells" unique_id=1561007783]
 texture_filter = 1
 position = Vector2(38, 20)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_4")
+
+[node name="SoilContact" parent="StateVisuals/Mature_sorghum_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_rye_Cells" type="Node2D" parent="StateVisuals" unique_id=96343620]
 editor_description = "成熟植物 rye 的静态九宫格；可移动整组或单格。运行时图片和大小读取植物表。"
@@ -1286,11 +1522,15 @@ position = Vector2(-38, -52)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_5")
 
+[node name="SoilContact" parent="StateVisuals/Mature_rye_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_rye_Cells" unique_id=1199459899]
 texture_filter = 1
 position = Vector2(0, -52)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_5")
+
+[node name="SoilContact" parent="StateVisuals/Mature_rye_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_rye_Cells" unique_id=1130487515]
 texture_filter = 1
@@ -1298,11 +1538,15 @@ position = Vector2(38, -52)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_5")
 
+[node name="SoilContact" parent="StateVisuals/Mature_rye_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_rye_Cells" unique_id=1416698649]
 texture_filter = 1
 position = Vector2(-38, -14)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_5")
+
+[node name="SoilContact" parent="StateVisuals/Mature_rye_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_rye_Cells" unique_id=849381657]
 texture_filter = 1
@@ -1310,11 +1554,15 @@ position = Vector2(0, -14)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_5")
 
+[node name="SoilContact" parent="StateVisuals/Mature_rye_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_rye_Cells" unique_id=241448580]
 texture_filter = 1
 position = Vector2(38, -14)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_5")
+
+[node name="SoilContact" parent="StateVisuals/Mature_rye_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_rye_Cells" unique_id=362400065]
 texture_filter = 1
@@ -1322,17 +1570,23 @@ position = Vector2(-38, 24)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_5")
 
+[node name="SoilContact" parent="StateVisuals/Mature_rye_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_rye_Cells" unique_id=928900153]
 texture_filter = 1
 position = Vector2(0, 24)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_5")
 
+[node name="SoilContact" parent="StateVisuals/Mature_rye_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_rye_Cells" unique_id=20633245]
 texture_filter = 1
 position = Vector2(38, 24)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_5")
+
+[node name="SoilContact" parent="StateVisuals/Mature_rye_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_potato_Cells" type="Node2D" parent="StateVisuals" unique_id=1005959105]
 editor_description = "成熟植物 potato 的静态九宫格；可移动整组或单格。运行时图片和大小读取植物表。"
@@ -1344,11 +1598,15 @@ position = Vector2(-37, -49)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_6")
 
+[node name="SoilContact" parent="StateVisuals/Mature_potato_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_potato_Cells" unique_id=898089588]
 texture_filter = 1
 position = Vector2(1, -49)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_6")
+
+[node name="SoilContact" parent="StateVisuals/Mature_potato_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_potato_Cells" unique_id=242597997]
 texture_filter = 1
@@ -1356,11 +1614,15 @@ position = Vector2(39, -49)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_6")
 
+[node name="SoilContact" parent="StateVisuals/Mature_potato_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_potato_Cells" unique_id=1462496379]
 texture_filter = 1
 position = Vector2(-37, -11)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_6")
+
+[node name="SoilContact" parent="StateVisuals/Mature_potato_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_potato_Cells" unique_id=1626226557]
 texture_filter = 1
@@ -1368,11 +1630,15 @@ position = Vector2(1, -11)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_6")
 
+[node name="SoilContact" parent="StateVisuals/Mature_potato_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_potato_Cells" unique_id=1823990545]
 texture_filter = 1
 position = Vector2(39, -11)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_6")
+
+[node name="SoilContact" parent="StateVisuals/Mature_potato_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_potato_Cells" unique_id=1916145534]
 texture_filter = 1
@@ -1380,17 +1646,23 @@ position = Vector2(-37, 27)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_6")
 
+[node name="SoilContact" parent="StateVisuals/Mature_potato_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_potato_Cells" unique_id=264932343]
 texture_filter = 1
 position = Vector2(1, 27)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_6")
 
+[node name="SoilContact" parent="StateVisuals/Mature_potato_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_potato_Cells" unique_id=988931563]
 texture_filter = 1
 position = Vector2(39, 27)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_6")
+
+[node name="SoilContact" parent="StateVisuals/Mature_potato_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_sweet_potato_Cells" type="Node2D" parent="StateVisuals" unique_id=1963804736]
 editor_description = "成熟植物 sweet_potato 的静态九宫格；可移动整组或单格。运行时图片和大小读取植物表。"
@@ -1402,11 +1674,15 @@ position = Vector2(-38, -44)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_7")
 
+[node name="SoilContact" parent="StateVisuals/Mature_sweet_potato_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_sweet_potato_Cells" unique_id=1869301217]
 texture_filter = 1
 position = Vector2(0, -44)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_7")
+
+[node name="SoilContact" parent="StateVisuals/Mature_sweet_potato_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_sweet_potato_Cells" unique_id=2141340545]
 texture_filter = 1
@@ -1414,11 +1690,15 @@ position = Vector2(38, -44)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_7")
 
+[node name="SoilContact" parent="StateVisuals/Mature_sweet_potato_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_sweet_potato_Cells" unique_id=743615065]
 texture_filter = 1
 position = Vector2(-38, -6)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_7")
+
+[node name="SoilContact" parent="StateVisuals/Mature_sweet_potato_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_sweet_potato_Cells" unique_id=1002819307]
 texture_filter = 1
@@ -1426,11 +1706,15 @@ position = Vector2(0, -6)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_7")
 
+[node name="SoilContact" parent="StateVisuals/Mature_sweet_potato_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_sweet_potato_Cells" unique_id=385107345]
 texture_filter = 1
 position = Vector2(38, -6)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_7")
+
+[node name="SoilContact" parent="StateVisuals/Mature_sweet_potato_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_sweet_potato_Cells" unique_id=648984070]
 texture_filter = 1
@@ -1438,17 +1722,23 @@ position = Vector2(-38, 32)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_7")
 
+[node name="SoilContact" parent="StateVisuals/Mature_sweet_potato_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_sweet_potato_Cells" unique_id=1423773344]
 texture_filter = 1
 position = Vector2(0, 32)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_7")
 
+[node name="SoilContact" parent="StateVisuals/Mature_sweet_potato_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_sweet_potato_Cells" unique_id=107917978]
 texture_filter = 1
 position = Vector2(38, 32)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_7")
+
+[node name="SoilContact" parent="StateVisuals/Mature_sweet_potato_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_beet_Cells" type="Node2D" parent="StateVisuals" unique_id=1308607074]
 editor_description = "成熟植物 beet 的静态九宫格；可移动整组或单格。预览和游戏均使用这里的贴图和布局。"
@@ -1461,11 +1751,15 @@ position = Vector2(-38, -42)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_8")
 
+[node name="SoilContact" parent="StateVisuals/Mature_beet_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_beet_Cells" unique_id=1546528929]
 texture_filter = 1
 position = Vector2(0, -42)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_8")
+
+[node name="SoilContact" parent="StateVisuals/Mature_beet_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_beet_Cells" unique_id=227308223]
 texture_filter = 1
@@ -1473,11 +1767,15 @@ position = Vector2(38, -42)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_8")
 
+[node name="SoilContact" parent="StateVisuals/Mature_beet_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_beet_Cells" unique_id=1237900440]
 texture_filter = 1
 position = Vector2(-38, -4)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_8")
+
+[node name="SoilContact" parent="StateVisuals/Mature_beet_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_beet_Cells" unique_id=803477322]
 texture_filter = 1
@@ -1485,11 +1783,15 @@ position = Vector2(0, -4)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_8")
 
+[node name="SoilContact" parent="StateVisuals/Mature_beet_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_beet_Cells" unique_id=1039622514]
 texture_filter = 1
 position = Vector2(38, -4)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_8")
+
+[node name="SoilContact" parent="StateVisuals/Mature_beet_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_beet_Cells" unique_id=513480789]
 texture_filter = 1
@@ -1497,17 +1799,23 @@ position = Vector2(-38, 34)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_8")
 
+[node name="SoilContact" parent="StateVisuals/Mature_beet_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_beet_Cells" unique_id=1036277691]
 texture_filter = 1
 position = Vector2(0, 34)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_8")
 
+[node name="SoilContact" parent="StateVisuals/Mature_beet_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_beet_Cells" unique_id=200938670]
 texture_filter = 1
 position = Vector2(38, 34)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_8")
+
+[node name="SoilContact" parent="StateVisuals/Mature_beet_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_turnip_Cells" type="Node2D" parent="StateVisuals" unique_id=2000116884]
 editor_description = "成熟植物 turnip 的静态九宫格；可移动整组或单格。预览和游戏均使用这里的贴图和布局。"
@@ -1520,11 +1828,15 @@ position = Vector2(-38, -45)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_9")
 
+[node name="SoilContact" parent="StateVisuals/Mature_turnip_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_turnip_Cells" unique_id=2066359912]
 texture_filter = 1
 position = Vector2(0, -45)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_9")
+
+[node name="SoilContact" parent="StateVisuals/Mature_turnip_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_turnip_Cells" unique_id=1796001491]
 texture_filter = 1
@@ -1532,11 +1844,15 @@ position = Vector2(38, -45)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_9")
 
+[node name="SoilContact" parent="StateVisuals/Mature_turnip_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_turnip_Cells" unique_id=1636054172]
 texture_filter = 1
 position = Vector2(-38, -7)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_9")
+
+[node name="SoilContact" parent="StateVisuals/Mature_turnip_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_turnip_Cells" unique_id=729232677]
 texture_filter = 1
@@ -1544,11 +1860,15 @@ position = Vector2(0, -7)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_9")
 
+[node name="SoilContact" parent="StateVisuals/Mature_turnip_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_turnip_Cells" unique_id=595585328]
 texture_filter = 1
 position = Vector2(38, -7)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_9")
+
+[node name="SoilContact" parent="StateVisuals/Mature_turnip_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_turnip_Cells" unique_id=859065901]
 texture_filter = 1
@@ -1556,17 +1876,23 @@ position = Vector2(-38, 31)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_9")
 
+[node name="SoilContact" parent="StateVisuals/Mature_turnip_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_turnip_Cells" unique_id=1262956880]
 texture_filter = 1
 position = Vector2(0, 31)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_9")
 
+[node name="SoilContact" parent="StateVisuals/Mature_turnip_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_turnip_Cells" unique_id=67553088]
 texture_filter = 1
 position = Vector2(38, 31)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_9")
+
+[node name="SoilContact" parent="StateVisuals/Mature_turnip_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_burdock_Cells" type="Node2D" parent="StateVisuals" unique_id=92872545]
 editor_description = "成熟植物 burdock 的静态九宫格；可移动整组或单格。预览和游戏均使用这里的贴图和布局。"
@@ -1580,11 +1906,15 @@ position = Vector2(-29.076889, -32.615402)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("newcrop_10")
 
+[node name="SoilContact" parent="StateVisuals/Mature_burdock_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_burdock_Cells" unique_id=1691823207]
 texture_filter = 1
 position = Vector2(2, -32.615402)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("newcrop_10")
+
+[node name="SoilContact" parent="StateVisuals/Mature_burdock_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_burdock_Cells" unique_id=1088508950]
 texture_filter = 1
@@ -1592,11 +1922,15 @@ position = Vector2(32.30774, -32.615402)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("newcrop_10")
 
+[node name="SoilContact" parent="StateVisuals/Mature_burdock_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_burdock_Cells" unique_id=11127849]
 texture_filter = 1
 position = Vector2(-29.076889, 0)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("newcrop_10")
+
+[node name="SoilContact" parent="StateVisuals/Mature_burdock_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_burdock_Cells" unique_id=509255730]
 texture_filter = 1
@@ -1604,11 +1938,15 @@ position = Vector2(2, 0)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("newcrop_10")
 
+[node name="SoilContact" parent="StateVisuals/Mature_burdock_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_burdock_Cells" unique_id=468340994]
 texture_filter = 1
 position = Vector2(32.30774, 0)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("newcrop_10")
+
+[node name="SoilContact" parent="StateVisuals/Mature_burdock_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_burdock_Cells" unique_id=1896549449]
 texture_filter = 1
@@ -1616,17 +1954,23 @@ position = Vector2(-29.076889, 30.307648)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("newcrop_10")
 
+[node name="SoilContact" parent="StateVisuals/Mature_burdock_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_burdock_Cells" unique_id=922826755]
 texture_filter = 1
 position = Vector2(2, 30.307648)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("newcrop_10")
 
+[node name="SoilContact" parent="StateVisuals/Mature_burdock_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_burdock_Cells" unique_id=545719601]
 texture_filter = 1
 position = Vector2(32.30774, 30.307648)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("newcrop_10")
+
+[node name="SoilContact" parent="StateVisuals/Mature_burdock_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_pumpkin_Cells" type="Node2D" parent="StateVisuals" unique_id=1460246223]
 editor_description = "成熟植物 pumpkin 的静态九宫格；可移动整组或单格。预览和游戏均使用这里的贴图和布局。"
@@ -1638,11 +1982,15 @@ position = Vector2(-38, -42)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_11")
 
+[node name="SoilContact" parent="StateVisuals/Mature_pumpkin_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_pumpkin_Cells" unique_id=1101880117]
 texture_filter = 1
 position = Vector2(0, -42)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_11")
+
+[node name="SoilContact" parent="StateVisuals/Mature_pumpkin_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_pumpkin_Cells" unique_id=400600075]
 texture_filter = 1
@@ -1650,11 +1998,15 @@ position = Vector2(38, -42)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_11")
 
+[node name="SoilContact" parent="StateVisuals/Mature_pumpkin_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_pumpkin_Cells" unique_id=1916654051]
 texture_filter = 1
 position = Vector2(-38, -4)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_11")
+
+[node name="SoilContact" parent="StateVisuals/Mature_pumpkin_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_pumpkin_Cells" unique_id=1409339588]
 texture_filter = 1
@@ -1662,11 +2014,15 @@ position = Vector2(0, -4)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_11")
 
+[node name="SoilContact" parent="StateVisuals/Mature_pumpkin_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_pumpkin_Cells" unique_id=1241067143]
 texture_filter = 1
 position = Vector2(38, -4)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_11")
+
+[node name="SoilContact" parent="StateVisuals/Mature_pumpkin_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_pumpkin_Cells" unique_id=1734546343]
 texture_filter = 1
@@ -1674,17 +2030,23 @@ position = Vector2(-38, 34)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_11")
 
+[node name="SoilContact" parent="StateVisuals/Mature_pumpkin_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_pumpkin_Cells" unique_id=481413275]
 texture_filter = 1
 position = Vector2(0, 34)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_11")
 
+[node name="SoilContact" parent="StateVisuals/Mature_pumpkin_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_pumpkin_Cells" unique_id=1357917403]
 texture_filter = 1
 position = Vector2(38, 34)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("newcrop_11")
+
+[node name="SoilContact" parent="StateVisuals/Mature_pumpkin_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_eggplant_Cells" type="Node2D" parent="StateVisuals" unique_id=1298923864]
 editor_description = "成熟植物 eggplant 的静态九宫格；可移动整组或单格。预览和游戏均使用这里的贴图和布局。"
@@ -1697,11 +2059,15 @@ position = Vector2(-38, -48)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_12")
 
+[node name="SoilContact" parent="StateVisuals/Mature_eggplant_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_eggplant_Cells" unique_id=918167137]
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_12")
+
+[node name="SoilContact" parent="StateVisuals/Mature_eggplant_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_eggplant_Cells" unique_id=1874057182]
 texture_filter = 1
@@ -1709,11 +2075,15 @@ position = Vector2(38, -48)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_12")
 
+[node name="SoilContact" parent="StateVisuals/Mature_eggplant_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_eggplant_Cells" unique_id=502112222]
 texture_filter = 1
 position = Vector2(-38, -10)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_12")
+
+[node name="SoilContact" parent="StateVisuals/Mature_eggplant_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_eggplant_Cells" unique_id=1707922158]
 texture_filter = 1
@@ -1721,11 +2091,15 @@ position = Vector2(0, -10)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_12")
 
+[node name="SoilContact" parent="StateVisuals/Mature_eggplant_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_eggplant_Cells" unique_id=1180070903]
 texture_filter = 1
 position = Vector2(38, -10)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_12")
+
+[node name="SoilContact" parent="StateVisuals/Mature_eggplant_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_eggplant_Cells" unique_id=713355486]
 texture_filter = 1
@@ -1733,17 +2107,23 @@ position = Vector2(-38, 28)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_12")
 
+[node name="SoilContact" parent="StateVisuals/Mature_eggplant_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_eggplant_Cells" unique_id=1594360343]
 texture_filter = 1
 position = Vector2(0, 28)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_12")
 
+[node name="SoilContact" parent="StateVisuals/Mature_eggplant_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_eggplant_Cells" unique_id=1746900120]
 texture_filter = 1
 position = Vector2(38, 28)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_12")
+
+[node name="SoilContact" parent="StateVisuals/Mature_eggplant_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_cucumber_Cells" type="Node2D" parent="StateVisuals" unique_id=1954961957]
 editor_description = "成熟植物 cucumber 的静态九宫格；可移动整组或单格。预览和游戏均使用这里的贴图和布局。"
@@ -1755,11 +2135,15 @@ position = Vector2(-38, -44)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_13")
 
+[node name="SoilContact" parent="StateVisuals/Mature_cucumber_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_cucumber_Cells" unique_id=489566280]
 texture_filter = 1
 position = Vector2(0, -44)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_13")
+
+[node name="SoilContact" parent="StateVisuals/Mature_cucumber_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_cucumber_Cells" unique_id=27904889]
 texture_filter = 1
@@ -1767,11 +2151,15 @@ position = Vector2(38, -44)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_13")
 
+[node name="SoilContact" parent="StateVisuals/Mature_cucumber_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_cucumber_Cells" unique_id=254445896]
 texture_filter = 1
 position = Vector2(-38, -6)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_13")
+
+[node name="SoilContact" parent="StateVisuals/Mature_cucumber_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_cucumber_Cells" unique_id=1497873972]
 texture_filter = 1
@@ -1779,11 +2167,15 @@ position = Vector2(0, -6)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_13")
 
+[node name="SoilContact" parent="StateVisuals/Mature_cucumber_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_cucumber_Cells" unique_id=1427455415]
 texture_filter = 1
 position = Vector2(38, -6)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_13")
+
+[node name="SoilContact" parent="StateVisuals/Mature_cucumber_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_cucumber_Cells" unique_id=828270748]
 texture_filter = 1
@@ -1791,17 +2183,23 @@ position = Vector2(-38, 32)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_13")
 
+[node name="SoilContact" parent="StateVisuals/Mature_cucumber_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_cucumber_Cells" unique_id=1604354792]
 texture_filter = 1
 position = Vector2(0, 32)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_13")
 
+[node name="SoilContact" parent="StateVisuals/Mature_cucumber_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_cucumber_Cells" unique_id=1183754322]
 texture_filter = 1
 position = Vector2(38, 32)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_13")
+
+[node name="SoilContact" parent="StateVisuals/Mature_cucumber_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_watermelon_Cells" type="Node2D" parent="StateVisuals" unique_id=272386018]
 editor_description = "成熟植物 watermelon 的静态九宫格；可移动整组或单格。预览和游戏均使用这里的贴图和布局。"
@@ -1813,11 +2211,15 @@ position = Vector2(-42, -45)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_14")
 
+[node name="SoilContact" parent="StateVisuals/Mature_watermelon_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_watermelon_Cells" unique_id=1133570719]
 texture_filter = 1
 position = Vector2(-4, -45)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_14")
+
+[node name="SoilContact" parent="StateVisuals/Mature_watermelon_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_watermelon_Cells" unique_id=999577653]
 texture_filter = 1
@@ -1825,11 +2227,15 @@ position = Vector2(34, -45)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_14")
 
+[node name="SoilContact" parent="StateVisuals/Mature_watermelon_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_watermelon_Cells" unique_id=1484738618]
 texture_filter = 1
 position = Vector2(-41, -6)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_14")
+
+[node name="SoilContact" parent="StateVisuals/Mature_watermelon_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_watermelon_Cells" unique_id=1235205328]
 texture_filter = 1
@@ -1837,11 +2243,15 @@ position = Vector2(-3, -6)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_14")
 
+[node name="SoilContact" parent="StateVisuals/Mature_watermelon_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_watermelon_Cells" unique_id=953253943]
 texture_filter = 1
 position = Vector2(35, -6)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_14")
+
+[node name="SoilContact" parent="StateVisuals/Mature_watermelon_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_watermelon_Cells" unique_id=2094506112]
 texture_filter = 1
@@ -1849,17 +2259,23 @@ position = Vector2(-43, 31)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_14")
 
+[node name="SoilContact" parent="StateVisuals/Mature_watermelon_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_watermelon_Cells" unique_id=2030226039]
 texture_filter = 1
 position = Vector2(-5, 31)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_14")
 
+[node name="SoilContact" parent="StateVisuals/Mature_watermelon_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_watermelon_Cells" unique_id=1807870225]
 texture_filter = 1
 position = Vector2(33, 31)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_14")
+
+[node name="SoilContact" parent="StateVisuals/Mature_watermelon_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_blueberry_Cells" type="Node2D" parent="StateVisuals" unique_id=1488592084]
 editor_description = "成熟植物 blueberry 的静态九宫格；可移动整组或单格。预览和游戏均使用这里的贴图和布局。"
@@ -1872,11 +2288,15 @@ position = Vector2(-38, -44)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_15")
 
+[node name="SoilContact" parent="StateVisuals/Mature_blueberry_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_blueberry_Cells" unique_id=177077789]
 texture_filter = 1
 position = Vector2(0, -44)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_15")
+
+[node name="SoilContact" parent="StateVisuals/Mature_blueberry_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_blueberry_Cells" unique_id=1954473467]
 texture_filter = 1
@@ -1884,11 +2304,15 @@ position = Vector2(38, -44)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_15")
 
+[node name="SoilContact" parent="StateVisuals/Mature_blueberry_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_blueberry_Cells" unique_id=1481156308]
 texture_filter = 1
 position = Vector2(-38, -6)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_15")
+
+[node name="SoilContact" parent="StateVisuals/Mature_blueberry_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_blueberry_Cells" unique_id=543132646]
 texture_filter = 1
@@ -1896,11 +2320,15 @@ position = Vector2(0, -6)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_15")
 
+[node name="SoilContact" parent="StateVisuals/Mature_blueberry_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_blueberry_Cells" unique_id=1163392029]
 texture_filter = 1
 position = Vector2(38, -6)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_15")
+
+[node name="SoilContact" parent="StateVisuals/Mature_blueberry_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_blueberry_Cells" unique_id=263628621]
 texture_filter = 1
@@ -1908,17 +2336,23 @@ position = Vector2(-38, 32)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_15")
 
+[node name="SoilContact" parent="StateVisuals/Mature_blueberry_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_blueberry_Cells" unique_id=186997254]
 texture_filter = 1
 position = Vector2(0, 32)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_15")
 
+[node name="SoilContact" parent="StateVisuals/Mature_blueberry_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_blueberry_Cells" unique_id=108494964]
 texture_filter = 1
 position = Vector2(38, 32)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_15")
+
+[node name="SoilContact" parent="StateVisuals/Mature_blueberry_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_spinach_Cells" type="Node2D" parent="StateVisuals" unique_id=477341764]
 editor_description = "成熟植物 spinach 的静态九宫格；可移动整组或单格。预览和游戏均使用这里的贴图和布局。"
@@ -1931,11 +2365,15 @@ position = Vector2(-38, -45)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_16")
 
+[node name="SoilContact" parent="StateVisuals/Mature_spinach_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_spinach_Cells" unique_id=172010991]
 texture_filter = 1
 position = Vector2(0, -45)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_16")
+
+[node name="SoilContact" parent="StateVisuals/Mature_spinach_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_spinach_Cells" unique_id=1815030781]
 texture_filter = 1
@@ -1943,11 +2381,15 @@ position = Vector2(38, -45)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_16")
 
+[node name="SoilContact" parent="StateVisuals/Mature_spinach_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_spinach_Cells" unique_id=1117312111]
 texture_filter = 1
 position = Vector2(-38, -7)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_16")
+
+[node name="SoilContact" parent="StateVisuals/Mature_spinach_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_spinach_Cells" unique_id=1497550479]
 texture_filter = 1
@@ -1955,11 +2397,15 @@ position = Vector2(0, -7)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_16")
 
+[node name="SoilContact" parent="StateVisuals/Mature_spinach_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_spinach_Cells" unique_id=702875727]
 texture_filter = 1
 position = Vector2(38, -7)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_16")
+
+[node name="SoilContact" parent="StateVisuals/Mature_spinach_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_spinach_Cells" unique_id=492629049]
 texture_filter = 1
@@ -1967,17 +2413,23 @@ position = Vector2(-38, 31)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_16")
 
+[node name="SoilContact" parent="StateVisuals/Mature_spinach_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_spinach_Cells" unique_id=248370154]
 texture_filter = 1
 position = Vector2(0, 31)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_16")
 
+[node name="SoilContact" parent="StateVisuals/Mature_spinach_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_spinach_Cells" unique_id=2073376910]
 texture_filter = 1
 position = Vector2(38, 31)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_16")
+
+[node name="SoilContact" parent="StateVisuals/Mature_spinach_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_bok_choy_Cells" type="Node2D" parent="StateVisuals" unique_id=1248778119]
 editor_description = "成熟植物 bok_choy 的静态九宫格；可移动整组或单格。预览和游戏均使用这里的贴图和布局。"
@@ -1989,11 +2441,15 @@ position = Vector2(-38, -47)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_17")
 
+[node name="SoilContact" parent="StateVisuals/Mature_bok_choy_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_bok_choy_Cells" unique_id=711659306]
 texture_filter = 1
 position = Vector2(0, -47)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_17")
+
+[node name="SoilContact" parent="StateVisuals/Mature_bok_choy_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_bok_choy_Cells" unique_id=321951872]
 texture_filter = 1
@@ -2001,11 +2457,15 @@ position = Vector2(38, -47)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_17")
 
+[node name="SoilContact" parent="StateVisuals/Mature_bok_choy_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_bok_choy_Cells" unique_id=1446086861]
 texture_filter = 1
 position = Vector2(-38, -9)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_17")
+
+[node name="SoilContact" parent="StateVisuals/Mature_bok_choy_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_bok_choy_Cells" unique_id=62236211]
 texture_filter = 1
@@ -2013,11 +2473,15 @@ position = Vector2(0, -9)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_17")
 
+[node name="SoilContact" parent="StateVisuals/Mature_bok_choy_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_bok_choy_Cells" unique_id=1345251293]
 texture_filter = 1
 position = Vector2(38, -9)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_17")
+
+[node name="SoilContact" parent="StateVisuals/Mature_bok_choy_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_bok_choy_Cells" unique_id=832249430]
 texture_filter = 1
@@ -2025,17 +2489,23 @@ position = Vector2(-38, 29)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_17")
 
+[node name="SoilContact" parent="StateVisuals/Mature_bok_choy_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_bok_choy_Cells" unique_id=739551353]
 texture_filter = 1
 position = Vector2(0, 29)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_17")
 
+[node name="SoilContact" parent="StateVisuals/Mature_bok_choy_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_bok_choy_Cells" unique_id=583780141]
 texture_filter = 1
 position = Vector2(38, 29)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_17")
+
+[node name="SoilContact" parent="StateVisuals/Mature_bok_choy_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_kale_Cells" type="Node2D" parent="StateVisuals" unique_id=1108482086]
 editor_description = "成熟植物 kale 的静态九宫格；可移动整组或单格。预览和游戏均使用这里的贴图和布局。"
@@ -2047,11 +2517,15 @@ position = Vector2(-38, -50)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_18")
 
+[node name="SoilContact" parent="StateVisuals/Mature_kale_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_kale_Cells" unique_id=226084157]
 texture_filter = 1
 position = Vector2(0, -50)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_18")
+
+[node name="SoilContact" parent="StateVisuals/Mature_kale_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_kale_Cells" unique_id=421051147]
 texture_filter = 1
@@ -2059,11 +2533,15 @@ position = Vector2(38, -50)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_18")
 
+[node name="SoilContact" parent="StateVisuals/Mature_kale_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_kale_Cells" unique_id=1130760159]
 texture_filter = 1
 position = Vector2(-38, -12)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_18")
+
+[node name="SoilContact" parent="StateVisuals/Mature_kale_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_kale_Cells" unique_id=23245909]
 texture_filter = 1
@@ -2071,11 +2549,15 @@ position = Vector2(0, -12)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_18")
 
+[node name="SoilContact" parent="StateVisuals/Mature_kale_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_kale_Cells" unique_id=1118932160]
 texture_filter = 1
 position = Vector2(38, -12)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_18")
+
+[node name="SoilContact" parent="StateVisuals/Mature_kale_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_kale_Cells" unique_id=126558535]
 texture_filter = 1
@@ -2083,17 +2565,23 @@ position = Vector2(-38, 26)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_18")
 
+[node name="SoilContact" parent="StateVisuals/Mature_kale_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_kale_Cells" unique_id=1000617912]
 texture_filter = 1
 position = Vector2(0, 26)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_18")
 
+[node name="SoilContact" parent="StateVisuals/Mature_kale_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_kale_Cells" unique_id=2099216630]
 texture_filter = 1
 position = Vector2(38, 26)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_18")
+
+[node name="SoilContact" parent="StateVisuals/Mature_kale_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_celery_Cells" type="Node2D" parent="StateVisuals" unique_id=1748635921]
 editor_description = "成熟植物 celery 的静态九宫格；可移动整组或单格。预览和游戏均使用这里的贴图和布局。"
@@ -2105,11 +2593,15 @@ position = Vector2(-38, -53.000008)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_19")
 
+[node name="SoilContact" parent="StateVisuals/Mature_celery_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_celery_Cells" unique_id=228281672]
 texture_filter = 1
 position = Vector2(0, -53.000008)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_19")
+
+[node name="SoilContact" parent="StateVisuals/Mature_celery_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_celery_Cells" unique_id=1363028561]
 texture_filter = 1
@@ -2117,11 +2609,15 @@ position = Vector2(38, -53.000008)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_19")
 
+[node name="SoilContact" parent="StateVisuals/Mature_celery_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_celery_Cells" unique_id=763896752]
 texture_filter = 1
 position = Vector2(-38, -15)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_19")
+
+[node name="SoilContact" parent="StateVisuals/Mature_celery_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_celery_Cells" unique_id=533543052]
 texture_filter = 1
@@ -2129,11 +2625,15 @@ position = Vector2(0, -15)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_19")
 
+[node name="SoilContact" parent="StateVisuals/Mature_celery_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_celery_Cells" unique_id=1890222856]
 texture_filter = 1
 position = Vector2(38, -15)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_19")
+
+[node name="SoilContact" parent="StateVisuals/Mature_celery_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_celery_Cells" unique_id=1703870414]
 texture_filter = 1
@@ -2141,17 +2641,23 @@ position = Vector2(-38, 23)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_19")
 
+[node name="SoilContact" parent="StateVisuals/Mature_celery_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_celery_Cells" unique_id=940699604]
 texture_filter = 1
 position = Vector2(0, 23)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_19")
 
+[node name="SoilContact" parent="StateVisuals/Mature_celery_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_celery_Cells" unique_id=770198456]
 texture_filter = 1
 position = Vector2(38, 23)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_19")
+
+[node name="SoilContact" parent="StateVisuals/Mature_celery_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="Mature_water_spinach_Cells" type="Node2D" parent="StateVisuals" unique_id=1381833958]
 editor_description = "成熟植物 water_spinach 的静态九宫格；可移动整组或单格。预览和游戏均使用这里的贴图和布局。"
@@ -2163,11 +2669,15 @@ position = Vector2(-38, -50)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_20")
 
+[node name="SoilContact" parent="StateVisuals/Mature_water_spinach_Cells/Cell_1_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_1_2" type="Sprite2D" parent="StateVisuals/Mature_water_spinach_Cells" unique_id=1240115856]
 texture_filter = 1
 position = Vector2(0, -50)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_20")
+
+[node name="SoilContact" parent="StateVisuals/Mature_water_spinach_Cells/Cell_1_2" instance=ExtResource("soil_contact")]
 
 [node name="Cell_1_3" type="Sprite2D" parent="StateVisuals/Mature_water_spinach_Cells" unique_id=842069224]
 texture_filter = 1
@@ -2175,11 +2685,15 @@ position = Vector2(38, -50)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_20")
 
+[node name="SoilContact" parent="StateVisuals/Mature_water_spinach_Cells/Cell_1_3" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_1" type="Sprite2D" parent="StateVisuals/Mature_water_spinach_Cells" unique_id=26335460]
 texture_filter = 1
 position = Vector2(-38, -12)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_20")
+
+[node name="SoilContact" parent="StateVisuals/Mature_water_spinach_Cells/Cell_2_1" instance=ExtResource("soil_contact")]
 
 [node name="Cell_2_2" type="Sprite2D" parent="StateVisuals/Mature_water_spinach_Cells" unique_id=1522183586]
 texture_filter = 1
@@ -2187,11 +2701,15 @@ position = Vector2(0, -12)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_20")
 
+[node name="SoilContact" parent="StateVisuals/Mature_water_spinach_Cells/Cell_2_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_2_3" type="Sprite2D" parent="StateVisuals/Mature_water_spinach_Cells" unique_id=1601970]
 texture_filter = 1
 position = Vector2(38, -12)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_20")
+
+[node name="SoilContact" parent="StateVisuals/Mature_water_spinach_Cells/Cell_2_3" instance=ExtResource("soil_contact")]
 
 [node name="Cell_3_1" type="Sprite2D" parent="StateVisuals/Mature_water_spinach_Cells" unique_id=112131127]
 texture_filter = 1
@@ -2199,17 +2717,23 @@ position = Vector2(-38, 26)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_20")
 
+[node name="SoilContact" parent="StateVisuals/Mature_water_spinach_Cells/Cell_3_1" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_2" type="Sprite2D" parent="StateVisuals/Mature_water_spinach_Cells" unique_id=121127111]
 texture_filter = 1
 position = Vector2(0, 26)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_20")
 
+[node name="SoilContact" parent="StateVisuals/Mature_water_spinach_Cells/Cell_3_2" instance=ExtResource("soil_contact")]
+
 [node name="Cell_3_3" type="Sprite2D" parent="StateVisuals/Mature_water_spinach_Cells" unique_id=20435629]
 texture_filter = 1
 position = Vector2(38, 26)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("newcrop_20")
+
+[node name="SoilContact" parent="StateVisuals/Mature_water_spinach_Cells/Cell_3_3" instance=ExtResource("soil_contact")]
 
 [node name="MutationVisual" type="Node2D" parent="StateVisuals" unique_id=544308089]
 editor_description = "双格变异植株的静态节点组；六个 Pair 标记分别控制三列、上下两种相邻格组合的位置。"
@@ -2238,6 +2762,8 @@ texture_filter = 1
 position = Vector2(0, -60)
 scale = Vector2(0.091, 0.089)
 texture = ExtResource("18_mutation_preview")
+
+[node name="SoilContact" parent="StateVisuals/MutationVisual/Plant" instance=ExtResource("soil_contact")]
 
 [node name="HitArea" type="Area2D" parent="StateVisuals" unique_id=1703649228]
 visible = false

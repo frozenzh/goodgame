@@ -108,6 +108,7 @@ metadata/l10n_text = "ui.cd7d889acf"
 vertical_alignment = 1
 
 [node name="IdleAutoFish" type="CheckBox" parent="."]
+button_pressed = false
 offset_left = 447.0
 offset_top = 215.0
 offset_right = 664.0
@@ -125,3 +126,4 @@ text = "开始钓鱼"
 metadata/l10n_text = "ui.763fbaf79a"
 
 [node name="LeaderboardPage" parent="." instance=ExtResource("4_leaderboard")]
+layout_mode = 0

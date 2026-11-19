@@ -79,3 +79,36 @@ Exported 9 modules, 115 parameters, 117 catalog entries, 554 texts
 结束时间：2026-11-09 18:50:18
 退出码：0
 日志位置：E:\GODOT\myfavorite\myfavorite\excel\导表运行日志.txt
+
+============================================================
+运行时间：2026-11-10 21:35:02
+项目目录：E:\GODOT\myfavorite\myfavorite
+运行方式：Windows 一键导表（校验并导出）
+Python：C:\Users\Zhuheng\AppData\Local\Programs\Python\Launcher\py.exe -3
+Export failed: 环境生物.xlsx!2: butterfly_cap above maximum 10
+导表失败。请按以上错误修正表格或文件，再重新运行。
+结束时间：2026-11-10 21:35:02
+退出码：1
+日志位置：E:\GODOT\myfavorite\myfavorite\excel\导表运行日志.txt
+
+============================================================
+运行时间：2026-11-10 21:37:13
+项目目录：E:\GODOT\myfavorite\myfavorite
+运行方式：Windows 一键导表（校验并导出）
+Python：C:\Users\Zhuheng\AppData\Local\Programs\Python\Launcher\py.exe -3
+Exported 10 modules, 143 parameters, 117 catalog entries, 592 texts
+导表成功。导出后的配置会在下次启动游戏时读取。
+结束时间：2026-11-10 21:37:14
+退出码：0
+日志位置：E:\GODOT\myfavorite\myfavorite\excel\导表运行日志.txt
+
+============================================================
+运行时间：2026-11-10 21:43:27
+项目目录：E:\GODOT\myfavorite\myfavorite
+运行方式：Windows 一键导表（校验并导出）
+Python：C:\Users\Zhuheng\AppData\Local\Programs\Python\Launcher\py.exe -3
+Exported 10 modules, 143 parameters, 117 catalog entries, 592 texts
+导表成功。导出后的配置会在下次启动游戏时读取。
+结束时间：2026-11-10 21:43:28
+退出码：0
+日志位置：E:\GODOT\myfavorite\myfavorite\excel\导表运行日志.txt

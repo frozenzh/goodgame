@@ -1,14 +1,19 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cqqfl2ghu0iw1"]
 
-[ext_resource type="Script" path="res://scripts/ui/floating_popup_window.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://bim3ilr0gcwdq" path="res://scripts/ui/floating_popup_window.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://scenes/ui/StaticPopupFrame.tscn" id="2_frame"]
-[ext_resource type="PackedScene" path="res://scenes/ui/PrimaryButton.tscn" id="3_button"]
-[ext_resource type="PackedScene" path="res://scenes/ui/PastureAnimalCard.tscn" id="4_card"]
-[ext_resource type="Texture2D" path="res://assets/hd/ui/popup_card_light.png" id="5_panel"]
-[ext_resource type="Texture2D" path="res://assets/hd/world/pasture_chicken_4dir_8.png" id="6_chicken"]
-[ext_resource type="Texture2D" path="res://assets/hd/world/pasture_pig_4dir_8.png" id="7_pig"]
-[ext_resource type="Texture2D" path="res://assets/hd/world/pasture_sheep_4dir_8.png" id="8_sheep"]
-[ext_resource type="Texture2D" path="res://assets/hd/world/pasture_cow_4dir_8.png" id="9_cow"]
+[ext_resource type="PackedScene" uid="uid://do7gog1hg3ww4" path="res://scenes/ui/PrimaryButton.tscn" id="3_button"]
+[ext_resource type="PackedScene" uid="uid://cwsmayeu2tqyh" path="res://scenes/ui/PastureAnimalCard.tscn" id="4_card"]
+[ext_resource type="Texture2D" uid="uid://bhvjbgg7t50i6" path="res://assets/hd/ui/popup_card_light.png" id="5_panel"]
+[ext_resource type="Texture2D" uid="uid://u4ubkl1yrbhl" path="res://assets/hd/world/pasture_chicken_4dir_8.png" id="6_chicken"]
+
+[ext_resource type="Texture2D" path="res://assets/hd/ui/pasture_egg.tres" id="product_egg"]
+
+[ext_resource type="Texture2D" path="res://assets/hd/ui/pasture_milk.tres" id="product_milk"]
+
+[ext_resource type="Texture2D" path="res://assets/hd/ui/pasture_wool.tres" id="product_wool"]
+
+[ext_resource type="Texture2D" path="res://assets/hd/ui/pasture_pork.tres" id="product_pork"]
 
 [sub_resource type="AtlasTexture" id="PanelArt"]
 atlas = ExtResource("5_panel")
@@ -18,40 +23,40 @@ region = Rect2(123, 135, 840, 1177)
 atlas = ExtResource("6_chicken")
 region = Rect2(0, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="PigFrame"]
-atlas = ExtResource("7_pig")
-region = Rect2(0, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="SheepFrame"]
-atlas = ExtResource("8_sheep")
-region = Rect2(0, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="CowFrame"]
-atlas = ExtResource("9_cow")
-region = Rect2(0, 0, 256, 256)
-
-[node name="PastureWindow" type="Window"]
+[node name="PastureWindow" type="Window" unique_id=856776334]
 editor_description = "牧场子窗口：工作台式左侧动物卡片、右侧详情与购买。所有位置可在编辑器静态调整。"
 transparent_bg = true
-size = Vector2i(700, 380)
+oversampling_override = 1.0
+size = Vector2i(700, 452)
 transient = true
 unresizable = true
 borderless = true
 transparent = true
 script = ExtResource("1_script")
 
-[node name="PasturePopup" parent="." instance=ExtResource("2_frame")]
+[node name="PasturePopup" parent="." unique_id=375342752 instance=ExtResource("2_frame")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 0.0
 offset_bottom = 0.0
 
+[node name="TitlePlank" parent="PasturePopup/ContentSurface" index="0"]
+anchors_preset = 5
+
 [node name="TitleText" parent="PasturePopup/ContentSurface/TitlePlank" index="0"]
 text = "牧场养殖"
 metadata/l10n_text = "ui.7a2664fb13"
 
-[node name="Status" type="Label" parent="PasturePopup/ContentSurface"]
+[node name="CloseButton" parent="PasturePopup/ContentSurface" index="1"]
+anchors_preset = 1
+offset_left = -38.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 38.0
+
+[node name="Status" type="Label" parent="PasturePopup/ContentSurface" index="2" unique_id=2021468086]
+layout_mode = 0
 offset_left = 37.0
 offset_top = 70.0
 offset_right = 375.0
@@ -61,7 +66,8 @@ theme_override_font_sizes/font_size = 15
 text = "左侧栅栏 · 0/10 只动物"
 metadata/l10n_text = "ui.0fc33628c4"
 
-[node name="Pen3" parent="PasturePopup/ContentSurface" instance=ExtResource("3_button")]
+[node name="Pen3" parent="PasturePopup/ContentSurface" index="3" unique_id=1852751697 instance=ExtResource("3_button")]
+layout_mode = 0
 offset_left = 36.0
 offset_top = 95.0
 offset_right = 197.0
@@ -70,7 +76,8 @@ theme_override_font_sizes/font_size = 15
 text = "左侧栅栏"
 metadata/l10n_text = "ui.2480d664f0"
 
-[node name="Pen4" parent="PasturePopup/ContentSurface" instance=ExtResource("3_button")]
+[node name="Pen4" parent="PasturePopup/ContentSurface" index="4" unique_id=1115600863 instance=ExtResource("3_button")]
+layout_mode = 0
 offset_left = 207.0
 offset_top = 95.0
 offset_right = 368.0
@@ -79,8 +86,9 @@ theme_override_font_sizes/font_size = 15
 text = "右侧栅栏"
 metadata/l10n_text = "ui.6b3e4e0f6a"
 
-[node name="AnimalGrid" type="GridContainer" parent="PasturePopup/ContentSurface"]
+[node name="AnimalGrid" type="GridContainer" parent="PasturePopup/ContentSurface" index="5" unique_id=722366373]
 editor_description = "左侧动物卡片区域；移动此节点可整体调整，编辑 PastureAnimalCard 可调卡片内部。"
+layout_mode = 0
 offset_left = 35.0
 offset_top = 136.0
 offset_right = 365.0
@@ -89,53 +97,21 @@ theme_override_constants/h_separation = 9
 theme_override_constants/v_separation = 9
 columns = 2
 
-[node name="ChickenCard" parent="PasturePopup/ContentSurface/AnimalGrid" instance=ExtResource("4_card")]
+[node name="ChickenCard" parent="PasturePopup/ContentSurface/AnimalGrid" unique_id=18615458 instance=ExtResource("4_card")]
 layout_mode = 2
 
-[node name="PigCard" parent="PasturePopup/ContentSurface/AnimalGrid" instance=ExtResource("4_card")]
+[node name="PigCard" parent="PasturePopup/ContentSurface/AnimalGrid" unique_id=436094376 instance=ExtResource("4_card")]
 layout_mode = 2
 
-[node name="Icon" parent="PasturePopup/ContentSurface/AnimalGrid/PigCard" index="1"]
-texture = SubResource("PigFrame")
-
-[node name="Name" parent="PasturePopup/ContentSurface/AnimalGrid/PigCard" index="2"]
-text = "小猪"
-metadata/l10n_text = "ui.c3095b7c23"
-
-[node name="Price" parent="PasturePopup/ContentSurface/AnimalGrid/PigCard" index="3"]
-text = "90 金"
-metadata/l10n_text = "ui.82cc7dfd9f"
-
-[node name="SheepCard" parent="PasturePopup/ContentSurface/AnimalGrid" instance=ExtResource("4_card")]
+[node name="SheepCard" parent="PasturePopup/ContentSurface/AnimalGrid" unique_id=1190360661 instance=ExtResource("4_card")]
 layout_mode = 2
 
-[node name="Icon" parent="PasturePopup/ContentSurface/AnimalGrid/SheepCard" index="1"]
-texture = SubResource("SheepFrame")
-
-[node name="Name" parent="PasturePopup/ContentSurface/AnimalGrid/SheepCard" index="2"]
-text = "小羊"
-metadata/l10n_text = "ui.3b3f2d6a40"
-
-[node name="Price" parent="PasturePopup/ContentSurface/AnimalGrid/SheepCard" index="3"]
-text = "140 金"
-metadata/l10n_text = "ui.eb8e9999b7"
-
-[node name="CowCard" parent="PasturePopup/ContentSurface/AnimalGrid" instance=ExtResource("4_card")]
+[node name="CowCard" parent="PasturePopup/ContentSurface/AnimalGrid" unique_id=453175481 instance=ExtResource("4_card")]
 layout_mode = 2
 
-[node name="Icon" parent="PasturePopup/ContentSurface/AnimalGrid/CowCard" index="1"]
-texture = SubResource("CowFrame")
-
-[node name="Name" parent="PasturePopup/ContentSurface/AnimalGrid/CowCard" index="2"]
-text = "小牛"
-metadata/l10n_text = "ui.06c95e6b4b"
-
-[node name="Price" parent="PasturePopup/ContentSurface/AnimalGrid/CowCard" index="3"]
-text = "220 金"
-metadata/l10n_text = "ui.e709f81b3f"
-
-[node name="DetailPanel" type="TextureRect" parent="PasturePopup/ContentSurface"]
+[node name="DetailPanel" type="TextureRect" parent="PasturePopup/ContentSurface" index="6" unique_id=1736203523]
 editor_description = "右侧静态详情区；图标、名称、价格、栏内数量、说明及操作按钮可单独移动。"
+layout_mode = 0
 offset_left = 386.0
 offset_top = 98.0
 offset_right = 667.0
@@ -143,8 +119,9 @@ offset_bottom = 332.0
 texture = SubResource("PanelArt")
 expand_mode = 1
 
-[node name="AnimalIcon" type="TextureRect" parent="PasturePopup/ContentSurface/DetailPanel"]
+[node name="AnimalIcon" type="TextureRect" parent="PasturePopup/ContentSurface/DetailPanel" unique_id=1692995707]
 texture_filter = 1
+layout_mode = 0
 offset_left = 22.0
 offset_top = 14.0
 offset_right = 111.0
@@ -154,7 +131,8 @@ texture = SubResource("ChickenFrame")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="AnimalName" type="Label" parent="PasturePopup/ContentSurface/DetailPanel"]
+[node name="AnimalName" type="Label" parent="PasturePopup/ContentSurface/DetailPanel" unique_id=1076578934]
+layout_mode = 0
 offset_left = 123.0
 offset_top = 25.0
 offset_right = 258.0
@@ -164,7 +142,8 @@ theme_override_font_sizes/font_size = 21
 text = "小鸡"
 metadata/l10n_text = "ui.88b9eae481"
 
-[node name="AnimalPrice" type="Label" parent="PasturePopup/ContentSurface/DetailPanel"]
+[node name="AnimalPrice" type="Label" parent="PasturePopup/ContentSurface/DetailPanel" unique_id=563637668]
+layout_mode = 0
 offset_left = 124.0
 offset_top = 58.0
 offset_right = 259.0
@@ -174,17 +153,20 @@ theme_override_font_sizes/font_size = 15
 text = "购买价格 40 金"
 metadata/l10n_text = "ui.3d32fc22bc"
 
-[node name="AnimalInfo" type="Label" parent="PasturePopup/ContentSurface/DetailPanel"]
+[node name="AnimalInfo" type="Label" parent="PasturePopup/ContentSurface/DetailPanel" unique_id=613858617]
+layout_mode = 0
 offset_left = 22.0
 offset_top = 112.0
 offset_right = 263.0
 offset_bottom = 171.0
 theme_override_colors/font_color = Color(0.3, 0.2, 0.11, 1)
 theme_override_font_sizes/font_size = 15
-text = "当前栅栏 0/10 只\n购买后可拖动到另一块栅栏"
+text = "当前栅栏 0/10 只
+购买后可拖动到另一块栅栏"
 metadata/l10n_text = "ui.f6ac00eb69"
 
-[node name="BuyButton" parent="PasturePopup/ContentSurface/DetailPanel" instance=ExtResource("3_button")]
+[node name="BuyButton" parent="PasturePopup/ContentSurface/DetailPanel" unique_id=277160951 instance=ExtResource("3_button")]
+layout_mode = 0
 offset_left = 18.0
 offset_top = 177.0
 offset_right = 130.0
@@ -193,7 +175,8 @@ theme_override_font_sizes/font_size = 16
 text = "购买动物"
 metadata/l10n_text = "ui.2bd89384ab"
 
-[node name="Feed" parent="PasturePopup/ContentSurface/DetailPanel" instance=ExtResource("3_button")]
+[node name="Feed" parent="PasturePopup/ContentSurface/DetailPanel" unique_id=292159848 instance=ExtResource("3_button")]
+layout_mode = 0
 offset_left = 139.0
 offset_top = 177.0
 offset_right = 266.0
@@ -202,8 +185,131 @@ theme_override_font_sizes/font_size = 16
 text = "添加植物"
 metadata/l10n_text = "ui.c5b3b94079"
 
+
+[node name="Lifetime" type="Label" parent="PasturePopup/ContentSurface/DetailPanel"]
+offset_left = 22.0
+offset_top = 152.0
+offset_right = 263.0
+offset_bottom = 173.0
+theme_override_colors/font_color = Color(0.3, 0.2, 0.11, 1)
+theme_override_font_sizes/font_size = 13
+text = "生命时间：24 小时"
+metadata/l10n_text = "pasture.lifetime"
+
+[node name="HarvestRow" type="Control" parent="PasturePopup/ContentSurface" index="7"]
+editor_description = "全牧场待收获产出，依次为鸡蛋、牛奶、羊毛、猪肉。"
+offset_left = 35.0
+offset_top = 344.0
+offset_right = 667.0
+offset_bottom = 408.0
+
+[node name="Egg" type="Control" parent="PasturePopup/ContentSurface/HarvestRow"]
+offset_left = 0.0
+offset_right = 116.0
+offset_bottom = 60.0
+tooltip_text = "鸡蛋：待收获，领取后可在商店售卖"
+metadata/l10n_tooltip_text = "pasture.pending.egg"
+
+[node name="Icon" type="TextureRect" parent="PasturePopup/ContentSurface/HarvestRow/Egg"]
+offset_top = 4.0
+offset_right = 48.0
+offset_bottom = 52.0
+texture = ExtResource("product_egg")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="Count" type="Label" parent="PasturePopup/ContentSurface/HarvestRow/Egg"]
+offset_left = 49.0
+offset_top = 15.0
+offset_right = 116.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0.3, 0.2, 0.11, 1)
+theme_override_font_sizes/font_size = 17
+text = "×0"
+
+[node name="Milk" type="Control" parent="PasturePopup/ContentSurface/HarvestRow"]
+offset_left = 126.0
+offset_right = 242.0
+offset_bottom = 60.0
+tooltip_text = "牛奶：待收获，领取后可在商店售卖"
+metadata/l10n_tooltip_text = "pasture.pending.milk"
+
+[node name="Icon" type="TextureRect" parent="PasturePopup/ContentSurface/HarvestRow/Milk"]
+offset_top = 4.0
+offset_right = 48.0
+offset_bottom = 52.0
+texture = ExtResource("product_milk")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="Count" type="Label" parent="PasturePopup/ContentSurface/HarvestRow/Milk"]
+offset_left = 49.0
+offset_top = 15.0
+offset_right = 116.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0.3, 0.2, 0.11, 1)
+theme_override_font_sizes/font_size = 17
+text = "×0"
+
+[node name="Wool" type="Control" parent="PasturePopup/ContentSurface/HarvestRow"]
+offset_left = 252.0
+offset_right = 368.0
+offset_bottom = 60.0
+tooltip_text = "羊毛：待收获，领取后可在商店售卖"
+metadata/l10n_tooltip_text = "pasture.pending.wool"
+
+[node name="Icon" type="TextureRect" parent="PasturePopup/ContentSurface/HarvestRow/Wool"]
+offset_top = 4.0
+offset_right = 48.0
+offset_bottom = 52.0
+texture = ExtResource("product_wool")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="Count" type="Label" parent="PasturePopup/ContentSurface/HarvestRow/Wool"]
+offset_left = 49.0
+offset_top = 15.0
+offset_right = 116.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0.3, 0.2, 0.11, 1)
+theme_override_font_sizes/font_size = 17
+text = "×0"
+
+[node name="Pork" type="Control" parent="PasturePopup/ContentSurface/HarvestRow"]
+offset_left = 378.0
+offset_right = 494.0
+offset_bottom = 60.0
+tooltip_text = "猪肉：待收获，领取后可在商店售卖"
+metadata/l10n_tooltip_text = "pasture.pending.pork"
+
+[node name="Icon" type="TextureRect" parent="PasturePopup/ContentSurface/HarvestRow/Pork"]
+offset_top = 4.0
+offset_right = 48.0
+offset_bottom = 52.0
+texture = ExtResource("product_pork")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="Count" type="Label" parent="PasturePopup/ContentSurface/HarvestRow/Pork"]
+offset_left = 49.0
+offset_top = 15.0
+offset_right = 116.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0.3, 0.2, 0.11, 1)
+theme_override_font_sizes/font_size = 17
+text = "×0"
+
+[node name="Harvest" parent="PasturePopup/ContentSurface/HarvestRow" instance=ExtResource("3_button")]
+offset_left = 512.0
+offset_top = 9.0
+offset_right = 632.0
+offset_bottom = 51.0
+text = "收获"
+metadata/l10n_text = "pasture.harvest"
+disabled = true
+
 [editable path="PasturePopup"]
-[editable path="PasturePopup/ContentSurface/AnimalGrid/ChickenCard"]
-[editable path="PasturePopup/ContentSurface/AnimalGrid/PigCard"]
-[editable path="PasturePopup/ContentSurface/AnimalGrid/SheepCard"]
-[editable path="PasturePopup/ContentSurface/AnimalGrid/CowCard"]

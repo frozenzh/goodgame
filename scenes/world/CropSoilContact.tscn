@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/crop_soil_contact.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/hd/world/crop_soil_contact_v1.png" id="2"]
+
+[node name="SoilContact" type="Node2D"]
+show_behind_parent = true
+script = ExtResource("1")
+editor_description = "成熟植株根部翻土。Transform 可手调位移/缩放/层级；Root Anchor 为不透明范围内的比例，Root Width Ratio=0 自动检测底部根宽。Texture 子节点由脚本适配。"
+
+[node name="Texture" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2")

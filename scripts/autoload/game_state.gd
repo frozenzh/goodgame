@@ -40,6 +40,7 @@ var fishing_cast: Dictionary = {}
 var weather_state: Dictionary = {}
 var base_fish_interval_seconds := 18
 var last_save_unix := 0
+var playtime_seconds := 0.0
 var flags: Dictionary = {}
 var settings: Dictionary = {}
 var achievement_stats: Dictionary = {}
@@ -57,6 +58,7 @@ func _ready() -> void:
 
 # 重置 to_defaults，供调用方继续处理。
 func reset_to_defaults(emit_event := true) -> void:
+	playtime_seconds = 0.0
 	coins = 0
 	fish_fertilizer = 0
 	inventory = {}
@@ -356,6 +358,7 @@ func to_save_data() -> Dictionary:
 		"weather_state": weather_state.duplicate(true),
 		"base_fish_interval_seconds": base_fish_interval_seconds,
 		"last_save_unix": last_save_unix,
+		"playtime_seconds": floori(playtime_seconds),
 		"flags": _flags_without_fishing_session(flags),
 		"settings": settings.duplicate(true),
 		"achievement_stats": achievement_stats.duplicate(true),
@@ -369,6 +372,7 @@ func to_save_data() -> Dictionary:
 # 加载 save_data，供调用方继续处理。
 func load_save_data(data: Dictionary) -> void:
 	reset_to_defaults(false)
+	playtime_seconds = maxf(0.0, float(data.get("playtime_seconds", 0)))
 	coins = maxi(0, int(data.get("coins", coins)))
 	fish_fertilizer = maxi(0, int(data.get("fish_fertilizer", fish_fertilizer)))
 	inventory = _sanitize_count_dictionary(data.get("inventory", {}))
@@ -410,9 +414,13 @@ func load_save_data(data: Dictionary) -> void:
 	base_fish_interval_seconds = maxi(1, int(data.get("base_fish_interval_seconds", base_fish_interval_seconds)))
 	last_save_unix = maxi(0, int(data.get("last_save_unix", 0)))
 	flags = _flags_without_fishing_session(data.get("flags", {}) if data.get("flags") is Dictionary else {})
+	# 旧存档已卖过鱼时补认一次性开启已完成，保留其已有勾选；缺省设置按是否卖过鱼恢复。
+	if not flags.has("idle_auto_fish_first_sale_done"):
+		var old_stats: Dictionary = data.get("achievement_stats", {}) if data.get("achievement_stats") is Dictionary else {}
+		flags["idle_auto_fish_first_sale_done"] = int(old_stats.get("fish_sale_successes", 0)) > 0 or bool(flags.get("tutorial_first_fish_sale_done", false))
 	settings = data.get("settings", {}).duplicate(true) if data.get("settings") is Dictionary else {}
 	if not settings.has("idle_auto_fish"):
-		settings["idle_auto_fish"] = false
+		settings["idle_auto_fish"] = bool(flags.get("idle_auto_fish_first_sale_done", false))
 	# Older saves inherited always_on_top=true from the original initial_state,
 	# even if the player never selected it. Migrate those saves to the new default.
 	if not settings.has("always_on_top_user_set"):

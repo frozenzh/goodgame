@@ -651,6 +651,62 @@
     "en": "%d cm",
     "zh": "%d cm"
   },
+  "gm.ambient_sunny_required": {
+    "en": "Cannot trigger in rain. Switch to another weather.",
+    "zh": "雨天无法触发，请切换为其他天气"
+  },
+  "gm.ambient_triggered": {
+    "en": "Spawned: %d butterflies, %d birds (limited by crops, safe landings and population caps)",
+    "zh": "本次生成：蝴蝶 %d，小鸟 %d（受作物、落点和数量上限限制）"
+  },
+  "gm.ambient_unavailable": {
+    "en": "Ambient fauna is not ready",
+    "zh": "环境生物节点未就绪"
+  },
+  "gm.buildings.applied": {
+    "en": "Building levels applied and saved",
+    "zh": "建筑等级已应用并保存"
+  },
+  "gm.buildings.apply": {
+    "en": "Apply levels",
+    "zh": "应用等级"
+  },
+  "gm.buildings.busy": {
+    "en": "Finish this building’s construction or queued upgrade before changing its level.",
+    "zh": "该建筑有施工或升级任务，请完成后再修改等级。"
+  },
+  "gm.buildings.close": {
+    "en": "Close",
+    "zh": "关闭"
+  },
+  "gm.buildings.cottage": {
+    "en": "Cottage level",
+    "zh": "小屋等级"
+  },
+  "gm.buildings.hint": {
+    "en": "GM changes cost no coins. Workbench tier follows the cottage.",
+    "zh": "GM直接设置，不消耗金币。工坊等级跟随小屋。"
+  },
+  "gm.buildings.level": {
+    "en": "Level %d",
+    "zh": "%d 级"
+  },
+  "gm.buildings.shop": {
+    "en": "Shop level",
+    "zh": "商店等级"
+  },
+  "gm.buildings.title": {
+    "en": "Building levels",
+    "zh": "建筑等级"
+  },
+  "gm.buildings.unbuilt": {
+    "en": "Not built",
+    "zh": "未建成"
+  },
+  "gm.buildings.workbench": {
+    "en": "Workbench (follows cottage)",
+    "zh": "工坊等级（随小屋）"
+  },
   "gm.fish_codex_reset": {
     "en": "Fish codex reset",
     "zh": "鱼类图鉴已重置"
@@ -662,6 +718,34 @@
   "gm.reset_fish_codex": {
     "en": "Reset Fish Codex",
     "zh": "重置鱼类图鉴"
+  },
+  "gm.trigger_ambient": {
+    "en": "Trigger butterflies and birds",
+    "zh": "触发蝴蝶和小鸟"
+  },
+  "pasture.harvest": {
+    "en": "Harvest",
+    "zh": "收获"
+  },
+  "pasture.lifetime": {
+    "en": "Lifetime: %g hours",
+    "zh": "生命时间：%g 小时"
+  },
+  "pasture.pending.egg": {
+    "en": "Eggs: awaiting harvest; collect to sell in the shop",
+    "zh": "鸡蛋：待收获，领取后可在商店售卖"
+  },
+  "pasture.pending.milk": {
+    "en": "Milk: awaiting harvest; collect to sell in the shop",
+    "zh": "牛奶：待收获，领取后可在商店售卖"
+  },
+  "pasture.pending.pork": {
+    "en": "Pork: awaiting harvest; collect to sell in the shop",
+    "zh": "猪肉：待收获，领取后可在商店售卖"
+  },
+  "pasture.pending.wool": {
+    "en": "Wool: awaiting harvest; collect to sell in the shop",
+    "zh": "羊毛：待收获，领取后可在商店售卖"
   },
   "plot.unlock.insufficient_coins": {
     "en": "Not enough coins: clearing plot %d costs %d; you have %d",
@@ -702,6 +786,90 @@
   "plot.work.plant_waiting": {
     "en": "Queued to plant",
     "zh": "待播种"
+  },
+  "save_slots.auto": {
+    "en": "Automatic save",
+    "zh": "自动保存存档"
+  },
+  "save_slots.back": {
+    "en": "Back",
+    "zh": "返回"
+  },
+  "save_slots.cancel": {
+    "en": "Cancel",
+    "zh": "取消"
+  },
+  "save_slots.confirm": {
+    "en": "Confirm this action?",
+    "zh": "确认操作？"
+  },
+  "save_slots.confirm_delete": {
+    "en": "Delete manual save %d? This cannot be undone.",
+    "zh": "确定删除手动存档 %d？此操作无法撤销。"
+  },
+  "save_slots.confirm_new": {
+    "en": "Starting a new game replaces the automatic save. Manual saves are kept. Continue?",
+    "zh": "开始新游戏将替换自动存档，手动存档会保留。确定继续？"
+  },
+  "save_slots.confirm_save": {
+    "en": "Save current progress to manual slot %d? Any existing save in this slot will be replaced.",
+    "zh": "将当前进度保存至手动存档 %d？若已有存档将被替换。"
+  },
+  "save_slots.delete": {
+    "en": "Delete",
+    "zh": "删除"
+  },
+  "save_slots.empty": {
+    "en": "Empty slot",
+    "zh": "空存档位"
+  },
+  "save_slots.exit": {
+    "en": "Exit",
+    "zh": "退出"
+  },
+  "save_slots.failed": {
+    "en": "Operation failed. Check the save folder permissions.",
+    "zh": "操作失败，请检查存档文件夹权限。"
+  },
+  "save_slots.header": {
+    "en": "Save / Local save time / Playtime / Coins",
+    "zh": "存档 / 电脑时间 / 已运行时长 / 金币"
+  },
+  "save_slots.load": {
+    "en": "Load",
+    "zh": "读取"
+  },
+  "save_slots.manual": {
+    "en": "Manual save %d",
+    "zh": "手动存档 %d"
+  },
+  "save_slots.pause": {
+    "en": "Start / Pause",
+    "zh": "开始 / 暂停"
+  },
+  "save_slots.pause_symbol": {
+    "en": "Ⅱ",
+    "zh": "Ⅱ"
+  },
+  "save_slots.playtime": {
+    "en": "Playtime",
+    "zh": "已运行时长"
+  },
+  "save_slots.save": {
+    "en": "Save / Replace",
+    "zh": "保存 / 替换"
+  },
+  "save_slots.saved_at": {
+    "en": "Local save time",
+    "zh": "电脑时间"
+  },
+  "save_slots.success": {
+    "en": "Done",
+    "zh": "操作成功"
+  },
+  "save_slots.title": {
+    "en": "Saves",
+    "zh": "存档"
   },
   "settings.display_size": {
     "en": "Display size",
@@ -771,6 +939,34 @@
     "en": "New Game",
     "zh": "新游戏"
   },
+  "tutorial.action.waiting": {
+    "en": "Waiting",
+    "zh": "等待完成"
+  },
+  "tutorial.complete_shop.text": {
+    "en": "Click the fish shop construction site and send the character to finish it.",
+    "zh": "点击商店工地，安排角色前往完成修建。"
+  },
+  "tutorial.complete_shop.title": {
+    "en": "Finish the fish shop",
+    "zh": "完成商店修建"
+  },
+  "tutorial.complete_workbench.text": {
+    "en": "Click the workbench construction site and send the character to finish it.",
+    "zh": "点击工坊工地，安排角色前往完成修建。"
+  },
+  "tutorial.complete_workbench.title": {
+    "en": "Finish the workbench",
+    "zh": "完成工坊修建"
+  },
+  "tutorial.craft_bait.text": {
+    "en": "Open the workbench, select Wheat Bait and craft it at least once.",
+    "zh": "打开工坊，选择小麦饵并制作至少一次。"
+  },
+  "tutorial.craft_bait.title": {
+    "en": "Craft bait",
+    "zh": "工坊制作饵料"
+  },
   "tutorial.first_plot.text": {
     "en": "Click a cleared plot and choose a crop. Your character will walk over and plant it.",
     "zh": "点击已开垦的土地，选择作物种植。角色会走过去完成工作。"
@@ -778,6 +974,22 @@
   "tutorial.first_plot.title": {
     "en": "Start with the First Plot",
     "zh": "从第一块地开始"
+  },
+  "tutorial.go_fishing.text": {
+    "en": "Open the pond, start fishing with bait and catch your first fish.",
+    "zh": "前往池塘，使用鱼饵开始钓鱼，钓到第一条鱼。"
+  },
+  "tutorial.go_fishing.title": {
+    "en": "Go fishing",
+    "zh": "前往钓鱼"
+  },
+  "tutorial.harvest_initial.text": {
+    "en": "Click the ripe starter plot and harvest all of its wheat.",
+    "zh": "点击初始成熟地块，收获全部小麦。"
+  },
+  "tutorial.harvest_initial.title": {
+    "en": "Harvest the starter plot",
+    "zh": "收获初始地块"
   },
   "tutorial.house": {
     "en": "This is your cottage.",
@@ -798,6 +1010,14 @@
   "tutorial.resources.title": {
     "en": "Welcome to the Farm",
     "zh": "欢迎来到农场"
+  },
+  "tutorial.sell_fish.text": {
+    "en": "Open the Fish page in the shop and sell at least one fish.",
+    "zh": "打开商店鱼类页面，出售至少一条鱼。"
+  },
+  "tutorial.sell_fish.title": {
+    "en": "Sell a fish",
+    "zh": "售卖鱼"
   },
   "ui.0161f5cc8e": {
     "en": "Mature All Crops",

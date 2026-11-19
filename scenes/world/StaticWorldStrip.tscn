@@ -1,4 +1,6 @@
-[gd_scene load_steps=68 format=3]
+[gd_scene load_steps=69 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/AmbientFauna.tscn" id="40_ambient_fauna"]
 
 [ext_resource type="Script" path="res://scripts/world/static_world_strip.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://scenes/world/PlotTile.tscn" id="2_plot"]
@@ -991,6 +993,9 @@ editor_description = "运行时闪光特效统一生成在这里；定位点分�
 
 [node name="CloudFog" parent="." instance=ExtResource("36_cloud_fog")]
 
+[node name="AmbientFauna" parent="." instance=ExtResource("40_ambient_fauna")]
+
+[editable path="AmbientFauna"]
 [editable path="ResourceNodes/House/WorkPendingBadge"]
 [editable path="DynamicAnchors/WorkerTargets/FishingPoint/RestBadge"]
 

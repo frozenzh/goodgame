@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cp11faswnsk05"]
 
+[ext_resource type="Script" uid="uid://bdqywaspbl2v" path="res://scripts/ui/auto_fit_panel_height.gd" id="1_fit_plot_height"]
 [ext_resource type="Script" uid="uid://cwxfvigr2j2yq" path="res://scripts/ui/main_ui.gd" id="2_ui"]
 [ext_resource type="Script" uid="uid://cauuf8311wewt" path="res://scripts/systems/farming_system.gd" id="3_farming"]
 [ext_resource type="Texture2D" uid="uid://cd8287ukieo23" path="res://assets/hd/world/background_fence.png" id="3_j0f7u"]
@@ -40,7 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://dljtnnlxtbb41" path="res://assets/hd/ui/weather_snow.png" id="38_weather_snow"]
 [ext_resource type="Texture2D" uid="uid://bsa3j1iys8wr7" path="res://assets/hd/ui/weather_cloudy.svg" id="38_weather_wind"]
 [ext_resource type="PackedScene" uid="uid://bbegftcb5bi3s" path="res://scenes/ui/AchievementToast.tscn" id="39_achievement_toast"]
-[ext_resource type="PackedScene" path="res://scenes/ui/PastureWindow.tscn" id="40_pasture_window"]
+[ext_resource type="PackedScene" uid="uid://cqqfl2ghu0iw1" path="res://scenes/ui/PastureWindow.tscn" id="40_pasture_window"]
 [ext_resource type="PackedScene" path="res://scenes/world/PastureFence.tscn" id="41_pasture_fence"]
 [ext_resource type="PackedScene" path="res://scenes/world/PastureFeedSlot.tscn" id="42_feed_slot"]
 [ext_resource type="PackedScene" path="res://scenes/ui/PastureFeedWindow.tscn" id="43_feed_window"]
@@ -51,9 +52,10 @@
 [ext_resource type="PackedScene" uid="uid://bi6mvb1g36uf7" path="res://scenes/ui/TutorialGuide.tscn" id="48_tutorial_guide"]
 [ext_resource type="PackedScene" uid="uid://7xq6ksuwkmhf" path="res://scenes/ui/StartWindow.tscn" id="49_start_window"]
 [ext_resource type="PackedScene" path="res://scenes/world/PastureFeedWorkBadge.tscn" id="53_feed_work_badge"]
+[ext_resource type="Texture2D" uid="uid://t1mugvjgjdqw" path="res://assets/hd/ui/icon_pause.png" id="hud_pause"]
 [ext_resource type="PackedScene" path="res://scenes/ui/NewUnlockDot.tscn" id="new_unlock_dot"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o80qj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e8pg6"]
 resource_local_to_scene = true
 shader = ExtResource("9_o80qj")
 shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
@@ -62,13 +64,13 @@ shader_parameter/resting_width_texels = 0.0
 shader_parameter/hover_width_texels = 26.0
 shader_parameter/hovered = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0sk6p"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h05k6"]
 resource_local_to_scene = true
 shader = ExtResource("9_ctbwf")
 shader_parameter/coverage = 1.0
 shader_parameter/chimney_opening = Vector4(0, 0, 0, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e8pg6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ex0yv"]
 resource_local_to_scene = true
 shader = ExtResource("9_o80qj")
 shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
@@ -77,7 +79,7 @@ shader_parameter/resting_width_texels = 15.0
 shader_parameter/hover_width_texels = 30.0
 shader_parameter/hovered = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_h05k6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s3bvh"]
 resource_local_to_scene = true
 shader = ExtResource("9_o80qj")
 shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
@@ -86,7 +88,7 @@ shader_parameter/resting_width_texels = 0.0
 shader_parameter/hover_width_texels = 30.0
 shader_parameter/hovered = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ex0yv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hlhe2"]
 resource_local_to_scene = true
 shader = ExtResource("9_o80qj")
 shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
@@ -95,13 +97,13 @@ shader_parameter/resting_width_texels = 25.0
 shader_parameter/hover_width_texels = 50.0
 shader_parameter/hovered = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s3bvh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_afy01"]
 resource_local_to_scene = true
 shader = ExtResource("9_ctbwf")
 shader_parameter/coverage = 1.0
 shader_parameter/chimney_opening = Vector4(0, 0, 0, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hlhe2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b6xsk"]
 resource_local_to_scene = true
 shader = ExtResource("9_o80qj")
 shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
@@ -110,7 +112,7 @@ shader_parameter/resting_width_texels = 0.0
 shader_parameter/hover_width_texels = 38.0
 shader_parameter/hovered = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_afy01"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6htk2"]
 resource_local_to_scene = true
 shader = ExtResource("9_o80qj")
 shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
@@ -119,7 +121,7 @@ shader_parameter/resting_width_texels = 13.0
 shader_parameter/hover_width_texels = 26.0
 shader_parameter/hovered = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b6xsk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1r7qe"]
 resource_local_to_scene = true
 shader = ExtResource("9_o80qj")
 shader_parameter/outline_color = Color(0.1, 0.065, 0.045, 1)
@@ -389,13 +391,13 @@ position = Vector2(-89, 136)
 visible = false
 
 [node name="BarnSprite" parent="StaticWorldStrip/PastureAreas/PastureBarn" index="1"]
-material = SubResource("ShaderMaterial_o80qj")
+material = SubResource("ShaderMaterial_e8pg6")
 
 [node name="RoofSnow" parent="StaticWorldStrip/PastureAreas/PastureBarn/BarnSprite" index="0"]
-material = SubResource("ShaderMaterial_0sk6p")
+material = SubResource("ShaderMaterial_h05k6")
 
 [node name="ConstructionOverlay" parent="StaticWorldStrip/PastureAreas/PastureBarn" index="2"]
-material = SubResource("ShaderMaterial_o80qj")
+material = SubResource("ShaderMaterial_e8pg6")
 
 [node name="ConstructionSign" parent="StaticWorldStrip/PastureAreas/PastureBarn" index="3"]
 offset_top = -23.0
@@ -484,40 +486,40 @@ position = Vector2(-0.0004905462, 18.354416)
 scale = Vector2(0.06405227, 0.32894737)
 
 [node name="Level1" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals" index="0"]
-material = SubResource("ShaderMaterial_e8pg6")
+material = SubResource("ShaderMaterial_ex0yv")
 position = Vector2(-2.5668945, -10)
 scale = Vector2(0.12526724, 0.13)
 
 [node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals/Level1" index="0"]
-material = SubResource("ShaderMaterial_0sk6p")
+material = SubResource("ShaderMaterial_h05k6")
 
 [node name="Level2" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals" index="1"]
-material = SubResource("ShaderMaterial_e8pg6")
+material = SubResource("ShaderMaterial_ex0yv")
 position = Vector2(-4.2715597, -10)
 scale = Vector2(0.12454113, 0.13)
 
 [node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals/Level2" index="0"]
-material = SubResource("ShaderMaterial_0sk6p")
+material = SubResource("ShaderMaterial_h05k6")
 
 [node name="Level3" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals" index="2"]
-material = SubResource("ShaderMaterial_e8pg6")
+material = SubResource("ShaderMaterial_ex0yv")
 position = Vector2(-3.3221495, -17)
 scale = Vector2(0.14075443, 0.145)
 
 [node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals/Level3" index="0"]
-material = SubResource("ShaderMaterial_0sk6p")
+material = SubResource("ShaderMaterial_h05k6")
 
 [node name="Level4" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals" index="3"]
-material = SubResource("ShaderMaterial_e8pg6")
+material = SubResource("ShaderMaterial_ex0yv")
 
 [node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/House/LevelVisuals/Level4" index="0"]
-material = SubResource("ShaderMaterial_0sk6p")
+material = SubResource("ShaderMaterial_h05k6")
 
 [node name="FrontGrass" parent="StaticWorldStrip/ResourceNodes/House" index="2"]
 visible = false
 
 [node name="Scaffold" parent="StaticWorldStrip/ResourceNodes/House/ConstructionVisual" index="0"]
-material = SubResource("ShaderMaterial_h05k6")
+material = SubResource("ShaderMaterial_s3bvh")
 position = Vector2(-3.4121094, 6.5717163)
 scale = Vector2(0.115, 0.09689426)
 
@@ -528,7 +530,7 @@ position = Vector2(-3.409091, -31.645576)
 visible = false
 
 [node name="Board" parent="StaticWorldStrip/ResourceNodes/House/ConstructionVisual/SignGroup" index="1"]
-material = SubResource("ShaderMaterial_h05k6")
+material = SubResource("ShaderMaterial_s3bvh")
 position = Vector2(-1.8828125, -11.392822)
 scale = Vector2(0.03698694, 0.052)
 
@@ -555,7 +557,7 @@ position = Vector2(-8.924277, 16.151518)
 scale = Vector2(0.0648152, 0.3189793)
 
 [node name="Sprite" parent="StaticWorldStrip/ResourceNodes/Workbench" index="1"]
-material = SubResource("ShaderMaterial_ex0yv")
+material = SubResource("ShaderMaterial_hlhe2")
 position = Vector2(-7.1601563, -7.807678)
 scale = Vector2(0.107086875, 0.10708688)
 
@@ -565,7 +567,7 @@ scale = Vector2(5.9098544, 5.5543976)
 frame_progress = 0.8856634
 
 [node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/Workbench/Sprite" index="1"]
-material = SubResource("ShaderMaterial_s3bvh")
+material = SubResource("ShaderMaterial_afy01")
 
 [node name="FrontGrass" parent="StaticWorldStrip/ResourceNodes/Workbench" index="2"]
 visible = false
@@ -578,7 +580,7 @@ offset_right = 4.32312
 position = Vector2(-6.651537, -0.5151459)
 
 [node name="Scaffold" parent="StaticWorldStrip/ResourceNodes/Workbench/ConstructionVisual" index="0"]
-material = SubResource("ShaderMaterial_hlhe2")
+material = SubResource("ShaderMaterial_b6xsk")
 position = Vector2(-1.2021484, 8.575806)
 scale = Vector2(0.11590549, 0.08877845)
 
@@ -589,7 +591,7 @@ position = Vector2(-3.0302763, -36.363632)
 visible = false
 
 [node name="Board" parent="StaticWorldStrip/ResourceNodes/Workbench/ConstructionVisual/SignGroup" index="1"]
-material = SubResource("ShaderMaterial_hlhe2")
+material = SubResource("ShaderMaterial_b6xsk")
 
 [node name="Text" parent="StaticWorldStrip/ResourceNodes/Workbench/ConstructionVisual/SignGroup" index="2"]
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -616,23 +618,23 @@ position = Vector2(-6.1496043, 0.56693023)
 scale = Vector2(0.87, 1)
 
 [node name="Level1" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/LevelVisuals" index="0"]
-material = SubResource("ShaderMaterial_afy01")
+material = SubResource("ShaderMaterial_6htk2")
 position = Vector2(0.90527344, 0)
 
 [node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/LevelVisuals/Level1" index="0"]
-material = SubResource("ShaderMaterial_0sk6p")
+material = SubResource("ShaderMaterial_h05k6")
 
 [node name="Level2" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/LevelVisuals" index="1"]
-material = SubResource("ShaderMaterial_afy01")
+material = SubResource("ShaderMaterial_6htk2")
 
 [node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/LevelVisuals/Level2" index="0"]
-material = SubResource("ShaderMaterial_0sk6p")
+material = SubResource("ShaderMaterial_h05k6")
 
 [node name="Level3" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/LevelVisuals" index="2"]
-material = SubResource("ShaderMaterial_afy01")
+material = SubResource("ShaderMaterial_6htk2")
 
 [node name="RoofSnow" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/LevelVisuals/Level3" index="0"]
-material = SubResource("ShaderMaterial_0sk6p")
+material = SubResource("ShaderMaterial_h05k6")
 
 [node name="FrontGrass" parent="StaticWorldStrip/ResourceNodes/ShopBuilding" index="2"]
 visible = false
@@ -642,7 +644,7 @@ position = Vector2(-4.574801, -0.22047146)
 scale = Vector2(0.7, 0.7)
 
 [node name="Scaffold" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/ConstructionVisual" index="0"]
-material = SubResource("ShaderMaterial_b6xsk")
+material = SubResource("ShaderMaterial_1r7qe")
 position = Vector2(-0.15527344, 18.850952)
 scale = Vector2(0.101263106, 0.08075788)
 
@@ -654,7 +656,7 @@ scale = Vector2(0.83, 0.83)
 visible = false
 
 [node name="Board" parent="StaticWorldStrip/ResourceNodes/ShopBuilding/ConstructionVisual/SignGroup" index="1"]
-material = SubResource("ShaderMaterial_b6xsk")
+material = SubResource("ShaderMaterial_1r7qe")
 position = Vector2(-1.3550482, 0.78307104)
 scale = Vector2(0.04222316, 0.052)
 
@@ -706,6 +708,96 @@ offset_bottom = 273.0
 
 [node name="PlotLateCloud" parent="StaticWorldStrip/CloudFog" index="1"]
 visible = true
+
+[node name="Plot07" parent="StaticWorldStrip/AmbientFauna/PlotRanges" index="0"]
+position = Vector2(151.49997, 141.90002)
+
+[node name="Plot06" parent="StaticWorldStrip/AmbientFauna/PlotRanges" index="1"]
+position = Vector2(227.49913, 141.90002)
+
+[node name="Plot05" parent="StaticWorldStrip/AmbientFauna/PlotRanges" index="2"]
+position = Vector2(303.49838, 141.90002)
+
+[node name="Plot04" parent="StaticWorldStrip/AmbientFauna/PlotRanges" index="3"]
+position = Vector2(379.49844, 141.90002)
+
+[node name="Plot03" parent="StaticWorldStrip/AmbientFauna/PlotRanges" index="4"]
+position = Vector2(457.4988, 141.90002)
+
+[node name="Plot02" parent="StaticWorldStrip/AmbientFauna/PlotRanges" index="5"]
+position = Vector2(534.4993, 141.90002)
+
+[node name="Plot01" parent="StaticWorldStrip/AmbientFauna/PlotRanges" index="6"]
+position = Vector2(608.50006, 141.90002)
+
+[node name="Slot01" parent="StaticWorldStrip/AmbientFauna/Butterflies" index="0"]
+visible = true
+
+[node name="Slot02" parent="StaticWorldStrip/AmbientFauna/Butterflies" index="1"]
+visible = true
+
+[node name="Slot03" parent="StaticWorldStrip/AmbientFauna/Butterflies" index="2"]
+visible = true
+
+[node name="Slot04" parent="StaticWorldStrip/AmbientFauna/Butterflies" index="3"]
+visible = true
+
+[node name="Slot05" parent="StaticWorldStrip/AmbientFauna/Butterflies" index="4"]
+visible = true
+
+[node name="Slot01" parent="StaticWorldStrip/AmbientFauna/Birds" index="0"]
+visible = true
+
+[node name="Slot02" parent="StaticWorldStrip/AmbientFauna/Birds" index="1"]
+visible = true
+
+[node name="BackFence" parent="StaticWorldStrip/AmbientFauna/BirdLandings/Fences" index="0"]
+position = Vector2(267, 90)
+scale = Vector2(0.2625, 0.2625)
+
+[node name="BackFence3" parent="StaticWorldStrip/AmbientFauna/BirdLandings/Fences" index="1"]
+position = Vector2(792, 89)
+scale = Vector2(0.2625, 0.2625)
+
+[node name="BackFence2" parent="StaticWorldStrip/AmbientFauna/BirdLandings/Fences" index="2"]
+position = Vector2(1034.9999, 89)
+scale = Vector2(0.2625, 0.2625)
+
+[node name="CottageLevel1" parent="StaticWorldStrip/AmbientFauna/BirdLandings/Roofs" index="0"]
+position = Vector2(732.74115, 112.1)
+scale = Vector2(0.11023517, 0.1027)
+
+[node name="CottageLevel2" parent="StaticWorldStrip/AmbientFauna/BirdLandings/Roofs" index="1"]
+position = Vector2(731.241, 112.1)
+scale = Vector2(0.1095962, 0.1027)
+
+[node name="CottageLevel3" parent="StaticWorldStrip/AmbientFauna/BirdLandings/Roofs" index="2"]
+position = Vector2(732.07654, 106.57)
+scale = Vector2(0.1238639, 0.11455)
+
+[node name="CottageLevel4" parent="StaticWorldStrip/AmbientFauna/BirdLandings/Roofs" index="3"]
+position = Vector2(735, 106.57)
+scale = Vector2(0.1276, 0.11455)
+
+[node name="Workbench" parent="StaticWorldStrip/AmbientFauna/BirdLandings/Roofs" index="4"]
+position = Vector2(832.6643, 120.18693)
+scale = Vector2(0.07067734, 0.07067735)
+
+[node name="ShopLevel1" parent="StaticWorldStrip/AmbientFauna/BirdLandings/Roofs" index="5"]
+position = Vector2(920.00024, 110)
+scale = Vector2(0.0939165, 0.10795)
+
+[node name="ShopLevel2" parent="StaticWorldStrip/AmbientFauna/BirdLandings/Roofs" index="6"]
+position = Vector2(919, 110)
+scale = Vector2(0.0939165, 0.10795)
+
+[node name="ShopLevel3" parent="StaticWorldStrip/AmbientFauna/BirdLandings/Roofs" index="7"]
+position = Vector2(919, 110)
+scale = Vector2(0.0939165, 0.10795)
+
+[node name="PastureBarn" parent="StaticWorldStrip/AmbientFauna/BirdLandings/Roofs" index="8"]
+position = Vector2(14, 111)
+scale = Vector2(0.115, 0.115)
 
 [node name="Overlay" type="Control" parent="." unique_id=288352890]
 z_index = 20
@@ -1135,7 +1227,7 @@ mouse_filter = 2
 [node name="CodexIcon" type="Sprite2D" parent="Overlay/RightIcons" unique_id=1184693937]
 editor_description = "图鉴图标：独立静态节点，最近邻采样。"
 texture_filter = 1
-position = Vector2(-60.26, 113.48)
+position = Vector2(-100.26, 113.48)
 scale = Vector2(0.0265, 0.0265)
 texture = ExtResource("16_codex")
 region_enabled = true
@@ -1165,7 +1257,7 @@ scale = Vector2(37.73585, 37.73585)
 [node name="SettingsIcon" type="Sprite2D" parent="Overlay/RightIcons" unique_id=880515914]
 editor_description = "设置图标：独立静态节点，最近邻采样。"
 texture_filter = 1
-position = Vector2(-24.44, 113.78)
+position = Vector2(-62.44, 113.78)
 scale = Vector2(0.0155, 0.0155)
 texture = ExtResource("17_settings")
 region_enabled = true
@@ -1183,6 +1275,28 @@ theme_override_styles/normal = SubResource("HudClickArea")
 theme_override_styles/pressed = SubResource("HudClickArea")
 theme_override_styles/hover = SubResource("HudClickArea")
 theme_override_styles/disabled = SubResource("HudClickArea")
+
+[node name="PauseButton" parent="Overlay/RightIcons" unique_id=1653304386 instance=ExtResource("18_gm_button")]
+process_mode = 3
+editor_description = "开始/暂停入口；静态按钮位于设置右侧，暂停时仍可点击。"
+texture_filter = 1
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -39.0
+offset_top = 99.0
+offset_right = -9.0
+offset_bottom = 129.0
+tooltip_text = "开始 / 暂停"
+theme_override_constants/icon_max_width = 28
+theme_override_styles/normal = SubResource("HudClickArea")
+theme_override_styles/pressed = SubResource("HudClickArea")
+theme_override_styles/hover = SubResource("HudClickArea")
+theme_override_styles/focus = SubResource("HudClickArea")
+text = ""
+icon = ExtResource("hud_pause")
+expand_icon = true
+metadata/l10n_text = "save_slots.pause_symbol"
+metadata/l10n_tooltip_text = "save_slots.pause"
 
 [node name="GMButton" parent="." unique_id=643208801 instance=ExtResource("18_gm_button")]
 editor_description = "隐藏的原 GM 入口；运行时通过队列图标连续点击三次打开 GM 面板。"
@@ -1246,12 +1360,14 @@ anchors_preset = 0
 mouse_filter = 1
 
 [node name="Panel" type="PanelContainer" parent="PlotProgressAnchor" unique_id=728366925]
+editor_description = "地块状态窗口：位置和宽度可手动调整，高度自动适应当前可见文字、进度条与按钮。"
 layout_mode = 0
 offset_left = 82.0
 offset_top = -45.0
 offset_right = 282.0
 offset_bottom = 37.0
 theme_override_styles/panel = SubResource("WeatherHoverPanel")
+script = ExtResource("1_fit_plot_height")
 
 [node name="Content" type="VBoxContainer" parent="PlotProgressAnchor/Panel" unique_id=281641394]
 layout_mode = 2
@@ -1263,6 +1379,7 @@ theme_override_colors/font_color = Color(1, 0.85, 0.53, 1)
 theme_override_font_sizes/font_size = 11
 text = "小麦 · 种子 → 叶片"
 horizontal_alignment = 1
+autowrap_mode = 3
 metadata/l10n_text = "ui.9ae8d4e879"
 
 [node name="StageProgress" type="ProgressBar" parent="PlotProgressAnchor/Panel/Content" unique_id=519273745]
@@ -1279,6 +1396,7 @@ theme_override_colors/font_color = Color(1, 0.97, 0.86, 1)
 theme_override_font_sizes/font_size = 10
 text = "距下一阶段 0:00"
 horizontal_alignment = 1
+autowrap_mode = 3
 metadata/l10n_text = "ui.55e7c15f81"
 
 [node name="PendingPlant" type="Label" parent="PlotProgressAnchor/Panel/Content" unique_id=136342829]
@@ -1288,6 +1406,7 @@ theme_override_colors/font_color = Color(1, 0.89, 0.59, 1)
 theme_override_font_sizes/font_size = 10
 text = "%s · %s · %d格"
 horizontal_alignment = 1
+autowrap_mode = 3
 metadata/l10n_text = "plot.work.detail.plant_single"
 
 [node name="PendingHarvest" type="Label" parent="PlotProgressAnchor/Panel/Content" unique_id=1919545947]
@@ -1297,6 +1416,7 @@ theme_override_colors/font_color = Color(1, 0.89, 0.59, 1)
 theme_override_font_sizes/font_size = 10
 text = "%s · %d格"
 horizontal_alignment = 1
+autowrap_mode = 3
 metadata/l10n_text = "plot.work.detail.harvest"
 
 [node name="HarvestAll" type="Button" parent="PlotProgressAnchor/Panel/Content" unique_id=300895873]
@@ -1422,8 +1542,6 @@ offset_transform_enabled = true
 offset_transform_position_ratio = Vector2(-0.52, 0.51)
 
 [node name="PastureWindow" parent="." unique_id=15817185 instance=ExtResource("40_pasture_window")]
-oversampling_override = 1.0
-visible = false
 
 [node name="PastureFeedWindow" parent="." unique_id=1793580174 instance=ExtResource("43_feed_window")]
 oversampling_override = 1.0
@@ -1461,40 +1579,11 @@ script = ExtResource("8_jobs")
 [node name="TutorialGuide" parent="." unique_id=1005637002 instance=ExtResource("48_tutorial_guide")]
 visible = false
 
-[node name="MaskLeft" parent="TutorialGuide/OverlayRoot" parent_id_path=PackedInt32Array(1005637002, 210132667) index="1" unique_id=1322019541]
-offset_top = 0.0
-offset_bottom = 70.0
-
-[node name="MaskRight" parent="TutorialGuide/OverlayRoot" parent_id_path=PackedInt32Array(1005637002, 210132667) index="2" unique_id=475897839]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 1060.0
-offset_bottom = 70.0
-
-[node name="MaskBottom" parent="TutorialGuide/OverlayRoot" parent_id_path=PackedInt32Array(1005637002, 210132667) index="3" unique_id=1956642662]
-offset_top = 0.0
-offset_bottom = 48.0
-
-[node name="FocusFrame" parent="TutorialGuide/OverlayRoot" parent_id_path=PackedInt32Array(1005637002, 210132667) index="4" unique_id=201290481]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 120.0
-offset_bottom = 70.0
-
-[node name="Dialog" parent="TutorialGuide/OverlayRoot" parent_id_path=PackedInt32Array(1005637002, 210132667) index="5" unique_id=846492985]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 340.0
-offset_bottom = 136.0
-
-[node name="Message" parent="TutorialGuide/OverlayRoot/Dialog/Content" parent_id_path=PackedInt32Array(1005637002, 1663264736) index="1" unique_id=176466669]
-text = "这是你的小屋"
-metadata/l10n_text = "tutorial.house"
-
 [editable path="StaticWorldStrip"]
 [editable path="StaticWorldStrip/ResourceNodes/House/WorkPendingBadge"]
 [editable path="StaticWorldStrip/DynamicAnchors/WorkerTargets/FishingPoint/RestBadge"]
 [editable path="StaticWorldStrip/CloudFog"]
+[editable path="StaticWorldStrip/AmbientFauna"]
 [editable path="AchievementToast"]
 [editable path="ResetPopup"]
 [editable path="ResetPopup/ContentSurface/ContentScroll/Content/Body/InfoActionsContent"]

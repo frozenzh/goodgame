@@ -10,6 +10,6 @@
     "level_3_multiplier_max": 2.3,
     "level_3_multiplier_min": 1.9,
     "level_3_offer_slots": 5,
-    "refresh_hours": 0.5
+    "refresh_hours": 2.0
   }
 }

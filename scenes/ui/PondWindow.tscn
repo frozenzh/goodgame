@@ -123,7 +123,7 @@ offset_bottom = 287.0
 theme_override_colors/font_pressed_color = Color(0.01915688, 0.56326365, 5.7756904e-07, 1)
 theme_override_font_sizes/font_size = 18
 theme_override_colors/checkbox_checked_color = Color(0.05882353, 0.4627451, 0, 1)
-button_pressed = true
+button_pressed = false
 
 [node name="FishingButton" parent="PondPopup/ContentSurface/PondContent" index="5"]
 layout_mode = 0
@@ -216,3 +216,4 @@ offset_bottom = 38.0
 [editable path="PondPopup/ContentSurface/PondContent/BaitViewport/BaitGrid/BaitSlot07"]
 [editable path="PondPopup/ContentSurface/PondContent/BaitViewport/BaitGrid/BaitSlot08"]
 [editable path="PondPopup/ContentSurface/PondContent/CategoryTabs/RodTab"]
+[editable path="PondPopup/ContentSurface/PondContent/CategoryTabs/LeaderboardTab"]
